@@ -1,0 +1,48 @@
+name: Deploy to Cloudflare
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Build the public site into dist/
+        run: bash tools/build_dist.sh
+      # Pull requests only prove the build and the Worker bundle work. They never deploy.
+      - name: Check the Worker bundles (pull requests)
+        if: github.event_name == 'pull_request'
+        run: npx wrangler deploy --dry-run
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      # A merge to main deploys.
+      - name: Deploy (merge to main)
+        if: github.event_name == 'push'
+        run: npx wrangler deploy
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      - name: Smoke test the live site
+        if: github.event_name == 'push'
+        run: |
+          sleep 5
+          for p in / /collaborate /hi/ /assets/reach/home.jpg; do
+            code=$(curl -sL -o /dev/null -w '%{http_code}' "https://harsh-timeline.timelinebyharsh.workers.dev$p")
+            echo "$code $p"
+            [ "$code" = "200" ] || exit 1
+          done
