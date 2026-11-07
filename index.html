@@ -21,7 +21,7 @@
   <!-- Typography: Newsreader (headlines) + DM Sans (body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
   
   <!-- Razorpay Checkout -->
   <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
@@ -63,6 +63,8 @@
     });
   </script>
 
+  <script>document.documentElement.className += ' js';</script>
+
   <style>
     :root {
       --bg: #FAF8F5;               /* Warm Ivory */
@@ -78,6 +80,8 @@
       --border-strong: #D5CEBF;
       --font: 'DM Sans', sans-serif;
       --font-display: 'Newsreader', Georgia, serif;
+      --font-deva: 'Tiro Devanagari Hindi', 'Noto Serif Devanagari', serif;
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
       --ok-bg: #E6EFE4;
       --ok-text: #2F5D2A;
       --radius-sm: 6px;
@@ -279,7 +283,6 @@
 
     .btn-solid:hover {
       background: var(--accent-hover);
-      transform: translateY(-1px);
     }
 
     .btn-outline {
@@ -423,8 +426,7 @@
 
     .diag-card-btn:hover {
       background: #FFFFFF;
-      border-color: var(--text);
-      transform: translateY(-2px);
+      border-color: var(--accent);
     }
 
     .diag-card-btn.active {
@@ -588,7 +590,7 @@
     }
 
     .service-content ul li::before {
-      content: "— ";
+      content: "· ";
       color: var(--accent);
       font-weight: 600;
     }
@@ -844,7 +846,6 @@
       border-color: var(--accent);
     }
 
-    .book-card .book-art { display: none; }
 
     .book-art {
       width: 100%;
@@ -1006,9 +1007,139 @@
       padding: 0.45rem 1.1rem;
       border-radius: var(--radius-md);
     }
+
+    /* =========================================================
+       r3: visual-first, sacred symbols, living micro-interactions
+       ========================================================= */
+    .sym { width: 1.25rem; height: 1.25rem; flex-shrink: 0; color: var(--accent); }
+    .sym-lg { width: 1.6rem; height: 1.6rem; }
+    .om-mini { font-family: var(--font-deva); color: var(--accent); font-size: 1rem; line-height: 1; }
+    .om-glyph { font-family: var(--font-deva); font-size: 1.6rem; line-height: 1; }
+
+    /* entrance: settle in (page load, not hover) */
+    @keyframes settleIn { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @keyframes breathe { 0%, 100% { opacity: 0.55; transform: scale(0.96); } 50% { opacity: 1; transform: scale(1.04); } }
+    @keyframes flicker { 0%, 100% { transform: scale(1, 1) rotate(0); } 30% { transform: scale(0.94, 1.06) rotate(-1.5deg); } 60% { transform: scale(1.04, 0.96) rotate(1.5deg); } }
+    @keyframes ringOut { from { opacity: 0.55; transform: scale(1); } to { opacity: 0; transform: scale(2.1); } }
+    @keyframes drift { to { transform: translateX(-50%); } }
+
+    .hero { overflow: hidden; }
+    .hero-stack { position: relative; z-index: 1; }
+    .hero-stack > * { animation: settleIn 1.3s var(--ease) both; }
+    .hero-stack > :nth-child(1) { animation-delay: 0.05s; }
+    .hero-stack > :nth-child(2) { animation-delay: 0.2s; }
+    .hero-stack > :nth-child(3) { animation-delay: 0.35s; }
+    .hero-stack > :nth-child(4) { animation-delay: 0.5s; }
+    .hero-stack > :nth-child(5) { animation-delay: 0.65s; }
+
+    .hero-mandala {
+      position: absolute; left: 50%; top: 50%;
+      width: min(120vw, 780px); height: min(120vw, 780px);
+      margin: calc(min(120vw, 780px) / -2) 0 0 calc(min(120vw, 780px) / -2);
+      color: var(--accent); opacity: 0.17; pointer-events: none;
+      animation: spin 120s linear infinite;
+    }
+    .hero-mandala-in { width: min(80vw, 520px); height: min(80vw, 520px); margin: calc(min(80vw, 520px) / -2) 0 0 calc(min(80vw, 520px) / -2); opacity: 0.13; animation-duration: 80s; animation-direction: reverse; }
+
+    .hero-byline { display: inline-flex; align-items: center; gap: 0.5rem; }
+    .hero-summary { max-width: 30rem; }
+    .hero-trust-list { gap: 0.75rem 1.75rem; }
+    .hero-trust-list .sym { width: 1.1rem; height: 1.1rem; }
+
+    /* shloka marquee */
+    .marquee { overflow: hidden; background: var(--text); color: #F4EFE6; padding: 0.95rem 0; border-bottom: 1px solid var(--border); }
+    .marquee-track { display: flex; align-items: center; gap: 2.25rem; width: max-content; animation: drift 70s linear infinite; }
+    .shloka { font-family: var(--font-deva); font-size: 1.15rem; white-space: nowrap; letter-spacing: 0.02em; }
+    .marquee .sym { color: var(--accent); width: 1.4rem; height: 1.4rem; }
+
+    /* dark quote block with breathing Om and a slow mandala */
+    .quote-banner { position: relative; overflow: hidden; background: var(--text); border-bottom: 0; padding: 5.5rem 1.5rem; }
+    .quote-mandala { position: absolute; left: 50%; top: 50%; width: 560px; height: 560px; margin: -280px 0 0 -280px; color: var(--accent); opacity: 0.16; animation: spin 150s linear infinite; pointer-events: none; }
+    .quote-inner { position: relative; z-index: 1; }
+    .om-lamp { display: inline-grid; place-items: center; width: 5.5rem; height: 5.5rem; border-radius: 50%; margin-bottom: 1.25rem; background: radial-gradient(circle, rgba(255,111,30,0.28), rgba(255,111,30,0) 68%); animation: breathe 6s ease-in-out infinite; }
+    .quote-glyph { font-family: var(--font-deva); font-size: 3rem; color: var(--accent); margin: 0; }
+    .quote-text { font-family: var(--font-display); font-style: normal; font-size: clamp(1.4rem, 3.2vw, 2rem); line-height: 1.4; color: #F4EFE6; }
+    .quote-author { color: #B8B2A6; }
+
+    /* scroll reveal (only when JS is on, so content never gets stuck hidden) */
+    .js .rise { opacity: 0; transform: translateY(18px); transition: opacity 0.9s var(--ease), transform 0.9s var(--ease); transition-delay: var(--d, 0s); }
+    .js .rise.in { opacity: 1; transform: none; }
+
+    /* diagnostic: icon-led cards, hover = colour only */
+    .diag-icon-box { position: relative; width: 3.25rem; height: 3.25rem; border-radius: 50%; }
+    .diag-icon-box::after { content: ""; position: absolute; inset: 0; border-radius: 50%; border: 2px solid var(--accent); opacity: 0; pointer-events: none; }
+    .diag-card-btn.active .diag-icon-box::after { animation: ringOut 1.3s var(--ease) 1; }
+    .diag-card-btn.active .diag-icon-box { color: #FFFFFF; }
+    .diag-card-btn .sym { color: currentColor; transition: transform 0.6s var(--ease); }
+    .diag-card-btn.active .sym { transform: scale(1.12); }
+    .diag-card-btn { align-items: center; padding: 1.25rem 1.5rem; }
+    .diag-card-body h4 { font-family: var(--font-display); font-size: 1.15rem; font-weight: 500; margin-bottom: 0.1rem; }
+    .diag-card-body p { font-size: 0.85rem; }
+    .diag-reveal { background: var(--bg-subtle); border: 0; }
+    .diag-reveal.swap { animation: settleIn 0.7s var(--ease) both; }
+
+    /* services: symbol + collapsed details (plus rotates, like a lotus opening) */
+    .service-meta { position: relative; }
+    .sym-svc { width: 2.25rem; height: 2.25rem; margin-bottom: 0.6rem; display: block; }
+    .service-meta h3 { margin-bottom: 0.15rem; }
+    .incl { margin-top: 0.85rem; }
+    .incl summary { list-style: none; cursor: pointer; display: inline-flex; align-items: center; gap: 0.6rem; font-size: 0.8rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted); transition: color 0.25s; }
+    .incl summary::-webkit-details-marker { display: none; }
+    .incl summary:hover { color: var(--accent); }
+    .incl summary i { position: relative; width: 0.8rem; height: 0.8rem; transition: transform 0.4s var(--ease); }
+    .incl summary i::before, .incl summary i::after { content: ""; position: absolute; background: currentColor; }
+    .incl summary i::before { left: 0; right: 0; top: 50%; height: 1.5px; margin-top: -0.75px; }
+    .incl summary i::after { top: 0; bottom: 0; left: 50%; width: 1.5px; margin-left: -0.75px; }
+    .incl[open] summary i { transform: rotate(45deg); }
+    .incl ul { margin-top: 0.75rem; animation: settleIn 0.5s var(--ease) both; }
+
+    /* journey: the line draws itself, a diya dot lights at the start */
+    .journey-step { border-top: 0; padding-top: 1.5rem; }
+    .journey-step::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 1.4s var(--ease) var(--d, 0s); }
+    .journey-step.in::before { transform: scaleX(1); }
+    .journey-step::after { content: ""; position: absolute; top: -4px; left: 0; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); opacity: 0; transition: opacity 0.6s var(--ease) var(--d, 0s); }
+    .journey-step.in::after { opacity: 1; animation: breathe 3.5s ease-in-out infinite; }
+    .journey-num { font-size: 2.4rem; }
+
+    /* books: colour-block covers instead of boxes */
+    .book-art { height: 150px; border: 0; color: var(--text); }
+    .book-card:nth-child(1) .book-art { background: #F6E2D3; }
+    .book-card:nth-child(2) .book-art { background: #EFE6C9; }
+    .book-card:nth-child(3) .book-art { background: #E4DCEB; }
+    .book-card:nth-child(4) .book-art { background: #D9E5DC; }
+    .book-card:hover { border-color: var(--border-strong); }
+    .book-art svg { width: 52px; height: 52px; transition: transform 0.8s var(--ease); }
+    .book-card:hover .book-art svg { transform: rotate(18deg); }
+
+    /* faq plus rotates */
+    .faq-stack summary::after { transition: transform 0.35s var(--ease); }
+    .faq-stack details[open] summary::after { content: "+"; transform: rotate(45deg); }
+
+    /* press feedback only, no lift */
+    .btn-solid:active, .btn-outline:active, .header-cta:active { transform: scale(0.97); }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+      .js .rise { opacity: 1; transform: none; }
+      .marquee-track { width: auto; flex-wrap: wrap; justify-content: center; }
+    }
   </style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="mandala" viewBox="0 0 400 400"><g fill="none" stroke="currentColor" stroke-width="1"><circle cx="200" cy="200" r="194"/><circle cx="200" cy="200" r="180" stroke-dasharray="2 6"/><ellipse cx="200" cy="108" rx="11" ry="40" transform="rotate(0 200 200)"/><ellipse cx="200" cy="108" rx="11" ry="40" transform="rotate(15 200 200)"/><ellipse cx="200" cy="108" rx="11" ry="40" transform="rotate(30 200 200)"/><ellipse cx="200" cy="108" rx="11" ry="40" transform="rotate(45 200 200)"/><ellipse cx="200" cy="108" rx="11" ry="40" transform="rotate(60 200 200)"/><ellipse cx="200" cy="108" rx="11" ry="40" transform="rotate(75 200 200)"/><ellipse cx="200" cy="108" rx="11" ry="40" transform="rotate(90 200 200)"/><ellipse cx="200" cy="108" rx="11" ry="40" transform="rotate(105 200 200)"/><ellipse cx="200" cy="108" rx="11" ry="40" transform="rotate(120 200 200)"/><ellipse cx="200" cy="108" rx="11" ry="40" transform="rotate(135 200 200)"/><ellipse cx="200" cy="108" rx="11" ry="40" transform="rotate(150 200 200)"/><ellipse cx="200" cy="108" rx="11" ry="40" transform="rotate(165 200 200)"/><ellipse cx="200" cy="108" rx="11" ry="40" transform="rotate(180 200 200)"/><ellipse cx="200" cy="108" rx="11" ry="40" transform="rotate(195 200 200)"/><ellipse cx="200" cy="108" rx="11" ry="40" transform="rotate(210 200 200)"/><ellipse cx="200" cy="108" rx="11" ry="40" transform="rotate(225 200 200)"/><ellipse cx="200" cy="108" rx="11" ry="40" transform="rotate(240 200 200)"/><ellipse cx="200" cy="108" rx="11" ry="40" transform="rotate(255 200 200)"/><ellipse cx="200" cy="108" rx="11" ry="40" transform="rotate(270 200 200)"/><ellipse cx="200" cy="108" rx="11" ry="40" transform="rotate(285 200 200)"/><ellipse cx="200" cy="108" rx="11" ry="40" transform="rotate(300 200 200)"/><ellipse cx="200" cy="108" rx="11" ry="40" transform="rotate(315 200 200)"/><ellipse cx="200" cy="108" rx="11" ry="40" transform="rotate(330 200 200)"/><ellipse cx="200" cy="108" rx="11" ry="40" transform="rotate(345 200 200)"/><circle cx="200" cy="200" r="150"/><path d="M200 60 C228 92 228 126 200 150 C172 126 172 92 200 60Z" transform="rotate(0 200 200)"/><path d="M200 60 C228 92 228 126 200 150 C172 126 172 92 200 60Z" transform="rotate(30 200 200)"/><path d="M200 60 C228 92 228 126 200 150 C172 126 172 92 200 60Z" transform="rotate(60 200 200)"/><path d="M200 60 C228 92 228 126 200 150 C172 126 172 92 200 60Z" transform="rotate(90 200 200)"/><path d="M200 60 C228 92 228 126 200 150 C172 126 172 92 200 60Z" transform="rotate(120 200 200)"/><path d="M200 60 C228 92 228 126 200 150 C172 126 172 92 200 60Z" transform="rotate(150 200 200)"/><path d="M200 60 C228 92 228 126 200 150 C172 126 172 92 200 60Z" transform="rotate(180 200 200)"/><path d="M200 60 C228 92 228 126 200 150 C172 126 172 92 200 60Z" transform="rotate(210 200 200)"/><path d="M200 60 C228 92 228 126 200 150 C172 126 172 92 200 60Z" transform="rotate(240 200 200)"/><path d="M200 60 C228 92 228 126 200 150 C172 126 172 92 200 60Z" transform="rotate(270 200 200)"/><path d="M200 60 C228 92 228 126 200 150 C172 126 172 92 200 60Z" transform="rotate(300 200 200)"/><path d="M200 60 C228 92 228 126 200 150 C172 126 172 92 200 60Z" transform="rotate(330 200 200)"/><circle cx="200" cy="200" r="104"/><circle cx="200" cy="200" r="92" stroke-dasharray="1 5"/><path d="M200 112 C214 130 214 150 200 164 C186 150 186 130 200 112Z" transform="rotate(0 200 200)"/><path d="M200 112 C214 130 214 150 200 164 C186 150 186 130 200 112Z" transform="rotate(45 200 200)"/><path d="M200 112 C214 130 214 150 200 164 C186 150 186 130 200 112Z" transform="rotate(90 200 200)"/><path d="M200 112 C214 130 214 150 200 164 C186 150 186 130 200 112Z" transform="rotate(135 200 200)"/><path d="M200 112 C214 130 214 150 200 164 C186 150 186 130 200 112Z" transform="rotate(180 200 200)"/><path d="M200 112 C214 130 214 150 200 164 C186 150 186 130 200 112Z" transform="rotate(225 200 200)"/><path d="M200 112 C214 130 214 150 200 164 C186 150 186 130 200 112Z" transform="rotate(270 200 200)"/><path d="M200 112 C214 130 214 150 200 164 C186 150 186 130 200 112Z" transform="rotate(315 200 200)"/><circle cx="200" cy="200" r="40"/><circle cx="200" cy="200" r="6" fill="currentColor"/></g></symbol>
+  <symbol id="lotus" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M24 7C30 15 30 27 24 36C18 27 18 15 24 7Z"/>
+    <path d="M24 36C24 36 13 33 11 20C18 21 23 27 24 36Z"/>
+    <path d="M24 36C24 36 35 33 37 20C30 21 25 27 24 36Z"/>
+    <path d="M24 36C24 36 10 37 5 27C12 25 20 28 24 36Z"/>
+    <path d="M24 36C24 36 38 37 43 27C36 25 28 28 24 36Z"/>
+    <path d="M10 41Q24 47 38 41"/></g></symbol>
+  <symbol id="diya" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M5 28H43C43 37 35 43 24 43C13 43 5 37 5 28Z"/>
+    <path d="M24 6C29 12 30 18 24 24C18 18 19 12 24 6Z"/></g></symbol>
+</svg>
 
   <!-- Site Header -->
   <header class="site-header">
@@ -1035,67 +1166,70 @@
 
   <!-- Hero (Vertically Centered & Visually Grounded) -->
   <section class="hero">
-    <div class="container">
-      
-      <p class="hero-byline">Harsh Upadhyay · @timelinebyharsh</p>
+    <svg class="hero-mandala" aria-hidden="true"><use href="#mandala"/></svg>
+    <svg class="hero-mandala hero-mandala-in" aria-hidden="true"><use href="#mandala"/></svg>
+    <div class="container hero-stack">
+      <p class="hero-byline"><span class="om-mini" aria-hidden="true">ॐ</span> Harsh Upadhyay · @timelinebyharsh</p>
 
       <h1 class="hero-headline">
         Thirty minutes. Just you, me, and the <em>one problem</em> you can’t seem to solve.
       </h1>
 
       <p class="hero-summary">
-        If you found me through my videos on <b>@timelinebyharsh</b>, you already know I don’t believe in generic motivational speeches. When you're overwhelmed by overthinking, inconsistent discipline, or a personal crossroads, you need someone outside your head to ask the right questions and give you 3 clear rules for tomorrow.
+        Overthinking, no routine, or a big life decision? Talk it through and leave with 3 clear rules for tomorrow.
       </p>
 
       <div class="hero-actions">
-        <a href="#diagnostic" class="btn-solid">Take Clarity Diagnostic ↓</a>
-        <a href="#booking" class="btn-outline">Pick Time on Calendar</a>
+        <a href="#diagnostic" class="btn-solid">Find your starting point ↓</a>
+        <a href="#booking" class="btn-outline">Pick a time</a>
       </div>
 
       <div class="hero-trust-list">
-        <span>Over <strong>1,200+</strong> 1:1 conversations</span>
-        <span>•</span>
-        <span>Private Google Meet</span>
-        <span>•</span>
-        <span>WhatsApp summary delivered within 24h</span>
+        <span><svg class="sym" aria-hidden="true"><use href="#lotus"/></svg><strong>1,200+</strong> conversations</span>
+        <span><svg class="sym" aria-hidden="true"><use href="#diya"/></svg>Private Google Meet</span>
+        <span><span class="om-mini" aria-hidden="true">ॐ</span>WhatsApp summary in 24h</span>
       </div>
     </div>
   </section>
 
+  <!-- Shloka marquee -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track"><span class="shloka">ॐ शान्तिः शान्तिः शान्तिः</span><svg class="sym" aria-hidden="true"><use href="#lotus"/></svg><span class="shloka">योगः कर्मसु कौशलम्</span><svg class="sym" aria-hidden="true"><use href="#lotus"/></svg><span class="shloka">तमसो मा ज्योतिर्गमय</span><svg class="sym" aria-hidden="true"><use href="#lotus"/></svg><span class="shloka">कर्मण्येवाधिकारस्ते</span><svg class="sym" aria-hidden="true"><use href="#lotus"/></svg><span class="shloka">सर्वे भवन्तु सुखिनः</span><svg class="sym" aria-hidden="true"><use href="#lotus"/></svg><span class="shloka">असतो मा सद्गमय</span><svg class="sym" aria-hidden="true"><use href="#lotus"/></svg><span class="shloka">ॐ शान्तिः शान्तिः शान्तिः</span><svg class="sym" aria-hidden="true"><use href="#lotus"/></svg><span class="shloka">योगः कर्मसु कौशलम्</span><svg class="sym" aria-hidden="true"><use href="#lotus"/></svg><span class="shloka">तमसो मा ज्योतिर्गमय</span><svg class="sym" aria-hidden="true"><use href="#lotus"/></svg><span class="shloka">कर्मण्येवाधिकारस्ते</span><svg class="sym" aria-hidden="true"><use href="#lotus"/></svg><span class="shloka">सर्वे भवन्तु सुखिनः</span><svg class="sym" aria-hidden="true"><use href="#lotus"/></svg><span class="shloka">असतो मा सद्गमय</span><svg class="sym" aria-hidden="true"><use href="#lotus"/></svg></div>
+  </div>
+
   <!-- Editorial Reflection / Philosophy Quote -->
   <section class="quote-banner">
-    <div class="container quote-inner">
-      <span class="quote-glyph">ॐ</span>
+    <svg class="quote-mandala" aria-hidden="true"><use href="#mandala"/></svg>
+    <div class="container quote-inner rise">
+      <div class="om-lamp" aria-hidden="true">
+        <span class="quote-glyph">ॐ</span>
+      </div>
       <blockquote class="quote-text">
-        "Parampara koi bandhan nahi — yeh yaad hai us raaste ki, jahan se hum aaye the."
+        "Parampara koi bandhan nahi, yeh yaad hai us raaste ki, jahan se hum aaye the."
       </blockquote>
-      <div class="quote-author">— Harsh Upadhyay</div>
+      <div class="quote-author">Harsh Upadhyay</div>
     </div>
   </section>
 
   <!-- Visual Clarity Diagnostic -->
   <section class="diagnostic-section" id="diagnostic">
     <div class="container">
-      <span class="section-eyebrow">Interactive Diagnostic</span>
-      <h2 class="section-heading">Where is your head caught right now?</h2>
+      <span class="section-eyebrow">Clarity Finder</span>
+      <h2 class="section-heading rise">Where is your head caught right now?</h2>
       <p class="section-intro">
-        Select the situation that mirrors your current struggle. We'll show you the exact bottleneck and the session designed to fix it.
+        Tap the one that sounds like you.
       </p>
 
-      <div class="diag-cards-grid">
+      <div class="rise diag-cards-grid">
         <!-- 01: Mental Noise -->
         <button type="button" class="diag-card-btn active" data-diag="paralysis">
           <div class="diag-icon-box">
             <!-- Visual SVG: Focus / Converging thoughts -->
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10"/>
-              <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>
-              <path d="M2 12h20"/>
-            </svg>
+            <svg class="sym sym-lg" aria-hidden="true"><use href="#lotus"/></svg>
           </div>
           <div class="diag-card-body">
             <h4>01 / Overthinking & Mental Noise</h4>
-            <p>You have 5 ideas but end up scrolling instead of finishing one. Too much internal static.</p>
+            <p>Too many ideas, nothing finished.</p>
           </div>
         </button>
 
@@ -1103,17 +1237,11 @@
         <button type="button" class="diag-card-btn" data-diag="habits">
           <div class="diag-icon-box">
             <!-- Visual SVG: Rising Sun / Morning Dincharya -->
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="4"/>
-              <path d="M12 2v2"/><path d="M12 20v2"/>
-              <path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/>
-              <path d="M2 12h2"/><path d="M20 12h2"/>
-              <path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/>
-            </svg>
+            <svg class="sym sym-lg" aria-hidden="true"><use href="#diya"/></svg>
           </div>
           <div class="diag-card-body">
             <h4>02 / Inconsistent Daily Discipline</h4>
-            <p>You start fresh every Monday, but lose focus by Thursday. Need a realistic, grounded dincharya.</p>
+            <p>Fresh start Monday, lost by Thursday.</p>
           </div>
         </button>
 
@@ -1127,7 +1255,7 @@
           </div>
           <div class="diag-card-body">
             <h4>03 / Major Life Crossroads</h4>
-            <p>Facing a critical career, personal, or life fork. Need an honest audit with zero sugarcoating.</p>
+            <p>A big fork and no honest view.</p>
           </div>
         </button>
 
@@ -1135,13 +1263,11 @@
         <button type="button" class="diag-card-btn" data-diag="sounding">
           <div class="diag-icon-box">
             <!-- Visual SVG: Sanctuary / Honest dialogue -->
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-            </svg>
+            <span class="om-glyph" aria-hidden="true">ॐ</span>
           </div>
           <div class="diag-card-body">
             <h4>04 / Confidential Sounding Board</h4>
-            <p>Need a safe, private space to speak freely without judgment, expectations, or unwanted opinions.</p>
+            <p>Somewhere safe to say it out loud.</p>
           </div>
         </button>
       </div>
@@ -1171,28 +1297,28 @@
   <!-- 1:1 Consultation Services (Zero Brand Audit / Social Media Content) -->
   <section class="services-section" id="services">
     <div class="container">
-      <h2 class="section-heading">1:1 Consultation Tracks</h2>
+      <h2 class="section-heading rise">1:1 Consultation Tracks</h2>
       <p class="section-intro">
-        Every call is 1-on-1 directly with Harsh. Pick the scope that fits what you want to solve.
+        Every call is 1-on-1 with Harsh.
       </p>
 
       <div class="services-container">
         <!-- Service 1 -->
-        <div class="service-row">
+        <div class="service-row rise">
           <div class="service-meta">
-            <h3>1:1 Clarity Call</h3>
+            <svg class="sym sym-svc" aria-hidden="true"><use href="#lotus"/></svg><h3>1:1 Clarity Call</h3>
             <span>30 Minutes · Video Session</span>
           </div>
           <div class="service-content">
             <p>
               For immediate confusion, overthinking, or feeling stuck. We unpack your situation, find the real problem, and leave you with 3 concrete rules to follow.
             </p>
-            <ul>
+            <details class="incl"><summary><span>What is included</span><i aria-hidden="true"></i></summary><ul>
               <li>5 minutes of listening without interruption</li>
               <li>10 minutes of direct, targeted diagnostic questions</li>
               <li>15 minutes of structured strategy & tomorrow's action items</li>
               <li>Post-call WhatsApp summary note within 24 hours</li>
-            </ul>
+            </ul></details>
           </div>
           <div class="service-action-col">
             <span class="service-fee">₹299</span>
@@ -1201,21 +1327,21 @@
         </div>
 
         <!-- Service 2: Dincharya & Habit Realignment -->
-        <div class="service-row">
+        <div class="service-row rise">
           <div class="service-meta">
-            <h3>Daily Dincharya & Habit Blueprint</h3>
+            <svg class="sym sym-svc" aria-hidden="true"><use href="#diya"/></svg><h3>Daily Dincharya & Habit Blueprint</h3>
             <span>45 Minutes · Lifestyle Realignment</span>
           </div>
           <div class="service-content">
             <p>
               For rebuilding focus, mental calm, and daily habits. A realistic morning and evening routine designed around your actual work hours, screen triggers, and energy levels.
             </p>
-            <ul>
+            <details class="incl"><summary><span>What is included</span><i aria-hidden="true"></i></summary><ul>
               <li>Custom morning & evening rhythm tailored to your schedule</li>
               <li>Protocols to eliminate mindless phone checking</li>
               <li>Grounded focus and dhyan practices (starting with 10 mins)</li>
               <li>Custom Notion daily habit tracker included</li>
-            </ul>
+            </ul></details>
           </div>
           <div class="service-action-col">
             <span class="service-fee">₹499</span>
@@ -1224,21 +1350,21 @@
         </div>
 
         <!-- Service 3: Deep-Dive Personal Advisory -->
-        <div class="service-row">
+        <div class="service-row rise">
           <div class="service-meta">
-            <h3>Deep-Dive Personal Advisory</h3>
+            <svg class="sym sym-svc" aria-hidden="true"><use href="#mandala"/></svg><h3>Deep-Dive Personal Advisory</h3>
             <span>60 Minutes · Comprehensive Session</span>
           </div>
           <div class="service-content">
             <p>
               For complex, multi-layered life crossroads, career transitions, or family expectations. We dig deep into root assumptions, remove emotional fog, and build a 90-day trajectory.
             </p>
-            <ul>
+            <details class="incl"><summary><span>What is included</span><i aria-hidden="true"></i></summary><ul>
               <li>Full 60-minute in-depth personal conversation</li>
               <li>Comprehensive diagnostic of mental blocks and decision crossroads</li>
               <li>Written 90-day action playbook delivered post-call</li>
               <li>7 days of direct WhatsApp voice-note follow-up support</li>
-            </ul>
+            </ul></details>
           </div>
           <div class="service-action-col">
             <span class="service-fee">₹699</span>
@@ -1252,38 +1378,38 @@
   <!-- Visual 30-Minute Journey -->
   <section class="journey-section" id="journey">
     <div class="container">
-      <h2 class="section-heading">How We Spend Our 30 Minutes</h2>
+      <h2 class="section-heading rise">How We Spend Our 30 Minutes</h2>
       <p class="section-intro">
-        No awkward small talk. No canned motivational clichés. Here is the exact minute-by-minute structure of how Harsh runs your session.
+        Thirty minutes, four moves.
       </p>
 
       <div class="journey-grid">
-        <div class="journey-step">
+        <div class="journey-step rise">
           <div class="journey-num">01</div>
           <div class="journey-time">00:00 – 05:00</div>
           <div class="journey-title">You Speak Freely</div>
-          <p class="journey-desc">Explain where you are stuck, what you've tried, and what isn't working. Completely unfiltered.</p>
+          <p class="journey-desc">Say it unfiltered.</p>
         </div>
 
-        <div class="journey-step">
+        <div class="journey-step rise">
           <div class="journey-num">02</div>
           <div class="journey-time">05:00 – 15:00</div>
           <div class="journey-title">Harsh Probes</div>
-          <p class="journey-desc">Targeted, direct questions to separate symptoms from the actual root problem.</p>
+          <p class="journey-desc">Direct questions find the root.</p>
         </div>
 
-        <div class="journey-step">
+        <div class="journey-step rise">
           <div class="journey-num">03</div>
           <div class="journey-time">15:00 – 25:00</div>
           <div class="journey-title">The Strategy</div>
-          <p class="journey-desc">A realistic, tested plan built on practical wisdom — not theoretical self-help fluff.</p>
+          <p class="journey-desc">A plan built on practical wisdom.</p>
         </div>
 
-        <div class="journey-step">
+        <div class="journey-step rise">
           <div class="journey-num">04</div>
           <div class="journey-time">25:00 – 30:00</div>
           <div class="journey-title">Next 3 Steps</div>
-          <p class="journey-desc">We lock in the 3 exact actions you will take tomorrow morning to break the inertia.</p>
+          <p class="journey-desc">Three actions for tomorrow morning.</p>
         </div>
       </div>
     </div>
@@ -1292,9 +1418,9 @@
   <!-- Booking Section (Cal.com + Priority Slot) -->
   <section class="booking-section" id="booking">
     <div class="container">
-      <h2 class="section-heading">Reserve Your Time</h2>
+      <h2 class="section-heading rise">Reserve Your Time</h2>
       <p class="section-intro">
-        Choose between selecting a slot directly on Harsh’s Google Calendar via Cal.com or locking in a priority appointment.
+        Pick a slot, or lock a priority one.
       </p>
 
       <div class="booking-tabs">
@@ -1307,13 +1433,13 @@
         <div class="cal-container">
           <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;flex-wrap:wrap;gap:0.5rem">
             <span style="font-size:0.85rem;color:var(--text-muted)">Live calendar syncing directly with Google Meet</span>
-            <a href="https://cal.com/timelinebyharsh/30min" target="_blank" rel="noopener noreferrer" style="font-size:0.8rem;color:var(--accent);font-weight:500">Open in new tab ↗</a>
+            <a href="https://cal.com/harsh-upadhyay-tsgoiw/clarity-call-30" target="_blank" rel="noopener noreferrer" style="font-size:0.8rem;color:var(--accent);font-weight:500">Open in new tab ↗</a>
           </div>
           <div style="width:100%;height:620px;overflow:scroll" id="my-cal-inline"></div>
           <script type="text/javascript">
             Cal("inline", {
               elementOrSelector: "#my-cal-inline",
-              calLink: "timelinebyharsh/30min",
+              calLink: "harsh-upadhyay-tsgoiw/clarity-call-30",
               layout: "month_view"
             });
           </script>
@@ -1359,9 +1485,9 @@
             <div class="form-field">
               <label for="cTrack" class="form-label">Consultation Track</label>
               <select id="cTrack" name="track" class="form-select" required>
-                <option value="1:1 Clarity & Roadmap Call (30 Mins)" data-price="299">1:1 Clarity & Roadmap Call (30 Mins — ₹299)</option>
-                <option value="Daily Dincharya & Habit Blueprint (45 Mins)" data-price="499">Daily Dincharya & Habit Blueprint (45 Mins — ₹499)</option>
-                <option value="Deep-Dive Personal Advisory (60 Mins)" data-price="699">Deep-Dive Personal Advisory (60 Mins — ₹699)</option>
+                <option value="1:1 Clarity & Roadmap Call (30 Mins)" data-price="299">1:1 Clarity & Roadmap Call (30 Mins, ₹299)</option>
+                <option value="Daily Dincharya & Habit Blueprint (45 Mins)" data-price="499">Daily Dincharya & Habit Blueprint (45 Mins, ₹499)</option>
+                <option value="Deep-Dive Personal Advisory (60 Mins)" data-price="699">Deep-Dive Personal Advisory (60 Mins, ₹699)</option>
                 <option value="General Life Guidance & Sounding Board" data-price="299">General Life Guidance & Sounding Board (₹299)</option>
               </select>
             </div>
@@ -1405,14 +1531,14 @@
   <!-- Curated Reading & Essentials (With Visual Art) -->
   <section class="shop-section" id="shop">
     <div class="container">
-      <h2 class="section-heading">Books Harsh Personally Recommends</h2>
+      <h2 class="section-heading rise">Books Harsh Personally Recommends</h2>
       <p class="section-intro">
         Books and tools Harsh uses himself. Links are Amazon affiliate links: if you buy through them, Harsh earns a small commission at no cost to you.
       </p>
 
       <div class="shop-grid">
         <!-- Item 1: Atomic Habits -->
-        <div class="book-card">
+        <div class="book-card rise">
           <div class="book-art">
             <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
               <circle cx="12" cy="12" r="2"/>
@@ -1427,7 +1553,7 @@
         </div>
 
         <!-- Item 2: Bhagavad Gita -->
-        <div class="book-card">
+        <div class="book-card rise">
           <div class="book-art">
             <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
               <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/>
@@ -1442,7 +1568,7 @@
         </div>
 
         <!-- Item 3: Rudraksha Mala -->
-        <div class="book-card">
+        <div class="book-card rise">
           <div class="book-art">
             <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
               <circle cx="12" cy="5" r="2"/>
@@ -1462,7 +1588,7 @@
         </div>
 
         <!-- Item 4: Analog Focus Timer -->
-        <div class="book-card">
+        <div class="book-card rise">
           <div class="book-art">
             <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
               <circle cx="12" cy="12" r="9"/>
@@ -1481,7 +1607,7 @@
   <!-- FAQ -->
   <section class="faq-section">
     <div class="container">
-      <h2 class="section-heading">Questions people ask</h2>
+      <h2 class="section-heading rise">Questions people ask</h2>
 
       <div class="faq-stack">
         <details name="faq">
@@ -1779,6 +1905,46 @@
     function escapeHtml(str) {
       return String(str || "").replace(/[<>&"]/g, c => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;", '"': "&quot;" }[c]));
     }
+  </script>
+
+  <script>
+    /* reveal on scroll + stagger (visual only; payment and booking code is untouched) */
+    (function () {
+      var els = document.querySelectorAll('.rise');
+      if (!('IntersectionObserver' in window)) { els.forEach(function (e) { e.classList.add('in'); }); return; }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+      }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+      els.forEach(function (e) {
+        var sib = e.parentElement ? Array.prototype.indexOf.call(e.parentElement.children, e) : 0;
+        e.style.setProperty('--d', Math.min(sib, 6) * 0.1 + 's');
+        io.observe(e);
+      });
+      var rv = document.getElementById('diagReveal');
+      document.querySelectorAll('.diag-card-btn').forEach(function (b) {
+        b.addEventListener('click', function () { if (!rv) return; rv.classList.remove('swap'); void rv.offsetWidth; rv.classList.add('swap'); });
+      });
+    })();
+  </script>
+
+  <script>
+    /* Cal.com: show the event that matches the chosen service (30 / 45 / 60 min) */
+    (function () {
+      var USER = 'harsh-upadhyay-tsgoiw';
+      var SLUGS = { '30': 'clarity-call-30', '45': 'dincharya-45', '60': 'deep-dive-60' };
+      document.querySelectorAll('.select-service').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var m = (btn.getAttribute('data-service') || '').match(/\((\d+) Mins\)/);
+          var slug = m && SLUGS[m[1]];
+          var box = document.getElementById('my-cal-inline');
+          if (!slug || !box || !window.Cal) return;
+          box.innerHTML = '';
+          Cal('inline', { elementOrSelector: '#my-cal-inline', calLink: USER + '/' + slug, layout: 'month_view' });
+          var out = document.querySelector('#panel-cal a[target="_blank"]');
+          if (out) out.href = 'https://cal.com/' + USER + '/' + slug;
+        });
+      });
+    })();
   </script>
 </body>
 </html>
