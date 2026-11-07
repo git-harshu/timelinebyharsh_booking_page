@@ -57,7 +57,6 @@ export function validate(n) {
   if (!n.whatsapp || !/^[6-9]\d{9}$/.test(String(n.whatsapp).replace(/\D/g, "").slice(-10))) bad.push("whatsapp");
   if (!n.age || !/^\d{1,2}$/.test(String(n.age)) || +n.age < 13 || +n.age > 99) bad.push("age");
   if (!n.city || n.city.trim().length < 2) bad.push("city");
-  if (!n.handle || n.handle.trim().length < 2) bad.push("handle");
   if (!n.track) bad.push("track");
   if (!n.question || n.question.trim().length < 5) bad.push("question");
   return bad;

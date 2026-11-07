@@ -8,7 +8,7 @@ export default async function handler(req, res) {
 
   try {
     const body = typeof req.body === "string" ? JSON.parse(req.body || "{}") : (req.body || {});
-    const notes = cleanNotes(body.form || body.notes || {});
+    const notes = cleanNotes(body.form || body.notes || body);
     const bad = validate(notes);
     if (bad.length) {
       return res.status(400).json({
