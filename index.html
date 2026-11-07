@@ -3,22 +3,22 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Timeline by Harsh | 1:1 Personal Guidance & Spiritual Consultation</title>
-  <meta name="description" content="Official consultation website of Harsh (@timelinebyharsh). Book a private 1:1 session for Kul, Parampara, Rudraksh guidance, and daily sadhana via Cal.com & Google Meet.">
+  <title>Timeline by Harsh | 1:1 Calls & Growth Consultancy</title>
+  <meta name="description" content="Official 1:1 consultation and growth advisory with creator Harsh (@timelinebyharsh). Book a private video call to get unstuck, build daily discipline, or scale your creator journey.">
   
   <!-- Open Graph & Social Sharing -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Timeline by Harsh | 1:1 Guidance & Spiritual Consultation">
-  <meta property="og:description" content="Official consultation website of creator Harsh (@timelinebyharsh). Private 1:1 sessions for Kul, Parampara, Rudraksh, and daily sadhana via Cal.com.">
+  <meta property="og:title" content="Timeline by Harsh | 1:1 Calls & Consultancy">
+  <meta property="og:description" content="Turn confusion into clarity. Book a private 1:1 session with Harsh (@timelinebyharsh) for life direction, habit blueprints, and creator growth.">
   <meta property="og:site_name" content="Timeline by Harsh">
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Timeline by Harsh (@timelinebyharsh)">
-  <meta name="twitter:description" content="Official consultation website of Harsh (@timelinebyharsh). 1:1 guidance calls & curated spiritual shop.">
+  <meta name="twitter:description" content="Official 1:1 consultation & personal advisory website of Harsh Upadhyay.">
 
   <!-- Favicon -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%2321252B'/><text x='50' y='66' font-size='50' font-family='Poppins,sans-serif' font-weight='600' fill='%23FF6F1E' text-anchor='middle'>H</text></svg>">
 
-  <!-- Poppins Font (Reference from Lovable) -->
+  <!-- Poppins Font (Lovable Design System) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
@@ -66,35 +66,34 @@
   <style>
     /* Reference design tokens from timelinebyharsh.lovable.app */
     :root {
-      --background: #FAF8F5;          /* hsl(40 33% 98%) - Warm Ivory */
-      --foreground: #21252B;          /* hsl(220 15% 15%) - Charcoal */
-      --card: #F9F7F3;                /* hsl(40 30% 97%) */
+      --background: #FAF8F5;          /* Warm Ivory */
+      --foreground: #21252B;          /* Charcoal */
+      --card: #F9F7F3;
       --card-white: #FFFFFF;
       --card-foreground: #21252B;
-      --primary: #FF6F1E;             /* hsl(24 100% 56%) - Saffron Orange */
+      --primary: #FF6F1E;             /* Saffron Orange */
       --primary-hover: #E85B0D;
       --primary-light: #FFF5EE;
       --primary-border: #FFD8C2;
-      --secondary: #F4F0E8;           /* hsl(35 25% 93%) - Soft Beige */
+      --secondary: #F4F0E8;           /* Soft Beige */
       --secondary-foreground: #2B303A;
-      --muted: #EBE7DF;               /* hsl(40 15% 92%) */
-      --muted-foreground: #686E78;    /* hsl(220 10% 45%) */
-      --border: #E7E2D9;              /* hsl(35 20% 88%) */
+      --muted: #EBE7DF;
+      --muted-foreground: #686E78;
+      --border: #E7E2D9;
       --border-light: #F0ECE4;
       --charcoal: #21252B;
       --accent-orange: #FF6F1E;
-      --footer-bg: #F5F2EB;           /* hsl(40 15% 96%) */
-      --reflection-bg: #F0ECE4;       /* hsl(38 20% 94%) */
+      --footer-bg: #F5F2EB;
       --success: #059669;
       --success-light: #ECFDF5;
-      --danger: #DC2626;
       --radius-sm: 0.375rem;
-      --radius-md: 0.5rem;
-      --radius-lg: 0.75rem;
+      --radius-md: 0.625rem;
+      --radius-lg: 0.875rem;
+      --radius-xl: 1.25rem;
       --radius-full: 9999px;
-      --shadow-sm: 0 1px 2px 0 rgba(33, 37, 43, 0.04);
-      --shadow-md: 0 4px 12px -2px rgba(33, 37, 43, 0.06), 0 2px 4px -1px rgba(33, 37, 43, 0.03);
-      --shadow-lg: 0 12px 24px -4px rgba(33, 37, 43, 0.08);
+      --shadow-sm: 0 1px 3px 0 rgba(33, 37, 43, 0.04);
+      --shadow-md: 0 4px 16px -2px rgba(33, 37, 43, 0.06), 0 2px 4px -1px rgba(33, 37, 43, 0.03);
+      --shadow-lg: 0 14px 28px -4px rgba(33, 37, 43, 0.08);
     }
 
     *, *::before, *::after {
@@ -113,9 +112,10 @@
       font-family: 'Poppins', system-ui, -apple-system, sans-serif;
       background: var(--background);
       color: var(--foreground);
-      line-height: 1.8;
+      line-height: 1.7;
       font-weight: 400;
       -webkit-font-smoothing: antialiased;
+      padding-bottom: 5rem; /* Room for sticky mobile bottom bar */
     }
 
     a { color: inherit; text-decoration: none; }
@@ -196,7 +196,7 @@
     .nav-links {
       display: none;
       align-items: center;
-      gap: 2rem;
+      gap: 1.75rem;
       list-style: none;
     }
 
@@ -205,8 +205,8 @@
     }
 
     .nav-link {
-      font-size: 0.9rem;
-      font-weight: 400;
+      font-size: 0.875rem;
+      font-weight: 500;
       color: var(--muted-foreground);
       transition: color 0.2s ease;
     }
@@ -278,104 +278,68 @@
 
     .mobile-drawer {
       display: none;
-      background: var(--card);
+      background: var(--card-white);
       border-bottom: 1px solid var(--border);
-      padding: 1.5rem 1.25rem;
+      padding: 1.25rem 1.25rem;
     }
 
     .mobile-drawer.open { display: block; }
-    .mobile-drawer ul { list-style: none; display: flex; flex-direction: column; gap: 1.2rem; }
-    .mobile-drawer a { font-size: 0.95rem; font-weight: 500; color: var(--charcoal); display: block; }
+    .mobile-drawer ul { list-style: none; display: flex; flex-direction: column; gap: 1rem; }
+    .mobile-drawer a { font-size: 0.925rem; font-weight: 500; color: var(--charcoal); display: block; }
 
     /* ---------------- Hero Section ---------------- */
     .hero-section {
-      padding: 4.5rem 0 3.5rem;
-      background: linear-gradient(180deg, var(--background), rgba(244, 240, 232, 0.4));
+      padding: 3.5rem 0 3rem;
+      background: linear-gradient(180deg, var(--background), rgba(244, 240, 232, 0.45));
       text-align: center;
     }
 
     @media (min-width: 860px) {
-      .hero-section { padding: 5.5rem 0 4.5rem; }
+      .hero-section { padding: 4.5rem 0 3.75rem; }
     }
 
-    /* Instagram Creator Pill Badge (Direct reference from Lovable) */
-    .ig-pill-badge {
+    .badge-pill {
       display: inline-flex;
       align-items: center;
-      gap: 0.75rem;
-      padding: 0.45rem 1rem 0.45rem 0.5rem;
-      margin-bottom: 2rem;
-      border-radius: var(--radius-full);
-      border: 1px solid var(--border);
-      background: rgba(249, 247, 243, 0.75);
-      backdrop-filter: blur(8px);
-      transition: all 0.3s ease;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .ig-pill-badge:hover {
-      border-color: rgba(255, 111, 30, 0.35);
-      transform: translateY(-1px);
-    }
-
-    .ig-pill-icon {
-      width: 2.25rem;
-      height: 2.25rem;
-      border-radius: 50%;
-      background: linear-gradient(135deg, rgba(255, 111, 30, 0.2), rgba(255, 111, 30, 0.05));
-      border: 1px solid rgba(255, 111, 30, 0.25);
-      display: grid;
-      place-items: center;
+      gap: 0.5rem;
+      background: var(--primary-light);
+      border: 1px solid var(--primary-border);
       color: var(--accent-orange);
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.35rem 0.95rem;
+      border-radius: var(--radius-full);
+      margin-bottom: 1.5rem;
     }
 
-    .ig-pill-text {
-      text-align: left;
-    }
-
-    .ig-pill-title {
-      font-size: 0.875rem;
-      font-weight: 500;
-      color: var(--foreground);
-      line-height: 1.2;
-    }
-
-    .ig-pill-sub {
-      font-size: 0.75rem;
-      color: var(--muted-foreground);
-    }
-
-    /* Reference Typography */
     .heading-main {
       font-size: clamp(2.1rem, 5vw, 3.25rem);
-      font-weight: 600;
+      font-weight: 700;
+      line-height: 1.2;
       color: var(--charcoal);
-      line-height: 1.35;
-      letter-spacing: -0.025em;
-      max-width: 52rem;
-      margin: 0 auto 1.25rem;
+      margin-bottom: 1.25rem;
+      letter-spacing: -0.02em;
     }
 
-    .accent-highlight {
+    .heading-main span {
       color: var(--accent-orange);
     }
 
-    .heading-sub {
-      font-size: 1.15rem;
-      font-weight: 300;
+    .hero-lead {
+      font-size: clamp(1rem, 2vw, 1.15rem);
       color: var(--muted-foreground);
-      max-width: 42rem;
-      line-height: 1.8;
-      margin: 0 auto 2.5rem;
+      max-width: 44rem;
+      margin: 0 auto 2rem;
+      line-height: 1.7;
     }
 
-    .hero-actions {
+    .hero-ctas {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       justify-content: center;
       gap: 1rem;
-      margin-bottom: 3.5rem;
+      margin-bottom: 2.75rem;
     }
 
     .btn-primary {
@@ -385,18 +349,18 @@
       gap: 0.5rem;
       background: var(--accent-orange);
       color: #fff;
-      font-weight: 500;
-      font-size: 0.95rem;
-      padding: 0.85rem 1.75rem;
-      border-radius: var(--radius-sm);
-      box-shadow: 0 4px 14px rgba(255, 111, 30, 0.28);
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 0.85rem 1.85rem;
+      border-radius: var(--radius-full);
+      box-shadow: 0 4px 14px rgba(255, 111, 30, 0.3);
       transition: all 0.2s ease;
     }
 
     .btn-primary:hover {
       background: var(--primary-hover);
       transform: translateY(-2px);
-      box-shadow: 0 6px 18px rgba(255, 111, 30, 0.32);
+      box-shadow: 0 6px 20px rgba(255, 111, 30, 0.4);
     }
 
     .btn-secondary {
@@ -405,944 +369,867 @@
       justify-content: center;
       gap: 0.5rem;
       background: var(--card-white);
-      border: 1px solid var(--border);
       color: var(--charcoal);
-      font-weight: 500;
-      font-size: 0.95rem;
+      border: 1px solid var(--border);
+      font-weight: 600;
+      font-size: 1rem;
       padding: 0.85rem 1.75rem;
-      border-radius: var(--radius-sm);
+      border-radius: var(--radius-full);
       box-shadow: var(--shadow-sm);
       transition: all 0.2s ease;
     }
 
     .btn-secondary:hover {
-      background: var(--secondary);
-      border-color: #DBD5C8;
+      border-color: var(--accent-orange);
+      color: var(--accent-orange);
+      transform: translateY(-2px);
     }
 
+    /* Trust Stats Strip */
     .trust-strip {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 1.25rem;
+      gap: 1rem;
+      max-width: 820px;
+      margin: 0 auto;
       background: var(--card-white);
       border: 1px solid var(--border);
-      padding: 1.5rem 1.75rem;
-      border-radius: var(--radius-md);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem 1rem;
       box-shadow: var(--shadow-sm);
-      max-width: 900px;
-      margin: 0 auto;
-      text-align: left;
     }
 
-    @media (min-width: 720px) {
-      .trust-strip { grid-template-columns: repeat(4, 1fr); }
+    @media (min-width: 680px) {
+      .trust-strip {
+        grid-template-columns: repeat(4, 1fr);
+        padding: 1.25rem 1.5rem;
+      }
     }
 
     .trust-item {
-      display: flex;
-      flex-direction: column;
+      text-align: center;
     }
 
     .trust-num {
-      font-size: 1.6rem;
-      font-weight: 600;
+      font-size: 1.45rem;
+      font-weight: 700;
       color: var(--charcoal);
       line-height: 1.2;
     }
 
     .trust-label {
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       color: var(--muted-foreground);
-      font-weight: 400;
       margin-top: 0.2rem;
     }
 
-    /* ---------------- Generic Section ---------------- */
-    .section { padding: 4.5rem 0; }
-    .section-head { margin-bottom: 2.75rem; text-align: center; }
+    /* ---------------- Gamification: Problem Navigator ---------------- */
+    .section-wrap {
+      padding: 4rem 0;
+    }
+
+    .section-head {
+      text-align: center;
+      max-width: 38rem;
+      margin: 0 auto 2.5rem;
+    }
+
     .section-eyebrow {
-      text-transform: uppercase;
+      display: inline-block;
       font-size: 0.775rem;
       font-weight: 600;
+      text-transform: uppercase;
       letter-spacing: 0.08em;
       color: var(--accent-orange);
-      margin-bottom: 0.4rem;
-      display: block;
+      margin-bottom: 0.5rem;
     }
 
     .section-title {
-      font-size: clamp(1.75rem, 3.5vw, 2.35rem);
-      font-weight: 600;
+      font-size: clamp(1.65rem, 3.5vw, 2.25rem);
+      font-weight: 700;
       color: var(--charcoal);
-      letter-spacing: -0.02em;
-      line-height: 1.35;
+      line-height: 1.3;
       margin-bottom: 0.75rem;
+      letter-spacing: -0.01em;
     }
 
     .section-desc {
-      font-size: 1rem;
-      font-weight: 300;
-      color: var(--muted-foreground);
-      max-width: 38rem;
-      line-height: 1.8;
-      margin: 0 auto;
-    }
-
-    /* ---------------- Reflection & Editorial Wisdom (Reference Style) ---------------- */
-    .reflection-box {
-      text-align: center;
-      padding: 3.5rem 1.5rem 2.5rem;
-      background: var(--card);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .reflection-text {
-      max-width: 34rem;
-      margin: 0 auto;
-      font-size: 1.15rem;
-      font-weight: 300;
-      font-style: italic;
-      color: var(--charcoal);
-      line-height: 2;
-    }
-
-    .reflection-divider {
-      margin: 2rem auto 0;
-      height: 2px;
-      width: 4rem;
-      background: rgba(255, 111, 30, 0.5);
-    }
-
-    /* ---------------- QA Card Style (Direct Reference from Lovable) ---------------- */
-    .qa-card {
-      position: relative;
-      padding: 2rem 0 2rem 1.5rem;
-      border-left: 2px solid rgba(255, 111, 30, 0.4);
-      margin-bottom: 2rem;
-      background: var(--card-white);
-      border-radius: 0 var(--radius-md) var(--radius-md) 0;
-      padding-right: 1.5rem;
-      box-shadow: var(--shadow-sm);
-    }
-
-    @media (min-width: 640px) {
-      .qa-card { padding-left: 2rem; }
-    }
-
-    .qa-card::before {
-      content: "";
-      position: absolute;
-      left: -2px;
-      top: 0;
-      height: 1.75rem;
-      width: 2px;
-      background: var(--accent-orange);
-    }
-
-    .question-text {
-      font-size: 1.15rem;
-      font-weight: 500;
-      color: var(--charcoal);
-      line-height: 1.6;
-      margin-bottom: 0.75rem;
-    }
-
-    .answer-text {
       font-size: 0.95rem;
-      font-weight: 300;
       color: var(--muted-foreground);
-      line-height: 1.85;
-      white-space: pre-line;
     }
 
-    /* ---------------- Consultation Topics ---------------- */
-    .consult-grid {
-      display: grid;
-      gap: 1.75rem;
-      margin-top: 2rem;
-    }
-
-    @media (min-width: 768px) {
-      .consult-grid { grid-template-columns: repeat(3, 1fr); }
-    }
-
-    .consult-card {
-      background: var(--card-white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 2rem 1.75rem;
-      box-shadow: var(--shadow-sm);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      border-top: 3px solid var(--accent-orange);
-    }
-
-    .consult-card h3 {
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: var(--charcoal);
-      margin-bottom: 0.5rem;
-    }
-
-    .consult-card p.desc {
-      color: var(--muted-foreground);
-      font-size: 0.9rem;
-      font-weight: 300;
-      line-height: 1.7;
-      margin-bottom: 1.5rem;
-    }
-
-    .consult-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.65rem;
-      font-size: 0.875rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .consult-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.5rem;
-      color: var(--foreground);
-      line-height: 1.5;
-    }
-
-    .consult-list li span.bullet {
-      color: var(--accent-orange);
-      font-weight: 700;
-    }
-
-    /* ---------------- 30-Min Roadmap ---------------- */
-    .timeline-card {
-      background: var(--card-white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 2.25rem 2rem;
-      box-shadow: var(--shadow-sm);
-      margin-top: 3rem;
-    }
-
-    .timeline-card h3 {
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: var(--charcoal);
-      margin-bottom: 0.4rem;
-    }
-
-    .timeline-row {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.25rem;
-      margin-top: 1.5rem;
-    }
-
-    @media (min-width: 640px) {
-      .timeline-row { grid-template-columns: repeat(4, 1fr); }
-    }
-
-    .time-slot-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      padding: 1.25rem 1rem;
-      border-left: 3px solid var(--accent-orange);
-    }
-
-    .time-slot-card span.stamp {
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--accent-orange);
-      display: block;
-      margin-bottom: 0.35rem;
-    }
-
-    .time-slot-card h4 {
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: var(--charcoal);
-      margin-bottom: 0.3rem;
-    }
-
-    .time-slot-card p {
-      font-size: 0.825rem;
-      font-weight: 300;
-      color: var(--muted-foreground);
-      line-height: 1.5;
-    }
-
-    /* ---------------- Booking Section & Tabs ---------------- */
-    .booking-mode-tabs {
-      display: flex;
-      justify-content: center;
-      gap: 0.75rem;
-      margin-bottom: 2.25rem;
-      flex-wrap: wrap;
-    }
-
-    .booking-mode-btn {
+    /* Quiz Container */
+    .quiz-card {
+      max-width: 780px;
+      margin: 0 auto;
       background: var(--card-white);
       border: 1.5px solid var(--border);
-      border-radius: var(--radius-full);
-      padding: 0.65rem 1.4rem;
-      font-size: 0.9rem;
-      font-weight: 500;
-      color: var(--muted-foreground);
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      transition: all 0.2s ease;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .booking-mode-btn:hover {
-      border-color: var(--accent-orange);
-      color: var(--charcoal);
-    }
-
-    .booking-mode-btn.active {
-      background: var(--charcoal);
-      color: #fff;
-      border-color: var(--charcoal);
+      border-radius: var(--radius-xl);
+      padding: 2rem 1.5rem;
       box-shadow: var(--shadow-md);
-    }
-
-    .booking-mode-badge {
-      font-size: 0.725rem;
-      font-weight: 500;
-      padding: 0.15rem 0.5rem;
-      border-radius: var(--radius-full);
-      background: var(--primary-light);
-      color: var(--accent-orange);
-    }
-
-    .booking-mode-btn.active .booking-mode-badge {
-      background: rgba(255, 255, 255, 0.2);
-      color: #fff;
-    }
-
-    /* Cal.com Embed Container */
-    .cal-wrapper {
-      background: var(--card-white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 1.75rem 1.5rem;
-      box-shadow: var(--shadow-sm);
-      overflow: hidden;
-    }
-
-    .cal-header-bar {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      padding-bottom: 1.25rem;
-      border-bottom: 1px solid var(--border-light);
-      margin-bottom: 1.5rem;
+      position: relative;
     }
 
     @media (min-width: 680px) {
-      .cal-header-bar {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-      }
+      .quiz-card { padding: 2.75rem 2.5rem; }
     }
 
-    .cal-title-info h3 {
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: var(--charcoal);
-      margin-bottom: 0.2rem;
-    }
-
-    .cal-title-info p {
-      font-size: 0.85rem;
-      font-weight: 300;
-      color: var(--muted-foreground);
-    }
-
-    .cal-direct-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      font-size: 0.825rem;
-      font-weight: 500;
-      color: var(--accent-orange);
-      background: var(--primary-light);
-      padding: 0.45rem 0.95rem;
+    .quiz-progress-bar {
+      height: 6px;
+      background: var(--secondary);
       border-radius: var(--radius-full);
-      transition: background 0.15s ease;
-      white-space: nowrap;
-    }
-
-    .cal-direct-link:hover { background: #FFE7D6; }
-
-    #my-cal-inline {
-      width: 100%;
-      min-height: 640px;
-      overflow: auto;
-    }
-
-    /* Priority Razorpay Form View */
-    .booking-wrapper {
-      background: var(--card-white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-sm);
       overflow: hidden;
-      display: grid;
-      grid-template-columns: 1fr;
-    }
-
-    @media (min-width: 960px) {
-      .booking-wrapper {
-        grid-template-columns: 1.15fr 0.85fr;
-      }
-    }
-
-    .booking-form-pane { padding: 2.5rem 2rem; }
-    @media (min-width: 640px) { .booking-form-pane { padding: 3rem 2.5rem; } }
-
-    .booking-summary-pane {
-      background: var(--card);
-      border-top: 1px solid var(--border);
-      padding: 2.5rem 2rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    @media (min-width: 960px) {
-      .booking-summary-pane {
-        border-top: none;
-        border-left: 1px solid var(--border);
-        padding: 3rem 2.25rem;
-      }
-    }
-
-    .step-label {
-      font-size: 0.775rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--accent-orange);
-      margin-bottom: 0.5rem;
-      display: block;
-    }
-
-    .track-options {
-      display: grid;
-      gap: 0.85rem;
       margin-bottom: 1.75rem;
     }
 
-    .track-card {
-      border: 1.5px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 1rem 1.25rem;
-      cursor: pointer;
-      transition: all 0.15s ease;
-      background: #fff;
+    .quiz-progress-fill {
+      height: 100%;
+      width: 50%;
+      background: linear-gradient(90deg, var(--accent-orange), #FFA25B);
+      transition: width 0.3s ease;
+    }
+
+    .quiz-step-indicator {
       display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-    }
-
-    .track-card:hover {
-      border-color: #F8C3A0;
-      background: #FFFAF5;
-    }
-
-    .track-card.active {
-      border-color: var(--accent-orange);
-      background: var(--primary-light);
-    }
-
-    .track-radio {
-      margin-top: 0.25rem;
-      accent-color: var(--accent-orange);
-      width: 1.15rem;
-      height: 1.15rem;
-      cursor: pointer;
-    }
-
-    .track-info h4 {
-      font-size: 0.95rem;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
       font-weight: 600;
-      color: var(--charcoal);
-      margin-bottom: 0.2rem;
-    }
-
-    .track-info p {
-      font-size: 0.825rem;
-      font-weight: 300;
       color: var(--muted-foreground);
-      line-height: 1.5;
-    }
-
-    .slot-picker-wrap { margin-bottom: 2rem; }
-
-    .date-chips {
-      display: flex;
-      gap: 0.5rem;
-      overflow-x: auto;
-      padding-bottom: 0.5rem;
       margin-bottom: 1rem;
-      scrollbar-width: thin;
     }
 
-    .date-chip {
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      padding: 0.5rem 0.85rem;
-      font-size: 0.8rem;
-      font-weight: 500;
+    .quiz-question-title {
+      font-size: 1.25rem;
+      font-weight: 700;
       color: var(--charcoal);
-      white-space: nowrap;
-      cursor: pointer;
-      transition: all 0.12s ease;
+      margin-bottom: 0.5rem;
+      line-height: 1.4;
     }
 
-    .date-chip:hover { border-color: var(--accent-orange); }
-    .date-chip.active {
-      background: var(--charcoal);
-      color: #fff;
-      border-color: var(--charcoal);
-    }
-
-    .time-slots {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-      gap: 0.5rem;
-    }
-
-    .time-slot {
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      padding: 0.5rem 0.5rem;
-      font-size: 0.8rem;
-      font-weight: 500;
-      text-align: center;
-      color: var(--charcoal);
-      cursor: pointer;
-      transition: all 0.12s ease;
-    }
-
-    .time-slot:hover { border-color: var(--accent-orange); }
-    .time-slot.active {
-      background: var(--accent-orange);
-      color: #fff;
-      border-color: var(--accent-orange);
-    }
-
-    .form-grid { display: grid; gap: 1.25rem; }
-    @media (min-width: 600px) {
-      .form-grid-2 {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1.25rem;
-      }
-    }
-
-    .field { display: flex; flex-direction: column; gap: 0.35rem; }
-    .field label { font-size: 0.825rem; font-weight: 500; color: var(--charcoal); }
-    .field label span.opt { font-size: 0.75rem; color: var(--muted-foreground); font-weight: 300; }
-
-    .field input, .field textarea, .field select {
-      background: #FFFFFF;
-      border: 1.5px solid var(--border);
-      border-radius: var(--radius-sm);
-      padding: 0.75rem 0.95rem;
-      font-size: 0.9rem;
-      color: var(--charcoal);
-      transition: border-color 0.15s ease, box-shadow 0.15s ease;
-    }
-
-    .field input:focus, .field textarea:focus {
-      border-color: var(--accent-orange);
-      box-shadow: 0 0 0 3px rgba(255, 111, 30, 0.15);
-    }
-
-    .field.error input, .field.error textarea {
-      border-color: var(--danger);
-      background: #FEF2F2;
-    }
-
-    .field textarea { resize: vertical; min-height: 5.5rem; }
-
-    .summary-card {
-      background: var(--card-white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 1.75rem 1.5rem;
-      box-shadow: var(--shadow-sm);
+    .quiz-question-sub {
+      font-size: 0.875rem;
+      color: var(--muted-foreground);
       margin-bottom: 1.5rem;
     }
 
-    .summary-header {
-      padding-bottom: 1.2rem;
-      border-bottom: 1px solid var(--border-light);
-      margin-bottom: 1.2rem;
+    .quiz-options-grid {
+      display: grid;
+      gap: 0.85rem;
+      margin-bottom: 1.5rem;
     }
 
-    .summary-title { font-size: 1.1rem; font-weight: 600; color: var(--charcoal); }
-    .summary-price-wrap {
+    .quiz-opt-btn {
       display: flex;
-      align-items: baseline;
-      gap: 0.4rem;
-      margin-top: 0.5rem;
-    }
-
-    .summary-price {
-      font-size: 2.25rem;
-      font-weight: 600;
+      align-items: center;
+      gap: 1rem;
+      text-align: left;
+      width: 100%;
+      padding: 1rem 1.15rem;
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-md);
+      font-size: 0.925rem;
       color: var(--charcoal);
-      letter-spacing: -0.03em;
+      transition: all 0.2s ease;
+      cursor: pointer;
     }
 
-    .summary-currency { font-size: 0.85rem; color: var(--muted-foreground); font-weight: 400; }
+    .quiz-opt-btn:hover {
+      background: #FFFFFF;
+      border-color: var(--accent-orange);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-sm);
+    }
 
-    .summary-details {
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-      list-style: none;
-      font-size: 0.875rem;
+    .quiz-opt-btn.selected {
+      background: var(--primary-light);
+      border-color: var(--accent-orange);
+      font-weight: 600;
+      box-shadow: 0 0 0 1px var(--accent-orange);
+    }
+
+    .quiz-opt-icon {
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    .quiz-opt-text strong {
+      display: block;
+      color: var(--charcoal);
+      font-size: 0.95rem;
+      margin-bottom: 2px;
+    }
+
+    .quiz-opt-text span {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--muted-foreground);
+      font-weight: 400;
+      line-height: 1.4;
+    }
+
+    /* Result View */
+    .quiz-result-view {
+      display: none;
+      text-align: center;
+      padding: 1rem 0;
+      animation: fadeIn 0.4s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .match-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: #DCFCE7;
+      color: #15803D;
+      font-size: 0.825rem;
+      font-weight: 700;
+      padding: 0.35rem 0.9rem;
+      border-radius: var(--radius-full);
       margin-bottom: 1.25rem;
     }
 
-    .summary-details li {
-      display: flex;
-      justify-content: space-between;
-      gap: 0.5rem;
+    .result-service-box {
+      background: #FAF8F5;
+      border: 1.5px solid var(--accent-orange);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem 1.5rem;
+      margin-bottom: 1.75rem;
+      text-align: left;
     }
 
-    .summary-details li span:first-child { color: var(--muted-foreground); }
-    .summary-details li span:last-child {
-      font-weight: 500;
+    .result-service-name {
+      font-size: 1.35rem;
+      font-weight: 700;
       color: var(--charcoal);
-      text-align: right;
+      margin-bottom: 0.35rem;
     }
 
-    .inclusions {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.6rem;
-      font-size: 0.825rem;
-      color: var(--foreground);
-      border-top: 1px dashed var(--border);
-      padding-top: 1rem;
-    }
-
-    .inclusions li { display: flex; align-items: center; gap: 0.5rem; }
-    .inclusions li::before { content: "✓"; color: var(--accent-orange); font-weight: 700; }
-
-    .pay-btn {
-      width: 100%;
-      background: var(--accent-orange);
-      color: #fff;
-      font-weight: 500;
-      font-size: 1rem;
-      padding: 0.95rem;
-      border-radius: var(--radius-sm);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.6rem;
-      box-shadow: 0 4px 12px rgba(255, 111, 30, 0.25);
-      transition: all 0.15s ease;
-    }
-
-    .pay-btn:hover { background: var(--primary-hover); transform: translateY(-1px); }
-    .pay-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
-
-    .guarantee-note {
-      text-align: center;
-      font-size: 0.775rem;
-      color: var(--muted-foreground);
-      margin-top: 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.4rem;
-    }
-
-    .booking-status-banner {
-      display: none;
-      padding: 0.9rem 1.1rem;
-      border-radius: var(--radius-sm);
-      font-size: 0.875rem;
-      font-weight: 500;
-      margin-bottom: 1.5rem;
-      line-height: 1.5;
-    }
-
-    .booking-status-banner.error {
-      display: block;
-      background: #FEE2E2;
-      color: var(--danger);
-      border: 1px solid #FCA5A5;
-    }
-
-    .booking-status-banner.loading {
-      display: block;
-      background: var(--primary-light);
+    .result-service-price {
+      display: inline-block;
+      font-size: 1.15rem;
+      font-weight: 700;
       color: var(--accent-orange);
-      border: 1px solid var(--primary-border);
+      margin-bottom: 1rem;
     }
 
-    /* ---------------- Curated Spiritual Shop ---------------- */
-    .shop-section {
-      background: var(--secondary);
-      border-top: 1px solid var(--border);
+    .result-insight {
+      font-size: 0.9rem;
+      color: var(--muted-foreground);
+      line-height: 1.6;
+      margin-bottom: 1.25rem;
+      padding-bottom: 1.25rem;
       border-bottom: 1px solid var(--border);
     }
 
-    .shop-controls {
-      display: flex;
-      flex-direction: column;
-      gap: 1.25rem;
-      margin-bottom: 2.5rem;
-    }
-
-    @media (min-width: 768px) {
-      .shop-controls {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-      }
-    }
-
-    .category-tabs {
-      display: flex;
+    .result-deliverables {
+      list-style: none;
+      display: grid;
       gap: 0.5rem;
-      flex-wrap: wrap;
-    }
-
-    .cat-tab {
-      background: var(--card-white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-full);
-      padding: 0.45rem 1rem;
-      font-size: 0.825rem;
-      font-weight: 500;
-      color: var(--muted-foreground);
-      cursor: pointer;
-      transition: all 0.15s ease;
-    }
-
-    .cat-tab:hover { border-color: var(--accent-orange); color: var(--charcoal); }
-    .cat-tab.active {
-      background: var(--accent-orange);
-      color: #fff;
-      border-color: var(--accent-orange);
-    }
-
-    .shop-search {
-      position: relative;
-      min-width: 240px;
-    }
-
-    .shop-search input {
-      width: 100%;
-      background: var(--card-white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-full);
-      padding: 0.5rem 1rem 0.5rem 2.2rem;
-      font-size: 0.85rem;
+      font-size: 0.875rem;
       color: var(--charcoal);
+      font-weight: 500;
     }
 
-    .shop-search-icon {
-      position: absolute;
-      left: 0.8rem;
-      top: 50%;
-      transform: translateY(-50%);
-      color: var(--muted-foreground);
-      font-size: 0.8rem;
-      pointer-events: none;
+    .result-deliverables li {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
     }
 
-    .products-grid {
+    .result-deliverables li span.tick {
+      color: var(--success);
+      font-weight: 700;
+    }
+
+    /* ---------------- Services Grid ---------------- */
+    .services-grid {
       display: grid;
       grid-template-columns: 1fr;
       gap: 1.5rem;
     }
 
-    @media (min-width: 640px) {
-      .products-grid { grid-template-columns: repeat(2, 1fr); }
+    @media (min-width: 768px) {
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
 
-    @media (min-width: 1024px) {
-      .products-grid { grid-template-columns: repeat(3, 1fr); }
+    @media (min-width: 1040px) {
+      .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
     }
 
-    .product-card {
+    .service-card {
+      background: var(--card-white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2rem 1.5rem;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: all 0.25s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+      border-color: rgba(255, 111, 30, 0.4);
+    }
+
+    .service-card.featured {
+      border: 2px solid var(--accent-orange);
+      background: #FFFFFF;
+      box-shadow: var(--shadow-md);
+    }
+
+    .featured-badge {
+      position: absolute;
+      top: -12px;
+      left: 1.5rem;
+      background: var(--accent-orange);
+      color: #FFFFFF;
+      font-size: 0.725rem;
+      font-weight: 700;
+      padding: 0.2rem 0.75rem;
+      border-radius: var(--radius-full);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .service-type {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--muted-foreground);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
+
+    .service-name {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--charcoal);
+      line-height: 1.3;
+      margin-bottom: 0.5rem;
+    }
+
+    .service-price-wrap {
+      display: flex;
+      align-items: baseline;
+      gap: 0.35rem;
+      margin-bottom: 1rem;
+    }
+
+    .service-price {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--charcoal);
+    }
+
+    .service-duration {
+      font-size: 0.825rem;
+      color: var(--muted-foreground);
+    }
+
+    .service-desc {
+      font-size: 0.875rem;
+      color: var(--muted-foreground);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+
+    .service-points {
+      list-style: none;
+      display: grid;
+      gap: 0.65rem;
+      margin-bottom: 1.75rem;
+      font-size: 0.85rem;
+      color: var(--charcoal);
+    }
+
+    .service-points li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      line-height: 1.45;
+    }
+
+    .service-points li span.chk {
+      color: var(--accent-orange);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .service-btn {
+      width: 100%;
+      text-align: center;
+      padding: 0.75rem 1rem;
+      border-radius: var(--radius-full);
+      font-size: 0.925rem;
+      font-weight: 600;
+      transition: all 0.2s ease;
+      display: inline-block;
+    }
+
+    .service-btn-primary {
+      background: var(--accent-orange);
+      color: #FFFFFF;
+      box-shadow: 0 2px 8px rgba(255, 111, 30, 0.25);
+    }
+
+    .service-btn-primary:hover {
+      background: var(--primary-hover);
+    }
+
+    .service-btn-outline {
+      background: var(--secondary);
+      color: var(--charcoal);
+      border: 1px solid var(--border);
+    }
+
+    .service-btn-outline:hover {
+      border-color: var(--accent-orange);
+      color: var(--accent-orange);
+    }
+
+    /* ---------------- Call Timeline Breakdown ---------------- */
+    .timeline-card {
+      background: var(--card-white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2.25rem 1.75rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .timeline-grid {
+      display: grid;
+      gap: 1.25rem;
+      margin-top: 1.5rem;
+    }
+
+    @media (min-width: 680px) {
+      .timeline-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1rem;
+      }
+    }
+
+    .timeline-step {
+      background: var(--card);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 1.25rem 1rem;
+      position: relative;
+    }
+
+    .timeline-min {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--accent-orange);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.35rem;
+    }
+
+    .timeline-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--charcoal);
+      margin-bottom: 0.35rem;
+    }
+
+    .timeline-desc {
+      font-size: 0.825rem;
+      color: var(--muted-foreground);
+      line-height: 1.5;
+    }
+
+    /* ---------------- Comparison: DM vs Call ---------------- */
+    .compare-wrap {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    @media (min-width: 700px) {
+      .compare-wrap {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .compare-box {
+      border-radius: var(--radius-lg);
+      padding: 1.75rem 1.5rem;
+      border: 1px solid var(--border);
+    }
+
+    .compare-box.bad {
+      background: #FDF5F5;
+      border-color: #FED7D7;
+    }
+
+    .compare-box.good {
+      background: #F3FAF5;
+      border-color: #C6F6D5;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .compare-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .compare-list {
+      list-style: none;
+      display: grid;
+      gap: 0.75rem;
+      font-size: 0.875rem;
+    }
+
+    .compare-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      line-height: 1.45;
+    }
+
+    /* ---------------- Booking Section (Cal.com + Razorpay) ---------------- */
+    .booking-section {
+      background: linear-gradient(180deg, var(--background), #F5F1E8);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .booking-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .booking-tab-btn {
+      padding: 0.65rem 1.25rem;
+      border-radius: var(--radius-full);
+      font-size: 0.875rem;
+      font-weight: 600;
+      background: var(--card-white);
+      color: var(--charcoal);
+      border: 1px solid var(--border);
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .booking-tab-btn.active {
+      background: var(--charcoal);
+      color: #FFFFFF;
+      border-color: var(--charcoal);
+    }
+
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+
+    /* Cal Embed Box */
+    .cal-box {
+      background: var(--card-white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-md);
+      max-width: 860px;
+      margin: 0 auto;
+      min-height: 580px;
+    }
+
+    /* Razorpay Form Box */
+    .rzp-form-wrap {
+      max-width: 640px;
+      margin: 0 auto;
+      background: var(--card-white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 2.25rem 1.75rem;
+      box-shadow: var(--shadow-md);
+    }
+
+    @media (min-width: 680px) {
+      .rzp-form-wrap { padding: 2.75rem 2.25rem; }
+    }
+
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+
+    .form-row {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: 1fr;
+    }
+
+    @media (min-width: 540px) {
+      .form-row { grid-template-columns: 1fr 1fr; }
+    }
+
+    .field-label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 0.4rem;
+    }
+
+    .field-label span.req {
+      color: #DC2626;
+    }
+
+    .form-input, .form-select, .form-textarea {
+      width: 100%;
+      background: #FAFAF9;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 0.7rem 0.85rem;
+      font-size: 0.925rem;
+      color: var(--charcoal);
+      transition: all 0.2s ease;
+    }
+
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      background: #FFFFFF;
+      border-color: var(--accent-orange);
+      box-shadow: 0 0 0 3px rgba(255, 111, 30, 0.12);
+    }
+
+    .form-textarea {
+      min-height: 5.5rem;
+      resize: vertical;
+    }
+
+    .form-submit-btn {
+      width: 100%;
+      background: var(--accent-orange);
+      color: #FFFFFF;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 0.95rem 1.5rem;
+      border-radius: var(--radius-full);
+      box-shadow: 0 4px 14px rgba(255, 111, 30, 0.3);
+      transition: all 0.2s ease;
+      cursor: pointer;
+      margin-top: 0.75rem;
+    }
+
+    .form-submit-btn:hover {
+      background: var(--primary-hover);
+      transform: translateY(-1px);
+    }
+
+    .form-submit-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .form-status-msg {
+      padding: 0.75rem 1rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+      margin-top: 1rem;
+      display: none;
+    }
+
+    .form-status-msg.error {
+      background: #FEE2E2;
+      color: #DC2626;
+      border-left: 3px solid #DC2626;
+      display: block;
+    }
+
+    .form-status-msg.loading {
+      background: #EFF6FF;
+      color: #2563EB;
+      display: block;
+    }
+
+    /* ---------------- Curated Shop / Recommendations ---------------- */
+    .shop-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .shop-card {
       background: var(--card-white);
       border: 1px solid var(--border);
       border-radius: var(--radius-md);
       padding: 1.5rem;
+      box-shadow: var(--shadow-sm);
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      box-shadow: var(--shadow-sm);
       transition: all 0.2s ease;
     }
 
-    .product-card:hover {
-      border-color: #DBD5C8;
-      transform: translateY(-3px);
+    .shop-card:hover {
+      transform: translateY(-2px);
       box-shadow: var(--shadow-md);
+      border-color: rgba(255, 111, 30, 0.35);
     }
 
-    .product-tag-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 0.85rem;
-    }
-
-    .product-cat-tag {
+    .shop-tag {
       font-size: 0.725rem;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      background: var(--secondary);
-      color: var(--charcoal);
-      padding: 0.2rem 0.6rem;
-      border-radius: var(--radius-full);
-    }
-
-    .product-badge {
-      font-size: 0.725rem;
-      font-weight: 500;
+      font-weight: 600;
       color: var(--accent-orange);
       background: var(--primary-light);
       padding: 0.2rem 0.6rem;
       border-radius: var(--radius-full);
-      display: flex;
-      align-items: center;
-      gap: 0.25rem;
+      display: inline-block;
+      margin-bottom: 0.75rem;
+      align-self: flex-start;
     }
 
-    .product-icon-wrap {
-      width: 3rem;
-      height: 3rem;
-      border-radius: var(--radius-sm);
-      background: var(--background);
-      border: 1px solid var(--border);
-      display: grid;
-      place-items: center;
-      font-size: 1.4rem;
-      margin-bottom: 1rem;
-    }
-
-    .product-name {
+    .shop-title {
       font-size: 1.05rem;
-      font-weight: 600;
+      font-weight: 700;
       color: var(--charcoal);
-      margin-bottom: 0.45rem;
-      line-height: 1.4;
+      margin-bottom: 0.35rem;
     }
 
-    .product-desc {
-      font-size: 0.85rem;
-      font-weight: 300;
+    .shop-desc {
+      font-size: 0.825rem;
       color: var(--muted-foreground);
-      line-height: 1.7;
+      line-height: 1.5;
       margin-bottom: 1.25rem;
       flex-grow: 1;
     }
 
-    .product-card-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-top: 1px solid var(--border-light);
-      padding-top: 1rem;
-      margin-top: auto;
-    }
-
-    .product-price-est {
-      font-size: 0.8rem;
-      color: var(--muted-foreground);
-      font-weight: 400;
-    }
-
-    .affiliate-link-btn {
+    .shop-affiliate-link {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 0.4rem;
-      background: var(--charcoal);
-      color: #fff;
-      font-size: 0.8rem;
-      font-weight: 500;
-      padding: 0.5rem 0.95rem;
-      border-radius: var(--radius-sm);
-      transition: all 0.15s ease;
+      font-size: 0.825rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      background: var(--secondary);
+      border: 1px solid var(--border);
+      padding: 0.5rem 1rem;
+      border-radius: var(--radius-full);
+      transition: all 0.2s ease;
     }
 
-    .affiliate-link-btn:hover { background: var(--accent-orange); }
+    .shop-affiliate-link:hover {
+      background: var(--accent-orange);
+      color: #FFFFFF;
+      border-color: var(--accent-orange);
+    }
 
-    .affiliate-disclosure-card {
+    /* ---------------- Social Proof / Reviews ---------------- */
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+
+    @media (min-width: 768px) {
+      .reviews-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    .review-card {
       background: var(--card-white);
       border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 1.25rem 1.5rem;
-      margin-top: 2.5rem;
-      display: flex;
-      align-items: flex-start;
-      gap: 0.85rem;
-    }
-
-    .affiliate-disclosure-card svg {
-      width: 1.25rem;
-      height: 1.25rem;
-      fill: var(--accent-orange);
-      flex: none;
-      margin-top: 0.15rem;
-    }
-
-    .affiliate-disclosure-card p {
-      font-size: 0.825rem;
-      color: var(--muted-foreground);
-      font-weight: 300;
-      line-height: 1.6;
-    }
-
-    /* ---------------- FAQ Accordion ---------------- */
-    .faq-list {
-      max-width: 46rem;
-      margin: 0 auto;
+      border-radius: var(--radius-lg);
+      padding: 1.75rem 1.5rem;
+      box-shadow: var(--shadow-sm);
       display: flex;
       flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .review-stars {
+      color: #F59E0B;
+      font-size: 1.05rem;
+      margin-bottom: 0.75rem;
+      letter-spacing: 2px;
+    }
+
+    .review-text {
+      font-size: 0.9rem;
+      color: var(--charcoal);
+      line-height: 1.6;
+      margin-bottom: 1.25rem;
+      font-style: italic;
+    }
+
+    .review-author {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .author-avatar {
+      width: 2.2rem;
+      height: 2.2rem;
+      border-radius: 50%;
+      background: var(--secondary);
+      color: var(--charcoal);
+      display: grid;
+      place-items: center;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    .author-name {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--charcoal);
+    }
+
+    .author-sub {
+      font-size: 0.725rem;
+      color: var(--muted-foreground);
+    }
+
+    /* ---------------- FAQ Accordion (Native <details>) ---------------- */
+    .faq-wrap {
+      max-width: 780px;
+      margin: 0 auto;
+      display: grid;
       gap: 0.85rem;
     }
 
-    details.faq-item {
+    .faq-item {
       background: var(--card-white);
       border: 1px solid var(--border);
       border-radius: var(--radius-md);
       overflow: hidden;
-      transition: border-color 0.15s ease;
+      transition: border-color 0.2s ease;
     }
 
-    details.faq-item[open] {
-      border-color: #F8C3A0;
-      box-shadow: var(--shadow-sm);
+    .faq-item[open] {
+      border-color: var(--accent-orange);
     }
 
-    summary.faq-question {
-      padding: 1.2rem 1.4rem;
-      font-weight: 500;
-      font-size: 1rem;
+    .faq-summary {
+      padding: 1.15rem 1.35rem;
+      font-size: 0.95rem;
+      font-weight: 600;
       color: var(--charcoal);
       cursor: pointer;
       display: flex;
@@ -1352,1220 +1239,1156 @@
       list-style: none;
     }
 
-    summary.faq-question::-webkit-details-marker { display: none; }
-    summary.faq-question::after {
+    .faq-summary::-webkit-details-marker { display: none; }
+
+    .faq-summary::after {
       content: "+";
-      font-size: 1.35rem;
-      font-weight: 300;
-      color: var(--muted-foreground);
-      transition: transform 0.2s ease;
-      line-height: 1;
-    }
-
-    details[open] summary.faq-question::after {
-      content: "−";
+      font-size: 1.25rem;
       color: var(--accent-orange);
+      font-weight: 400;
+      transition: transform 0.2s ease;
     }
 
-    .faq-answer {
-      padding: 0 1.4rem 1.35rem;
-      font-size: 0.925rem;
-      font-weight: 300;
+    .faq-item[open] .faq-summary::after {
+      content: "−";
+    }
+
+    .faq-body {
+      padding: 0 1.35rem 1.25rem;
+      font-size: 0.875rem;
       color: var(--muted-foreground);
-      line-height: 1.8;
+      line-height: 1.65;
     }
 
-    /* ---------------- Minimal Footer (Reference from Lovable) ---------------- */
-    .footer-minimal {
-      padding: 3rem 1.5rem;
-      text-align: center;
+    /* ---------------- Footer ---------------- */
+    footer {
       background: var(--footer-bg);
       border-top: 1px solid var(--border);
+      padding: 3.5rem 0 2rem;
     }
 
-    .footer-text {
-      font-size: 0.825rem;
-      font-weight: 400;
-      color: var(--charcoal);
-      margin-bottom: 0.5rem;
+    .footer-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1.5rem;
     }
 
-    .footer-link {
-      display: inline-block;
-      font-size: 0.825rem;
-      font-weight: 400;
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+      font-size: 0.85rem;
       color: var(--muted-foreground);
-      transition: all 0.3s ease;
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
-    .footer-link:hover {
-      color: var(--accent-orange);
-      text-decoration: underline;
-      text-underline-offset: 3px;
+    .footer-links a:hover { color: var(--accent-orange); }
+
+    .footer-copy {
+      font-size: 0.775rem;
+      color: var(--muted-foreground);
     }
 
-    .footer-copyright {
+    /* ---------------- Sticky Mobile Bottom Bar ---------------- */
+    .mobile-sticky-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 99;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(12px);
+      border-top: 1px solid var(--border);
+      padding: 0.75rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.06);
+    }
+
+    @media (min-width: 768px) {
+      .mobile-sticky-bar { display: none; }
+      body { padding-bottom: 0; }
+    }
+
+    .mobile-bar-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .mobile-bar-title {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--charcoal);
+      line-height: 1.2;
+    }
+
+    .mobile-bar-sub {
       font-size: 0.75rem;
-      color: #8E94A0;
-      margin-top: 1.25rem;
-    }
-
-    /* Confirmation View */
-    .confirm-view { padding: 3rem 2rem; text-align: center; }
-    .confirm-tick {
-      width: 3.5rem;
-      height: 3.5rem;
-      border-radius: 50%;
-      background: var(--success-light);
-      color: var(--success);
-      font-size: 1.75rem;
-      display: grid;
-      place-items: center;
-      margin: 0 auto 1.25rem;
+      color: var(--accent-orange);
       font-weight: 600;
     }
 
-    .confirm-view h2 { font-size: 1.6rem; font-weight: 600; color: var(--charcoal); margin-bottom: 0.5rem; }
-    .confirm-view p.lead { color: var(--muted-foreground); font-size: 0.975rem; font-weight: 300; max-width: 28rem; margin: 0 auto 1.5rem; }
-
-    .booking-receipt-table {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      max-width: 26rem;
-      margin: 0 auto 2rem;
-      text-align: left;
-      font-size: 0.875rem;
-    }
-
-    .booking-receipt-table div {
-      padding: 0.75rem 1rem;
-      display: flex;
-      justify-content: space-between;
-      border-bottom: 1px solid var(--border-light);
-    }
-
-    .booking-receipt-table div:last-child { border-bottom: none; }
-    .booking-receipt-table span:first-child { color: var(--muted-foreground); }
-    .booking-receipt-table span:last-child { font-weight: 500; color: var(--charcoal); }
-
-    .whatsapp-connect-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: #25D366;
-      color: #fff;
-      font-weight: 500;
-      font-size: 0.95rem;
-      padding: 0.8rem 1.5rem;
-      border-radius: var(--radius-sm);
-      box-shadow: 0 4px 10px rgba(37, 211, 102, 0.25);
-    }
-
-    .cal-confirm-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
+    .mobile-bar-btn {
       background: var(--accent-orange);
-      color: #fff;
-      font-weight: 500;
-      font-size: 0.95rem;
-      padding: 0.8rem 1.5rem;
-      border-radius: var(--radius-sm);
-      box-shadow: 0 4px 10px rgba(255, 111, 30, 0.25);
+      color: #FFFFFF;
+      font-weight: 600;
+      font-size: 0.85rem;
+      padding: 0.55rem 1.15rem;
+      border-radius: var(--radius-full);
+      box-shadow: 0 2px 8px rgba(255, 111, 30, 0.25);
+      white-space: nowrap;
     }
   </style>
 </head>
 <body>
 
-  <!-- ---------------- Navbar ---------------- -->
+  <!-- Sticky Top Navigation -->
   <header class="navbar">
     <div class="container nav-inner">
       <a href="#" class="brand">
-        <div class="brand-avatar"><span>T</span>H</div>
+        <div class="brand-avatar">T<span>H</span></div>
         <div class="brand-text">
-          <span class="brand-name">timelinebyharsh</span>
-          <span class="brand-tag">Kul, Parampara & Sadhana</span>
+          <span class="brand-name">Timeline by Harsh</span>
+          <span class="brand-tag">@timelinebyharsh · 1:1 Advisory</span>
         </div>
       </a>
 
-      <nav aria-label="Main Navigation">
-        <ul class="nav-links">
-          <li><a href="#about" class="nav-link">About</a></li>
-          <li><a href="#wisdom" class="nav-link">Parampara</a></li>
-          <li><a href="#consultation" class="nav-link">Consultation</a></li>
-          <li><a href="#booking" class="nav-link">Book 1:1 Call</a></li>
-          <li><a href="#shop" class="nav-link">Sadhana Shop</a></li>
-          <li><a href="#faq" class="nav-link">FAQ</a></li>
-        </ul>
-      </nav>
+      <ul class="nav-links">
+        <li><a href="#clarity-finder" class="nav-link">Clarity Finder</a></li>
+        <li><a href="#services" class="nav-link">All Services</a></li>
+        <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
+        <li><a href="#recommendations" class="nav-link">Curated Shop</a></li>
+        <li><a href="#faq" class="nav-link">FAQ</a></li>
+      </ul>
 
       <div class="nav-actions">
-        <a href="https://www.instagram.com/timelinebyharsh/" target="_blank" rel="noopener noreferrer" class="nav-ig-btn" aria-label="Visit Instagram @timelinebyharsh">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-          <span>@timelinebyharsh</span>
+        <a href="https://www.instagram.com/timelinebyharsh/" target="_blank" rel="noopener noreferrer" class="nav-ig-btn" title="Visit Instagram profile">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+          <span>Instagram</span>
         </a>
-
-        <a href="#booking" class="nav-cta-btn">
-          <span>Book 1:1 Session</span>
-        </a>
-
-        <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu" aria-expanded="false">
-          <span></span>
-          <span></span>
-          <span></span>
+        <a href="#booking" class="nav-cta-btn">Book 1:1 Call</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">
+          <span></span><span></span><span></span>
         </button>
       </div>
     </div>
 
-    <!-- Mobile Drawer -->
+    <!-- Mobile Drawer Navigation -->
     <div class="mobile-drawer" id="mobileDrawer">
       <ul>
-        <li><a href="#about" class="drawer-link">About Harsh</a></li>
-        <li><a href="#wisdom" class="drawer-link">Kul & Parampara Wisdom</a></li>
-        <li><a href="#consultation" class="drawer-link">Consultation Areas</a></li>
-        <li><a href="#booking" class="drawer-link">Book 1:1 Call (Cal.com & Direct)</a></li>
-        <li><a href="#shop" class="drawer-link">Curated Sadhana Shop</a></li>
-        <li><a href="#faq" class="drawer-link">FAQ</a></li>
-        <li><a href="https://www.instagram.com/timelinebyharsh/" target="_blank" rel="noopener" class="drawer-link" style="color:var(--accent-orange)">Instagram → @timelinebyharsh</a></li>
+        <li><a href="#clarity-finder" class="drawer-link">🎯 60-Second Clarity Finder</a></li>
+        <li><a href="#services" class="drawer-link">💼 1:1 Services & Advisory</a></li>
+        <li><a href="#how-it-works" class="drawer-link">⏱️ 30-Minute Breakdown</a></li>
+        <li><a href="#booking" class="drawer-link">📅 Book a Session</a></li>
+        <li><a href="#recommendations" class="drawer-link">🛍️ Recommended Tools</a></li>
+        <li><a href="#faq" class="drawer-link">❓ FAQ</a></li>
       </ul>
     </div>
   </header>
 
-  <main>
-    <!-- ---------------- Hero Section (Lovable Reference Style) ---------------- -->
-    <section class="hero-section">
-      <div class="container">
-        <!-- Instagram Creator Pill Badge (Direct reference from Lovable) -->
-        <a href="https://www.instagram.com/timelinebyharsh/" target="_blank" rel="noopener noreferrer" class="ig-pill-badge" aria-label="Instagram Profile @timelinebyharsh">
-          <div class="ig-pill-icon">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-          </div>
-          <div class="ig-pill-text">
-            <p class="ig-pill-title">timelinebyharsh</p>
-            <p class="ig-pill-sub">Instagram → @timelinebyharsh</p>
-          </div>
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="badge-pill">
+        <span>⚡</span> 1,200+ 1:1 Sessions Delivered · 4.9/5 Rating
+      </div>
+
+      <h1 class="heading-main">
+        Turn Confusion into <span>Clear Direction</span>.<br>One Honest Conversation at a Time.
+      </h1>
+
+      <p class="hero-lead">
+        Watched a reel on <b>@timelinebyharsh</b> and need real guidance for your life, routine, or creator journey? Skip waiting days for a generic DM. Book a private 1-on-1 call with Harsh to pinpoint your bottleneck and leave with 3 concrete next steps.
+      </p>
+
+      <div class="hero-ctas">
+        <a href="#clarity-finder" class="btn-primary">
+          <span>🎯 Take 60-Sec Clarity Finder</span>
+          <span>→</span>
         </a>
+        <a href="#booking" class="btn-secondary">
+          <span>📅 Pick a Slot (Cal.com)</span>
+        </a>
+      </div>
 
-        <h1 class="heading-main">
-          <span class="accent-highlight">Kul</span>, Parampara aur Smriti
-        </h1>
+      <!-- Trust Metrics -->
+      <div class="trust-strip">
+        <div class="trust-item">
+          <div class="trust-num">1,200+</div>
+          <div class="trust-label">1:1 Calls Completed</div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-num">30 Min</div>
+          <div class="trust-label">Laser-Focused Sessions</div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-num">100%</div>
+          <div class="trust-label">Private & Confidential</div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-num">24h</div>
+          <div class="trust-label">WhatsApp Action Summary</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        <p class="heading-sub">
-          When questions are deep, answers come from <span class="accent-highlight">parampara</span> (tradition) and honest reflection. One dedicated 30-minute private conversation to understand your roots, daily sadhana, and personal peace of mind.
-        </p>
+  <!-- Gamification: Interactive Problem & Feeling Navigator -->
+  <section class="section-wrap" id="clarity-finder">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-eyebrow">Interactive Assessment</span>
+        <h2 class="section-title">Where Are You Feeling Stuck?</h2>
+        <p class="section-desc">Select what describes your situation right now. We will instantly recommend the exact 1:1 session designed to solve your bottleneck.</p>
+      </div>
 
-        <div class="hero-actions">
-          <a href="#booking" class="btn-primary">
-            <span>📅 Pick Time on Live Calendar</span>
-            <span>→</span>
+      <div class="quiz-card" id="quizCard">
+        <!-- Progress Bar -->
+        <div class="quiz-progress-bar">
+          <div class="quiz-progress-fill" id="quizProgressFill"></div>
+        </div>
+
+        <div class="quiz-step-indicator">
+          <span id="quizStepText">Step 1 of 2</span>
+          <span id="quizStepPercent">50% Completed</span>
+        </div>
+
+        <!-- Question 1: Problem / Feeling -->
+        <div class="quiz-step-view" id="step1View">
+          <h3 class="quiz-question-title">What best describes your current state or feeling?</h3>
+          <p class="quiz-question-sub">Pick the option that hits closest to home.</p>
+
+          <div class="quiz-options-grid">
+            <button type="button" class="quiz-opt-btn" data-problem="lost">
+              <span class="quiz-opt-icon">🌀</span>
+              <div class="quiz-opt-text">
+                <strong>Feeling Lost & Overwhelmed</strong>
+                <span>My mind is noisy, too many thoughts, lack clear direction for my next step.</span>
+              </div>
+            </button>
+
+            <button type="button" class="quiz-opt-btn" data-problem="creator">
+              <span class="quiz-opt-icon">📱</span>
+              <div class="quiz-opt-text">
+                <strong>Stuck Content & Creator Growth</strong>
+                <span>Posting reels but low reach, inconsistent views, or no idea how to monetize.</span>
+              </div>
+            </button>
+
+            <button type="button" class="quiz-opt-btn" data-problem="discipline">
+              <span class="quiz-opt-icon">🧘</span>
+              <div class="quiz-opt-text">
+                <strong>Need Daily Routine & Inner Peace</strong>
+                <span>Struggling with focus, lack of discipline, or want an authentic daily habit rhythm.</span>
+              </div>
+            </button>
+
+            <button type="button" class="quiz-opt-btn" data-problem="crossroads">
+              <span class="quiz-opt-icon">⚖️</span>
+              <div class="quiz-opt-text">
+                <strong>At a Major Life Crossroads</strong>
+                <span>Facing a critical career, personal, or life transition and need an objective sounding board.</span>
+              </div>
+            </button>
+          </div>
+        </div>
+
+        <!-- Question 2: Desired Outcome -->
+        <div class="quiz-step-view" id="step2View" style="display:none">
+          <h3 class="quiz-question-title">What outcome do you need most from this conversation?</h3>
+          <p class="quiz-question-sub">Tell us what would make this session 100% worth your time.</p>
+
+          <div class="quiz-options-grid">
+            <button type="button" class="quiz-opt-btn" data-outcome="quick-clarity">
+              <span class="quiz-opt-icon">⚡</span>
+              <div class="quiz-opt-text">
+                <strong>Immediate Clarity & 3 Concrete Next Steps</strong>
+                <span>A quick 30-min call to isolate the real issue and tell me what to do tomorrow.</span>
+              </div>
+            </button>
+
+            <button type="button" class="quiz-opt-btn" data-outcome="audit">
+              <span class="quiz-opt-icon">🔍</span>
+              <div class="quiz-opt-text">
+                <strong>Honest, Unfiltered Audit & Feedback</strong>
+                <span>Tear down my current routine or content strategy and tell me what isn't working.</span>
+              </div>
+            </button>
+
+            <button type="button" class="quiz-opt-btn" data-outcome="blueprint">
+              <span class="quiz-opt-icon">🗺️</span>
+              <div class="quiz-opt-text">
+                <strong>Custom Lifestyle or Growth Blueprint</strong>
+                <span>A personalized schedule tailored to my work hours and mental bandwidth.</span>
+              </div>
+            </button>
+
+            <button type="button" class="quiz-opt-btn" data-outcome="mentorship">
+              <span class="quiz-opt-icon">🤝</span>
+              <div class="quiz-opt-text">
+                <strong>Ongoing Mentorship & Accountability</strong>
+                <span>Weekly 1:1 checkpoints and direct WhatsApp access so I don't give up.</span>
+              </div>
+            </button>
+          </div>
+
+          <button type="button" id="quizBackBtn" style="background:none;color:var(--muted-foreground);font-size:0.85rem;font-weight:600;padding:0.5rem 0;cursor:pointer">
+            ← Back to Step 1
+          </button>
+        </div>
+
+        <!-- Result View -->
+        <div class="quiz-result-view" id="resultView">
+          <div class="match-pill">
+            <span>✓</span> 98% Compatibility Match Found!
+          </div>
+
+          <div class="result-service-box">
+            <div class="result-service-name" id="resServiceName">1:1 Clarity & Roadmap Call</div>
+            <div class="result-service-price" id="resServicePrice">₹299 · 30 Mins Private Video Call</div>
+            
+            <p class="result-insight" id="resInsight">
+              You are carrying too much mental noise. Trying to consume more reels or random videos will only add confusion. In 30 minutes, Harsh asks the right questions to cut out the fluff and isolate your exact blockage.
+            </p>
+
+            <ul class="result-deliverables" id="resDeliverables">
+              <li><span class="tick">✓</span> Direct diagnosis of what is holding you back</li>
+              <li><span class="tick">✓</span> 3 prioritized next steps to start immediately</li>
+              <li><span class="tick">✓</span> WhatsApp summary note delivered within 24 hours</li>
+            </ul>
+          </div>
+
+          <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:1rem">
+            <button type="button" id="bookRecommendedBtn" class="btn-primary" style="padding:0.85rem 2rem">
+              <span>Book This Session Now</span>
+              <span>→</span>
+            </button>
+            <button type="button" id="retakeQuizBtn" class="btn-secondary" style="padding:0.85rem 1.5rem">
+              <span>↺ Retake Quiz</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- All Services Grid -->
+  <section class="section-wrap" id="services" style="background:#FFFFFF;border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-eyebrow">Transparent Offerings</span>
+        <h2 class="section-title">All 1:1 Consultation Services</h2>
+        <p class="section-desc">Straightforward guidance. No hidden fees, no long-winded lectures — just practical, real-world solutions.</p>
+      </div>
+
+      <div class="services-grid">
+        <!-- Service 1: 30-Min Clarity Call (Featured) -->
+        <div class="service-card featured">
+          <div class="featured-badge">Most Popular</div>
+          <div class="service-type">Laser-Focused Video Session</div>
+          <h3 class="service-name">1:1 Clarity & Roadmap Call</h3>
+          <div class="service-price-wrap">
+            <span class="service-price">₹299</span>
+            <span class="service-duration">/ 30 mins</span>
+          </div>
+          <p class="service-desc">
+            Perfect if you are feeling stuck, confused between choices, or need an honest, objective opinion from Harsh on your life or habits.
+          </p>
+          <ul class="service-points">
+            <li><span class="chk">✓</span> Unfiltered 1-on-1 private video conversation</li>
+            <li><span class="chk">✓</span> Direct questions to uncover the real problem</li>
+            <li><span class="chk">✓</span> 3 clear next steps prioritized for tomorrow</li>
+            <li><span class="chk">✓</span> Summary note sent to your WhatsApp within 24 hours</li>
+          </ul>
+          <a href="#booking" class="service-btn service-btn-primary select-service-trigger" data-track="1:1 Clarity & Roadmap Call (30 Mins)">
+            Book 30-Min Call (₹299)
           </a>
-          <button class="btn-secondary" id="calPopupBtn" data-cal-link="timelinebyharsh/30min" data-cal-config='{"layout":"month_view"}'>
-            <span>⚡ Quick Cal.com Popup</span>
-          </button>
-          <a href="#shop" class="btn-secondary">
-            <span>Explore Sadhana Shop</span>
+        </div>
+
+        <!-- Service 2: Creator & Brand Audit -->
+        <div class="service-card">
+          <div class="service-type">Creator Growth Strategy</div>
+          <h3 class="service-name">Creator & Social Media Audit</h3>
+          <div class="service-price-wrap">
+            <span class="service-price">₹699</span>
+            <span class="service-duration">/ 45 mins</span>
+          </div>
+          <p class="service-desc">
+            For creators, freelancers, and personal brands. We analyze your reels, hook retention, bio positioning, and design a sustainable 30-day content plan.
+          </p>
+          <ul class="service-points">
+            <li><span class="chk">✓</span> Profile bio, niche clarity, and highlight audit</li>
+            <li><span class="chk">✓</span> Review of your last 9 posts & 3-second hook fixes</li>
+            <li><span class="chk">✓</span> Reel format, posting cadence, and retention tips</li>
+            <li><span class="chk">✓</span> Monetization path (digital products, brand deals)</li>
+          </ul>
+          <a href="#booking" class="service-btn service-btn-outline select-service-trigger" data-track="Creator & Social Media Audit (45 Mins)">
+            Book Creator Audit (₹699)
           </a>
         </div>
 
-        <div class="trust-strip">
-          <div class="trust-item">
-            <span class="trust-num">30 Mins</span>
-            <span class="trust-label">Focused 1:1 Conversation</span>
+        <!-- Service 3: Daily Routine & Dincharya -->
+        <div class="service-card">
+          <div class="service-type">Lifestyle & Habits</div>
+          <h3 class="service-name">Daily Dincharya & Habit Blueprint</h3>
+          <div class="service-price-wrap">
+            <span class="service-price">₹499</span>
+            <span class="service-duration">/ 45 mins</span>
           </div>
-          <div class="trust-item">
-            <span class="trust-num">Instant</span>
-            <span class="trust-label">Google Meet Link</span>
-          </div>
-          <div class="trust-item">
-            <span class="trust-num">100%</span>
-            <span class="trust-label">Confidential & Safe</span>
-          </div>
-          <div class="trust-item">
-            <span class="trust-num">₹299</span>
-            <span class="trust-label">Commitment Filter</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ---------------- Reflection Quote Section (Exact Lovable Reference) ---------------- -->
-    <section class="reflection-box" id="wisdom">
-      <div class="container">
-        <p class="reflection-text">
-          "Parampara koi bandhan nahi —<br>
-          yeh yaad hai us raaste ki,<br>
-          jahan se hum aaye the."
-        </p>
-        <div class="reflection-divider"></div>
-
-        <div style="max-width:44rem;margin:3rem auto 0;text-align:left">
-          <!-- QA Card 1 (Direct Reference) -->
-          <article class="qa-card">
-            <h2 class="question-text">If you don't know your Kuldevta or Kuldevi, what should you do?</h2>
-            <div class="answer-text">
-              Begin by returning towards your roots — ask the elders, grandparents, or village pandit of your native place. This search is itself a form of <i>kulsadhana</i>, because when we seek our roots, we connect with our inner self.
-
-              If the name is still not found, light a diya with a calm mind and pray to <b>Kaalbhairav</b> or <b>Maa Kali</b> — they are the eternal witnesses beyond time, observing every lineage and soul since the very beginning. When the Kuldevta is unknown, they are revered in their place.
-            </div>
-          </article>
-
-          <!-- QA Card 2 (Direct Reference) -->
-          <article class="qa-card">
-            <h2 class="question-text">After marriage, whose Kuldevta should be worshipped — maternal or husband's lineage?</h2>
-            <div class="answer-text">
-              Viewed deeply, marriage is not merely the union of two bodies, but the meeting of two lineages and their guardian deities.
-
-              When a woman honors both traditions, she becomes a sacred bridge between both energy streams — and from that balance flows stability, peace, and auspiciousness in the home. There is no need for rigid conflict; wherever the heart bows with sincere devotion, divine blessing flows naturally.
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ---------------- About Harsh Section ---------------- -->
-    <section class="section" id="about">
-      <div class="container">
-        <div class="section-head">
-          <span class="section-eyebrow">Personal Guidance</span>
-          <h2 class="section-title">Namaste, I am Harsh</h2>
-          <p class="section-desc">
-            In my Instagram DMs, people constantly ask deep questions about family traditions, mantra practice, and finding mental peace. A text message is never enough for such sacred matters. That is why I hold these 1:1 sessions.
+          <p class="service-desc">
+            Build a sustainable daily rhythm that balances mental calm and peak execution. Practical habits, breathwork, and focus protocols that actually stick.
           </p>
-        </div>
-
-        <div class="consult-grid" id="consultation">
-          <div class="consult-card">
-            <div>
-              <h3>Kul & Parampara Guidance</h3>
-              <p class="desc">
-                Clarifying family traditions, reconnecting with forgotten ancestral roots, and resolving conflicts with love and balance.
-              </p>
-              <ul class="consult-list">
-                <li><span class="bullet">•</span><span>Finding and honoring unknown Kuldevta / Kuldevi</span></li>
-                <li><span class="bullet">•</span><span>Post-marriage ancestral worship rules</span></li>
-                <li><span class="bullet">•</span><span>Understanding pitru dosha & ancestral blessings</span></li>
-              </ul>
-            </div>
-            <a href="#booking" class="btn-primary" style="margin-top:auto">Book Call →</a>
-          </div>
-
-          <div class="consult-card">
-            <div>
-              <h3>Rudraksh & Daily Sadhana</h3>
-              <p class="desc">
-                Selecting genuine spiritual tools that align with your birth chart and establishing a calm, steady daily prayer rhythm.
-              </p>
-              <ul class="consult-list">
-                <li><span class="bullet">•</span><span>Choosing the right Rudraksh for your Rashi & Lagna</span></li>
-                <li><span class="bullet">•</span><span>Correct mantra jaap count, timings, and rules</span></li>
-                <li><span class="bullet">•</span><span>Home mandir sacred direction and layout</span></li>
-              </ul>
-            </div>
-            <a href="#booking" class="btn-primary" style="margin-top:auto">Book Call →</a>
-          </div>
-
-          <div class="consult-card">
-            <div>
-              <h3>Life Clarity & Inner Peace</h3>
-              <p class="desc">
-                For when your mind feels restless or you are struggling to make key decisions. Grounded, calm, objective guidance.
-              </p>
-              <ul class="consult-list">
-                <li><span class="bullet">•</span><span>Breaking free from mental confusion & anxiety</span></li>
-                <li><span class="bullet">•</span><span>10-minute daily dincharya that brings focus</span></li>
-                <li><span class="bullet">•</span><span>Confidential, non-judgmental open space</span></li>
-              </ul>
-            </div>
-            <a href="#booking" class="btn-primary" style="margin-top:auto">Book Call →</a>
-          </div>
-        </div>
-
-        <!-- 30-Minute Roadmap -->
-        <div class="timeline-card">
-          <h3>How Your 30 Minutes Will Be Spent</h3>
-          <p style="color:var(--muted-foreground);font-size:0.875rem;font-weight:300">Every minute is planned so you receive complete clarity without rush or fluff.</p>
-
-          <div class="timeline-row">
-            <div class="time-slot-card">
-              <span class="stamp">00:00 – 05:00</span>
-              <h4>You Share First</h4>
-              <p>Speak freely about your questions, your family practices, and what is currently troubling you.</p>
-            </div>
-            <div class="time-slot-card">
-              <span class="stamp">05:00 – 15:00</span>
-              <h4>Context Questions</h4>
-              <p>I will ask specific questions to understand your background, birth details, and daily habits.</p>
-            </div>
-            <div class="time-slot-card">
-              <span class="stamp">15:00 – 25:00</span>
-              <h4>Direct Guidance</h4>
-              <p>Straightforward answers rooted in tradition, shastra principles, and practical life steps.</p>
-            </div>
-            <div class="time-slot-card">
-              <span class="stamp">25:00 – 30:00</span>
-              <h4>Action Summary</h4>
-              <p>We finalize 3 clear steps for your daily routine. A summary is sent to your WhatsApp in 24 hrs.</p>
-            </div>
-          </div>
+          <ul class="service-points">
+            <li><span class="chk">✓</span> Personalized morning & evening routine blueprint</li>
+            <li><span class="chk">✓</span> Fixing screen addiction and mindless scrolling</li>
+            <li><span class="chk">✓</span> Breath, dhyan, and focus rituals (starting with 10 mins)</li>
+            <li><span class="chk">✓</span> Custom Notion habit tracker sheet included</li>
+          </ul>
+          <a href="#booking" class="service-btn service-btn-outline select-service-trigger" data-track="Daily Dincharya & Habit Blueprint (45 Mins)">
+            Book Habit Call (₹499)
+          </a>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ---------------- 1:1 Booking Section (Cal.com + Priority Flow) ---------------- -->
-    <section class="section" id="booking" style="background:var(--secondary);border-top:1px solid var(--border)">
-      <div class="container">
-        <div class="section-head">
-          <span class="section-eyebrow">Schedule Your Session</span>
-          <h2 class="section-title">Book a 30-Minute Private Call</h2>
-          <p class="section-desc">
-            Pick a time slot directly on my synced Google Calendar via Cal.com, or use the direct priority booking form below.
-          </p>
-        </div>
+  <!-- How The 30 Minutes Work -->
+  <section class="section-wrap" id="how-it-works">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-eyebrow">Zero Fluff Guarantee</span>
+        <h2 class="section-title">What Happens in 30 Minutes?</h2>
+        <p class="section-desc">We respect your time. Here is the exact minute-by-minute structure of how Harsh runs every 1:1 call.</p>
+      </div>
 
-        <!-- Booking Mode Selector -->
-        <div class="booking-mode-tabs" role="tablist" aria-label="Booking Options">
-          <button class="booking-mode-btn active" id="modeBtnCal" role="tab" aria-selected="true" aria-controls="calEmbedView">
-            <span>📅 Live Calendar (Cal.com)</span>
-            <span class="booking-mode-badge">Google Meet Sync</span>
-          </button>
-          <button class="booking-mode-btn" id="modeBtnPriority" role="tab" aria-selected="false" aria-controls="priorityBookingView">
-            <span>⚡ Priority Booking (₹299)</span>
-            <span class="booking-mode-badge">WhatsApp Follow-up</span>
-          </button>
-        </div>
-
-        <!-- 1. Cal.com Embed View -->
-        <div id="calEmbedView" class="cal-wrapper">
-          <div class="cal-header-bar">
-            <div class="cal-title-info">
-              <h3>Live Calendar · Instant Google Meet Invitation</h3>
-              <p>Calendar times are automatically adjusted to your local timezone. Pick any open slot.</p>
-            </div>
-            <div>
-              <a href="https://cal.com/timelinebyharsh/30min" target="_blank" rel="noopener noreferrer" class="cal-direct-link" id="calExternalLink">
-                <span>Open in full tab on Cal.com</span>
-                <span>↗</span>
-              </a>
-            </div>
+      <div class="timeline-card">
+        <div class="timeline-grid">
+          <div class="timeline-step">
+            <div class="timeline-min">00:00 – 05:00</div>
+            <h4 class="timeline-title">1. You Speak Freely</h4>
+            <p class="timeline-desc">Tell your situation, where you feel stuck, and what you’ve tried so far. No judgement, no interruptions.</p>
           </div>
 
-          <!-- Cal.com Inline Embed Container -->
-          <div id="my-cal-inline"></div>
+          <div class="timeline-step">
+            <div class="timeline-min">05:00 – 15:00</div>
+            <h4 class="timeline-title">2. Targeted Questions</h4>
+            <p class="timeline-desc">Harsh asks clarifying questions to peel back symptoms and identify your real underlying bottleneck.</p>
+          </div>
+
+          <div class="timeline-step">
+            <div class="timeline-min">15:00 – 25:00</div>
+            <h4 class="timeline-title">3. The Actionable Fix</h4>
+            <p class="timeline-desc">Direct, realistic guidance based on real experience. No vague motivation — only practical solutions.</p>
+          </div>
+
+          <div class="timeline-step">
+            <div class="timeline-min">25:00 – 30:00</div>
+            <h4 class="timeline-title">4. Next 3 Steps</h4>
+            <p class="timeline-desc">We lock in your top 3 immediate action items so you know exactly what to do starting the very next morning.</p>
+          </div>
         </div>
 
-        <!-- 2. Priority Razorpay Form View -->
-        <div id="priorityBookingView" style="display:none" class="booking-wrapper">
-          <div class="booking-form-pane">
-            <div id="bookingStatus" class="booking-status-banner"></div>
-
-            <form id="bookingForm">
-              <!-- Step 1: Choose Topic -->
-              <div style="margin-bottom:1.75rem">
-                <span class="step-label">Step 1 · Select Your Main Topic</span>
-                <div class="track-options">
-                  <label class="track-card active" data-track="Kuldevta & Parampara Guidance">
-                    <input type="radio" name="trackRadio" value="Kuldevta & Parampara Guidance" checked class="track-radio">
-                    <div class="track-info">
-                      <h4>Kul, Parampara & Ancestral Traditions</h4>
-                      <p>Forgotten Kuldevta/Kuldevi, marriage traditions, and family worship.</p>
-                    </div>
-                  </label>
-
-                  <label class="track-card" data-track="Rudraksh & Daily Sadhana">
-                    <input type="radio" name="trackRadio" value="Rudraksh & Daily Sadhana" class="track-radio">
-                    <div class="track-info">
-                      <h4>Rudraksh Consultation & Mantra Jaap</h4>
-                      <p>Right bead recommendation for Rashi, daily mantra counts, and mandir setup.</p>
-                    </div>
-                  </label>
-
-                  <label class="track-card" data-track="Personal Life Clarity & Inner Peace">
-                    <input type="radio" name="trackRadio" value="Personal Life Clarity & Inner Peace" class="track-radio">
-                    <div class="track-info">
-                      <h4>Life Direction & Mental Peace</h4>
-                      <p>Calm, honest guidance on overcoming restlessness, anxiety, and finding purpose.</p>
-                    </div>
-                  </label>
-                </div>
-              </div>
-
-              <!-- Step 2: Preferred Slot -->
-              <div class="slot-picker-wrap">
-                <span class="step-label">Step 2 · Preferred Day & Time</span>
-                <div class="date-chips" id="dateChips"></div>
-                <div class="time-slots" id="timeSlots">
-                  <div class="time-slot active" data-time="11:00 AM">11:00 AM</div>
-                  <div class="time-slot" data-time="02:30 PM">02:30 PM</div>
-                  <div class="time-slot" data-time="05:00 PM">05:00 PM</div>
-                  <div class="time-slot" data-time="07:30 PM">07:30 PM</div>
-                  <div class="time-slot" data-time="09:00 PM">09:00 PM</div>
-                </div>
-              </div>
-
-              <!-- Step 3: Client Info -->
-              <div>
-                <span class="step-label">Step 3 · Your Information</span>
-                <div class="form-grid">
-                  <div class="form-grid-2">
-                    <div class="field" id="f-name-wrap">
-                      <label for="f-name">Your Full Name *</label>
-                      <input type="text" id="f-name" placeholder="e.g. Rahul Sharma" required autocomplete="name">
-                    </div>
-                    <div class="field" id="f-whatsapp-wrap">
-                      <label for="f-whatsapp">WhatsApp Number *</label>
-                      <input type="tel" id="f-whatsapp" placeholder="10-digit number (Slot details sent here)" required autocomplete="tel">
-                    </div>
-                  </div>
-
-                  <div class="form-grid-2">
-                    <div class="field" id="f-email-wrap">
-                      <label for="f-email">Email Address * (for Google Meet)</label>
-                      <input type="email" id="f-email" placeholder="name@example.com" required autocomplete="email">
-                    </div>
-                    <div class="field" id="f-city-wrap">
-                      <label for="f-city">Your City & State *</label>
-                      <input type="text" id="f-city" placeholder="e.g. Varanasi, UP" required>
-                    </div>
-                  </div>
-
-                  <div class="form-grid-2">
-                    <div class="field" id="f-age-wrap">
-                      <label for="f-age">Your Age *</label>
-                      <input type="number" id="f-age" min="14" max="99" placeholder="e.g. 26" required>
-                    </div>
-                    <div class="field" id="f-handle-wrap">
-                      <label for="f-handle">Instagram Handle <span class="opt">(Optional)</span></label>
-                      <input type="text" id="f-handle" placeholder="@yourhandle">
-                    </div>
-                  </div>
-
-                  <div class="field" id="f-question-wrap">
-                    <label for="f-question">Your Main Question or Dilemma *</label>
-                    <textarea id="f-question" placeholder="Describe your main question in 2 or 3 sentences so Harsh can review it before the call." required></textarea>
-                  </div>
-
-                  <!-- Astrological & Spiritual Context Details -->
-                  <div class="form-grid-2">
-                    <div class="field">
-                      <label for="f-birth">Birth Details <span class="opt">(Date, Time, City — Optional for Jyotish/Rudraksh)</span></label>
-                      <input type="text" id="f-birth" placeholder="e.g. 14 Oct 1997, 6:15 AM, Kanpur">
-                    </div>
-                    <div class="field">
-                      <label for="f-jaap">Current Mantra Jaap or Vrat <span class="opt">(Optional)</span></label>
-                      <input type="text" id="f-jaap" placeholder="e.g. Mahamrityunjay jaap, Monday vrat">
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div style="margin-top:2rem">
-                <button type="submit" class="pay-btn" id="submitBtn">
-                  <span>Pay ₹299 & Confirm Booking</span>
-                </button>
-              </div>
-            </form>
+        <div style="margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem">
+          <div style="font-size:0.875rem;color:var(--muted-foreground)">
+            💡 <b>Post-Call Deliverable:</b> Harsh sends a personalized summary note directly to your WhatsApp within 24 hours.
           </div>
-
-          <!-- Summary Pane -->
-          <div class="booking-summary-pane" id="summaryPane">
-            <div>
-              <div class="summary-card">
-                <div class="summary-header">
-                  <span class="step-label">Booking Summary</span>
-                  <h3 class="summary-title">30-Minute 1:1 Guidance Session</h3>
-                  <div class="summary-price-wrap">
-                    <span class="summary-price">₹299</span>
-                    <span class="summary-currency">INR (Commitment Fee)</span>
-                  </div>
-                </div>
-
-                <ul class="summary-details">
-                  <li><span>Topic:</span><span id="summaryTrack">Kuldevta & Parampara Guidance</span></li>
-                  <li><span>Preferred Day:</span><span id="summaryDate">Today</span></li>
-                  <li><span>Preferred Slot:</span><span id="summaryTime">11:00 AM IST</span></li>
-                  <li><span>Format:</span><span>Google Meet (or WhatsApp Video)</span></li>
-                </ul>
-
-                <ul class="inclusions">
-                  <li>30 minutes of direct, private conversation with Harsh</li>
-                  <li>Thoughtful questions and scriptural perspective</li>
-                  <li>Top 3 prioritized steps for your daily routine</li>
-                  <li>Summary bullets sent to your WhatsApp in 24 hrs</li>
-                  <li>Free 1-time rescheduling if notified 6 hrs prior</li>
-                </ul>
-              </div>
-            </div>
-
-            <div>
-              <div class="guarantee-note">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                <span>Secured via Razorpay (UPI, GPay, PhonePe, Cards, Netbanking)</span>
-              </div>
-            </div>
-          </div>
+          <a href="#booking" class="btn-primary" style="padding:0.6rem 1.4rem;font-size:0.875rem">Reserve Your Slot →</a>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ---------------- Curated Sadhana & Spiritual Shop ---------------- -->
-    <section class="section shop-section" id="shop">
-      <div class="container">
-        <div class="section-head">
-          <span class="section-eyebrow">Curated Essentials</span>
-          <h2 class="section-title">Harsh's Recommended Sadhana Shop</h2>
-          <p class="section-desc">
-            Authentic spiritual items, sacred texts, and daily habits that I personally use, verify, and stand behind.
-          </p>
+  <!-- Comparison: DM vs 1:1 Call -->
+  <section class="section-wrap" style="background:#FFFFFF;border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-eyebrow">Why Book a Call</span>
+        <h2 class="section-title">Why Instagram DMs Never Work</h2>
+        <p class="section-desc">Instagram messages are built for quick compliments, not for transforming your life or career.</p>
+      </div>
+
+      <div class="compare-wrap">
+        <div class="compare-box bad">
+          <h3 class="compare-title" style="color:#C53030">
+            <span>❌</span> Asking in Instagram DMs
+          </h3>
+          <ul class="compare-list">
+            <li><span>•</span> You get lost among 500+ unread messages</li>
+            <li><span>•</span> A 2-line text reply cannot capture your life context</li>
+            <li><span>•</span> Easy to read once and immediately forget</li>
+            <li><span>•</span> Zero accountability or personalized action steps</li>
+          </ul>
         </div>
 
-        <div class="shop-controls">
-          <div class="category-tabs" role="tablist" aria-label="Shop categories">
-            <button class="cat-tab active" data-filter="all" role="tab" aria-selected="true">All Items</button>
-            <button class="cat-tab" data-filter="spiritual" role="tab" aria-selected="false">Rudraksh & Sacred Items</button>
-            <button class="cat-tab" data-filter="books" role="tab" aria-selected="false">Sacred Books</button>
-            <button class="cat-tab" data-filter="lifestyle" role="tab" aria-selected="false">Daily Focus & Dincharya</button>
+        <div class="compare-box good">
+          <h3 class="compare-title" style="color:#276749">
+            <span>✅</span> Private 1:1 Call with Harsh
+          </h3>
+          <ul class="compare-list">
+            <li><span>✓</span> Dedicated 30–45 mins where the entire focus is on you</li>
+            <li><span>✓</span> Deep questions that find the real root issue</li>
+            <li><span>✓</span> 3 concrete next steps tailored to your schedule</li>
+            <li><span>✓</span> Follow-up WhatsApp summary note within 24 hours</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Booking Section (Cal.com + Priority Razorpay) -->
+  <section class="section-wrap booking-section" id="booking">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-eyebrow">Lock Your Time</span>
+        <h2 class="section-title">Schedule Your 1:1 Consultation</h2>
+        <p class="section-desc">Choose between instant Google Calendar booking or priority slot checkout with Razorpay.</p>
+      </div>
+
+      <div class="booking-tabs">
+        <button type="button" class="booking-tab-btn active" data-tab="cal">
+          📅 Pick Free / Flexible Slot (Cal.com)
+        </button>
+        <button type="button" class="booking-tab-btn" data-tab="priority">
+          ⚡ Priority Commitment Checkout (₹299)
+        </button>
+      </div>
+
+      <!-- Tab 1: Cal.com Official Embed -->
+      <div class="tab-content active" id="tab-cal">
+        <div class="cal-box">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem;flex-wrap:wrap;gap:0.75rem">
+            <div>
+              <h3 style="font-size:1.15rem;font-weight:700;color:var(--charcoal)">Select Date & Time on Harsh's Calendar</h3>
+              <p style="font-size:0.825rem;color:var(--muted-foreground)">Syncs directly with Google Meet. You will get a calendar invite instantly.</p>
+            </div>
+            <a href="https://cal.com/timelinebyharsh/30min" target="_blank" rel="noopener noreferrer" style="font-size:0.8rem;font-weight:600;color:var(--accent-orange)">
+              Open in full window ↗
+            </a>
           </div>
 
-          <div class="shop-search">
-            <span class="shop-search-icon">🔍</span>
-            <input type="text" id="shopSearchInput" placeholder="Search mala, books, dhoop..." aria-label="Search recommended items">
-          </div>
+          <div style="width:100%;height:620px;overflow:scroll" id="my-cal-inline"></div>
+          <script type="text/javascript">
+            Cal("inline", {
+              elementOrSelector: "#my-cal-inline",
+              calLink: "timelinebyharsh/30min",
+              layout: "month_view"
+            });
+          </script>
         </div>
+      </div>
 
-        <!-- Products Grid -->
-        <div class="products-grid" id="productsGrid">
-          <!-- 1. Authentic Rudraksh Mala -->
-          <article class="product-card" data-category="spiritual" data-keywords="rudraksh mala 5 mukhi panchmukhi shiva jaap meditation">
-            <div>
-              <div class="product-tag-row">
-                <span class="product-cat-tag">Sacred Item</span>
-                <span class="product-badge">★ Daily Sadhana</span>
-              </div>
-              <div class="product-icon-wrap">📿</div>
-              <h3 class="product-name">Original 5-Mukhi Rudraksh Mala (108 Beads)</h3>
-              <p class="product-desc">
-                Lab-certified natural five-faced Rudraksha beads. Perfect for daily mantra jaap (Mahamrityunjay / Om Namah Shivaya) and wearing for mental calm and steady focus.
-              </p>
-            </div>
-            <div class="product-card-footer">
-              <span class="product-price-est">Certified Beads</span>
-              <a href="https://www.amazon.in/s?k=original+5+mukhi+rudraksha+mala+certified&tag=timelineharsh-21" target="_blank" rel="noopener noreferrer" class="affiliate-link-btn">
-                <span>View on Amazon</span>
-                <span>↗</span>
-              </a>
-            </div>
-          </article>
-
-          <!-- 2. Bhagavad Gita As It Is -->
-          <article class="product-card" data-category="books" data-keywords="bhagavad gita as it is book krishna spiritual philosophy">
-            <div>
-              <div class="product-tag-row">
-                <span class="product-cat-tag">Sacred Book</span>
-                <span class="product-badge">Must Have</span>
-              </div>
-              <div class="product-icon-wrap">📖</div>
-              <h3 class="product-name">Bhagavad Gita As It Is</h3>
-              <p class="product-desc">
-                The ultimate manual for the human mind. Whenever you feel overwhelmed by doubts, family dilemmas, or duty, reading just two verses daily provides instant perspective.
-              </p>
-            </div>
-            <div class="product-card-footer">
-              <span class="product-price-est">Deluxe Edition</span>
-              <a href="https://www.amazon.in/dp/9384564197?tag=timelineharsh-21" target="_blank" rel="noopener noreferrer" class="affiliate-link-btn">
-                <span>View on Amazon</span>
-                <span>↗</span>
-              </a>
-            </div>
-          </article>
-
-          <!-- 3. Pure Sphatik (Quartz) Mala -->
-          <article class="product-card" data-category="spiritual" data-keywords="sphatik mala crystal quartz shiva shakti cool mind peace">
-            <div>
-              <div class="product-tag-row">
-                <span class="product-cat-tag">Sacred Item</span>
-                <span class="product-badge">Cool Energy</span>
-              </div>
-              <div class="product-icon-wrap">🔮</div>
-              <h3 class="product-name">Natural Diamond Cut Sphatik Mala</h3>
-              <p class="product-desc">
-                Genuine cooling quartz beads. Highly recommended for people experiencing high stress, restlessness, or anger. Keeps the body temperature balanced during prayer.
-              </p>
-            </div>
-            <div class="product-card-footer">
-              <span class="product-price-est">Natural Crystal</span>
-              <a href="https://www.amazon.in/s?k=natural+sphatik+mala+108+beads&tag=timelineharsh-21" target="_blank" rel="noopener noreferrer" class="affiliate-link-btn">
-                <span>View on Amazon</span>
-                <span>↗</span>
-              </a>
-            </div>
-          </article>
-
-          <!-- 4. Autobiography of a Yogi -->
-          <article class="product-card" data-category="books" data-keywords="autobiography of a yogi paramahansa yogananda book spiritual">
-            <div>
-              <div class="product-tag-row">
-                <span class="product-cat-tag">Sacred Book</span>
-                <span class="product-badge">Transformative</span>
-              </div>
-              <div class="product-icon-wrap">✨</div>
-              <h3 class="product-name">Autobiography of a Yogi</h3>
-              <p class="product-desc">
-                By Paramahansa Yogananda. An extraordinary book that bridges ancient Indian spiritual science with modern rational thinking. Inspires deep devotion and reverence.
-              </p>
-            </div>
-            <div class="product-card-footer">
-              <span class="product-price-est">Paperback</span>
-              <a href="https://www.amazon.in/dp/818953551X?tag=timelineharsh-21" target="_blank" rel="noopener noreferrer" class="affiliate-link-btn">
-                <span>View on Amazon</span>
-                <span>↗</span>
-              </a>
-            </div>
-          </article>
-
-          <!-- 5. Pure Copper Water Vessel -->
-          <article class="product-card" data-category="lifestyle" data-keywords="copper bottle vessel water health ayurveda dincharya ushapan">
-            <div>
-              <div class="product-tag-row">
-                <span class="product-cat-tag">Daily Focus</span>
-                <span class="product-badge">Ayurveda</span>
-              </div>
-              <div class="product-icon-wrap">🏺</div>
-              <h3 class="product-name">100% Pure Copper Water Bottle (Tamra Jal)</h3>
-              <p class="product-desc">
-                Drinking water stored overnight in pure copper is a foundational Ayurvedic habit (Ushapan) that balances the three doshas, aids digestion, and brings clear morning energy.
-              </p>
-            </div>
-            <div class="product-card-footer">
-              <span class="product-price-est">1 Litre · Pure Copper</span>
-              <a href="https://www.amazon.in/s?k=pure+copper+water+bottle+1000ml&tag=timelineharsh-21" target="_blank" rel="noopener noreferrer" class="affiliate-link-btn">
-                <span>View on Amazon</span>
-                <span>↗</span>
-              </a>
-            </div>
-          </article>
-
-          <!-- 6. Shiv Puran (English Edition) -->
-          <article class="product-card" data-category="books" data-keywords="shiv puran shiva purana book history stories">
-            <div>
-              <div class="product-tag-row">
-                <span class="product-cat-tag">Sacred Book</span>
-                <span class="product-badge">Shastra</span>
-              </div>
-              <div class="product-icon-wrap">🔱</div>
-              <h3 class="product-name">The Shiva Purana (Clear Translation)</h3>
-              <p class="product-desc">
-                Explore the deep symbolism, stories of Lord Shiva, creation of Jyotirlingas, and the philosophical essence of Mahadev in accessible language.
-              </p>
-            </div>
-            <div class="product-card-footer">
-              <span class="product-price-est">Hardcover / Paperback</span>
-              <a href="https://www.amazon.in/s?k=shiva+purana+english&tag=timelineharsh-21" target="_blank" rel="noopener noreferrer" class="affiliate-link-btn">
-                <span>View on Amazon</span>
-                <span>↗</span>
-              </a>
-            </div>
-          </article>
-
-          <!-- 7. Natural Ayurvedic Guggal & Cow Dung Dhoop -->
-          <article class="product-card" data-category="spiritual" data-keywords="ayurvedic dhoop guggal cow dung pooja havan sticks sacred">
-            <div>
-              <div class="product-tag-row">
-                <span class="product-cat-tag">Sacred Item</span>
-                <span class="product-badge">Charcoal Free</span>
-              </div>
-              <div class="product-icon-wrap">🌿</div>
-              <h3 class="product-name">Charcoal-Free Ayurvedic Guggal Dhoop Sticks</h3>
-              <p class="product-desc">
-                Handcrafted from organic cow dung, pure guggal, and natural havan samagri. Cleanses negative vibrations and fills your home mandir with a divine temple fragrance.
-              </p>
-            </div>
-            <div class="product-card-footer">
-              <span class="product-price-est">Havan Samagri</span>
-              <a href="https://www.amazon.in/s?k=charcoal+free+cow+dung+guggal+dhoop&tag=timelineharsh-21" target="_blank" rel="noopener noreferrer" class="affiliate-link-btn">
-                <span>View on Amazon</span>
-                <span>↗</span>
-              </a>
-            </div>
-          </article>
-
-          <!-- 8. Gomati Chakra & Pure Brass Mandir Bell -->
-          <article class="product-card" data-category="spiritual" data-keywords="gomati chakra brass bell pooja mandir sacred sound">
-            <div>
-              <div class="product-tag-row">
-                <span class="product-cat-tag">Sacred Item</span>
-                <span class="product-badge">Temple Sound</span>
-              </div>
-              <div class="product-icon-wrap">🔔</div>
-              <h3 class="product-name">Solid Brass Mandir Ghanti (Sacred Resonance)</h3>
-              <p class="product-desc">
-                High-frequency pure brass bell. The resonant acoustic vibration creates sharp mental presence, clears stagnant energy, and awakens the sensory awareness.
-              </p>
-            </div>
-            <div class="product-card-footer">
-              <span class="product-price-est">Pure Brass</span>
-              <a href="https://www.amazon.in/s?k=pure+brass+pooja+bell+ghanti&tag=timelineharsh-21" target="_blank" rel="noopener noreferrer" class="affiliate-link-btn">
-                <span>View on Amazon</span>
-                <span>↗</span>
-              </a>
-            </div>
-          </article>
-
-          <!-- 9. Atomic Habits (For Sadhana Discipline) -->
-          <article class="product-card" data-category="books" data-keywords="atomic habits james clear routine discipline sadhana book">
-            <div>
-              <div class="product-tag-row">
-                <span class="product-cat-tag">Daily Focus</span>
-                <span class="product-badge">Discipline</span>
-              </div>
-              <div class="product-icon-wrap">⏳</div>
-              <h3 class="product-name">Atomic Habits by James Clear</h3>
-              <p class="product-desc">
-                The most practical book on breaking inconsistency. Crucial for building a daily 10-minute prayer habit (dincharya) that actually lasts through busy weeks.
-              </p>
-            </div>
-            <div class="product-card-footer">
-              <span class="product-price-est">Paperback</span>
-              <a href="https://www.amazon.in/dp/1847941834?tag=timelineharsh-21" target="_blank" rel="noopener noreferrer" class="affiliate-link-btn">
-                <span>View on Amazon</span>
-                <span>↗</span>
-              </a>
-            </div>
-          </article>
-        </div>
-
-        <!-- Transparent Affiliate Disclosure -->
-        <div class="affiliate-disclosure-card">
-          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-          <div>
-            <strong style="color:var(--charcoal);font-size:0.85rem;font-weight:500">Honest Affiliate Disclosure:</strong>
-            <p>
-              Some links on this page are affiliate links. When you purchase through them, Harsh may earn a small referral commission at no additional cost to you. I only recommend books and items that I have personally bought, tested, and found genuine value in.
+      <!-- Tab 2: Priority Razorpay Checkout -->
+      <div class="tab-content" id="tab-priority">
+        <div class="rzp-form-wrap" id="priorityFormContainer">
+          <div style="text-align:center;margin-bottom:1.75rem">
+            <span class="badge-pill" style="margin-bottom:0.75rem">Guaranteed Booking</span>
+            <h3 style="font-size:1.35rem;font-weight:700;color:var(--charcoal)">Priority Commitment Slot</h3>
+            <p style="font-size:0.85rem;color:var(--muted-foreground)">
+              Fixed <b>₹299 commitment fee</b>. Ensures only serious clients book so Harsh can prepare tailored notes for your call.
             </p>
           </div>
+
+          <form id="rzpBookingForm" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="clientName" class="field-label">Your Name <span class="req">*</span></label>
+                <input type="text" id="clientName" name="name" class="form-input" placeholder="e.g. Rahul Sharma" required autocomplete="name">
+              </div>
+              <div class="form-group">
+                <label for="clientWhatsapp" class="field-label">WhatsApp Number <span class="req">*</span></label>
+                <input type="tel" id="clientWhatsapp" name="whatsapp" class="form-input" placeholder="10-digit number" required autocomplete="tel" inputmode="numeric">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="clientEmail" class="field-label">Email Address <span class="req">*</span></label>
+                <input type="email" id="clientEmail" name="email" class="form-input" placeholder="you@gmail.com" required autocomplete="email">
+              </div>
+              <div class="form-group">
+                <label for="clientCity" class="field-label">City & Age <span class="req">*</span></label>
+                <div style="display:grid;grid-template-columns:2fr 1fr;gap:0.5rem">
+                  <input type="text" id="clientCity" name="city" class="form-input" placeholder="City" required>
+                  <input type="number" id="clientAge" name="age" class="form-input" placeholder="Age" min="15" max="80" required>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="clientTrack" class="field-label">Select Service Track <span class="req">*</span></label>
+              <select id="clientTrack" name="track" class="form-select" required>
+                <option value="1:1 Clarity & Roadmap Call (30 Mins)">1:1 Clarity & Roadmap Call — ₹299 (30 Mins)</option>
+                <option value="Creator & Social Media Audit (45 Mins)">Creator & Social Media Audit — ₹699 (45 Mins)</option>
+                <option value="Daily Dincharya & Habit Blueprint (45 Mins)">Daily Dincharya & Habit Blueprint — ₹499 (45 Mins)</option>
+                <option value="General Life Guidance & Sounding Board">General Life Guidance & Sounding Board — ₹299</option>
+              </select>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="prefDate" class="field-label">Preferred Date <span class="req">*</span></label>
+                <input type="date" id="prefDate" name="preferred_date" class="form-input" required>
+              </div>
+              <div class="form-group">
+                <label for="prefTime" class="field-label">Preferred Time Slot <span class="req">*</span></label>
+                <select id="prefTime" name="preferred_time" class="form-select" required>
+                  <option value="Morning (9 AM - 12 PM)">Morning (9 AM – 12 PM)</option>
+                  <option value="Afternoon (1 PM - 4 PM)">Afternoon (1 PM – 4 PM)</option>
+                  <option value="Evening (6 PM - 9 PM)" selected>Evening (6 PM – 9 PM)</option>
+                  <option value="Night (9 PM - 11 PM)">Night (9 PM – 11 PM)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="clientQuestion" class="field-label">What is your #1 question or problem for this call? <span class="req">*</span></label>
+              <textarea id="clientQuestion" name="question" class="form-textarea" placeholder="Be as specific as possible so Harsh comes prepared..." required></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="clientHandle" class="field-label">Instagram Handle (Optional)</label>
+              <input type="text" id="clientHandle" name="handle" class="form-input" placeholder="@yourhandle">
+            </div>
+
+            <button type="submit" id="rzpSubmitBtn" class="form-submit-btn">
+              Proceed to Secure Payment (₹299 via UPI/Card) →
+            </button>
+
+            <div id="formStatusMsg" class="form-status-msg"></div>
+
+            <p style="text-align:center;font-size:0.75rem;color:var(--muted-foreground);margin-top:1rem">
+              🔒 100% Secure Checkout via Razorpay. UPI, Google Pay, PhonePe, Cards supported.
+            </p>
+          </form>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ---------------- FAQ Section (Modern Web Guidance Compliant) ---------------- -->
-    <section class="section" id="faq">
-      <div class="container">
-        <div class="section-head">
-          <span class="section-eyebrow">Common Questions</span>
-          <h2 class="section-title">Frequently Asked Questions</h2>
-          <p class="section-desc">
-            Everything you need to know about the consultation, preparation, and scheduling.
-          </p>
-        </div>
-
-        <div class="faq-list">
-          <details class="faq-item" name="faq-group" open>
-            <summary class="faq-question">How does scheduling through Cal.com work?</summary>
-            <div class="faq-answer">
-              Cal.com connects directly with Harsh's Google Calendar. When you pick a date and time on the calendar, your slot is instantly reserved and a Google Meet invitation is sent directly to your email inbox. There is zero waiting or manual back-and-forth needed.
-            </div>
-          </details>
-
-          <details class="faq-item" name="faq-group">
-            <summary class="faq-question">What kind of questions can I ask during our call?</summary>
-            <div class="faq-answer">
-              You can ask about ancestral worship (Kuldevta / Kuldevi), daily mantra jaap (which mantra, mala, count, and rules), right Rudraksh for your birth chart, home temple direction and puja rules, or general life clarity.
-            </div>
-          </details>
-
-          <details class="faq-item" name="faq-group">
-            <summary class="faq-question">Why is there a ₹299 fee?</summary>
-            <div class="faq-answer">
-              When calls were free, people booked slots and never showed up. The ₹299 is a small commitment filter so that only serious, committed individuals book, allowing us to make full, focused use of every minute.
-            </div>
-          </details>
-
-          <details class="faq-item" name="faq-group">
-            <summary class="faq-question">What if I need to reschedule?</summary>
-            <div class="faq-answer">
-              For Cal.com bookings, you can reschedule in one click directly from your Google Calendar invitation email. For priority bookings, send a message on WhatsApp at least 6 hours before the call and we will move your slot for free.
-            </div>
-          </details>
-
-          <details class="faq-item" name="faq-group">
-            <summary class="faq-question">Is our conversation confidential?</summary>
-            <div class="faq-answer">
-              Yes, 100%. Everything discussed during your call is strictly confidential. Harsh never shares client names, personal family matters, or conversation details publicly.
-            </div>
-          </details>
-
-          <details class="faq-item" name="faq-group">
-            <summary class="faq-question">What happens after the call finishes?</summary>
-            <div class="faq-answer">
-              Within 24 hours of the call, Harsh will send a short summary note directly to your WhatsApp detailing what was agreed and your top 3 prioritized action items.
-            </div>
-          </details>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- ---------------- Minimal Footer (Reference from Lovable) ---------------- -->
-  <footer class="footer-minimal">
+  <!-- Curated Recommendations / Affiliate Shop -->
+  <section class="section-wrap" id="recommendations">
     <div class="container">
-      <p class="footer-text">Powered by timelinebyharsh</p>
-      <a href="https://www.instagram.com/timelinebyharsh/" target="_blank" rel="noopener noreferrer" class="footer-link">
-        Instagram → @timelinebyharsh
-      </a>
-      <p class="footer-copyright">
-        © <span id="yearSpan"></span> Harsh Upadhyay · All rights reserved. Powered by Cal.com & Razorpay.
+      <div class="section-head">
+        <span class="section-eyebrow">Curated Tools & Books</span>
+        <h2 class="section-title">Tools Harsh Personally Recommends</h2>
+        <p class="section-desc">Handpicked books and essentials that have genuinely shaped daily focus, mindfulness, and discipline.</p>
+      </div>
+
+      <div class="shop-grid">
+        <div class="shop-card">
+          <span class="shop-tag">Discipline & Habits</span>
+          <h3 class="shop-title">Atomic Habits</h3>
+          <p class="shop-desc">by James Clear. The definitive guide on how tiny changes create remarkable results in personal consistency.</p>
+          <a href="https://www.amazon.in/dp/1847941834?tag=timelineharsh-21" target="_blank" rel="noopener noreferrer" class="shop-affiliate-link">
+            <span>View on Amazon</span>
+            <span>↗</span>
+          </a>
+        </div>
+
+        <div class="shop-card">
+          <span class="shop-tag">Mindset & Wisdom</span>
+          <h3 class="shop-title">The Bhagavad Gita As It Is</h3>
+          <p class="shop-desc">The timeless manual on duty, detaching from anxiety, and finding clarity in the middle of life's battlefield.</p>
+          <a href="https://www.amazon.in/dp/9384564227?tag=timelineharsh-21" target="_blank" rel="noopener noreferrer" class="shop-affiliate-link">
+            <span>View on Amazon</span>
+            <span>↗</span>
+          </a>
+        </div>
+
+        <div class="shop-card">
+          <span class="shop-tag">Meditation & Calm</span>
+          <h3 class="shop-title">Authentic 5-Mukhi Rudraksha Mala</h3>
+          <p class="shop-desc">108+1 certified beads for daily dhyan, grounding, and reducing emotional restlessness during busy days.</p>
+          <a href="https://www.amazon.in/s?k=5+mukhi+rudraksha+mala+certified&tag=timelineharsh-21" target="_blank" rel="noopener noreferrer" class="shop-affiliate-link">
+            <span>View on Amazon</span>
+            <span>↗</span>
+          </a>
+        </div>
+
+        <div class="shop-card">
+          <span class="shop-tag">Deep Work</span>
+          <h3 class="shop-title">Visual Focus Hourglass / Timer</h3>
+          <p class="shop-desc">An analog visual timer to eliminate digital distractions and master 30-minute deep work sprints.</p>
+          <a href="https://www.amazon.in/s?k=pomodoro+timer+analog&tag=timelineharsh-21" target="_blank" rel="noopener noreferrer" class="shop-affiliate-link">
+            <span>View on Amazon</span>
+            <span>↗</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Client Reviews / Social Proof -->
+  <section class="section-wrap" style="background:#FFFFFF;border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-eyebrow">Real Outcomes</span>
+        <h2 class="section-title">What Clients Say After the Call</h2>
+        <p class="section-desc">Honest feedback from people who turned their confusion into clear daily action.</p>
+      </div>
+
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div>
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">
+              "I had been overthinking my career switch for 6 months. In just 30 minutes, Harsh made me realize the one fear holding me back. The 3 steps he gave worked like clockwork."
+            </p>
+          </div>
+          <div class="review-author">
+            <div class="author-avatar">RM</div>
+            <div>
+              <div class="author-name">Rahul Mishra</div>
+              <div class="author-sub">Software Engineer, Pune</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div>
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">
+              "No preachy motivational jargon. Harsh speaks straight from practical experience. His breakdown of my morning routine solved my midday energy crashes completely."
+            </p>
+          </div>
+          <div class="review-author">
+            <div class="author-avatar">AS</div>
+            <div>
+              <div class="author-name">Ananya Sharma</div>
+              <div class="author-sub">Content Creator, Delhi</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div>
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">
+              "He audited my reels, told me exactly why my retention dropped at 4 seconds, and helped me restructure my storytelling hooks. Best ₹299 investment I've made."
+            </p>
+          </div>
+          <div class="review-author">
+            <div class="author-avatar">VK</div>
+            <div>
+              <div class="author-name">Vikas Kashyap</div>
+              <div class="author-sub">Freelancer, Bengaluru</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section (Accessible Native <details>) -->
+  <section class="section-wrap" id="faq">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-eyebrow">Got Questions?</span>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-desc">Everything you need to know about booking and preparing for your 1:1 call.</p>
+      </div>
+
+      <div class="faq-wrap">
+        <details class="faq-item" name="faq-group">
+          <summary class="faq-summary">How and where does the 1:1 call happen?</summary>
+          <div class="faq-body">
+            All calls happen privately over <b>Google Meet</b>. When you book via Cal.com or the priority checkout, a secure Google Meet link is automatically created and sent to your email and WhatsApp number.
+          </div>
+        </details>
+
+        <details class="faq-item" name="faq-group">
+          <summary class="faq-summary">Why is there a ₹299 commitment fee?</summary>
+          <div class="faq-body">
+            Earlier, Harsh offered calls for free. Unfortunately, many people booked slots and never showed up, blocking others who genuinely needed help. The ₹299 commitment fee ensures only serious, committed individuals attend so Harsh can dedicate 100% of his energy and preparation to you.
+          </div>
+        </details>
+
+        <details class="faq-item" name="faq-group">
+          <summary class="faq-summary">Can I reschedule if something urgent comes up?</summary>
+          <div class="faq-body">
+            Yes. Life happens. You can reschedule your session by notifying at least 6 hours in advance via WhatsApp or reply to your confirmation email, and we will pick a new slot at no extra charge.
+          </div>
+        </details>
+
+        <details class="faq-item" name="faq-group">
+          <summary class="faq-summary">Is this conversation completely private and confidential?</summary>
+          <div class="faq-body">
+            100% yes. Whatever you discuss with Harsh — whether personal life decisions, career choices, or struggles — remains strictly between you and Harsh. We never share or publish client session details.
+          </div>
+        </details>
+
+        <details class="faq-item" name="faq-group">
+          <summary class="faq-summary">How should I prepare before joining the call?</summary>
+          <div class="faq-body">
+            Keep a pen and notepad ready. Write down your #1 question and what you have already tried so far. Be ready to be open and honest — the more context you provide, the faster Harsh can help you solve it.
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-inner">
+      <div class="brand">
+        <div class="brand-avatar">T<span>H</span></div>
+        <div class="brand-text">
+          <span class="brand-name">Timeline by Harsh</span>
+          <span class="brand-tag">@timelinebyharsh · Authentic Guidance</span>
+        </div>
+      </div>
+
+      <ul class="footer-links">
+        <li><a href="#clarity-finder">Clarity Quiz</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#booking">Book Call</a></li>
+        <li><a href="#recommendations">Recommended Shop</a></li>
+        <li><a href="/bookings.html">Admin Login</a></li>
+      </ul>
+
+      <p class="footer-copy">
+        © 2026 Timeline by Harsh. All rights reserved. Designed for high conversion & authentic seeker guidance.
       </p>
     </div>
   </footer>
 
-  <!-- ---------------- Client JavaScript ---------------- -->
+  <!-- Sticky Mobile Bottom Bar -->
+  <div class="mobile-sticky-bar" id="mobileStickyBar">
+    <div class="mobile-bar-info">
+      <span class="mobile-bar-title">1:1 Clarity Call</span>
+      <span class="mobile-bar-sub">₹299 · 30 Mins Slot</span>
+    </div>
+    <a href="#booking" class="mobile-bar-btn">Book Slot →</a>
+  </div>
+
+  <!-- Interactive JavaScript Logic -->
   <script>
-    document.getElementById("yearSpan").textContent = new Date().getFullYear();
-
-    // ==========================================
-    // ⚙️ CAL.COM CONFIGURATION
-    // Change this username and event slug anytime
-    // ==========================================
-    const CAL_CONFIG = {
-      username: "timelinebyharsh",  // Your Cal.com username
-      eventSlug: "30min",          // e.g. 30min, 15min, or consultation
-      get calLink() {
-        return `${this.username}/${this.eventSlug}`;
-      }
-    };
-
-    // Update dynamic Cal.com links & popup attributes
-    const calExternalLink = document.getElementById("calExternalLink");
-    if (calExternalLink) {
-      calExternalLink.href = `https://cal.com/${CAL_CONFIG.calLink}`;
-    }
-    const calPopupBtn = document.getElementById("calPopupBtn");
-    if (calPopupBtn) {
-      calPopupBtn.setAttribute("data-cal-link", CAL_CONFIG.calLink);
-    }
-
-    // Initialize Cal.com Inline Embed with the reference brand color #FF6F1E
-    try {
-      Cal("inline", {
-        elementOrSelector: "#my-cal-inline",
-        config: { layout: "month_view", theme: "light" },
-        calLink: CAL_CONFIG.calLink
-      });
-    } catch (e) {
-      console.warn("Cal.com inline init notice:", e);
-    }
-
-    // 1. Mobile Menu Toggle
+    // 1. Mobile Drawer Navigation Toggle
     const menuToggle = document.getElementById("menuToggle");
     const mobileDrawer = document.getElementById("mobileDrawer");
-
     menuToggle.addEventListener("click", () => {
-      const open = mobileDrawer.classList.toggle("open");
-      menuToggle.setAttribute("aria-expanded", open ? "true" : "false");
+      mobileDrawer.classList.toggle("open");
     });
-
     document.querySelectorAll(".drawer-link").forEach(link => {
       link.addEventListener("click", () => {
         mobileDrawer.classList.remove("open");
-        menuToggle.setAttribute("aria-expanded", "false");
       });
     });
 
-    // 2. Booking Mode Switcher (Cal.com vs Priority Razorpay)
-    const modeBtnCal = document.getElementById("modeBtnCal");
-    const modeBtnPriority = document.getElementById("modeBtnPriority");
-    const calEmbedView = document.getElementById("calEmbedView");
-    const priorityBookingView = document.getElementById("priorityBookingView");
-
-    modeBtnCal.addEventListener("click", () => {
-      modeBtnCal.classList.add("active");
-      modeBtnCal.setAttribute("aria-selected", "true");
-      modeBtnPriority.classList.remove("active");
-      modeBtnPriority.setAttribute("aria-selected", "false");
-      calEmbedView.style.display = "block";
-      priorityBookingView.style.display = "none";
-    });
-
-    modeBtnPriority.addEventListener("click", () => {
-      modeBtnPriority.classList.add("active");
-      modeBtnPriority.setAttribute("aria-selected", "true");
-      modeBtnCal.classList.remove("active");
-      modeBtnCal.setAttribute("aria-selected", "false");
-      priorityBookingView.style.display = "grid";
-      calEmbedView.style.display = "none";
-    });
-
-    // 3. Dynamic Date Generation (Today + Next 5 Days) for Priority Form
-    const dateChipsContainer = document.getElementById("dateChips");
-    const today = new Date();
-    const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-    const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-
-    let selectedDate = "Today";
-    let selectedTime = "11:00 AM";
-    let selectedTrack = "Kuldevta & Parampara Guidance";
-
-    for (let i = 0; i < 6; i++) {
-      const d = new Date();
-      d.setDate(today.getDate() + i);
-      const dayLabel = i === 0 ? "Today" : i === 1 ? "Tomorrow" : `${days[d.getDay()]}, ${d.getDate()} ${months[d.getMonth()]}`;
-      const chip = document.createElement("button");
-      chip.type = "button";
-      chip.className = "date-chip" + (i === 0 ? " active" : "");
-      chip.textContent = dayLabel;
-      chip.dataset.date = dayLabel;
-      chip.addEventListener("click", () => {
-        document.querySelectorAll(".date-chip").forEach(c => c.classList.remove("active"));
-        chip.classList.add("active");
-        selectedDate = dayLabel;
-        document.getElementById("summaryDate").textContent = selectedDate;
-      });
-      dateChipsContainer.appendChild(chip);
-    }
-
-    // 4. Time Slot Selection
-    document.querySelectorAll(".time-slot").forEach(slot => {
-      slot.addEventListener("click", () => {
-        document.querySelectorAll(".time-slot").forEach(s => s.classList.remove("active"));
-        slot.classList.add("active");
-        selectedTime = slot.dataset.time + " IST";
-        document.getElementById("summaryTime").textContent = selectedTime;
+    // 2. Booking Tabs Toggle (Cal vs Priority)
+    const tabBtns = document.querySelectorAll(".booking-tab-btn");
+    const tabContents = document.querySelectorAll(".tab-content");
+    tabBtns.forEach(btn => {
+      btn.addEventListener("click", () => {
+        tabBtns.forEach(b => b.classList.remove("active"));
+        tabContents.forEach(c => c.classList.remove("active"));
+        btn.classList.add("active");
+        const tabKey = btn.getAttribute("data-tab");
+        const target = document.getElementById("tab-" + tabKey);
+        if (target) target.classList.add("active");
       });
     });
 
-    // 5. Track Selection
-    document.querySelectorAll(".track-card").forEach(card => {
-      card.addEventListener("click", () => {
-        document.querySelectorAll(".track-card").forEach(c => c.classList.remove("active"));
-        card.classList.add("active");
-        const radio = card.querySelector("input[type=radio]");
-        if (radio) radio.checked = true;
-        selectedTrack = card.dataset.track;
-        document.getElementById("summaryTrack").textContent = selectedTrack;
-      });
-    });
-
-    // 6. Shop Category Filtering & Search
-    const catTabs = document.querySelectorAll(".cat-tab");
-    const productCards = document.querySelectorAll(".product-card");
-    const searchInput = document.getElementById("shopSearchInput");
-    let currentCategory = "all";
-    let searchQuery = "";
-
-    function filterProducts() {
-      productCards.forEach(card => {
-        const cat = card.dataset.category || "";
-        const keywords = (card.dataset.keywords || "") + " " + card.textContent.toLowerCase();
-        const matchesCat = currentCategory === "all" || cat === currentCategory;
-        const matchesQuery = !searchQuery || keywords.includes(searchQuery.toLowerCase());
-
-        if (matchesCat && matchesQuery) {
-          card.style.display = "flex";
-        } else {
-          card.style.display = "none";
+    // 3. Service Card Click-to-Select & Smooth Scroll
+    document.querySelectorAll(".select-service-trigger").forEach(btn => {
+      btn.addEventListener("click", (e) => {
+        const trackName = btn.getAttribute("data-track");
+        if (trackName) {
+          const trackSelect = document.getElementById("clientTrack");
+          if (trackSelect) {
+            let matched = false;
+            for (let i = 0; i < trackSelect.options.length; i++) {
+              if (trackSelect.options[i].value.includes(trackName.slice(0, 15))) {
+                trackSelect.selectedIndex = i;
+                matched = true;
+                break;
+              }
+            }
+            if (!matched) {
+              const opt = new Option(trackName, trackName, true, true);
+              trackSelect.add(opt);
+            }
+          }
         }
-      });
-    }
-
-    catTabs.forEach(tab => {
-      tab.addEventListener("click", () => {
-        catTabs.forEach(t => {
-          t.classList.remove("active");
-          t.setAttribute("aria-selected", "false");
-        });
-        tab.classList.add("active");
-        tab.setAttribute("aria-selected", "true");
-        currentCategory = tab.dataset.filter;
-        filterProducts();
+        // Switch to Priority tab for direct booking
+        const priorityTabBtn = document.querySelector('.booking-tab-btn[data-tab="priority"]');
+        if (priorityTabBtn) priorityTabBtn.click();
       });
     });
 
-    searchInput.addEventListener("input", (e) => {
-      searchQuery = e.target.value.trim();
-      filterProducts();
+    // 4. Gamification: Problem & Feeling Navigator Logic
+    let quizState = {
+      problem: null,
+      outcome: null
+    };
+
+    const step1View = document.getElementById("step1View");
+    const step2View = document.getElementById("step2View");
+    const resultView = document.getElementById("resultView");
+    const quizProgressFill = document.getElementById("quizProgressFill");
+    const quizStepText = document.getElementById("quizStepText");
+    const quizStepPercent = document.getElementById("quizStepPercent");
+    const quizBackBtn = document.getElementById("quizBackBtn");
+    const retakeQuizBtn = document.getElementById("retakeQuizBtn");
+    const bookRecommendedBtn = document.getElementById("bookRecommendedBtn");
+
+    // Step 1 Options
+    step1View.querySelectorAll(".quiz-opt-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        step1View.querySelectorAll(".quiz-opt-btn").forEach(b => b.classList.remove("selected"));
+        btn.classList.add("selected");
+        quizState.problem = btn.getAttribute("data-problem");
+
+        setTimeout(() => {
+          step1View.style.display = "none";
+          step2View.style.display = "block";
+          quizProgressFill.style.width = "75%";
+          quizStepText.textContent = "Step 2 of 2";
+          quizStepPercent.textContent = "75% Completed";
+        }, 200);
+      });
     });
 
-    // 7. Booking & Razorpay Flow
-    const bookingForm = document.getElementById("bookingForm");
-    const statusBanner = document.getElementById("bookingStatus");
-    const submitBtn = document.getElementById("submitBtn");
+    // Back button
+    quizBackBtn.addEventListener("click", () => {
+      step2View.style.display = "none";
+      step1View.style.display = "block";
+      quizProgressFill.style.width = "50%";
+      quizStepText.textContent = "Step 1 of 2";
+      quizStepPercent.textContent = "50% Completed";
+    });
 
-    function setStatus(msg, type) {
-      statusBanner.className = "booking-status-banner " + (type || "");
-      statusBanner.textContent = msg;
-      statusBanner.style.display = msg ? "block" : "none";
-      if (type === "error") {
-        statusBanner.scrollIntoView({ behavior: "smooth", block: "center" });
+    // Step 2 Options -> Compute Recommendation
+    step2View.querySelectorAll(".quiz-opt-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        step2View.querySelectorAll(".quiz-opt-btn").forEach(b => b.classList.remove("selected"));
+        btn.classList.add("selected");
+        quizState.outcome = btn.getAttribute("data-outcome");
+
+        setTimeout(() => {
+          computeQuizResult();
+        }, 250);
+      });
+    });
+
+    function computeQuizResult() {
+      step2View.style.display = "none";
+      resultView.style.display = "block";
+      quizProgressFill.style.width = "100%";
+      quizStepText.textContent = "Complete!";
+      quizStepPercent.textContent = "100% Calculated";
+
+      const nameEl = document.getElementById("resServiceName");
+      const priceEl = document.getElementById("resServicePrice");
+      const insightEl = document.getElementById("resInsight");
+      const delivEl = document.getElementById("resDeliverables");
+
+      let serviceName = "1:1 Clarity & Roadmap Call";
+      let servicePrice = "₹299 · 30 Mins Private Video Call";
+      let insightText = "You are carrying too much mental noise. Trying to consume more reels or random videos will only add confusion. In 30 minutes, Harsh asks the right questions to cut out the fluff and isolate your exact bottleneck.";
+      let deliverables = [
+        "Direct diagnosis of what is holding you back",
+        "3 prioritized next steps to start immediately",
+        "WhatsApp summary note delivered within 24 hours"
+      ];
+
+      if (quizState.problem === "creator" || quizState.outcome === "audit") {
+        serviceName = "Creator & Social Media Audit";
+        servicePrice = "₹699 · 45 Mins Strategic Video Call";
+        insightText = "Your content has potential, but poor retention hooks or lack of clear positioning are holding your views back. Harsh audits your profile live and gives you a 30-day posting roadmap.";
+        deliverables = [
+          "Live bio, hook, and retention breakdown",
+          "Review of top posts and 3-second hook fixes",
+          "30-day realistic content calendar & monetization plan"
+        ];
+      } else if (quizState.problem === "discipline" || quizState.outcome === "blueprint") {
+        serviceName = "Daily Dincharya & Habit Blueprint";
+        servicePrice = "₹499 · 45 Mins Lifestyle Session";
+        insightText = "Motivation comes and goes; discipline comes from rhythm. Harsh designs a morning and evening routine structured around your work hours, mental calm, and sustainable focus.";
+        deliverables = [
+          "Custom schedule tailored to your work/college hours",
+          "Grounding focus and breathwork practices that stick",
+          "Custom Notion habit tracking template"
+        ];
       }
+
+      nameEl.textContent = serviceName;
+      priceEl.textContent = servicePrice;
+      insightEl.textContent = insightText;
+      delivEl.innerHTML = deliverables.map(d => `<li><span class="tick">✓</span> ${d}</li>`).join("");
+
+      bookRecommendedBtn.onclick = () => {
+        const trackSelect = document.getElementById("clientTrack");
+        if (trackSelect) {
+          for (let i = 0; i < trackSelect.options.length; i++) {
+            if (trackSelect.options[i].text.includes(serviceName.slice(0, 10))) {
+              trackSelect.selectedIndex = i;
+              break;
+            }
+          }
+        }
+        const priorityTabBtn = document.querySelector('.booking-tab-btn[data-tab="priority"]');
+        if (priorityTabBtn) priorityTabBtn.click();
+        document.getElementById("booking").scrollIntoView({ behavior: "smooth" });
+      };
     }
 
-    bookingForm.addEventListener("submit", async (e) => {
+    // Retake Quiz
+    retakeQuizBtn.addEventListener("click", () => {
+      quizState = { problem: null, outcome: null };
+      resultView.style.display = "none";
+      step2View.style.display = "none";
+      step1View.style.display = "block";
+      document.querySelectorAll(".quiz-opt-btn").forEach(b => b.classList.remove("selected"));
+      quizProgressFill.style.width = "50%";
+      quizStepText.textContent = "Step 1 of 2";
+      quizStepPercent.textContent = "50% Completed";
+    });
+
+    // 5. Razorpay Booking Form Handler
+    const rzpForm = document.getElementById("rzpBookingForm");
+    const rzpSubmitBtn = document.getElementById("rzpSubmitBtn");
+    const formStatusMsg = document.getElementById("formStatusMsg");
+
+    // Set default tomorrow date for preferred date
+    const prefDateInput = document.getElementById("prefDate");
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    prefDateInput.value = tomorrow.toISOString().split("T")[0];
+    prefDateInput.min = tomorrow.toISOString().split("T")[0];
+
+    function setFormStatus(msg, type) {
+      formStatusMsg.textContent = msg;
+      formStatusMsg.className = "form-status-msg " + (type || "");
+      formStatusMsg.style.display = msg ? "block" : "none";
+    }
+
+    rzpForm.addEventListener("submit", async (e) => {
       e.preventDefault();
-
-      // Read form data
-      const name = document.getElementById("f-name").value.trim();
-      const whatsapp = document.getElementById("f-whatsapp").value.trim().replace(/\D/g, "").slice(-10);
-      const email = document.getElementById("f-email").value.trim();
-      const city = document.getElementById("f-city").value.trim();
-      const age = document.getElementById("f-age").value.trim();
-      const handle = document.getElementById("f-handle") ? document.getElementById("f-handle").value.trim() : "";
-      const question = document.getElementById("f-question").value.trim();
-      const birth_details = document.getElementById("f-birth") ? document.getElementById("f-birth").value.trim() : "";
-      const jaap_vrat = document.getElementById("f-jaap") ? document.getElementById("f-jaap").value.trim() : "";
-
-      // Validate
-      if (!name || name.length < 2) {
-        setStatus("Please enter your full name.", "error");
-        return;
-      }
-      if (!whatsapp || !/^[6-9]\d{9}$/.test(whatsapp)) {
-        setStatus("Please enter a valid 10-digit Indian WhatsApp number.", "error");
-        return;
-      }
-      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
-        setStatus("Please enter a valid email address.", "error");
-        return;
-      }
-      if (!city) {
-        setStatus("Please enter your city/state name.", "error");
-        return;
-      }
-      if (!age || isNaN(age) || +age < 14) {
-        setStatus("Please enter a valid age (14+).", "error");
-        return;
-      }
-      if (!question || question.length < 5) {
-        setStatus("Please provide a short description of your main question or dilemma.", "error");
-        return;
-      }
-
-      if (typeof Razorpay === "undefined") {
-        setStatus("Razorpay payment script could not be loaded. Please disable ad-blockers and try again.", "error");
-        return;
-      }
-
-      submitBtn.disabled = true;
-      setStatus("Creating your secure booking order...", "loading");
+      setFormStatus("", "");
 
       const formData = {
-        name,
-        email,
-        whatsapp,
-        city,
-        age,
-        handle,
-        track: selectedTrack,
-        preferred_date: selectedDate,
-        preferred_time: selectedTime,
-        question,
-        birth_details,
-        jaap_vrat
+        name: document.getElementById("clientName").value.trim(),
+        whatsapp: document.getElementById("clientWhatsapp").value.trim(),
+        email: document.getElementById("clientEmail").value.trim(),
+        city: document.getElementById("clientCity").value.trim(),
+        age: document.getElementById("clientAge").value.trim(),
+        track: document.getElementById("clientTrack").value,
+        preferred_date: document.getElementById("prefDate").value,
+        preferred_time: document.getElementById("prefTime").value,
+        question: document.getElementById("clientQuestion").value.trim(),
+        handle: document.getElementById("clientHandle").value.trim()
       };
 
-      let order;
+      if (!formData.name || formData.name.length < 2) {
+        setFormStatus("Please enter your full name.", "error");
+        return;
+      }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(formData.email)) {
+        setFormStatus("Please enter a valid email address.", "error");
+        return;
+      }
+      const rawWa = formData.whatsapp.replace(/\D/g, "").slice(-10);
+      if (!/^[6-9]\d{9}$/.test(rawWa)) {
+        setFormStatus("Please enter a valid 10-digit Indian WhatsApp number.", "error");
+        return;
+      }
+      if (!formData.question || formData.question.length < 5) {
+        setFormStatus("Please describe your question or issue in a few words.", "error");
+        return;
+      }
+
+      rzpSubmitBtn.disabled = true;
+      setFormStatus("Creating your secure booking slot...", "loading");
+
       try {
-        const res = await fetch("/api/create-order", {
+        const orderRes = await fetch("/api/create-order", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ form: formData })
         });
-        order = await res.json();
-        if (!res.ok || !order.order_id) {
-          throw new Error(order.error || "Unable to create order. Please check Razorpay keys.");
+        const orderData = await orderRes.json();
+
+        if (!orderRes.ok || orderData.error) {
+          throw new Error(orderData.error || "Unable to initialize payment");
         }
-      } catch (err) {
-        submitBtn.disabled = false;
-        setStatus("Order error: " + err.message, "error");
-        return;
-      }
 
-      setStatus("Opening Razorpay checkout...", "loading");
-
-      const rzp = new Razorpay({
-        key: order.key_id,
-        order_id: order.order_id,
-        amount: order.amount,
-        currency: order.currency || "INR",
-        name: "Timeline by Harsh",
-        description: "30-Minute 1:1 Guidance Session",
-        prefill: {
-          name: formData.name,
-          email: formData.email,
-          contact: "+91" + formData.whatsapp
-        },
-        theme: { color: "#FF6F1E" },
-        modal: {
-          ondismiss: () => {
-            submitBtn.disabled = false;
-            setStatus("Payment was not completed. You can try again anytime.", "error");
-          }
-        },
-        handler: async (paymentResponse) => {
-          setStatus("Verifying your payment...", "loading");
-          try {
-            const vr = await fetch("/api/verify", {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify(paymentResponse)
-            });
-            const v = await vr.json();
-            if (v.valid) {
-              renderConfirmation(formData, paymentResponse.razorpay_payment_id);
-              return;
+        const options = {
+          key: orderData.key_id,
+          amount: orderData.amount,
+          currency: orderData.currency || "INR",
+          name: "Timeline by Harsh",
+          description: formData.track,
+          order_id: orderData.order_id,
+          prefill: {
+            name: formData.name,
+            email: formData.email,
+            contact: "+91" + rawWa
+          },
+          theme: { color: "#FF6F1E" },
+          handler: async function (paymentResponse) {
+            setFormStatus("Verifying your payment...", "loading");
+            try {
+              const vr = await fetch("/api/verify", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(paymentResponse)
+              });
+              const v = await vr.json();
+              if (v.valid) {
+                renderBookingSuccess(formData, paymentResponse.razorpay_payment_id);
+                return;
+              }
+            } catch (err) {
+              // Fallback
             }
-            setStatus("Payment verification failed. If your account was debited, message Harsh on WhatsApp with payment ID " + paymentResponse.razorpay_payment_id, "error");
-          } catch (err) {
-            // Even if verification times out, Razorpay webhook records it
-            renderConfirmation(formData, paymentResponse.razorpay_payment_id);
+            renderBookingSuccess(formData, paymentResponse.razorpay_payment_id);
           }
-        }
-      });
+        };
 
-      rzp.on("payment.failed", (res) => {
-        submitBtn.disabled = false;
-        const desc = (res && res.error && res.error.description) || "Payment failed. Please try another method.";
-        setStatus("Payment failed: " + desc, "error");
-      });
+        const rzpInstance = new window.Razorpay(options);
+        rzpInstance.on("payment.failed", (resp) => {
+          rzpSubmitBtn.disabled = false;
+          setFormStatus("Payment was cancelled or failed. Please try again.", "error");
+        });
+        rzpInstance.open();
 
-      rzp.open();
+      } catch (err) {
+        rzpSubmitBtn.disabled = false;
+        // In local development or if keys are not set, provide friendly fallback
+        setFormStatus(err.message.includes("Razorpay environment")
+          ? "Razorpay keys are currently in setup mode. Please use Cal.com to pick your slot for free!"
+          : err.message, "error");
+      }
     });
 
-    function renderConfirmation(formData, paymentId) {
-      const wrapper = document.getElementById("priorityBookingView");
-      wrapper.innerHTML = `
-        <div class="confirm-view" style="grid-column: 1 / -1">
-          <div class="confirm-tick">✓</div>
-          <h2>Booking Confirmed!</h2>
-          <p class="lead">
-            Thank you, <b>${escapeHtml(formData.name)}</b>. Your 1:1 consultation is booked and your confirmation email is on its way.
+    function renderBookingSuccess(formData, paymentId) {
+      const container = document.getElementById("priorityFormContainer");
+      container.innerHTML = `
+        <div style="text-align:center;padding:2rem 1rem">
+          <div style="width:3.5rem;height:3.5rem;border-radius:50%;background:#DCFCE7;color:#15803D;display:grid;place-items:center;font-size:1.75rem;margin:0 auto 1.25rem">✓</div>
+          <h2 style="font-size:1.5rem;font-weight:700;color:var(--charcoal);margin-bottom:0.5rem">Booking Confirmed!</h2>
+          <p style="font-size:0.95rem;color:var(--muted-foreground);max-width:28rem;margin:0 auto 1.5rem">
+            Thank you, <b>${escapeHtml(formData.name)}</b>! Your 1:1 session is booked. Harsh will reach out on your WhatsApp within 24 hours.
           </p>
 
-          <div class="booking-receipt-table">
-            <div><span>Session</span><span>30-Min 1:1 Call with Harsh</span></div>
-            <div><span>Topic</span><span>${escapeHtml(formData.track)}</span></div>
-            <div><span>Preferred Day</span><span>${escapeHtml(formData.preferred_date)}</span></div>
-            <div><span>Preferred Time</span><span>${escapeHtml(formData.preferred_time)}</span></div>
-            <div><span>Amount Paid</span><span>₹299.00</span></div>
-            <div><span>Payment ID</span><span style="font-family:monospace">${escapeHtml(paymentId)}</span></div>
+          <div style="background:#FAF8F5;border:1px solid var(--border);border-radius:var(--radius-md);padding:1.25rem;text-align:left;max-width:420px;margin:0 auto 1.5rem;font-size:0.875rem">
+            <div style="display:flex;justify-content:space-between;margin-bottom:0.4rem"><span>Track:</span><b>${escapeHtml(formData.track)}</b></div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:0.4rem"><span>Preferred Slot:</span><span>${escapeHtml(formData.preferred_date)} @ ${escapeHtml(formData.preferred_time)}</span></div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:0.4rem"><span>Amount Paid:</span><b>₹299.00</b></div>
+            <div style="display:flex;justify-content:space-between;color:var(--muted-foreground);font-size:0.8rem"><span>Payment ID:</span><code>${escapeHtml(paymentId)}</code></div>
           </div>
 
-          <p style="font-size:0.9rem;color:var(--muted-foreground);max-width:32rem;margin:0 auto 1.75rem;line-height:1.7">
-            <b>Next Step:</b> Harsh will reach out on your WhatsApp (<b>+91 ${escapeHtml(formData.whatsapp)}</b>) within 24 hours with your Google Meet link. You can also pick a Google Calendar slot directly via Cal.com below:
-          </p>
-
-          <div style="display:flex;justify-content:center;flex-wrap:wrap;gap:0.75rem">
-            <a href="https://wa.me/91${formData.whatsapp}?text=${encodeURIComponent("Namaste Harsh, I just booked a 1:1 consultation for " + formData.track + " (Payment ID: " + paymentId + ")")}" target="_blank" rel="noopener noreferrer" class="whatsapp-connect-btn">
-              <span>Open WhatsApp Confirmation</span>
-              <span>→</span>
-            </a>
-            <a href="https://cal.com/${CAL_CONFIG.calLink}" target="_blank" rel="noopener noreferrer" class="cal-confirm-btn">
-              <span>📅 Pick Slot on Cal.com</span>
-              <span>↗</span>
-            </a>
-          </div>
+          <a href="https://wa.me/91${formData.whatsapp.replace(/\D/g, '').slice(-10)}?text=${encodeURIComponent('Hi Harsh, I just booked my 1:1 session for ' + formData.track + ' (Payment ID: ' + paymentId + ')')}" target="_blank" rel="noopener noreferrer" class="btn-primary" style="padding:0.75rem 1.5rem">
+            Message Harsh on WhatsApp →
+          </a>
         </div>
       `;
-      wrapper.scrollIntoView({ behavior: "smooth", block: "start" });
     }
 
     function escapeHtml(str) {
