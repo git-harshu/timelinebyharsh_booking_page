@@ -1250,6 +1250,71 @@
     .om-top .ring-bg { stroke: var(--border); }
     .om-top .ring { stroke: var(--accent); stroke-linecap: round; stroke-dasharray: 132; stroke-dashoffset: 132; }
     @media (max-width: 767px) { .om-top { bottom: 5.25rem; right: 1rem; width: 2.9rem; height: 2.9rem; } }
+
+    /* =========================================================
+       r6: segmented tabs, stepped form, FAQ split, real footer
+       ========================================================= */
+    /* journey: calmer line, no progress bars */
+    .journey-step::before { background: var(--border-strong); }
+    .journey-step::after { background: var(--text-faint); animation: none !important; }
+
+    /* quote attribution */
+    .quote-author { margin-top: 0.25rem; }
+
+    /* booking tabs: segmented control with a sliding thumb */
+    .booking-tabs { position: relative; display: flex; width: max-content; max-width: 100%; margin: 0 0 2rem; padding: 4px; gap: 0; background: #EBDDCA; border: 0; border-radius: 14px; overflow: visible; --i: 0; }
+    .booking-tabs::before { content: ""; position: absolute; top: 4px; bottom: 4px; left: 4px; width: calc((100% - 8px) / 2); background: var(--white); border-radius: 10px; box-shadow: 0 1px 2px rgba(33,37,43,0.08), 0 4px 12px rgba(33,37,43,0.08); transform: translateX(calc(var(--i) * 100%)); transition: transform 0.45s var(--ease); }
+    .tab-btn { position: relative; z-index: 1; flex: 1 1 0; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; min-width: 9.5rem; padding: 0.7rem 1.25rem; border: 0; border-radius: 10px; background: transparent !important; color: var(--text-muted); font-size: 0.9rem; font-weight: 500; transition: color 0.3s; }
+    .tab-btn::after { display: none; }
+    .tab-btn.active::before { content: none; }
+    .tab-btn:hover { color: var(--text); }
+    .tab-btn.active { color: var(--text); font-weight: 600; }
+    .tab-btn svg { color: var(--text-faint); transition: color 0.3s; }
+    .tab-btn.active svg { color: var(--accent); }
+
+    /* stepped form */
+    .steps { list-style: none; display: flex; align-items: center; gap: 0; margin-bottom: 1.75rem; }
+    .steps li { position: relative; flex: 1; display: flex; align-items: center; gap: 0.6rem; font-size: 0.8rem; font-weight: 500; color: var(--text-faint); white-space: nowrap; }
+    .steps li span { display: grid; place-items: center; width: 1.65rem; height: 1.65rem; border-radius: 50%; border: 1.5px solid var(--border-strong); font-size: 0.75rem; font-weight: 600; flex-shrink: 0; background: var(--white); transition: all 0.35s var(--ease); }
+    .steps li:not(:last-child)::after { content: ""; flex: 1; height: 1.5px; margin: 0 0.75rem; background: var(--border-strong); transition: background 0.4s var(--ease); }
+    .steps li.on { color: var(--text); }
+    .steps li.on span { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .steps li.done { color: var(--text-muted); }
+    .steps li.done span { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .steps li.done:not(:last-child)::after { background: var(--accent); }
+    @media (max-width: 520px) { .steps li { font-size: 0; gap: 0; } .steps li.on { font-size: 0.8rem; gap: 0.6rem; flex: 2; } }
+    .step { animation: settleIn 0.5s var(--ease) both; }
+    .step[hidden] { display: none; }
+    .step-summary { font-size: 0.85rem; color: var(--text-muted); background: var(--tint); border-radius: var(--radius-md); padding: 0.75rem 1rem; margin-bottom: 1.25rem; }
+    .step-nav { display: flex; align-items: center; gap: 0.75rem; margin-top: 0.5rem; }
+    .step-nav .form-btn { flex: 1; width: auto; }
+    .step-back { padding: 0.85rem 1.25rem; border: 1px solid var(--border-strong); border-radius: var(--radius-md); font-size: 0.9rem; font-weight: 500; color: var(--text-muted); background: transparent; transition: color 0.2s, border-color 0.2s; }
+    .step-back:hover { color: var(--text); border-color: var(--text); }
+    .step-nav [hidden] { display: none !important; }
+
+    /* FAQ: heading left, answers right */
+    .faq-split { display: grid; grid-template-columns: 1fr; gap: 2rem; text-align: left; }
+    @media (min-width: 860px) { .faq-split { grid-template-columns: 0.8fr 1.2fr; gap: 4rem; align-items: start; } .faq-intro { position: sticky; top: 6rem; } }
+    .faq-intro .section-heading { text-align: left; margin-bottom: 0.75rem; }
+    .faq-intro p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem; max-width: 22rem; }
+    .faq-stack { max-width: none; margin: 0; }
+
+    /* footer */
+    .site-footer { background: var(--text); color: #C9C4BA; text-align: left; padding: 4rem 0 2rem; font-size: 0.9rem; }
+    .footer-top { display: grid; grid-template-columns: 1fr; gap: 2.5rem; padding-bottom: 2.5rem; border-bottom: 1px solid rgba(255,255,255,0.12); }
+    @media (min-width: 860px) { .footer-top { grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 3rem; } }
+    .footer-brand p { margin: 1.1rem 0 1rem; max-width: 20rem; line-height: 1.65; color: #B3AEA3; }
+    .site-footer .brand-title { color: #F4EFE6; }
+    .site-footer .brand-sub { color: #9A958A; }
+    .footer-ig { color: var(--accent); font-weight: 500; transition: color 0.2s; }
+    .footer-ig:hover { color: #FFA25B; }
+    .footer-col h4 { font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600; color: #F4EFE6; margin-bottom: 1rem; }
+    .footer-col ul { list-style: none; display: grid; gap: 0.6rem; }
+    .footer-col a { color: #B3AEA3; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--accent); }
+    .footer-bottom { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.75rem 2rem; padding-top: 1.75rem; font-size: 0.8rem; color: #8F8A7F; }
+    .footer-note { max-width: 32rem; }
+    .footer-shloka { width: 100%; text-align: center; margin: 1.25rem 0 0; font-family: var(--font-deva); font-size: 1.05rem; color: #9A958A; letter-spacing: 0.04em; }
   </style>
 </head>
 <body>
@@ -1340,10 +1405,9 @@
     <div class="container quote-inner rise">
       <span class="quote-om" aria-hidden="true">ॐ</span>
       <blockquote class="quote-text">
-        परंपरा कोई बंधन नहीं, यह याद है उस रास्ते की, जहाँ से हम आए थे।
+        “परंपरा कोई बंधन नहीं, यह याद है उस रास्ते की, जहाँ से हम आए थे।”
       </blockquote>
-      <div class="quote-author">हर्ष उपाध्याय</div>
-      <div class="diya-row" aria-hidden="true"><svg class="diya-svg" viewBox="0 0 48 48" aria-hidden="true"><path class="bowl" d="M5 28H43C43 37 35 43 24 43C13 43 5 37 5 28Z"/><path class="flame" d="M24 6C29 12 30 18 24 24C18 18 19 12 24 6Z"/></svg><svg class="diya-svg" viewBox="0 0 48 48" aria-hidden="true"><path class="bowl" d="M5 28H43C43 37 35 43 24 43C13 43 5 37 5 28Z"/><path class="flame" d="M24 6C29 12 30 18 24 24C18 18 19 12 24 6Z"/></svg><svg class="diya-svg" viewBox="0 0 48 48" aria-hidden="true"><path class="bowl" d="M5 28H43C43 37 35 43 24 43C13 43 5 37 5 28Z"/><path class="flame" d="M24 6C29 12 30 18 24 24C18 18 19 12 24 6Z"/></svg></div>
+      <div class="quote-author">~ हर्ष उपाध्याय</div>
     </div>
   </section>
 
@@ -1525,7 +1589,6 @@
         <div class="journey-step rise">
           <div class="journey-num">01</div>
           <div class="journey-time">00:00 – 05:00</div>
-          <div class="journey-dur" aria-hidden="true"><i style="--p:50%"></i></div>
           <div class="journey-title">You talk</div>
           <p class="journey-desc">Say it unfiltered.</p>
         </div>
@@ -1533,7 +1596,6 @@
         <div class="journey-step rise">
           <div class="journey-num">02</div>
           <div class="journey-time">05:00 – 15:00</div>
-          <div class="journey-dur" aria-hidden="true"><i style="--p:100%"></i></div>
           <div class="journey-title">I ask</div>
           <p class="journey-desc">Direct questions find the root.</p>
         </div>
@@ -1541,7 +1603,6 @@
         <div class="journey-step rise">
           <div class="journey-num">03</div>
           <div class="journey-time">15:00 – 25:00</div>
-          <div class="journey-dur" aria-hidden="true"><i style="--p:100%"></i></div>
           <div class="journey-title">We plan</div>
           <p class="journey-desc">A plan built on practical wisdom.</p>
         </div>
@@ -1549,7 +1610,6 @@
         <div class="journey-step rise">
           <div class="journey-num">04</div>
           <div class="journey-time">25:00 – 30:00</div>
-          <div class="journey-dur" aria-hidden="true"><i style="--p:50%"></i></div>
           <div class="journey-title">Next three steps</div>
           <p class="journey-desc">Three actions for tomorrow morning.</p>
         </div>
@@ -1566,8 +1626,8 @@
       </p>
 
       <div class="booking-tabs">
-        <button type="button" class="tab-btn active" data-tab="cal">Calendar</button>
-        <button type="button" class="tab-btn" data-tab="priority">Priority slot</button>
+        <button type="button" class="tab-btn active" data-tab="cal"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Calendar</button>
+        <button type="button" class="tab-btn" data-tab="priority"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg>Priority slot</button>
       </div>
 
       <!-- Tab 1: Cal.com Official Embed -->
@@ -1599,65 +1659,81 @@
           </div>
 
           <form id="priorityBookingForm" novalidate>
-            <div class="form-row">
+            <ol class="steps" id="formSteps" aria-label="Booking progress">
+              <li class="on"><span>1</span>Session</li>
+              <li><span>2</span>About you</li>
+              <li><span>3</span>Your question</li>
+            </ol>
+
+            <div class="step" data-step="1">
               <div class="form-field">
-                <label for="cName" class="form-label">Full Name</label>
-                <input type="text" id="cName" name="name" class="form-input" placeholder="Rahul Sharma" required autocomplete="name">
+                <label for="cTrack" class="form-label">Which session?</label>
+                <select id="cTrack" name="track" class="form-select" required>
+                  <option value="1:1 Clarity & Roadmap Call (30 Mins)" data-price="299">Clarity Call, 30 min, ₹299</option>
+                  <option value="Daily Dincharya & Habit Blueprint (45 Mins)" data-price="499">Dincharya Reset, 45 min, ₹499</option>
+                  <option value="Deep-Dive Personal Advisory (60 Mins)" data-price="699">Deep Dive, 60 min, ₹699</option>
+                  <option value="General Life Guidance & Sounding Board" data-price="299">General Life Guidance & Sounding Board (₹299)</option>
+                </select>
               </div>
-              <div class="form-field">
-                <label for="cWhatsapp" class="form-label">WhatsApp Number</label>
-                <input type="tel" id="cWhatsapp" name="whatsapp" class="form-input" placeholder="10-digit number" required autocomplete="tel" inputmode="numeric">
+              <div class="form-row">
+                <div class="form-field">
+                  <label for="cDate" class="form-label">Preferred date</label>
+                  <input type="date" id="cDate" name="preferred_date" class="form-input" required>
+                </div>
+                <div class="form-field">
+                  <label for="cTime" class="form-label">Time window</label>
+                  <select id="cTime" name="preferred_time" class="form-select" required>
+                    <option value="Morning (9 AM - 12 PM)">Morning (9 AM – 12 PM)</option>
+                    <option value="Afternoon (1 PM - 4 PM)">Afternoon (1 PM – 4 PM)</option>
+                    <option value="Evening (6 PM - 9 PM)" selected>Evening (6 PM – 9 PM)</option>
+                    <option value="Night (9 PM - 11 PM)">Night (9 PM – 11 PM)</option>
+                  </select>
+                </div>
               </div>
             </div>
 
-            <div class="form-row">
-              <div class="form-field">
-                <label for="cEmail" class="form-label">Email Address</label>
-                <input type="email" id="cEmail" name="email" class="form-input" placeholder="rahul@example.com" required autocomplete="email">
+            <div class="step" data-step="2" hidden>
+              <div class="form-row">
+                <div class="form-field">
+                  <label for="cName" class="form-label">Full name</label>
+                  <input type="text" id="cName" name="name" class="form-input" placeholder="Rahul Sharma" required autocomplete="name">
+                </div>
+                <div class="form-field">
+                  <label for="cWhatsapp" class="form-label">WhatsApp number</label>
+                  <input type="tel" id="cWhatsapp" name="whatsapp" class="form-input" placeholder="10-digit number" required autocomplete="tel" inputmode="numeric">
+                </div>
               </div>
               <div class="form-field">
-                <label for="cCity" class="form-label">City & Age</label>
-                <div style="display:grid;grid-template-columns:2fr 1fr;gap:0.5rem">
+                <label for="cEmail" class="form-label">Email address</label>
+                <input type="email" id="cEmail" name="email" class="form-input" placeholder="rahul@example.com" required autocomplete="email">
+              </div>
+              <div class="form-row">
+                <div class="form-field">
+                  <label for="cCity" class="form-label">City</label>
                   <input type="text" id="cCity" name="city" class="form-input" placeholder="City" required>
+                </div>
+                <div class="form-field">
+                  <label for="cAge" class="form-label">Age</label>
                   <input type="number" id="cAge" name="age" class="form-input" placeholder="Age" min="15" max="85" required>
                 </div>
               </div>
             </div>
 
-            <div class="form-field">
-              <label for="cTrack" class="form-label">Consultation Track</label>
-              <select id="cTrack" name="track" class="form-select" required>
-                <option value="1:1 Clarity & Roadmap Call (30 Mins)" data-price="299">Clarity Call, 30 min, ₹299</option>
-                <option value="Daily Dincharya & Habit Blueprint (45 Mins)" data-price="499">Dincharya Reset, 45 min, ₹499</option>
-                <option value="Deep-Dive Personal Advisory (60 Mins)" data-price="699">Deep Dive, 60 min, ₹699</option>
-                <option value="General Life Guidance & Sounding Board" data-price="299">General Life Guidance & Sounding Board (₹299)</option>
-              </select>
-            </div>
-
-            <div class="form-row">
+            <div class="step" data-step="3" hidden>
               <div class="form-field">
-                <label for="cDate" class="form-label">Preferred Date</label>
-                <input type="date" id="cDate" name="preferred_date" class="form-input" required>
+                <label for="cQuestion" class="form-label">What is the one problem you want to talk about?</label>
+                <textarea id="cQuestion" name="question" class="form-textarea" placeholder="A few lines is enough." required></textarea>
               </div>
-              <div class="form-field">
-                <label for="cTime" class="form-label">Time Window</label>
-                <select id="cTime" name="preferred_time" class="form-select" required>
-                  <option value="Morning (9 AM - 12 PM)">Morning (9 AM – 12 PM)</option>
-                  <option value="Afternoon (1 PM - 4 PM)">Afternoon (1 PM – 4 PM)</option>
-                  <option value="Evening (6 PM - 9 PM)" selected>Evening (6 PM – 9 PM)</option>
-                  <option value="Night (9 PM - 11 PM)">Night (9 PM – 11 PM)</option>
-                </select>
-              </div>
+              <p class="step-summary" id="stepSummary"></p>
             </div>
 
-            <div class="form-field">
-              <label for="cQuestion" class="form-label">What is the #1 question or problem for this call?</label>
-              <textarea id="cQuestion" name="question" class="form-textarea" placeholder="Describe what you are currently struggling with..." required></textarea>
+            <div class="step-nav">
+              <button type="button" class="step-back" id="stepBack" hidden>Back</button>
+              <button type="button" class="form-btn step-next" id="stepNext">Continue</button>
+              <button type="submit" id="submitBtn" class="form-btn" hidden>
+                Pay ₹299 securely →
+              </button>
             </div>
-
-            <button type="submit" id="submitBtn" class="form-btn">
-              Proceed to Secure Payment (₹299 via UPI/Card) →
-            </button>
 
             <div id="statusBanner" class="status-banner"></div>
 
@@ -1672,8 +1748,12 @@
 
   <!-- Curated Reading & Essentials (With Visual Art) -->
   <section class="faq-section" id="faq">
-    <div class="container">
-      <h2 class="section-heading rise">Common questions</h2>
+    <div class="container faq-split">
+      <div class="faq-intro">
+        <h2 class="section-heading rise">Common questions</h2>
+        <p>Cannot find your answer? Message me and I will reply.</p>
+        <a class="btn-outline" href="https://www.instagram.com/timelinebyharsh/" target="_blank" rel="noopener noreferrer">Message on Instagram</a>
+      </div>
 
       <div class="faq-stack">
         <details name="faq">
@@ -1794,23 +1874,55 @@
 
   <!-- Site Footer -->
   <footer class="site-footer">
-    <div class="container footer-inner">
-      <div>
-        <strong>Timeline by Harsh</strong> · Personal guidance
+    <div class="container footer-top">
+      <div class="footer-brand">
+        <a class="site-brand" href="#">
+          <img class="brand-logo" src="assets/logo.jpg" width="40" height="40" alt="Harsh Upadhyay">
+          <div>
+            <div class="brand-title">Timeline by Harsh</div>
+            <div class="brand-sub">@timelinebyharsh</div>
+          </div>
+        </a>
+        <p>Private one-on-one calls for overthinking, daily routine and big life decisions.</p>
+        <a class="footer-ig" href="https://www.instagram.com/timelinebyharsh/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
       </div>
 
-      <ul class="footer-links">
-        <li><a href="#diagnostic">Diagnostic</a></li>
-        <li><a href="#services">Consultations</a></li>
-        <li><a href="#booking">Book Call</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="privacy.html">Privacy</a></li>
-        <li><a href="terms.html">Terms</a></li>
-        <li><a href="refund.html">Refunds</a></li>
-        <li><a href="cookies.html">Cookies</a></li>
-      </ul>
+      <nav class="footer-col" aria-label="Explore">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#diagnostic">Find your fit</a></li>
+          <li><a href="#journey">How it works</a></li>
+          <li><a href="#booking">Choose a time</a></li>
+          <li><a href="#faq">Common questions</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footer-col" aria-label="Sessions">
+        <h4>Sessions</h4>
+        <ul>
+          <li><a href="#services">Clarity Call</a></li>
+          <li><a href="#services">Dincharya Reset</a></li>
+          <li><a href="#services">Deep Dive</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footer-col" aria-label="Policies">
+        <h4>Policies</h4>
+        <ul>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="terms.html">Terms</a></li>
+          <li><a href="refund.html">Refunds</a></li>
+          <li><a href="cookies.html">Cookies</a></li>
+        </ul>
+      </nav>
     </div>
-    <p class="footer-shloka" aria-hidden="true">ॐ सर्वे भवन्तु सुखिनः</p>
+
+    <div class="container footer-bottom">
+      <p>© 2026 Timeline by Harsh. All rights reserved.</p>
+      <p class="footer-note">Guidance calls are not therapy, medical, legal or financial advice. Book links are Amazon affiliate links.</p>
+      <p class="footer-shloka" aria-hidden="true">ॐ सर्वे भवन्तु सुखिनः</p>
+    </div>
   </footer>
 
   <!-- Om scroll-to-top with progress ring -->
@@ -1889,7 +2001,7 @@
       if (!trackSelect || !submitBtn) return;
       const selectedOption = trackSelect.options[trackSelect.selectedIndex];
       const price = selectedOption.getAttribute("data-price") || "299";
-      submitBtn.textContent = `Proceed to Secure Payment (₹${price} via UPI/Card) →`;
+      submitBtn.textContent = `Pay ₹${price} securely →`;
     }
 
     if (trackSelect) {
@@ -2128,6 +2240,72 @@
       window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
       btn.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
       update();
+    })();
+  </script>
+
+  <script>
+    /* segmented tab thumb + stepped booking form (visual flow only; submit handler unchanged) */
+    (function () {
+      var tabs = document.querySelectorAll('.tab-btn'), bar = document.querySelector('.booking-tabs');
+      function sync() {
+        if (!bar) return;
+        var idx = 0;
+        tabs.forEach(function (t, k) { if (t.classList.contains('active')) idx = k; });
+        bar.style.setProperty('--i', idx);
+      }
+      tabs.forEach(function (t) { t.addEventListener('click', function () { setTimeout(sync, 0); }); });
+      sync();
+
+      var form = document.getElementById('priorityBookingForm');
+      if (!form) return;
+      var steps = form.querySelectorAll('.step'), dots = document.querySelectorAll('#formSteps li');
+      var back = document.getElementById('stepBack'), next = document.getElementById('stepNext'), pay = document.getElementById('submitBtn');
+      var cur = 0;
+      function say(msg) { if (typeof setStatus === 'function') setStatus(msg, msg ? 'error' : ''); }
+      function val(id) { return (document.getElementById(id).value || '').trim(); }
+
+      function check(n) {
+        if (n === 0) {
+          if (!val('cDate')) { say('Please choose a date.'); return false; }
+        }
+        if (n === 1) {
+          if (val('cName').length < 2) { say('Please enter your full name.'); return false; }
+          var wa = val('cWhatsapp').replace(/\D/g, '').slice(-10);
+          if (!/^[6-9]\d{9}$/.test(wa)) { say('Please enter a valid 10-digit Indian WhatsApp number.'); return false; }
+          if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(val('cEmail'))) { say('Please enter a valid email address.'); return false; }
+          if (val('cCity').length < 2) { say('Please enter your city.'); return false; }
+          var age = +val('cAge');
+          if (!age || age < 15 || age > 85) { say('Please enter your age (15 to 85).'); return false; }
+        }
+        say('');
+        return true;
+      }
+
+      function summary() {
+        var tr = document.getElementById('cTrack'), o = tr.options[tr.selectedIndex];
+        var d = val('cDate'), nice = d ? new Date(d + 'T00:00:00').toLocaleDateString('en-IN', { day: 'numeric', month: 'short' }) : '';
+        var t = (document.getElementById('cTime').value || '').split(' (')[0];
+        document.getElementById('stepSummary').textContent = o.textContent + (nice ? ' · ' + nice + ', ' + t : '');
+      }
+
+      function show(n) {
+        cur = n;
+        steps.forEach(function (st, k) { st.hidden = k !== n; });
+        dots.forEach(function (d, k) { d.classList.toggle('on', k === n); d.classList.toggle('done', k < n); });
+        back.hidden = n === 0;
+        next.hidden = n === steps.length - 1;
+        pay.hidden = n !== steps.length - 1;
+        if (n === steps.length - 1) summary();
+        var f = steps[n].querySelector('input, select, textarea');
+        if (f && n > 0) f.focus({ preventScroll: true });
+      }
+
+      next.addEventListener('click', function () { if (cur >= steps.length - 1) return; if (check(cur)) show(cur + 1); });
+      back.addEventListener('click', function () { say(''); show(cur - 1); });
+      form.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' && e.target.tagName !== 'TEXTAREA' && cur < steps.length - 1) { e.preventDefault(); next.click(); }
+      });
+      show(0);
     })();
   </script>
 </body>

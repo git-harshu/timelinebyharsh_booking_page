@@ -4,6 +4,8 @@
 Make the Timeline by Harsh booking site visual first, calm and conversion focused: no repeated sections, first-person copy, Hindu symbols and micro-interactions that are different per section, plus the legal pages. Payment code untouched.
 
 ## 2. Current state
+Update (design-r5): proper dark 4-column footer on all pages; priority form is now 3 steps (Session, About you, Your question) with per-step validation, submit handler untouched; booking tabs are a segmented control with a sliding thumb; journey bars removed and top line greyed; quote has curly quotes and a ~ attribution, diyas removed; FAQ is two columns. Pay button text is now "Pay ₹X securely".
+
 index.html restructured (tag design-r4): header with Instagram profile picture as logo and 4 clean links; split hero (copy left, mandala right); shloka marquee; light Hindi quote with diya row; Clarity Finder as master-detail (choices left, detail right); 3 session cards with orange Book buttons; "How a session goes" with duration bars; "Choose a time" with left-aligned tab bar; Common questions (7); Books I Recommend. Sections alternate white and tint. Om button bottom-right appears after scrolling, ring shows progress, click returns to top. New pages: about, privacy, terms, refund, cookies (+ legal.css). Footer links to all. Admin link removed from public footer (page still at /bookings.html behind ADMIN_TOKEN).
 
 ## 3. Active files
