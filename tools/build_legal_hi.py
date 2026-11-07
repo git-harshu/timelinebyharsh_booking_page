@@ -1,13 +1,12 @@
 #!/usr/bin/env python3
-"""Writes the Hindi legal/about pages into hi/ and adds the language switch to the English ones.
+"""Writes the Hinglish (Hindi in English letters) legal/about pages into hi/ and keeps the language switch on the English ones.
 Run:  python3 tools/build_legal_hi.py"""
-import re
-UPD = '8 नवंबर 2026'
+UPD = '8 November 2026'
 IG = '<a href="https://www.instagram.com/timelinebyharsh/" rel="noopener noreferrer">@timelinebyharsh</a>'
-CONTACT = f'Instagram पर {IG} को मैसेज करें, या अपनी बुकिंग कन्फर्मेशन ईमेल या WhatsApp का जवाब दें।'
+CONTACT = f'Instagram par {IG} ko message karein, ya apni booking confirmation email ya WhatsApp ka reply karein.'
 
 HEAD = '''<!DOCTYPE html>
-<html lang="hi">
+<html lang="hi-Latn">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,20 +16,14 @@ HEAD = '''<!DOCTYPE html>
 <link rel="icon" type="image/jpeg" href="../assets/logo.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Tiro+Devanagari+Hindi&family=Noto+Sans+Devanagari:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../legal.css">
-<style>
-:root{{--font:'DM Sans','Noto Sans Devanagari',sans-serif;--display:'Newsreader','Tiro Devanagari Hindi',Georgia,serif}}
-body{{line-height:1.9}}
-.title h1,article h2{{letter-spacing:0;line-height:1.4}}
-.fc h4{{text-transform:none;letter-spacing:.04em}}
-</style>
 </head>
 <body>
 <header>
   <div class="wrap bar">
     <a class="brand" href="index.html"><img src="../assets/logo.jpg" width="40" height="40" alt="Harsh Upadhyay"><span><b>Timeline by Harsh</b><small>@timelinebyharsh</small></span></a>
-    <nav><a class="lang" href="../{fn}" hreflang="en" lang="en">English</a><a class="cta" href="index.html#booking">कॉल बुक करें</a></nav>
+    <nav><a class="lang" href="../{fn}" hreflang="en" lang="en">English</a><a class="cta" href="index.html#booking">Call book karein</a></nav>
   </div>
 </header>
 <section class="title">
@@ -47,31 +40,31 @@ body{{line-height:1.9}}
   <div class="wrap top">
     <div class="fb">
       <a class="brand" href="index.html"><img src="../assets/logo.jpg" width="40" height="40" alt="Harsh Upadhyay"><span><b>Timeline by Harsh</b><small>@timelinebyharsh</small></span></a>
-      <p>ज़्यादा सोचने, रोज़ के रूटीन और बड़े फैसलों के लिए प्राइवेट वन-ऑन-वन कॉल।</p>
+      <p>Zyada sochne, roz ke routine aur bade faislon ke liye private one-on-one calls.</p>
       <a class="ig" href="https://www.instagram.com/timelinebyharsh/" target="_blank" rel="noopener noreferrer">Instagram</a>
     </div>
-    <nav class="fc" aria-label="देखें"><h4>देखें</h4><ul>
-      <li><a href="index.html#diagnostic">सही सेशन चुनें</a></li>
-      <li><a href="index.html#journey">कैसे काम करता है</a></li>
-      <li><a href="index.html#booking">समय चुनें</a></li>
-      <li><a href="index.html#faq">आम सवाल</a></li>
-      <li><a href="about.html">परिचय</a></li>
+    <nav class="fc" aria-label="Dekhein"><h4>Dekhein</h4><ul>
+      <li><a href="index.html#diagnostic">Sahi session chunein</a></li>
+      <li><a href="index.html#journey">Kaise kaam karta hai</a></li>
+      <li><a href="index.html#booking">Time chunein</a></li>
+      <li><a href="index.html#faq">Aam sawaal</a></li>
+      <li><a href="about.html">Parichay</a></li>
     </ul></nav>
-    <nav class="fc" aria-label="सेशन"><h4>सेशन</h4><ul>
-      <li><a href="index.html#services">क्लैरिटी कॉल</a></li>
-      <li><a href="index.html#services">दिनचर्या रीसेट</a></li>
-      <li><a href="index.html#services">डीप डाइव</a></li>
+    <nav class="fc" aria-label="Sessions"><h4>Sessions</h4><ul>
+      <li><a href="index.html#services">Clarity Call</a></li>
+      <li><a href="index.html#services">Dincharya Reset</a></li>
+      <li><a href="index.html#services">Deep Dive</a></li>
     </ul></nav>
-    <nav class="fc" aria-label="पॉलिसी"><h4>पॉलिसी</h4><ul>
-      <li><a href="privacy.html">प्राइवेसी</a></li>
-      <li><a href="terms.html">नियम</a></li>
-      <li><a href="refund.html">रिफंड</a></li>
-      <li><a href="cookies.html">कुकीज़</a></li>
+    <nav class="fc" aria-label="Policies"><h4>Policies</h4><ul>
+      <li><a href="privacy.html">Privacy</a></li>
+      <li><a href="terms.html">Terms</a></li>
+      <li><a href="refund.html">Refunds</a></li>
+      <li><a href="cookies.html">Cookies</a></li>
     </ul></nav>
   </div>
   <div class="wrap bottom">
-    <p>© 2026 Timeline by Harsh. सर्वाधिकार सुरक्षित।</p>
-    <p class="note2">गाइडेंस कॉल थेरेपी, मेडिकल, कानूनी या पैसों की सलाह नहीं हैं। किताबों के लिंक Amazon अफिलिएट लिंक हैं।</p>
+    <p>© 2026 Timeline by Harsh. Sabhi adhikaar surakshit.</p>
+    <p class="note2">Guidance calls therapy, medical, legal ya paison ki salah nahi hain. Kitaabon ke links Amazon affiliate links hain.</p>
     <p class="shloka" aria-hidden="true">ॐ सर्वे भवन्तु सुखिनः</p>
   </div>
 </footer>
@@ -80,206 +73,192 @@ body{{line-height:1.9}}
 '''
 
 PAGES = {}
-PAGES['about.html'] = ('परिचय', 'मैं कौन हूँ और ये कॉल कैसे काम करती हैं', 'हर्ष उपाध्याय के बारे में और Timeline by Harsh की वन-ऑन-वन गाइडेंस कॉल कैसे काम करती हैं।', f'''
-<h2>नमस्ते, मैं हर्ष हूँ</h2>
-<p>मैं हर्ष उपाध्याय हूँ, <strong>Timeline by Harsh</strong> (@timelinebyharsh) के पीछे। मैं Instagram पर हिंदू धार्मिक कंटेंट बनाता हूँ और सनातन धर्म और रोज़ की ज़िंदगी पर लोगों से बात करता हूँ।</p>
-<p>लोग अक्सर एक जैसी दिक्कतें लेकर आते हैं: ज़्यादा सोचना, ऐसा रूटीन जो टिकता नहीं, या कोई बड़ा फैसला जो अकेले लेना मुश्किल है। इसके लिए एक कमेंट या छोटा मैसेज काफ़ी नहीं होता, इसीलिए मैं वन-ऑन-वन कॉल करता हूँ।</p>
+PAGES['about.html'] = ('Parichay', 'Main kaun hoon aur ye calls kaise kaam karti hain', 'Harsh Upadhyay ke baare mein aur Timeline by Harsh ki one-on-one guidance calls kaise kaam karti hain.', f'''
+<h2>Namaste, main Harsh hoon</h2>
+<p>Main Harsh Upadhyay hoon, <strong>Timeline by Harsh</strong> (@timelinebyharsh) ke peeche. Main Instagram par Hindu dharmik content banata hoon aur Sanatan Dharma aur roz ki zindagi par logon se baat karta hoon.</p>
+<p>Log aksar ek jaisi dikkatein lekar aate hain: zyada sochna, aisa routine jo tikta nahi, ya koi bada faisla jo akele lena mushkil hai. Iske liye ek comment ya chhota message kaafi nahi hota, isiliye main one-on-one calls karta hoon.</p>
 
-<h2>कॉल क्या है</h2>
-<p>Google Meet पर एक प्राइवेट बातचीत, बस आप और मैं। आप बताते हैं कि कहाँ फँसे हैं। मैं सीधे सवाल पूछकर असली दिक्कत ढूँढता हूँ। फिर हम आने वाले दिनों के लिए कुछ साफ़ कदम तय करते हैं। बाद में 24 घंटे के अंदर मैं WhatsApp पर लिखित समरी भेजता हूँ।</p>
-<p>मैं समझदारी की बातों, रोज़ की प्रैक्टिस जैसे ध्यान, और सनातन धर्म से सीखी बातों से काम लेता हूँ। मैं बस मोटिवेशन वाली बातें नहीं करता।</p>
+<h2>Call kya hai</h2>
+<p>Google Meet par ek private baatcheet, bas aap aur main. Aap batate hain ki kahan phanse hain. Main seedhe sawaal poochkar asli dikkat dhoondta hoon. Phir hum aane wale dinon ke liye kuch saaf kadam tay karte hain. Baad mein 24 ghante ke andar main WhatsApp par likhit summary bhejta hoon.</p>
+<p>Main samajhdari ki baaton, roz ki practice jaise dhyan, aur Sanatan Dharma se seekhi baaton se kaam leta hoon. Main bas motivation wali baatein nahi karta.</p>
 
-<h2>कॉल क्या नहीं है</h2>
+<h2>Call kya nahi hai</h2>
 <ul>
-<li>ये थेरेपी, काउंसलिंग या मेडिकल सलाह नहीं है।</li>
-<li>ये कानूनी, पैसों या इन्वेस्टमेंट की सलाह नहीं है।</li>
-<li>ये किसी नतीजे की गारंटी नहीं है। मेहनत आपको करनी है, मैं बस साफ़ देखने में मदद करता हूँ।</li>
+<li>Ye therapy, counselling ya medical salah nahi hai.</li>
+<li>Ye legal, paison ya investment ki salah nahi hai.</li>
+<li>Ye kisi nateeje ki guarantee nahi hai. Mehnat aapko karni hai, main bas saaf dekhne mein madad karta hoon.</li>
 </ul>
-<p>अगर आप मुश्किल में हैं या सुरक्षित महसूस नहीं कर रहे, तो अपनी लोकल इमरजेंसी सेवा (भारत में 112) या किसी भरोसेमंद इंसान से तुरंत संपर्क करें।</p>
+<p>Agar aap mushkil mein hain ya safe mehsoos nahi kar rahe, toh apni local emergency service (India mein 112) ya kisi bharosemand insaan se turant sampark karein.</p>
 
-<h2>आपकी प्राइवेसी</h2>
-<p>आप जो बताते हैं वो सिर्फ़ हमारे बीच रहता है। मैं सिर्फ़ वही जानकारी लेता हूँ जो बुकिंग और तैयारी के लिए ज़रूरी है। पूरी जानकारी <a href="privacy.html">प्राइवेसी पॉलिसी</a> में है।</p>
+<h2>Aapki privacy</h2>
+<p>Aap jo batate hain woh sirf hamare beech rehta hai. Main sirf wahi jaankari leta hoon jo booking aur taiyaari ke liye zaroori hai. Poori jaankari <a href="privacy.html">privacy policy</a> mein hai.</p>
 
-<h2>बात करने के लिए तैयार?</h2>
-<p>आप <a href="index.html#diagnostic">अपने लिए सही सेशन चुन</a> सकते हैं या सीधे <a href="index.html#booking">समय चुन</a> सकते हैं। पहले कुछ पूछना हो तो {CONTACT}</p>
+<h2>Baat karne ke liye taiyaar?</h2>
+<p>Aap <a href="index.html#diagnostic">apne liye sahi session chun</a> sakte hain ya seedha <a href="index.html#booking">time chun</a> sakte hain. Pehle kuch poochna ho toh {CONTACT}</p>
 ''')
 
-PAGES['privacy.html'] = ('प्राइवेसी पॉलिसी', f'आखिरी अपडेट: {UPD}', 'Timeline by Harsh आपकी निजी जानकारी कैसे लेता है, इस्तेमाल करता है और सुरक्षित रखता है।', f'''
-<p class="note">इस पेज में बताया गया है कि वेबसाइट इस्तेमाल करने या कॉल बुक करने पर कौन सी निजी जानकारी ली जाती है, क्यों ली जाती है, और आपके पास क्या हक़ हैं।</p>
+PAGES['privacy.html'] = ('Privacy Policy', f'Aakhri update: {UPD}', 'Timeline by Harsh aapki personal jaankari kaise leta hai, use karta hai aur surakshit rakhta hai.', f'''
+<p class="note">Is page mein bataya gaya hai ki website use karne ya call book karne par kaun si personal jaankari li jaati hai, kyun li jaati hai, aur aapke paas kya haq hain.</p>
 
-<h2>ज़िम्मेदार कौन है</h2>
-<p>Timeline by Harsh, जिसे हर्ष उपाध्याय ("मैं") चलाते हैं, यहाँ बताई गई निजी जानकारी के लिए ज़िम्मेदार है। {CONTACT}</p>
+<h2>Zimmedaar kaun hai</h2>
+<p>Timeline by Harsh, jise Harsh Upadhyay ("main") chalate hain, yahan batayi gayi personal jaankari ke liye zimmedaar hai. {CONTACT}</p>
 
-<h2>मैं क्या जानकारी लेता हूँ</h2>
-<p>जब आप प्रायोरिटी स्लॉट बुक करते हैं, फॉर्म में ये पूछा जाता है:</p>
+<h2>Main kya jaankari leta hoon</h2>
+<p>Jab aap priority slot book karte hain, form mein ye poocha jaata hai:</p>
 <ul>
-<li>आपका नाम, ईमेल और WhatsApp नंबर</li>
-<li>आपकी उम्र और शहर</li>
-<li>आपने कौन सा सेशन चुना, और पसंद की तारीख और समय</li>
-<li>आप किस बारे में बात करना चाहते हैं, और कोई और बात जो आप बताना चाहें</li>
-<li>अगर आप UPI से पेमेंट करते हैं, तो पेमेंट का रेफरेंस नंबर (UTR) और वो ईमेल जिससे आपने बुक किया</li>
+<li>Aapka naam, email aur WhatsApp number</li>
+<li>Aapki umar aur city</li>
+<li>Aapne kaun sa session chuna, aur pasand ki date aur time</li>
+<li>Aap kis baare mein baat karna chahte hain, aur koi aur baat jo aap batana chahein</li>
+<li>Agar aap UPI se payment karte hain, toh payment ka reference number (UTR) aur woh email jisse aapne book kiya</li>
 </ul>
-<p>कैलेंडर से बुक करने पर शेड्यूलिंग सर्विस वो जानकारी माँगती है जो उसे चाहिए, जैसे आपका नाम और ईमेल।</p>
-<p>आपकी दिक्कत का ब्यौरा निजी हो सकता है। कृपया वही बताएँ जिसमें आप सहज हों।</p>
-<p>मैं आपके कार्ड, UPI या बैंक की डिटेल <strong>नहीं</strong> देखता और न रखता हूँ। पेमेंट Razorpay संभालता है।</p>
+<p>Calendar se book karne par scheduling service woh jaankari maangti hai jo use chahiye, jaise aapka naam aur email.</p>
+<p>Aapki dikkat ka byora personal ho sakta hai. Kripya wahi batayein jisme aap comfortable hon.</p>
+<p>Main aapke card, UPI ya bank ki detail <strong>nahi</strong> dekhta aur na rakhta hoon. Payment Razorpay sambhalta hai.</p>
 
-<h2>मैं इसका क्या करता हूँ</h2>
+<h2>Main iska kya karta hoon</h2>
 <ul>
-<li>आपकी कॉल तय करने और Google Meet लिंक भेजने के लिए</li>
-<li>कॉल की तैयारी करने और WhatsApp पर लिखित समरी भेजने के लिए</li>
-<li>पेमेंट कन्फर्म करने और बुकिंग ईमेल भेजने के लिए</li>
-<li>आपके सवालों के जवाब देने, समय बदलने या रिफंड करने के लिए, और वो रिकॉर्ड रखने के लिए जो कानून माँगता है</li>
+<li>Aapki call tay karne aur Google Meet link bhejne ke liye</li>
+<li>Call ki taiyaari karne aur WhatsApp par likhit summary bhejne ke liye</li>
+<li>Payment confirm karne aur booking emails bhejne ke liye</li>
+<li>Aapke sawaalon ke jawaab dene, time badalne ya refund karne ke liye, aur woh records rakhne ke liye jo kanoon maangta hai</li>
 </ul>
-<p>मैं आपकी जानकारी बेचता नहीं हूँ और विज्ञापन के लिए इस्तेमाल नहीं करता।</p>
+<p>Main aapki jaankari bechta nahi hoon aur advertising ke liye use nahi karta.</p>
 
-<h2>और कौन इसे संभालता है</h2>
-<p>सर्विस चलाने के लिए मैं इन कंपनियों की मदद लेता हूँ। सबकी अपनी प्राइवेसी पॉलिसी है।</p>
+<h2>Aur kaun ise sambhalta hai</h2>
+<p>Service chalane ke liye main in companies ki madad leta hoon. Sabki apni privacy policy hai.</p>
 <ul>
-<li><strong>Razorpay</strong>: पेमेंट संभालता है। आपकी बुकिंग की जानकारी पेमेंट रिकॉर्ड के साथ सेव होती है।</li>
-<li><strong>Cal.com</strong> और <strong>Google</strong> (Calendar, Meet और Gmail): शेड्यूलिंग, वीडियो कॉल और बुकिंग ईमेल।</li>
-<li><strong>WhatsApp</strong>: फॉलो-अप मैसेज और आपकी लिखित समरी।</li>
-<li><strong>Google Fonts</strong>: इस साइट के फॉन्ट लोड करता है, यानी आपका ब्राउज़र Google से जुड़ता है।</li>
-<li><strong>Amazon</strong>: किताबों के लिंक अफिलिएट लिंक हैं। लिंक पर क्लिक करने के बाद की बातें Amazon की साइट पर Amazon संभालता है।</li>
+<li><strong>Razorpay</strong>: payment sambhalta hai. Aapki booking ki jaankari payment record ke saath save hoti hai.</li>
+<li><strong>Cal.com</strong> aur <strong>Google</strong> (Calendar, Meet aur Gmail): scheduling, video call aur booking emails.</li>
+<li><strong>WhatsApp</strong>: follow-up messages aur aapki likhit summary.</li>
+<li><strong>Google Fonts</strong>: is site ke fonts load karta hai, yaani aapka browser Google se judta hai.</li>
+<li><strong>Amazon</strong>: kitaabon ke links affiliate links hain. Link par click karne ke baad ki baatein Amazon ki site par Amazon sambhalta hai.</li>
 </ul>
-<p>अगर कानून माँगे तो मैं जानकारी साझा कर सकता हूँ।</p>
+<p>Agar kanoon maange toh main jaankari share kar sakta hoon.</p>
 
-<h2>कितने समय तक रखता हूँ</h2>
-<p>बुकिंग की जानकारी मैं तब तक रखता हूँ जब तक सर्विस देने, आपसे फॉलो-अप करने और टैक्स-अकाउंटिंग के नियम निभाने के लिए ज़रूरी है। उसके बाद जो हटा सकता हूँ, हटा देता हूँ। Razorpay के पास रखे पेमेंट रिकॉर्ड उसके अपने नियमों से चलते हैं।</p>
+<h2>Kitne time tak rakhta hoon</h2>
+<p>Booking ki jaankari main tab tak rakhta hoon jab tak service dene, aapse follow-up karne aur tax-accounting ke niyam nibhane ke liye zaroori hai. Uske baad jo hata sakta hoon, hata deta hoon. Razorpay ke paas rakhe payment records uske apne niyamon se chalte hain.</p>
 
-<h2>आपके विकल्प और हक़</h2>
-<p>डिजिटल पर्सनल डेटा प्रोटेक्शन एक्ट, 2023 के तहत आप मुझसे पूछ सकते हैं कि मेरे पास आपकी कौन सी जानकारी है, उसे ठीक करवा सकते हैं या हटवा सकते हैं, और अपनी सहमति वापस ले सकते हैं। इसके लिए ऊपर बताए तरीके से संपर्क करें। मैं जल्द से जल्द जवाब दूँगा। संतुष्ट न हों तो आप डेटा प्रोटेक्शन बोर्ड ऑफ इंडिया में शिकायत भी कर सकते हैं।</p>
+<h2>Aapke options aur haq</h2>
+<p>Digital Personal Data Protection Act, 2023 ke tehat aap mujhse pooch sakte hain ki mere paas aapki kaun si jaankari hai, use theek karwa sakte hain ya hatwa sakte hain, aur apni sahmati wapas le sakte hain. Iske liye upar bataye tareeke se sampark karein. Main jald se jald jawaab doonga. Santusht na hon toh aap Data Protection Board of India mein shikayat bhi kar sakte hain.</p>
 
-<h2>बच्चे</h2>
-<p>अगर आपकी उम्र 18 साल से कम है, तो कृपया माता-पिता या गार्डियन की जानकारी और सहमति से ही बुक करें। मैं उम्र इसीलिए पूछता हूँ।</p>
+<h2>Bachche</h2>
+<p>Agar aapki umar 18 saal se kam hai, toh kripya mata-pita ya guardian ki jaankari aur sahmati se hi book karein. Main umar isiliye poochta hoon.</p>
 
-<h2>सुरक्षा</h2>
-<p>ये साइट HTTPS पर चलती है और पेमेंट Razorpay के सुरक्षित चेकआउट से होते हैं। कोई भी सिस्टम पूरी तरह सुरक्षित नहीं होता, इसलिए कृपया बुकिंग फॉर्म में संवेदनशील दस्तावेज़ या पासवर्ड न भेजें।</p>
+<h2>Security</h2>
+<p>Ye site HTTPS par chalti hai aur payments Razorpay ke secure checkout se hote hain. Koi bhi system poori tarah surakshit nahi hota, isliye kripya booking form mein sensitive documents ya passwords na bhejein.</p>
 
-<h2>कुकीज़</h2>
-<p><a href="cookies.html">कुकी पॉलिसी</a> देखें।</p>
+<h2>Cookies</h2>
+<p><a href="cookies.html">Cookie policy</a> dekhein.</p>
 
-<h2>बदलाव</h2>
-<p>अगर मैं ये पॉलिसी बदलूँगा तो ऊपर की तारीख बदल दूँगा। बड़े बदलाव होने पर होम पेज पर बता दूँगा।</p>
+<h2>Badlaav</h2>
+<p>Agar main ye policy badloonga toh upar ki date badal doonga. Bade badlaav hone par home page par bata doonga.</p>
 ''')
 
-PAGES['terms.html'] = ('नियम और शर्तें', f'आखिरी अपडेट: {UPD}', 'Timeline by Harsh वेबसाइट इस्तेमाल करने और गाइडेंस कॉल बुक करने के नियम।', f'''
-<p class="note">कॉल बुक करने या वेबसाइट इस्तेमाल करने का मतलब है कि आप इन नियमों से सहमत हैं। कुछ समझ न आए या ठीक न लगे तो बुक करने से पहले पूछ लें।</p>
+PAGES['terms.html'] = ('Terms of Use', f'Aakhri update: {UPD}', 'Timeline by Harsh website use karne aur guidance calls book karne ke niyam.', f'''
+<p class="note">Call book karne ya website use karne ka matlab hai ki aap in niyamon se sahmat hain. Kuch samajh na aaye ya theek na lage toh book karne se pehle pooch lein.</p>
 
-<h2>सर्विस</h2>
-<p>Timeline by Harsh में हर्ष उपाध्याय के साथ Google Meet पर प्राइवेट वन-ऑन-वन गाइडेंस कॉल मिलती है। अभी ये सेशन हैं: क्लैरिटी कॉल (30 मिनट), दिनचर्या रीसेट (45 मिनट) और डीप डाइव (60 मिनट)। कीमत भारतीय रुपये में बुकिंग सेक्शन और चेकआउट में दिखती है।</p>
+<h2>Service</h2>
+<p>Timeline by Harsh mein Harsh Upadhyay ke saath Google Meet par private one-on-one guidance call milti hai. Abhi ye sessions hain: Clarity Call (30 minute), Dincharya Reset (45 minute) aur Deep Dive (60 minute). Keemat Indian rupees mein booking section aur checkout mein dikhti hai.</p>
 
-<h2>ये सर्विस क्या नहीं है</h2>
-<p>ये कॉल समझदारी की बातों और सनातन धर्म की परंपरा पर आधारित गाइडेंस वाली बातचीत है। ये थेरेपी, काउंसलिंग, मेडिकल, कानूनी, पैसों या इन्वेस्टमेंट की सलाह <strong>नहीं</strong> है, और मैं किसी लाइसेंस वाले प्रोफेशनल की जगह नहीं ले सकता। ऐसे मामलों में कृपया सही प्रोफेशनल से मिलें।</p>
-<p>मैं किसी खास नतीजे का वादा नहीं करता। कॉल के बाद आप क्या करते हैं, ये आपका फैसला है।</p>
-<p>ये इमरजेंसी सेवा नहीं है। अगर आप मुश्किल में हैं या सुरक्षित महसूस नहीं कर रहे, तो अपनी लोकल इमरजेंसी सेवा (भारत में 112) से संपर्क करें।</p>
+<h2>Ye service kya nahi hai</h2>
+<p>Ye calls samajhdari ki baaton aur Sanatan Dharma ki parampara par aadharit guidance wali baatcheet hain. Ye therapy, counselling, medical, legal, paison ya investment ki salah <strong>nahi</strong> hain, aur main kisi licensed professional ki jagah nahi le sakta. Aise maamlon mein kripya sahi professional se milein.</p>
+<p>Main kisi khaas nateeje ka vaada nahi karta. Call ke baad aap kya karte hain, ye aapka faisla hai.</p>
+<p>Ye emergency service nahi hai. Agar aap mushkil mein hain ya safe mehsoos nahi kar rahe, toh apni local emergency service (India mein 112) se sampark karein.</p>
 
-<h2>बुकिंग और पेमेंट</h2>
+<h2>Booking aur payment</h2>
 <ul>
-<li>आप कैलेंडर से बुक कर सकते हैं या प्रायोरिटी स्लॉट के लिए पेमेंट कर सकते हैं। पेमेंट Razorpay संभालता है।</li>
-<li>आपका स्लॉट तब पक्का होता है जब आपकी बुकिंग या पेमेंट कन्फर्म हो जाए।</li>
-<li>कैलेंडर से की गई बुकिंग तब तक सिर्फ़ रिक्वेस्ट होती है जब तक मैं उसे कन्फर्म न करूँ। अगर आप UPI से पे करते हैं, तो पेमेंट दिखने के बाद मैं बुकिंग कन्फर्म करता हूँ।</li>
-<li>कृपया सही जानकारी दें। मुझे आपसे ईमेल या WhatsApp पर संपर्क करना पड़ सकता है।</li>
-<li>समय बदलने और रिफंड के नियम <a href="refund.html">रिफंड पॉलिसी</a> में हैं।</li>
+<li>Aap calendar se book kar sakte hain ya priority slot ke liye payment kar sakte hain. Payment Razorpay sambhalta hai.</li>
+<li>Aapka slot tab pakka hota hai jab aapki booking ya payment confirm ho jaaye.</li>
+<li>Calendar se ki gayi booking tab tak sirf request hoti hai jab tak main use confirm na karoon. Agar aap UPI se pay karte hain, toh payment dikhne ke baad main booking confirm karta hoon.</li>
+<li>Kripya sahi jaankari dein. Mujhe aapse email ya WhatsApp par sampark karna pad sakta hai.</li>
+<li>Time badalne aur refund ke niyam <a href="refund.html">refund policy</a> mein hain.</li>
 </ul>
 
-<h2>कौन बुक कर सकता है</h2>
-<p>आपकी उम्र 18 साल या उससे ज़्यादा होनी चाहिए। उससे छोटे हों तो कृपया माता-पिता या गार्डियन की सहमति से ही बुक करें।</p>
+<h2>Kaun book kar sakta hai</h2>
+<p>Aapki umar 18 saal ya usse zyada honi chahiye. Usse chhote hon toh kripya mata-pita ya guardian ki sahmati se hi book karein.</p>
 
-<h2>कॉल पर हम कैसे पेश आएँ</h2>
+<h2>Call par hum kaise pesh aayein</h2>
 <ul>
-<li>कृपया सम्मान से बात करें। अगर कॉल गाली-गलौज या असुरक्षित हो जाए तो मैं उसे खत्म कर सकता हूँ।</li>
-<li>कृपया मेरी लिखित इजाज़त के बिना कॉल रिकॉर्ड न करें और उसकी बातें सबके सामने साझा न करें।</li>
-<li>आप जो बताते हैं मैं उसे निजी रखता हूँ। सिर्फ़ तब तोड़ूँगा जब कानून माँगे, या जब मुझे लगे कि किसी को गंभीर खतरा है।</li>
+<li>Kripya samman se baat karein. Agar call gaali-galoch ya unsafe ho jaaye toh main use khatam kar sakta hoon.</li>
+<li>Kripya meri likhit ijaazat ke bina call record na karein aur uski baatein sabke saamne share na karein.</li>
+<li>Aap jo batate hain main use private rakhta hoon. Sirf tab todoonga jab kanoon maange, ya jab mujhe lage ki kisi ko gambhir khatra hai.</li>
 </ul>
 
-<h2>किताबें और लिंक</h2>
-<p>किताबों वाले सेक्शन में Amazon अफिलिएट लिंक हैं। इनसे खरीदने पर मुझे थोड़ा कमीशन मिल सकता है, आपको कोई एक्स्ट्रा खर्च नहीं। दूसरी साइटों के अपने नियम होते हैं।</p>
+<h2>Kitaabein aur links</h2>
+<p>Kitaabon wale section mein Amazon affiliate links hain. Inse kharidne par mujhe thoda commission mil sakta hai, aapko koi extra kharcha nahi. Doosri sites ke apne niyam hote hain.</p>
 
-<h2>मेरा कंटेंट</h2>
-<p>इस साइट का टेक्स्ट, डिज़ाइन और तस्वीरें Timeline by Harsh की हैं, जब तक कुछ और न लिखा हो। कृपया इजाज़त के बिना कॉपी न करें।</p>
+<h2>Mera content</h2>
+<p>Is site ka text, design aur tasveerein Timeline by Harsh ki hain, jab tak kuch aur na likha ho. Kripya ijaazat ke bina copy na karein.</p>
 
-<h2>ज़िम्मेदारी की सीमा</h2>
-<p>मैं हर कॉल की अच्छे से तैयारी करता हूँ और उसे पूरा करता हूँ, लेकिन कानून जितनी छूट देता है, उतना, कॉल या इस वेबसाइट के आधार पर आपके लिए गए फैसलों या नुकसान की ज़िम्मेदारी मेरी नहीं है। इससे भारतीय उपभोक्ता कानून में आपका कोई हक़ कम नहीं होता।</p>
+<h2>Zimmedaari ki seema</h2>
+<p>Main har call ki achhe se taiyaari karta hoon aur use poora karta hoon, lekin kanoon jitni chhoot deta hai, utna, call ya is website ke aadhar par aapke liye gaye faislon ya nuksaan ki zimmedaari meri nahi hai. Isse Indian consumer law mein aapka koi haq kam nahi hota.</p>
 
-<h2>कौन सा कानून लागू होता है</h2>
-<p>ये नियम भारत के कानून के हिसाब से हैं। कोई दिक्कत आए तो पहले मुझसे बात करें, हम सुलझा लेंगे। न सुलझे तो भारत की अदालतों को सुनवाई का अधिकार होगा।</p>
+<h2>Kaun sa kanoon lagu hota hai</h2>
+<p>Ye niyam India ke kanoon ke hisaab se hain. Koi dikkat aaye toh pehle mujhse baat karein, hum suljha lenge. Na suljhe toh India ki adaalaton ko sunwayi ka adhikaar hoga.</p>
 
-<h2>बदलाव</h2>
-<p>मैं ये नियम बदल सकता हूँ। ऊपर की तारीख से पता चलता है कि सबसे नया वर्शन कौन सा है। जो बुकिंग आप पहले कर चुके हैं, वो उन्हीं नियमों से चलेगी जो बुक करते समय थे।</p>
+<h2>Badlaav</h2>
+<p>Main ye niyam badal sakta hoon. Upar ki date se pata chalta hai ki sabse naya version kaun sa hai. Jo booking aap pehle kar chuke hain, woh unhi niyamon se chalegi jo book karte samay the.</p>
 
-<h2>संपर्क</h2>
+<h2>Sampark</h2>
 <p>{CONTACT}</p>
 ''')
 
-PAGES['refund.html'] = ('रिफंड और समय बदलना', f'आखिरी अपडेट: {UPD}', 'Timeline by Harsh की गाइडेंस कॉल के लिए समय बदलने और रिफंड के नियम।', f'''
-<p class="note">छोटे में: कॉल से कम से कम 6 घंटे पहले बता दें तो समय मुफ़्त में बदल सकते हैं। अगर मैं आपकी कॉल नहीं कर पाया, तो पूरा रिफंड मिलेगा।</p>
+PAGES['refund.html'] = ('Refunds aur Time badalna', f'Aakhri update: {UPD}', 'Timeline by Harsh ki guidance calls ke liye time badalne aur refund ke niyam.', f'''
+<p class="note">Chhote mein: call se kam se kam 6 ghante pehle bata dein toh time free mein badal sakte hain. Agar main aapki call nahi kar paaya, toh poora refund milega.</p>
 
-<h2>समय बदलना</h2>
-<p>कॉल से कम से कम <strong>6 घंटे</strong> पहले WhatsApp पर या कन्फर्मेशन ईमेल का जवाब देकर बता दें, हम बिना किसी एक्स्ट्रा खर्च के दूसरा समय तय कर लेंगे।</p>
+<h2>Time badalna</h2>
+<p>Call se kam se kam <strong>6 ghante</strong> pehle WhatsApp par ya confirmation email ka reply karke bata dein, hum bina extra kharche ke doosra time tay kar lenge.</p>
 
-<h2>कब पूरा रिफंड मिलता है</h2>
+<h2>Kab poora refund milta hai</h2>
 <ul>
-<li>मैं कॉल कैंसल कर दूँ या आ न पाऊँ और हम नया समय तय न कर पाएँ।</li>
-<li>मेरी तरफ की किसी तकनीकी दिक्कत की वजह से कॉल न हो पाए।</li>
-<li>एक ही बुकिंग के लिए आपसे एक से ज़्यादा बार पैसे कट जाएँ, या पेमेंट हो गया पर बुकिंग कन्फर्म नहीं हुई।</li>
+<li>Main call cancel kar doon ya aa na paaoon aur hum naya time tay na kar paayein.</li>
+<li>Meri taraf ki kisi technical dikkat ki wajah se call na ho paaye.</li>
+<li>Ek hi booking ke liye aapse ek se zyada baar paise kat jaayein, ya payment ho gaya par booking confirm nahi hui.</li>
 </ul>
 
-<h2>कब रिफंड नहीं मिलता</h2>
+<h2>Kab refund nahi milta</h2>
 <ul>
-<li>आप कॉल पर नहीं आए और पहले बताया भी नहीं।</li>
-<li>आपने कॉल से 6 घंटे से कम पहले कैंसल करने को कहा। ऐसे में भी जहाँ हो सका मैं एक बार समय बदलने का मौका दूँगा।</li>
-<li>कॉल हो चुकी है। सलाह वापस नहीं की जा सकती, इसलिए पूरी हो चुकी सेशन का रिफंड नहीं होता।</li>
+<li>Aap call par nahi aaye aur pehle bataya bhi nahi.</li>
+<li>Aapne call se 6 ghante se kam pehle cancel karne ko kaha. Aise mein bhi jahan ho saka main ek baar time badalne ka mauka doonga.</li>
+<li>Call ho chuki hai. Salah wapas nahi ki ja sakti, isliye poore ho chuke session ka refund nahi hota.</li>
 </ul>
-<p>अगर कुछ गड़बड़ हुई और ऊपर की कोई बात फिट नहीं बैठती, तो मुझे लिखें। मैं ईमानदारी से देखकर केस के हिसाब से फैसला करूँगा।</p>
+<p>Agar kuch gadbad hui aur upar ki koi baat fit nahi baithti, toh mujhe likhein. Main imaandaari se dekhkar case ke hisaab se faisla karoonga.</p>
 
-<h2>रिफंड कैसे मिलता है</h2>
-<p>मंज़ूर हुआ रिफंड Razorpay के ज़रिए उसी पेमेंट तरीके में वापस जाता है। इसमें आमतौर पर 5 से 7 कामकाजी दिन लगते हैं, आपके बैंक या UPI ऐप के हिसाब से।</p>
+<h2>Refund kaise milta hai</h2>
+<p>Manzoor hua refund Razorpay ke zariye usi payment tareeke mein wapas jaata hai. Isme aam taur par 5 se 7 kaam-kaaji din lagte hain, aapke bank ya UPI app ke hisaab se.</p>
 
-<h2>कैसे माँगें</h2>
-<p>{CONTACT} कृपया वो नाम और ईमेल बताएँ जिससे बुक किया था, और पेमेंट ID अगर आपके पास हो।</p>
+<h2>Kaise maangein</h2>
+<p>{CONTACT} Kripya woh naam aur email batayein jisse book kiya tha, aur payment ID agar aapke paas ho.</p>
 
-<p>ये नियम <a href="terms.html">नियम और शर्तें</a> के साथ चलते हैं। इनसे भारतीय उपभोक्ता कानून में आपका कोई हक़ कम नहीं होता।</p>
+<p>Ye niyam <a href="terms.html">terms of use</a> ke saath chalte hain. Inse Indian consumer law mein aapka koi haq kam nahi hota.</p>
 ''')
 
-PAGES['cookies.html'] = ('कुकी पॉलिसी', f'आखिरी अपडेट: {UPD}', 'Timeline by Harsh और उसके बुकिंग-पेमेंट पार्टनर कौन सी कुकीज़ इस्तेमाल करते हैं।', f'''
-<p class="note">छोटे में: ये साइट अपनी कोई कुकी नहीं लगाती और इसमें कोई एनालिटिक्स या विज्ञापन ट्रैकर नहीं है। इसमें इस्तेमाल होने वाली कुछ सर्विस अपनी कुकीज़ लगा सकती हैं।</p>
+PAGES['cookies.html'] = ('Cookie Policy', f'Aakhri update: {UPD}', 'Timeline by Harsh aur uske booking-payment partners kaun si cookies use karte hain.', f'''
+<p class="note">Chhote mein: ye site apni koi cookie nahi lagati aur isme koi analytics ya advertising tracker nahi hai. Isme use hone wali kuch services apni cookies laga sakti hain.</p>
 
-<h2>कुकी क्या होती है</h2>
-<p>कुकी एक छोटी फ़ाइल होती है जो वेबसाइट आपके ब्राउज़र में सेव करती है। साइटें इनसे लॉगिन या चल रहा पेमेंट जैसी बातें याद रखती हैं।</p>
+<h2>Cookie kya hoti hai</h2>
+<p>Cookie ek chhoti file hoti hai jo website aapke browser mein save karti hai. Sites inse login ya chal rahe payment jaisi baatein yaad rakhti hain.</p>
 
-<h2>ये साइट क्या करती है</h2>
-<p>इस वेबसाइट की अपनी कोई कुकी नहीं है, और ये एनालिटिक्स, विज्ञापन या ट्रैकिंग टूल इस्तेमाल नहीं करती। ये आपके ब्राउज़र में ऐसी कोई जानकारी सेव नहीं करती जिससे आपका पीछा किया जा सके।</p>
+<h2>Ye site kya karti hai</h2>
+<p>Is website ki apni koi cookie nahi hai, aur ye analytics, advertising ya tracking tools use nahi karti. Ye aapke browser mein aisi koi jaankari save nahi karti jisse aapka peecha kiya ja sake.</p>
 
-<h2>दूसरी सर्विस क्या कर सकती हैं</h2>
-<p>पेज के कुछ हिस्से दूसरी कंपनियों से लोड होते हैं। लोड होने पर वो अपनी कुकीज़ या वैसी ही स्टोरेज लगा सकती हैं, जिन पर मेरा कंट्रोल नहीं है:</p>
+<h2>Doosri services kya kar sakti hain</h2>
+<p>Page ke kuch hisse doosri companies se load hote hain. Load hone par woh apni cookies ya waisi hi storage laga sakti hain, jin par mera control nahi hai:</p>
 <ul>
-<li><strong>Cal.com</strong>: पेज पर बुकिंग का कैलेंडर।</li>
-<li><strong>Razorpay</strong>: इसकी चेकआउट स्क्रिप्ट पेज के साथ लोड होती है, और पे करते समय सुरक्षित चेकआउट खुलता है। ये फ्रॉड रोकने और पेमेंट पूरा करने के लिए कुकीज़ या वैसी स्टोरेज इस्तेमाल कर सकता है।</li>
-<li><strong>Google Fonts</strong>: फॉन्ट लोड करता है। इसके लिए आपका ब्राउज़र Google से जुड़ता है।</li>
-<li><strong>Amazon</strong>: सिर्फ़ तब जब आप किताब का लिंक खोलकर इस साइट से बाहर जाएँ।</li>
+<li><strong>Cal.com</strong>: page par booking ka calendar.</li>
+<li><strong>Razorpay</strong>: iski checkout script page ke saath load hoti hai, aur pay karte samay secure checkout khulta hai. Ye fraud rokne aur payment poora karne ke liye cookies ya waisi storage use kar sakta hai.</li>
+<li><strong>Google Fonts</strong>: fonts load karta hai. Iske liye aapka browser Google se judta hai.</li>
+<li><strong>Amazon</strong>: sirf tab jab aap kitaab ka link kholkar is site se bahar jaayein.</li>
 </ul>
 
-<h2>आपके विकल्प</h2>
-<p>आप अपने ब्राउज़र की सेटिंग में कुकीज़ ब्लॉक या डिलीट कर सकते हैं। सब कुछ ब्लॉक करने पर बुकिंग कैलेंडर या चेकआउट का कुछ हिस्सा काम करना बंद कर सकता है।</p>
+<h2>Aapke options</h2>
+<p>Aap apne browser ki settings mein cookies block ya delete kar sakte hain. Sab kuch block karne par booking calendar ya checkout ka kuch hissa kaam karna band kar sakta hai.</p>
 
-<h2>और जानकारी</h2>
-<p>आपकी जानकारी कैसे इस्तेमाल होती है, ये जानने के लिए <a href="privacy.html">प्राइवेसी पॉलिसी</a> पढ़ें। {CONTACT}</p>
+<h2>Aur jaankari</h2>
+<p>Aapki jaankari kaise use hoti hai, ye jaanne ke liye <a href="privacy.html">privacy policy</a> padhein. {CONTACT}</p>
 ''')
 
 for fn, (title, sub, desc, body) in PAGES.items():
     open('hi/' + fn, 'w', encoding='utf-8').write(HEAD.format(title=title, sub=sub, desc=desc, body=body, fn=fn))
-
-# language switch on the English pages
-for fn in PAGES:
-    t = open(fn, encoding='utf-8').read()
-    if 'class="lang"' not in t:
-        a = '<nav><a class="cta" href="index.html#booking">Book a call</a></nav>'
-        assert a in t, fn
-        t = t.replace(a, f'<nav><a class="lang" href="hi/{fn}" hreflang="hi" lang="hi">हिंदी</a><a class="cta" href="index.html#booking">Book a call</a></nav>')
-        t = t.replace('<link rel="icon"', f'<link rel="alternate" hreflang="hi" href="hi/{fn}">\n<link rel="icon"', 1)
-        open(fn, 'w', encoding='utf-8').write(t)
-c = open('legal.css', encoding='utf-8').read()
-if '.lang{' not in c:
-    c += '\n.lang{font-size:.85rem;font-weight:500;color:var(--muted);padding:.35rem .75rem;border:1px solid var(--border-strong);border-radius:9999px;margin-right:1rem;transition:color .2s,border-color .2s}\n.lang:hover{color:var(--accent);border-color:var(--accent)}\nnav{display:flex;align-items:center}\n'
-    open('legal.css', 'w', encoding='utf-8').write(c)
 print('legal pages written')
