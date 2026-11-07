@@ -1,4 +1,4 @@
-:root{--bg:#FAF8F5;--white:#FFFFFF;--tint:#F6EADC;--text:#21252B;--muted:#5E6470;--faint:#8E95A2;--accent:#FF6F1E;--accent-hover:#E85B0D;--border:#E7E2D9;--font:'DM Sans',sans-serif;--display:'Newsreader',Georgia,serif;--deva:'Tiro Devanagari Hindi','Noto Serif Devanagari',serif;--ease:cubic-bezier(.22,1,.36,1)}
+:root{--bg:#FAF8F5;--white:#FFFFFF;--tint:#F6EADC;--text:#21252B;--muted:#5E6470;--faint:#8E95A2;--accent:#FF6F1E;--accent-hover:#E85B0D;--border:#E7E2D9;--font:'DM Sans',sans-serif;--display:'Fraunces',Georgia,serif;--deva:'Tiro Devanagari Hindi','Noto Serif Devanagari',serif;--ease:cubic-bezier(.22,1,.36,1)}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:var(--font);background:var(--white);color:var(--text);line-height:1.75;-webkit-font-smoothing:antialiased}
@@ -61,3 +61,6 @@ footer .shloka{grid-column:1/-1}
 .lang{font-size:.85rem;font-weight:500;color:var(--muted);padding:.35rem .75rem;border:1px solid var(--border-strong);border-radius:9999px;margin-right:1rem;transition:color .2s,border-color .2s}
 .lang:hover{color:var(--accent);border-color:var(--accent)}
 nav{display:flex;align-items:center}
+
+body{font-variation-settings:'SOFT' 100,'WONK' 0}
+.title h1,article h2{font-weight:600}

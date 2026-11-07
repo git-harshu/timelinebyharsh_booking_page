@@ -23,7 +23,7 @@
   <!-- Typography: Newsreader (headlines) + DM Sans (body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Fraunces:opsz,wght,SOFT@9..144,300..700,0..100&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
   
   <script src="assets/qrcode.min.js" defer></script>
 
@@ -83,7 +83,7 @@
       --border: #E7E2D9;           /* Warm Hairline */
       --border-strong: #D5CEBF;
       --font: 'DM Sans', sans-serif;
-      --font-display: 'Newsreader', Georgia, serif;
+      --font-display: 'Fraunces', Georgia, serif;
       --font-deva: 'Tiro Devanagari Hindi', 'Noto Serif Devanagari', serif;
       --ease: cubic-bezier(0.22, 1, 0.36, 1);
       --ok-bg: #E6EFE4;
@@ -1159,7 +1159,6 @@
     .hero-art { position: relative; width: min(78vw, 440px); aspect-ratio: 1; margin: 0 auto; order: -1; }
     @media (min-width: 900px) { .hero-art { order: 0; width: min(100%, 440px); } }
     @media (max-width: 899px) { .hero-art { width: min(60vw, 260px); } .hero-copy { text-align: center; } .hero-actions, .hero-trust-list { justify-content: center; } .hero-summary { margin-left: auto; margin-right: auto; } .hero-headline { margin-left: auto; margin-right: auto; } }
-    .hero-glow { position: absolute; inset: -12%; border-radius: 50%; background: radial-gradient(circle, rgba(255,111,30,0.22), rgba(255,111,30,0) 66%); animation: breathe 7s ease-in-out infinite; }
     .art-ring { position: absolute; inset: 0; width: 100%; height: 100%; color: var(--accent); opacity: 0.9; animation: spin 90s linear infinite; }
     .art-ring-in { inset: 17%; width: 66%; height: 66%; opacity: 0.8; animation-duration: 60s; animation-direction: reverse; }
     .orbit { position: absolute; inset: -3%; animation: spin 36s linear infinite; }
@@ -1570,6 +1569,34 @@
     :root { --radius-md: 12px; --radius-lg: 12px; }
     .diag-card-btn, .diag-reveal, .service-row, .book-card .book-art, .cal-container, .form-container, .pay-card, .step-summary, .pay-qr { border-radius: 12px; }
     @media (max-width: 767px) { .truth { border-radius: 12px; } .diag-reveal { border-radius: 12px; } }
+
+    /* =========================================================
+       r14: minimal wave hero, centred, Fraunces + DM Sans
+       ========================================================= */
+    body { font-variation-settings: 'SOFT' 100, 'WONK' 0; }
+    .section-heading { font-weight: 600; }
+
+    @keyframes waveSlide { to { transform: translateX(-50%); } }
+
+    .hero { position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; min-height: calc(100vh - 4.25rem); min-height: calc(100svh - 4.25rem); padding: 3rem 0 clamp(7rem, 16vh, 11rem); background: linear-gradient(180deg, #FFFFFF 0%, #FFFCF8 62%, #FFF4E8 100%); }
+    .hero-grid { display: block; width: 100%; }
+    .hero-copy { display: block; text-align: center; position: relative; z-index: 3; }
+    .hero-headline { font-weight: 600; font-size: clamp(2.7rem, 6vw, 5.2rem); line-height: 1.07; letter-spacing: -0.02em; max-width: 52rem; margin: 0 auto 1.5rem; text-align: center; }
+    .hero-summary { font-size: 1.15rem; line-height: 1.7; max-width: 24rem; margin: 0 auto 2.25rem; text-align: center; color: var(--text-muted); }
+    .hero-actions { justify-content: center; margin: 0; }
+    .nb { white-space: nowrap; }
+    .hero-glow { position: absolute; left: 50%; bottom: -22%; width: min(1400px, 170vw); height: 62%; transform: translateX(-50%); background: radial-gradient(ellipse at 50% 100%, rgba(255,111,30,0.18) 0%, rgba(255,150,80,0.09) 34%, rgba(255,170,110,0) 66%); animation: glowPulse 8s ease-in-out infinite; z-index: 1; pointer-events: none; }
+    .hero-waves { position: absolute; left: 0; right: 0; bottom: 0; height: clamp(110px, 18vh, 180px); z-index: 2; pointer-events: none; }
+    .hero-waves .wv { position: absolute; left: 0; bottom: 0; width: 200%; animation: waveSlide linear infinite; }
+    .hero-waves .wv svg { display: block; width: 100%; height: 100%; }
+    .hero-waves .w1 { height: 100%; animation-duration: 38s; }
+    .hero-waves .w2 { height: 74%; animation-duration: 27s; animation-direction: reverse; }
+    .hero-waves .w3 { height: 50%; animation-duration: 19s; }
+    @media (max-width: 899px) {
+      .hero { padding: 3rem 0 9rem; }
+      .hero-copy { display: block; }
+      .hero-waves { height: 130px; }
+    }
   </style>
 </head>
 <body>
@@ -1621,11 +1648,11 @@
     <div class="container hero-grid">
       <div class="hero-copy hero-stack">
         <h1 class="hero-headline">
-          You keep thinking about it. And <em>nothing moves.</em>
+          You keep thinking about it.<br>And <em>nothing moves.</em>
         </h1>
 
         <p class="hero-summary">
-          Overthinking at night, a routine that fades by Thursday, a decision everyone has an opinion on. You do not need another pep talk. You need someone to think it through with.
+          You do not need another pep talk. You need someone to think it through with.
         </p>
 
         <div class="hero-actions">
@@ -1633,11 +1660,11 @@
           <a href="#booking" class="hero-link">Or book a call</a>
         </div>
       </div>
-
-      <div class="hero-art" aria-hidden="true">
-        <span class="ripple"></span><span class="ripple"></span><span class="ripple"></span>
-        <span class="bindu"><span class="hero-om">ॐ</span></span>
-      </div>
+    </div>
+    <div class="hero-waves" aria-hidden="true">
+      <div class="wv w1"><svg viewBox="0 0 2880 240" preserveAspectRatio="none" aria-hidden="true"><path d="M0,110 C180,50 360,170 720,110 C1080,50 1260,170 1440,110 C1620,50 1800,170 2160,110 C2520,50 2700,170 2880,110 L2880,240 L0,240Z" fill="#FFEBD9"/></svg></div>
+      <div class="wv w2"><svg viewBox="0 0 2880 240" preserveAspectRatio="none" aria-hidden="true"><path d="M0,110 C180,50 360,170 720,110 C1080,50 1260,170 1440,110 C1620,50 1800,170 2160,110 C2520,50 2700,170 2880,110 L2880,240 L0,240Z" fill="#FFDDC0"/></svg></div>
+      <div class="wv w3"><svg viewBox="0 0 2880 240" preserveAspectRatio="none" aria-hidden="true"><path d="M0,110 C180,50 360,170 720,110 C1080,50 1260,170 1440,110 C1620,50 1800,170 2160,110 C2520,50 2700,170 2880,110 L2880,240 L0,240Z" fill="#FFCFA6"/></svg></div>
     </div>
   </section>
 

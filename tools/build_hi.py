@@ -36,11 +36,12 @@ node('Questions', 'Sawaal')
 node('Book a call', 'Call book karein')
 
 # hero
-node('You keep thinking about it. And', 'Aap baar-baar sochte rehte hain. Aur')
+node('You keep thinking about it.', 'Aap <span class="nb">baar-baar</span> sochte rehte hain.')
+node('And', 'Aur')
 node('nothing moves.', 'kuch aage nahi badhta.')
-node('Overthinking at night, a routine that fades by Thursday, a decision everyone has an opinion on. You do not need another pep talk. You need someone to think it through with.',
-     'Raat ko zyada sochna, aisa routine jo Thursday tak toot jaata hai, aisa faisla jis par sabki apni raay hai. Aapko ek aur motivational speech nahi chahiye. Aapko koi chahiye jiske saath baithkar aap ise suljha sakein.')
-node('What is on your mind?', 'Aapke mann mein kya chal raha hai?')
+node('You do not need another pep talk. You need someone to think it through with.',
+     'Aapko ek aur motivational speech nahi chahiye. Aapko koi chahiye jiske saath baithkar aap ise suljha sakein.')
+node('What is on your mind?', 'Aapke mann mein kya hai?')
 node('Or book a call', 'Ya seedha call book karein')
 
 # understand
