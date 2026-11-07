@@ -3,20 +3,21 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Timeline by Harsh | 1:1 Personal Guidance & Life Consultation</title>
-  <meta name="description" content="Private 1:1 personal guidance consultations with Harsh Upadhyay (@timelinebyharsh). Focused, honest conversations to solve overthinking, build daily discipline, and find life clarity.">
+  <title>Timeline by Harsh | Personal guidance calls</title>
+  <meta name="description" content="Private one-on-one calls with Harsh Upadhyay (@timelinebyharsh) for overthinking, daily routine and big life decisions.">
   
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Timeline by Harsh | 1:1 Personal Guidance">
-  <meta property="og:description" content="Thirty minutes. Just you, me, and the one problem you can't seem to solve. Private 1:1 consultations with Harsh (@timelinebyharsh).">
+  <meta property="og:title" content="Timeline by Harsh | Personal guidance calls">
+  <meta property="og:description" content="Thirty minutes. Just you, me, and the one problem you can't seem to solve. Private one-on-one calls with Harsh (@timelinebyharsh).">
   <meta property="og:site_name" content="Timeline by Harsh">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Timeline by Harsh (@timelinebyharsh)">
-  <meta name="twitter:description" content="Private 1:1 personal consultations with Harsh Upadhyay. Book your slot on Cal.com.">
+  <meta name="twitter:description" content="Private one-on-one calls with Harsh Upadhyay. Book a time that suits you.">
 
   <!-- Favicon -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%2321252B'/><text x='50' y='66' font-size='50' font-family='Poppins,sans-serif' font-weight='600' fill='%23FF6F1E' text-anchor='middle'>H</text></svg>">
+  <link rel="icon" type="image/jpeg" href="assets/logo.jpg">
+  <meta property="og:image" content="assets/logo.jpg">
 
   <!-- Typography: Newsreader (headlines) + DM Sans (body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1124,6 +1125,131 @@
       .js .rise { opacity: 1; transform: none; }
       .marquee-track { width: auto; flex-wrap: wrap; justify-content: center; }
     }
+
+    /* =========================================================
+       r4: split hero, light quote, master-detail finder,
+       service cards, alternating sections, tab bar
+       ========================================================= */
+    :root { --tint: #F6EADC; --white: #FFFFFF; }
+
+    /* alternating section colours: white, tint, white, tint ... */
+    .hero { background: var(--white); border-bottom: 0; }
+    .quote-banner { background: var(--tint); }
+    .diagnostic-section { background: var(--white); border-bottom: 0; }
+    .services-section { background: var(--tint); border-bottom: 0; }
+    .journey-section { background: var(--white); border-bottom: 0; }
+    .booking-section { background: var(--tint); border-bottom: 0; }
+    .shop-section { background: var(--white); border-bottom: 0; }
+    .faq-section { background: var(--tint); border-bottom: 0; }
+    .site-footer { background: var(--white); }
+
+    /* hero: copy left, art right, nothing sits behind the text */
+    .hero { display: block; min-height: 0; text-align: left; padding: 4.5rem 0 4rem; overflow: hidden; }
+    .hero-grid { display: grid; grid-template-columns: 1fr; gap: 2.5rem; align-items: center; }
+    @media (min-width: 900px) { .hero-grid { grid-template-columns: 1.1fr 0.9fr; gap: 3rem; } .hero { padding: 5.5rem 0 5rem; } }
+    .hero-copy { text-align: left; }
+    .hero-headline { margin-left: 0; margin-right: 0; font-size: clamp(2.2rem, 4.6vw, 3.5rem); }
+    .hero-summary { margin-left: 0; margin-right: 0; max-width: 29rem; }
+    .hero-actions { justify-content: flex-start; margin-bottom: 1.75rem; }
+    .hero-trust-list { justify-content: flex-start; }
+    .hero-byline { display: inline-flex; }
+    .hero-art { position: relative; width: min(78vw, 440px); aspect-ratio: 1; margin: 0 auto; order: -1; }
+    @media (min-width: 900px) { .hero-art { order: 0; width: min(100%, 440px); } }
+    @media (max-width: 899px) { .hero-art { width: min(60vw, 260px); } .hero-copy { text-align: center; } .hero-actions, .hero-trust-list { justify-content: center; } .hero-summary { margin-left: auto; margin-right: auto; } .hero-headline { margin-left: auto; margin-right: auto; } }
+    .hero-glow { position: absolute; inset: -12%; border-radius: 50%; background: radial-gradient(circle, rgba(255,111,30,0.22), rgba(255,111,30,0) 66%); animation: breathe 7s ease-in-out infinite; }
+    .art-ring { position: absolute; inset: 0; width: 100%; height: 100%; color: var(--accent); opacity: 0.9; animation: spin 90s linear infinite; }
+    .art-ring-in { inset: 17%; width: 66%; height: 66%; opacity: 0.8; animation-duration: 60s; animation-direction: reverse; }
+    .orbit { position: absolute; inset: -3%; animation: spin 36s linear infinite; }
+    .orbit::before { content: ""; position: absolute; top: 0; left: 50%; width: 10px; height: 10px; margin-left: -5px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 6px rgba(255,111,30,0.18); }
+    .hero-om { position: absolute; inset: 0; display: grid; place-items: center; font-family: var(--font-deva); font-size: clamp(3.5rem, 8vw, 6rem); color: var(--accent); animation: breathe 6s ease-in-out infinite; }
+
+    /* quote: Hindi, light, diya row (a different motif from the hero) */
+    .quote-banner { padding: 5rem 1.5rem; }
+    .quote-om { display: block; font-family: var(--font-deva); font-size: 2.25rem; color: var(--accent); margin-bottom: 1.25rem; }
+    .quote-text { font-family: var(--font-deva); font-size: clamp(1.5rem, 3.4vw, 2.3rem); line-height: 1.6; color: var(--text); max-width: 40rem; margin: 0 auto 1rem; font-weight: 400; }
+    .quote-author { color: var(--text-muted); font-family: var(--font-deva); font-size: 1rem; letter-spacing: 0.04em; text-transform: none; }
+    .diya-row { display: flex; justify-content: center; align-items: flex-end; gap: 1.5rem; margin-top: 2.25rem; }
+    .diya-svg { width: 2.6rem; height: 2.6rem; overflow: visible; }
+    .diya-svg:nth-child(2) { width: 3.4rem; height: 3.4rem; }
+    .diya-svg .bowl { fill: none; stroke: var(--text-muted); stroke-width: 1.7; stroke-linejoin: round; }
+    .diya-svg .flame { fill: var(--accent); stroke: none; transform-box: fill-box; transform-origin: 50% 100%; animation: flicker 2.4s ease-in-out infinite; }
+    .diya-svg:nth-child(2) .flame { animation-delay: -0.8s; }
+    .diya-svg:nth-child(3) .flame { animation-delay: -1.5s; }
+
+    /* clarity finder: choices left, detail right */
+    .diag-split { display: grid; grid-template-columns: 1fr; gap: 1.5rem; text-align: left; max-width: 1000px; margin: 0 auto; }
+    @media (min-width: 860px) { .diag-split { grid-template-columns: 0.95fr 1.05fr; gap: 2rem; align-items: start; } .diag-reveal { position: sticky; top: 6rem; } }
+    .diag-cards-grid { grid-template-columns: 1fr !important; gap: 0.75rem; margin-bottom: 0; }
+    .diag-card-btn { width: 100%; padding: 1rem 1.25rem; border-radius: var(--radius-md); background: var(--bg); border: 1px solid var(--border); position: relative; }
+    .diag-card-btn::before { content: ""; position: absolute; left: 0; top: 14%; bottom: 14%; width: 3px; border-radius: 3px; background: var(--accent); transform: scaleY(0); transition: transform 0.4s var(--ease); }
+    .diag-card-btn.active { box-shadow: none; background: var(--white); border-color: var(--accent); }
+    .diag-card-btn.active::before { transform: scaleY(1); }
+    .diag-reveal { margin: 0; max-width: none; background: var(--tint); border-radius: var(--radius-lg); padding: 2rem 1.75rem; }
+    .diag-reveal::before { left: 1.75rem; right: 1.75rem; }
+
+    /* service cards */
+    .services-container { max-width: 1080px; display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
+    @media (min-width: 900px) { .services-container { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; align-items: stretch; } }
+    .service-row { display: flex; flex-direction: column; gap: 0; padding: 1.75rem; background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); border-bottom: 1px solid var(--border); align-items: stretch; }
+    .service-meta { order: 1; }
+    .service-content { order: 2; margin-top: 1rem; }
+    .service-action-col { order: 3; margin-top: auto; padding-top: 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; text-align: left; }
+    .sym-svc { width: 3.25rem; height: 3.25rem; padding: 0.7rem; border-radius: 50%; background: rgba(255,111,30,0.1); margin-bottom: 1rem; }
+    .service-meta h3 { font-size: 1.4rem; }
+    .service-content p { font-size: 0.9rem; color: var(--text-muted); }
+    .service-fee { font-family: var(--font-display); font-size: 2rem; font-weight: 500; color: var(--text); line-height: 1; margin: 0; }
+    .service-action-col .btn-solid { padding: 0.65rem 1.25rem; font-size: 0.875rem; }
+    .incl summary { font-size: 0.75rem; }
+
+    /* journey refinement: each step shows its share of the 30 minutes */
+    .journey-grid { gap: 2rem; }
+    .journey-step { text-align: left; }
+    .journey-time { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-faint); }
+    .journey-title { font-family: var(--font-display); font-size: 1.3rem; font-weight: 500; margin: 0.25rem 0 0.4rem; }
+    .journey-dur { height: 6px; border-radius: 6px; background: var(--tint); margin: 0.65rem 0 0.9rem; overflow: hidden; }
+    .journey-dur i { display: block; height: 100%; width: var(--p); background: var(--accent); border-radius: 6px; transform: scaleX(0); transform-origin: left; transition: transform 1.2s var(--ease) calc(var(--d, 0s) + 0.3s); }
+    .journey-step.in .journey-dur i { transform: scaleX(1); }
+    .journey-desc { font-size: 0.875rem; }
+
+    /* booking tabs: left aligned, clear selected state */
+    .booking-tabs { justify-content: flex-start; gap: 0; border-bottom: 1px solid var(--border-strong); margin-bottom: 2rem; flex-wrap: nowrap; overflow-x: auto; }
+    .tab-btn { position: relative; border: 0; border-radius: var(--radius-md) var(--radius-md) 0 0; background: transparent; padding: 0.95rem 1.4rem; font-size: 0.9rem; font-weight: 500; color: var(--text-muted); white-space: nowrap; transition: color 0.25s, background 0.25s; }
+    .tab-btn::after { content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 3px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 0.45s var(--ease); }
+    .tab-btn:hover { color: var(--text); border-color: transparent; background: rgba(255,111,30,0.06); }
+    .tab-btn.active { color: var(--text); background: var(--white); font-weight: 600; border-color: transparent; }
+    .tab-btn.active::after { transform: scaleX(1); }
+    .tab-btn.active::before { content: ""; display: inline-block; width: 7px; height: 7px; margin-right: 0.55rem; border-radius: 50%; background: var(--accent); vertical-align: middle; }
+
+    .shop-grid .book-card, .faq-stack details { background: transparent; }
+
+    /* =========================================================
+       r5: logo, cleaner header, bg order, Om scroll button
+       ========================================================= */
+    .brand-logo { width: 2.5rem; height: 2.5rem; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent); flex-shrink: 0; display: block; }
+    .site-brand { gap: 0.75rem; }
+    .nav-menu { gap: 1.75rem; }
+    .brand-sub { color: var(--text-faint); }
+
+    .faq-section { background: var(--white); }
+    .shop-section { background: var(--tint); }
+    .faq-stack a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+
+    ::selection { background: rgba(255, 111, 30, 0.28); color: var(--text); }
+
+    .footer-inner { justify-content: space-between; }
+    .footer-links { flex-wrap: wrap; gap: 0.75rem 1.5rem; }
+    .footer-shloka { text-align: center; margin-top: 2rem; font-family: var(--font-deva); font-size: 1rem; color: var(--text-faint); letter-spacing: 0.04em; }
+
+    /* Om replaces the scroll arrow: shows after scrolling, ring fills with progress */
+    .om-top { position: fixed; right: 1.25rem; bottom: 1.25rem; width: 3.25rem; height: 3.25rem; border-radius: 50%; background: var(--white); color: var(--accent); display: grid; place-items: center; z-index: 95; opacity: 0; transform: translateY(10px); pointer-events: none; transition: opacity 0.5s var(--ease), transform 0.5s var(--ease), background 0.25s; box-shadow: 0 6px 20px rgba(33,37,43,0.12); }
+    .om-top.show { opacity: 1; transform: none; pointer-events: auto; }
+    .om-top:hover { background: var(--tint); }
+    .om-top span { font-family: var(--font-deva); font-size: 1.5rem; line-height: 1; margin-top: -2px; }
+    .om-top svg { position: absolute; inset: 0; width: 100%; height: 100%; transform: rotate(-90deg); }
+    .om-top circle { fill: none; stroke-width: 2.5; }
+    .om-top .ring-bg { stroke: var(--border); }
+    .om-top .ring { stroke: var(--accent); stroke-linecap: round; stroke-dasharray: 132; stroke-dashoffset: 132; }
+    @media (max-width: 767px) { .om-top { bottom: 5.25rem; right: 1rem; width: 2.9rem; height: 2.9rem; } }
   </style>
 </head>
 <body>
@@ -1136,6 +1262,11 @@
     <path d="M24 36C24 36 10 37 5 27C12 25 20 28 24 36Z"/>
     <path d="M24 36C24 36 38 37 43 27C36 25 28 28 24 36Z"/>
     <path d="M10 41Q24 47 38 41"/></g></symbol>
+  <symbol id="trishul" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M24 4V44"/><path d="M24 4L21 10H27Z"/>
+    <path d="M12 8V19C12 26 17 29 24 29C31 29 36 26 36 19V8"/>
+    <path d="M12 8L9.5 13H14.5Z"/><path d="M36 8L33.5 13H38.5Z"/>
+    <path d="M20 36H28"/></g></symbol>
   <symbol id="diya" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
     <path d="M5 28H43C43 37 35 43 24 43C13 43 5 37 5 28Z"/>
     <path d="M24 6C29 12 30 18 24 24C18 18 19 12 24 6Z"/></g></symbol>
@@ -1145,69 +1276,74 @@
   <header class="site-header">
     <div class="container header-inner">
       <a href="#" class="site-brand">
-        <div class="brand-mark">T<span>H</span></div>
+        <img class="brand-logo" src="assets/logo.jpg" width="40" height="40" alt="Harsh Upadhyay">
         <div>
           <div class="brand-title">Timeline by Harsh</div>
-          <div class="brand-sub">@timelinebyharsh · 1:1 Advisory</div>
+          <div class="brand-sub">@timelinebyharsh</div>
         </div>
       </a>
 
       <ul class="nav-menu">
-        <li class="nav-item"><a href="#diagnostic">Clarity Diagnostic</a></li>
-        <li class="nav-item"><a href="#services">Consultations</a></li>
-        <li class="nav-item"><a href="#journey">How It Works</a></li>
-        <li class="nav-item"><a href="#booking">Book Call</a></li>
-        <li class="nav-item"><a href="#shop">Curated Reading</a></li>
+        <li class="nav-item"><a href="#diagnostic">Find your fit</a></li>
+        <li class="nav-item"><a href="#services">Sessions</a></li>
+        <li class="nav-item"><a href="#journey">How it works</a></li>
+        <li class="nav-item"><a href="#faq">Questions</a></li>
       </ul>
 
-      <a href="#booking" class="header-cta">Book 1:1 Call</a>
+      <a href="#booking" class="header-cta">Book a call</a>
     </div>
   </header>
 
   <!-- Hero (Vertically Centered & Visually Grounded) -->
   <section class="hero">
-    <svg class="hero-mandala" aria-hidden="true"><use href="#mandala"/></svg>
-    <svg class="hero-mandala hero-mandala-in" aria-hidden="true"><use href="#mandala"/></svg>
-    <div class="container hero-stack">
-      <p class="hero-byline"><span class="om-mini" aria-hidden="true">ॐ</span> Harsh Upadhyay · @timelinebyharsh</p>
+    <div class="container hero-grid">
+      <div class="hero-copy hero-stack">
+        <p class="hero-byline"><span class="om-mini" aria-hidden="true">ॐ</span> Harsh Upadhyay · @timelinebyharsh</p>
 
-      <h1 class="hero-headline">
-        Thirty minutes. Just you, me, and the <em>one problem</em> you can’t seem to solve.
-      </h1>
+        <h1 class="hero-headline">
+          Thirty minutes. Just you, me, and the <em>one problem</em> you can’t seem to solve.
+        </h1>
 
-      <p class="hero-summary">
-        Overthinking, no routine, or a big life decision? Talk it through and leave with 3 clear rules for tomorrow.
-      </p>
+        <p class="hero-summary">
+          Overthinking, a routine that keeps slipping, or a big decision to make? Talk it through with me and leave with three clear steps for tomorrow.
+        </p>
 
-      <div class="hero-actions">
-        <a href="#diagnostic" class="btn-solid">Find your starting point ↓</a>
-        <a href="#booking" class="btn-outline">Pick a time</a>
+        <div class="hero-actions">
+          <a href="#diagnostic" class="btn-solid">Find where to start</a>
+          <a href="#booking" class="btn-outline">Book a call</a>
+        </div>
+
+        <div class="hero-trust-list">
+          <span><svg class="sym" aria-hidden="true"><use href="#lotus"/></svg>Private, one-on-one</span>
+          <span><svg class="sym" aria-hidden="true"><use href="#diya"/></svg>Google Meet</span>
+          <span><span class="om-mini" aria-hidden="true">ॐ</span>Written summary on WhatsApp within 24 hours</span>
+        </div>
       </div>
 
-      <div class="hero-trust-list">
-        <span><svg class="sym" aria-hidden="true"><use href="#lotus"/></svg><strong>1,200+</strong> conversations</span>
-        <span><svg class="sym" aria-hidden="true"><use href="#diya"/></svg>Private Google Meet</span>
-        <span><span class="om-mini" aria-hidden="true">ॐ</span>WhatsApp summary in 24h</span>
+      <div class="hero-art" aria-hidden="true">
+        <span class="hero-glow"></span>
+        <svg class="art-ring art-ring-out"><use href="#mandala"/></svg>
+        <svg class="art-ring art-ring-in"><use href="#mandala"/></svg>
+        <span class="orbit"></span>
+        <span class="hero-om">ॐ</span>
       </div>
     </div>
   </section>
 
   <!-- Shloka marquee -->
   <div class="marquee" aria-hidden="true">
-    <div class="marquee-track"><span class="shloka">ॐ शान्तिः शान्तिः शान्तिः</span><svg class="sym" aria-hidden="true"><use href="#lotus"/></svg><span class="shloka">योगः कर्मसु कौशलम्</span><svg class="sym" aria-hidden="true"><use href="#lotus"/></svg><span class="shloka">तमसो मा ज्योतिर्गमय</span><svg class="sym" aria-hidden="true"><use href="#lotus"/></svg><span class="shloka">कर्मण्येवाधिकारस्ते</span><svg class="sym" aria-hidden="true"><use href="#lotus"/></svg><span class="shloka">सर्वे भवन्तु सुखिनः</span><svg class="sym" aria-hidden="true"><use href="#lotus"/></svg><span class="shloka">असतो मा सद्गमय</span><svg class="sym" aria-hidden="true"><use href="#lotus"/></svg><span class="shloka">ॐ शान्तिः शान्तिः शान्तिः</span><svg class="sym" aria-hidden="true"><use href="#lotus"/></svg><span class="shloka">योगः कर्मसु कौशलम्</span><svg class="sym" aria-hidden="true"><use href="#lotus"/></svg><span class="shloka">तमसो मा ज्योतिर्गमय</span><svg class="sym" aria-hidden="true"><use href="#lotus"/></svg><span class="shloka">कर्मण्येवाधिकारस्ते</span><svg class="sym" aria-hidden="true"><use href="#lotus"/></svg><span class="shloka">सर्वे भवन्तु सुखिनः</span><svg class="sym" aria-hidden="true"><use href="#lotus"/></svg><span class="shloka">असतो मा सद्गमय</span><svg class="sym" aria-hidden="true"><use href="#lotus"/></svg></div>
+    <div class="marquee-track"><span class="shloka">ॐ शान्तिः शान्तिः शान्तिः</span><svg class="sym" aria-hidden="true"><use href="#lotus"/></svg><span class="shloka">योगः कर्मसु कौशलम्</span><svg class="sym" aria-hidden="true"><use href="#diya"/></svg><span class="shloka">तमसो मा ज्योतिर्गमय</span><svg class="sym" aria-hidden="true"><use href="#lotus"/></svg><span class="shloka">कर्मण्येवाधिकारस्ते</span><svg class="sym" aria-hidden="true"><use href="#diya"/></svg><span class="shloka">सर्वे भवन्तु सुखिनः</span><svg class="sym" aria-hidden="true"><use href="#lotus"/></svg><span class="shloka">असतो मा सद्गमय</span><svg class="sym" aria-hidden="true"><use href="#diya"/></svg><span class="shloka">ॐ शान्तिः शान्तिः शान्तिः</span><svg class="sym" aria-hidden="true"><use href="#lotus"/></svg><span class="shloka">योगः कर्मसु कौशलम्</span><svg class="sym" aria-hidden="true"><use href="#diya"/></svg><span class="shloka">तमसो मा ज्योतिर्गमय</span><svg class="sym" aria-hidden="true"><use href="#lotus"/></svg><span class="shloka">कर्मण्येवाधिकारस्ते</span><svg class="sym" aria-hidden="true"><use href="#diya"/></svg><span class="shloka">सर्वे भवन्तु सुखिनः</span><svg class="sym" aria-hidden="true"><use href="#lotus"/></svg><span class="shloka">असतो मा सद्गमय</span><svg class="sym" aria-hidden="true"><use href="#diya"/></svg></div>
   </div>
 
   <!-- Editorial Reflection / Philosophy Quote -->
   <section class="quote-banner">
-    <svg class="quote-mandala" aria-hidden="true"><use href="#mandala"/></svg>
     <div class="container quote-inner rise">
-      <div class="om-lamp" aria-hidden="true">
-        <span class="quote-glyph">ॐ</span>
-      </div>
+      <span class="quote-om" aria-hidden="true">ॐ</span>
       <blockquote class="quote-text">
-        "Parampara koi bandhan nahi, yeh yaad hai us raaste ki, jahan se hum aaye the."
+        परंपरा कोई बंधन नहीं, यह याद है उस रास्ते की, जहाँ से हम आए थे।
       </blockquote>
-      <div class="quote-author">Harsh Upadhyay</div>
+      <div class="quote-author">हर्ष उपाध्याय</div>
+      <div class="diya-row" aria-hidden="true"><svg class="diya-svg" viewBox="0 0 48 48" aria-hidden="true"><path class="bowl" d="M5 28H43C43 37 35 43 24 43C13 43 5 37 5 28Z"/><path class="flame" d="M24 6C29 12 30 18 24 24C18 18 19 12 24 6Z"/></svg><svg class="diya-svg" viewBox="0 0 48 48" aria-hidden="true"><path class="bowl" d="M5 28H43C43 37 35 43 24 43C13 43 5 37 5 28Z"/><path class="flame" d="M24 6C29 12 30 18 24 24C18 18 19 12 24 6Z"/></svg><svg class="diya-svg" viewBox="0 0 48 48" aria-hidden="true"><path class="bowl" d="M5 28H43C43 37 35 43 24 43C13 43 5 37 5 28Z"/><path class="flame" d="M24 6C29 12 30 18 24 24C18 18 19 12 24 6Z"/></svg></div>
     </div>
   </section>
 
@@ -1215,12 +1351,13 @@
   <section class="diagnostic-section" id="diagnostic">
     <div class="container">
       <span class="section-eyebrow">Clarity Finder</span>
-      <h2 class="section-heading rise">Where is your head caught right now?</h2>
+      <h2 class="section-heading rise">What is weighing on you?</h2>
       <p class="section-intro">
-        Tap the one that sounds like you.
+        Pick the one closest to how you feel.
       </p>
 
-      <div class="rise diag-cards-grid">
+      <div class="diag-split rise">
+      <div class="diag-cards-grid">
         <!-- 01: Mental Noise -->
         <button type="button" class="diag-card-btn active" data-diag="paralysis">
           <div class="diag-icon-box">
@@ -1228,7 +1365,7 @@
             <svg class="sym sym-lg" aria-hidden="true"><use href="#lotus"/></svg>
           </div>
           <div class="diag-card-body">
-            <h4>01 / Overthinking & Mental Noise</h4>
+            <h4>Overthinking</h4>
             <p>Too many ideas, nothing finished.</p>
           </div>
         </button>
@@ -1240,7 +1377,7 @@
             <svg class="sym sym-lg" aria-hidden="true"><use href="#diya"/></svg>
           </div>
           <div class="diag-card-body">
-            <h4>02 / Inconsistent Daily Discipline</h4>
+            <h4>A routine that keeps slipping</h4>
             <p>Fresh start Monday, lost by Thursday.</p>
           </div>
         </button>
@@ -1254,7 +1391,7 @@
             </svg>
           </div>
           <div class="diag-card-body">
-            <h4>03 / Major Life Crossroads</h4>
+            <h4>A big decision</h4>
             <p>A big fork and no honest view.</p>
           </div>
         </button>
@@ -1266,30 +1403,31 @@
             <span class="om-glyph" aria-hidden="true">ॐ</span>
           </div>
           <div class="diag-card-body">
-            <h4>04 / Confidential Sounding Board</h4>
+            <h4>Someone to talk to</h4>
             <p>Somewhere safe to say it out loud.</p>
           </div>
         </button>
       </div>
 
       <!-- Diagnostic Outcome Reveal -->
-      <div class="diag-reveal" id="diagReveal">
+      <div class="diag-reveal" id="diagReveal" aria-live="polite">
         <div class="reveal-header">
           <div>
-            <div class="reveal-title" id="diagTitle">30-Minute 1:1 Clarity Call</div>
-            <div style="font-size:0.8rem;color:var(--text-faint)">Private 1-on-1 Session via Google Meet</div>
+            <div class="reveal-title" id="diagTitle">Clarity Call</div>
+            <div style="font-size:0.8rem;color:var(--text-faint)">Suggested session</div>
           </div>
-          <div class="reveal-price" id="diagPrice">₹299 Commitment Fee</div>
+          <div class="reveal-price" id="diagPrice">₹299 · 30 minutes</div>
         </div>
 
         <p class="reveal-body" id="diagBody">
-          <b>The Diagnosis:</b> You don't have an execution problem; you have an <em>overchoice problem</em>. Trying to consume more videos or self-help books only adds more noise. In 30 minutes, we isolate the single root blockage holding you back and map out 3 immediate steps for tomorrow.
+          <b>What helps:</b> Too many options can feel like a lack of discipline, but it is mostly noise. In thirty minutes we find the one thing that matters and agree three steps for tomorrow.
         </p>
 
         <div class="reveal-actions">
-          <a href="#booking" id="diagBookBtn" class="btn-solid" style="font-size:0.875rem">Book This Session →</a>
-          <span style="font-size:0.8rem;color:var(--text-faint)">Includes 24h WhatsApp action notes</span>
+          <a href="#booking" id="diagBookBtn" class="btn-solid" style="font-size:0.875rem">Book this session →</a>
+          <span style="font-size:0.8rem;color:var(--text-faint)">Written summary on WhatsApp within 24 hours</span>
         </div>
+      </div>
       </div>
     </div>
   </section>
@@ -1297,78 +1435,78 @@
   <!-- 1:1 Consultation Services (Zero Brand Audit / Social Media Content) -->
   <section class="services-section" id="services">
     <div class="container">
-      <h2 class="section-heading rise">1:1 Consultation Tracks</h2>
+      <h2 class="section-heading rise">Sessions</h2>
       <p class="section-intro">
-        Every call is 1-on-1 with Harsh.
+        Every call is one-on-one with me.
       </p>
 
       <div class="services-container">
         <!-- Service 1 -->
         <div class="service-row rise">
           <div class="service-meta">
-            <svg class="sym sym-svc" aria-hidden="true"><use href="#lotus"/></svg><h3>1:1 Clarity Call</h3>
-            <span>30 Minutes · Video Session</span>
+            <svg class="sym sym-svc" aria-hidden="true"><use href="#lotus"/></svg><h3>Clarity Call</h3>
+            <span>30 minutes · Google Meet</span>
           </div>
           <div class="service-content">
             <p>
-              For immediate confusion, overthinking, or feeling stuck. We unpack your situation, find the real problem, and leave you with 3 concrete rules to follow.
+              For when you feel stuck or overwhelmed. We find the real problem and leave with three rules to follow.
             </p>
             <details class="incl"><summary><span>What is included</span><i aria-hidden="true"></i></summary><ul>
-              <li>5 minutes of listening without interruption</li>
-              <li>10 minutes of direct, targeted diagnostic questions</li>
-              <li>15 minutes of structured strategy & tomorrow's action items</li>
-              <li>Post-call WhatsApp summary note within 24 hours</li>
+              <li>5 minutes of you talking, no interruptions</li>
+              <li>10 minutes of direct questions</li>
+              <li>15 minutes to plan tomorrow</li>
+              <li>Written summary on WhatsApp within 24 hours</li>
             </ul></details>
           </div>
           <div class="service-action-col">
             <span class="service-fee">₹299</span>
-            <a href="#booking" class="btn-outline select-service" data-service="1:1 Clarity & Roadmap Call (30 Mins)" style="font-size:0.825rem;padding:0.5rem 1rem">Reserve Slot</a>
+            <a href="#booking" class="btn-solid select-service" data-service="1:1 Clarity & Roadmap Call (30 Mins)">Book</a>
           </div>
         </div>
 
         <!-- Service 2: Dincharya & Habit Realignment -->
         <div class="service-row rise">
           <div class="service-meta">
-            <svg class="sym sym-svc" aria-hidden="true"><use href="#diya"/></svg><h3>Daily Dincharya & Habit Blueprint</h3>
-            <span>45 Minutes · Lifestyle Realignment</span>
+            <svg class="sym sym-svc" aria-hidden="true"><use href="#diya"/></svg><h3>Dincharya Reset</h3>
+            <span>45 minutes · Google Meet</span>
           </div>
           <div class="service-content">
             <p>
-              For rebuilding focus, mental calm, and daily habits. A realistic morning and evening routine designed around your actual work hours, screen triggers, and energy levels.
+              For rebuilding focus and calm. A realistic morning and evening routine built around your work hours and energy.
             </p>
             <details class="incl"><summary><span>What is included</span><i aria-hidden="true"></i></summary><ul>
-              <li>Custom morning & evening rhythm tailored to your schedule</li>
-              <li>Protocols to eliminate mindless phone checking</li>
-              <li>Grounded focus and dhyan practices (starting with 10 mins)</li>
-              <li>Custom Notion daily habit tracker included</li>
+              <li>A morning and evening rhythm that fits your day</li>
+              <li>A plan to cut mindless phone checking</li>
+              <li>A simple dhyan practice to start with, ten minutes</li>
+              <li>A daily habit tracker in Notion</li>
             </ul></details>
           </div>
           <div class="service-action-col">
             <span class="service-fee">₹499</span>
-            <a href="#booking" class="btn-outline select-service" data-service="Daily Dincharya & Habit Blueprint (45 Mins)" style="font-size:0.825rem;padding:0.5rem 1rem">Reserve Slot</a>
+            <a href="#booking" class="btn-solid select-service" data-service="Daily Dincharya & Habit Blueprint (45 Mins)">Book</a>
           </div>
         </div>
 
         <!-- Service 3: Deep-Dive Personal Advisory -->
         <div class="service-row rise">
           <div class="service-meta">
-            <svg class="sym sym-svc" aria-hidden="true"><use href="#mandala"/></svg><h3>Deep-Dive Personal Advisory</h3>
-            <span>60 Minutes · Comprehensive Session</span>
+            <svg class="sym sym-svc" aria-hidden="true"><use href="#trishul"/></svg><h3>Deep Dive</h3>
+            <span>60 minutes · Google Meet</span>
           </div>
           <div class="service-content">
             <p>
-              For complex, multi-layered life crossroads, career transitions, or family expectations. We dig deep into root assumptions, remove emotional fog, and build a 90-day trajectory.
+              For bigger crossroads such as career, family expectations or a major change. We work through the assumptions and build a 90-day path.
             </p>
             <details class="incl"><summary><span>What is included</span><i aria-hidden="true"></i></summary><ul>
-              <li>Full 60-minute in-depth personal conversation</li>
-              <li>Comprehensive diagnostic of mental blocks and decision crossroads</li>
-              <li>Written 90-day action playbook delivered post-call</li>
-              <li>7 days of direct WhatsApp voice-note follow-up support</li>
+              <li>A full hour, no clock watching</li>
+              <li>A clear look at what is blocking the decision</li>
+              <li>A written 90-day plan after the call</li>
+              <li>Seven days of WhatsApp voice-note follow-up</li>
             </ul></details>
           </div>
           <div class="service-action-col">
             <span class="service-fee">₹699</span>
-            <a href="#booking" class="btn-outline select-service" data-service="Deep-Dive Personal Advisory (60 Mins)" style="font-size:0.825rem;padding:0.5rem 1rem">Reserve Slot</a>
+            <a href="#booking" class="btn-solid select-service" data-service="Deep-Dive Personal Advisory (60 Mins)">Book</a>
           </div>
         </div>
       </div>
@@ -1378,37 +1516,41 @@
   <!-- Visual 30-Minute Journey -->
   <section class="journey-section" id="journey">
     <div class="container">
-      <h2 class="section-heading rise">How We Spend Our 30 Minutes</h2>
+      <h2 class="section-heading rise">How a session goes</h2>
       <p class="section-intro">
-        Thirty minutes, four moves.
+        Thirty minutes, four steps.
       </p>
 
       <div class="journey-grid">
         <div class="journey-step rise">
           <div class="journey-num">01</div>
           <div class="journey-time">00:00 – 05:00</div>
-          <div class="journey-title">You Speak Freely</div>
+          <div class="journey-dur" aria-hidden="true"><i style="--p:50%"></i></div>
+          <div class="journey-title">You talk</div>
           <p class="journey-desc">Say it unfiltered.</p>
         </div>
 
         <div class="journey-step rise">
           <div class="journey-num">02</div>
           <div class="journey-time">05:00 – 15:00</div>
-          <div class="journey-title">Harsh Probes</div>
+          <div class="journey-dur" aria-hidden="true"><i style="--p:100%"></i></div>
+          <div class="journey-title">I ask</div>
           <p class="journey-desc">Direct questions find the root.</p>
         </div>
 
         <div class="journey-step rise">
           <div class="journey-num">03</div>
           <div class="journey-time">15:00 – 25:00</div>
-          <div class="journey-title">The Strategy</div>
+          <div class="journey-dur" aria-hidden="true"><i style="--p:100%"></i></div>
+          <div class="journey-title">We plan</div>
           <p class="journey-desc">A plan built on practical wisdom.</p>
         </div>
 
         <div class="journey-step rise">
           <div class="journey-num">04</div>
           <div class="journey-time">25:00 – 30:00</div>
-          <div class="journey-title">Next 3 Steps</div>
+          <div class="journey-dur" aria-hidden="true"><i style="--p:50%"></i></div>
+          <div class="journey-title">Next three steps</div>
           <p class="journey-desc">Three actions for tomorrow morning.</p>
         </div>
       </div>
@@ -1418,21 +1560,21 @@
   <!-- Booking Section (Cal.com + Priority Slot) -->
   <section class="booking-section" id="booking">
     <div class="container">
-      <h2 class="section-heading rise">Reserve Your Time</h2>
+      <h2 class="section-heading rise">Choose a time</h2>
       <p class="section-intro">
-        Pick a slot, or lock a priority one.
+        Pick a free slot on the calendar, or book a priority slot with payment.
       </p>
 
       <div class="booking-tabs">
-        <button type="button" class="tab-btn active" data-tab="cal">Pick Slot on Calendar (Cal.com)</button>
-        <button type="button" class="tab-btn" data-tab="priority">Priority Slot Checkout (₹299)</button>
+        <button type="button" class="tab-btn active" data-tab="cal">Calendar</button>
+        <button type="button" class="tab-btn" data-tab="priority">Priority slot</button>
       </div>
 
       <!-- Tab 1: Cal.com Official Embed -->
       <div class="tab-panel active" id="panel-cal">
         <div class="cal-container">
           <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;flex-wrap:wrap;gap:0.5rem">
-            <span style="font-size:0.85rem;color:var(--text-muted)">Live calendar syncing directly with Google Meet</span>
+            <span style="font-size:0.85rem;color:var(--text-muted)">Live availability, booked on Google Meet</span>
             <a href="https://cal.com/harsh-upadhyay-tsgoiw/clarity-call-30" target="_blank" rel="noopener noreferrer" style="font-size:0.8rem;color:var(--accent);font-weight:500">Open in new tab ↗</a>
           </div>
           <div style="width:100%;height:620px;overflow:scroll" id="my-cal-inline"></div>
@@ -1450,9 +1592,9 @@
       <div class="tab-panel" id="panel-priority">
         <div class="form-container" id="formWrapper">
           <div style="margin-bottom:1.5rem">
-            <h3 style="font-size:1.2rem;font-weight:700;color:var(--text);margin-bottom:0.25rem">Priority Appointment</h3>
+            <h3 style="font-size:1.2rem;font-weight:700;color:var(--text);margin-bottom:0.25rem">Priority slot</h3>
             <p style="font-size:0.825rem;color:var(--text-muted)">
-              Commitment fee ensures dedicated preparation time for your specific questions.
+              Pay now to hold your time. I prepare for your question before the call.
             </p>
           </div>
 
@@ -1485,9 +1627,9 @@
             <div class="form-field">
               <label for="cTrack" class="form-label">Consultation Track</label>
               <select id="cTrack" name="track" class="form-select" required>
-                <option value="1:1 Clarity & Roadmap Call (30 Mins)" data-price="299">1:1 Clarity & Roadmap Call (30 Mins, ₹299)</option>
-                <option value="Daily Dincharya & Habit Blueprint (45 Mins)" data-price="499">Daily Dincharya & Habit Blueprint (45 Mins, ₹499)</option>
-                <option value="Deep-Dive Personal Advisory (60 Mins)" data-price="699">Deep-Dive Personal Advisory (60 Mins, ₹699)</option>
+                <option value="1:1 Clarity & Roadmap Call (30 Mins)" data-price="299">Clarity Call, 30 min, ₹299</option>
+                <option value="Daily Dincharya & Habit Blueprint (45 Mins)" data-price="499">Dincharya Reset, 45 min, ₹499</option>
+                <option value="Deep-Dive Personal Advisory (60 Mins)" data-price="699">Deep Dive, 60 min, ₹699</option>
                 <option value="General Life Guidance & Sounding Board" data-price="299">General Life Guidance & Sounding Board (₹299)</option>
               </select>
             </div>
@@ -1529,11 +1671,54 @@
   </section>
 
   <!-- Curated Reading & Essentials (With Visual Art) -->
+  <section class="faq-section" id="faq">
+    <div class="container">
+      <h2 class="section-heading rise">Common questions</h2>
+
+      <div class="faq-stack">
+        <details name="faq">
+          <summary>Where does the call happen?</summary>
+          <p>Privately over Google Meet. After you book, a calendar invite with your Meet link reaches your email and WhatsApp.</p>
+        </details>
+
+        <details name="faq">
+          <summary>Which session should I pick?</summary>
+          <p>Start with the Clarity Call. If you need more time after that, we can plan a longer session.</p>
+        </details>
+
+        <details name="faq">
+          <summary>Why do the calls have a fee?</summary>
+          <p>When calls were free, many people booked and did not show up, which blocked others who needed the time. A small fee keeps slots for people who will attend, and lets me prepare properly for you.</p>
+        </details>
+
+        <details name="faq">
+          <summary>Can I reschedule if something comes up?</summary>
+          <p>Yes. Tell me at least 6 hours before, on WhatsApp or by replying to your confirmation email, and we will pick another time at no extra cost. More in the <a href="refund.html">refund policy</a>.</p>
+        </details>
+
+        <details name="faq">
+          <summary>Is what I share kept private?</summary>
+          <p>Yes. What you share stays between you and me. Details are in the <a href="privacy.html">privacy policy</a>.</p>
+        </details>
+
+        <details name="faq">
+          <summary>Is this therapy or medical advice?</summary>
+          <p>No. These are guidance conversations, not therapy, medical, legal or financial advice. Read the <a href="terms.html">terms</a>.</p>
+        </details>
+
+        <details name="faq">
+          <summary>How should I prepare?</summary>
+          <p>Keep a pen and paper nearby. Write down your main problem and what you have already tried, so we can start at the root.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
   <section class="shop-section" id="shop">
     <div class="container">
-      <h2 class="section-heading rise">Books Harsh Personally Recommends</h2>
+      <h2 class="section-heading rise">Books I Recommend</h2>
       <p class="section-intro">
-        Books and tools Harsh uses himself. Links are Amazon affiliate links: if you buy through them, Harsh earns a small commission at no cost to you.
+        Books and tools I use myself. These are Amazon affiliate links: if you buy through them, I earn a small commission at no cost to you.
       </p>
 
       <div class="shop-grid">
@@ -1605,62 +1790,42 @@
   </section>
 
   <!-- FAQ -->
-  <section class="faq-section">
-    <div class="container">
-      <h2 class="section-heading rise">Questions people ask</h2>
-
-      <div class="faq-stack">
-        <details name="faq">
-          <summary>Where and how does the call take place?</summary>
-          <p>Every session happens privately over Google Meet. When you book via Cal.com or the priority checkout, a calendar invitation with your secure Meet link is automatically sent to your email and WhatsApp.</p>
-        </details>
-
-        <details name="faq">
-          <summary>Why is there a commitment fee?</summary>
-          <p>When calls were free, many booked slots without showing up, blocking people who genuinely needed guidance. A nominal commitment fee filters for committed individuals and ensures Harsh can dedicate uninterrupted time and preparation to you.</p>
-        </details>
-
-        <details name="faq">
-          <summary>Can I reschedule if an emergency comes up?</summary>
-          <p>Yes. If you notify at least 6 hours in advance via WhatsApp or by replying to your confirmation email, we will pick another time slot at no extra charge.</p>
-        </details>
-
-        <details name="faq">
-          <summary>Is the conversation kept confidential?</summary>
-          <p>Strictly confidential. Whatever personal, professional, or life struggles you share remain solely between you and Harsh.</p>
-        </details>
-
-        <details name="faq">
-          <summary>How should I prepare for the call?</summary>
-          <p>Keep a pen and paper beside you. Write down your main problem and what you've already tried so we can get straight to the root without wasting the first 10 minutes.</p>
-        </details>
-      </div>
-    </div>
-  </section>
+  
 
   <!-- Site Footer -->
   <footer class="site-footer">
     <div class="container footer-inner">
       <div>
-        <strong>Timeline by Harsh</strong> · Authentic 1:1 Personal Guidance
+        <strong>Timeline by Harsh</strong> · Personal guidance
       </div>
 
       <ul class="footer-links">
         <li><a href="#diagnostic">Diagnostic</a></li>
         <li><a href="#services">Consultations</a></li>
         <li><a href="#booking">Book Call</a></li>
-        <li><a href="/bookings.html">Admin</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="privacy.html">Privacy</a></li>
+        <li><a href="terms.html">Terms</a></li>
+        <li><a href="refund.html">Refunds</a></li>
+        <li><a href="cookies.html">Cookies</a></li>
       </ul>
     </div>
+    <p class="footer-shloka" aria-hidden="true">ॐ सर्वे भवन्तु सुखिनः</p>
   </footer>
+
+  <!-- Om scroll-to-top with progress ring -->
+  <button type="button" class="om-top" id="omTop" aria-label="Back to top">
+    <svg viewBox="0 0 48 48" aria-hidden="true"><circle class="ring-bg" cx="24" cy="24" r="21"/><circle class="ring" id="omRing" cx="24" cy="24" r="21"/></svg>
+    <span aria-hidden="true">ॐ</span>
+  </button>
 
   <!-- Compact Mobile Sticky Bar -->
   <div class="mobile-bar">
     <div>
-      <span class="mobile-bar-text">1:1 Consultation</span>
-      <span class="mobile-bar-sub">30 Mins · ₹299 Commitment</span>
+      <span class="mobile-bar-text">Personal guidance</span>
+      <span class="mobile-bar-sub">From ₹299 · 30 minutes</span>
     </div>
-    <a href="#booking" class="mobile-bar-cta">Book Slot</a>
+    <a href="#booking" class="mobile-bar-cta">Book a call</a>
   </div>
 
   <!-- Interactive JavaScript Logic -->
@@ -1668,28 +1833,28 @@
     // 1. Diagnostic Data & State
     const diagnosticData = {
       paralysis: {
-        title: "30-Minute 1:1 Clarity Call",
-        price: "₹299 Commitment Fee",
-        body: "<b>The Diagnosis:</b> You don't have an execution problem; you have an <em>overchoice problem</em>. Trying to consume more videos or self-help books only adds more noise. In 30 minutes, we isolate the single root blockage holding you back and map out 3 immediate steps for tomorrow.",
+        title: "Clarity Call",
+        price: "₹299 · 30 minutes",
+        body: "<b>What helps:</b> Too many options can feel like a lack of discipline, but it is mostly noise. In thirty minutes we find the one thing that matters and agree three steps for tomorrow.",
         serviceTrack: "1:1 Clarity & Roadmap Call (30 Mins)"
       },
       habits: {
-        title: "Daily Dincharya & Habit Blueprint",
-        price: "₹499 · 45 Mins Lifestyle Session",
-        body: "<b>The Diagnosis:</b> Motivation fluctuates; structure endures. You are trying to adopt someone else's rigid 5 AM routine instead of designing habits that fit your actual work hours. We build a simple, realistic routine that protects your mental calm and focus.",
+        title: "Dincharya Reset",
+        price: "₹499 · 45 minutes",
+        body: "<b>What helps:</b> A routine borrowed from someone else rarely lasts. We build a simple morning and evening rhythm around your real work hours, one you can keep on a bad day too.",
         serviceTrack: "Daily Dincharya & Habit Blueprint (45 Mins)"
       },
       crossroads: {
-        title: "Deep-Dive Personal Advisory",
-        price: "₹699 · 60 Mins Comprehensive Session",
-        body: "<b>The Diagnosis:</b> When you're standing at a major career or life crossroad, friends and family give polite advice. You need an honest, outside perspective with zero emotional bias to pull apart your options and help you make a firm, peaceful decision.",
+        title: "Deep Dive",
+        price: "₹699 · 60 minutes",
+        body: "<b>What helps:</b> Family and friends give kind advice. You may need an outside view, free of emotional bias, to weigh your options and choose with a calm mind.",
         serviceTrack: "Deep-Dive Personal Advisory (60 Mins)"
       },
       sounding: {
-        title: "1:1 Strategic Sounding Board",
-        price: "₹299 · 30 Mins Unfiltered Call",
-        body: "<b>The Diagnosis:</b> Sometimes you already know the answer in your gut, but the social noise around you is drowning it out. This session is a calm, judgment-free space to speak your truth and validate your internal compass.",
-        serviceTrack: "General Life Guidance & Sounding Board"
+        title: "Clarity Call",
+        price: "₹299 · 30 minutes",
+        body: "<b>What helps:</b> Often you already know the answer, but the noise around you is louder. This is a quiet, judgment-free space to say it out loud.",
+        serviceTrack: "1:1 Clarity & Roadmap Call (30 Mins)"
       }
     };
 
@@ -1885,7 +2050,7 @@
           <p style="font-size:0.8rem;font-weight:600;color:var(--ok-text);margin-bottom:0.5rem">Payment received</p>
           <h3 style="font-family:var(--font-display);font-size:1.6rem;font-weight:500;color:var(--text);margin-bottom:0.35rem">Session Confirmed</h3>
           <p style="font-size:0.9rem;color:var(--text-muted);max-width:24rem;margin:0 auto 1.5rem">
-            Thank you, <b>${escapeHtml(formData.name)}</b>. Your booking is confirmed. Harsh will reach out on your WhatsApp within 24 hours.
+            Thank you, <b>${escapeHtml(formData.name)}</b>. Your booking is confirmed. I will reach out on your WhatsApp within 24 hours.
           </p>
 
           <div style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-md);padding:1rem 1.25rem;text-align:left;max-width:380px;margin:0 auto 1.5rem;font-size:0.85rem">
@@ -1944,6 +2109,25 @@
           if (out) out.href = 'https://cal.com/' + USER + '/' + slug;
         });
       });
+    })();
+  </script>
+
+  <script>
+    /* Om scroll-to-top: progress ring + smooth return */
+    (function () {
+      var btn = document.getElementById('omTop'), ring = document.getElementById('omRing');
+      if (!btn || !ring) return;
+      var C = 132, ticking = false;
+      function update() {
+        var h = document.documentElement.scrollHeight - window.innerHeight;
+        var p = h > 0 ? Math.min(window.scrollY / h, 1) : 0;
+        ring.style.strokeDashoffset = C * (1 - p);
+        btn.classList.toggle('show', window.scrollY > 500);
+        ticking = false;
+      }
+      window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+      btn.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+      update();
     })();
   </script>
 </body>
