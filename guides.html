@@ -68,22 +68,22 @@ fieldset.fld legend{width:100%}
 .faq summary::after{content:"+";color:var(--faint);font-size:1.3rem;line-height:1;transition:transform .35s var(--ease)}
 .faq details[open] summary::after{transform:rotate(45deg)}
 .faq p{color:var(--muted);margin-top:.6rem;font-size:.95rem}
-.q{text-align:center}
-.q p{color:var(--muted);margin-bottom:.9rem}
-.q a{color:var(--text);text-decoration:underline;text-decoration-color:var(--border-strong);text-underline-offset:5px;transition:color .2s,text-decoration-color .2s}
-.q a:hover{color:var(--accent);text-decoration-color:var(--accent)}
+.more-q{margin-top:1.5rem;font-size:.95rem;color:var(--muted)}
+.more-q a{color:var(--text);text-decoration:underline;text-decoration-color:var(--border-strong);text-underline-offset:5px;transition:color .2s,text-decoration-color .2s}
+.more-q a:hover{color:var(--accent);text-decoration-color:var(--accent)}
+@media(max-width:820px){.faq summary{min-height:44px;align-items:center}.more-q a{display:inline-flex;align-items:center;min-height:44px}.fld input[type=email],.fld input[type=tel]{min-height:44px}.chip span{min-height:44px}.sbtn{min-height:48px}.consent{min-height:44px;align-items:center}}
 </style>
 </head>
 <body>
-<header>
-  <div class="wrap bar">
-    <a class="brand" href="index.html"><img src="assets/logo.jpg" width="40" height="40" alt="Harsh Upadhyay"><span><b>Timeline by Harsh</b><small>@timelinebyharsh</small></span></a>
-    <nav><a class="lang" href="hi/guides.html" hreflang="hi" lang="hi" title="Hinglish" aria-label="Switch to Hinglish">HI</a><a class="cta" href="index.html#booking">Book a call</a></nav>
-  </div>
-</header>
+<header class="site-header">
+    <div class="container header-inner">
+      <div class="site-brand"><a class="b-av" href="index.html" aria-label="Home"><img class="brand-logo" src="assets/logo.jpg" width="40" height="40" alt="Harsh Upadhyay"></a><span class="b-txt"><a class="b-name" href="index.html">Harsh</a><a class="b-ig" href="https://www.instagram.com/timelinebyharsh/" target="_blank" rel="noopener noreferrer">@timelinebyharsh</a></span></div>
+      <ul class="nav-menu"><li class="nav-item"><a href="index.html#diagnostic">Find your fit</a></li><li class="nav-item"><a href="index.html#journey">How it works</a></li><li class="nav-item"><a href="index.html#services">Sessions</a></li><li class="nav-item"><a href="guides.html" aria-current="page">Guides</a></li><li class="nav-item"><a href="index.html#faq">Questions</a></li></ul>
+      <div class="hdr-actions"><div class="lang-switch" role="group" aria-label="Language"><span class="on" aria-current="true">EN</span><a href="hi/guides.html" hreflang="hi" lang="hi" title="Hinglish">HI</a></div><a href="index.html#booking" class="header-cta">Book a call</a></div>
+    </div>
+  </header>
 <section class="title">
   <div class="wrap rise">
-    <span class="om" aria-hidden="true">ॐ</span>
     <h1>Guides</h1>
     <p>Simple, sourced guides for the traditions you follow</p>
   </div>
@@ -123,10 +123,10 @@ fieldset.fld legend{width:100%}
 
 <section class="sec tint"><div class="wrapn faq" style="max-width:720px">
   <h2 class="h">Common questions</h2>
-  <details name="g"><summary>When will it be ready?</summary><p>I am preparing it now. Join the list and I will write to you when it is ready.</p></details><details name="g"><summary>Is it free?</summary><p>The calendar is free. The full guide will be a paid download, and the price will be shown before you pay.</p></details><details name="g"><summary>Will it match my family's tradition?</summary><p>It marks where practices differ by region and tradition and names its sources. It cannot cover every family tradition, so please check with your own family or priest.</p></details>
+  <details name="g"><summary>When will it be ready?</summary><p>I am preparing it now. Join the list and I will write to you when it is ready.</p></details><details name="g"><summary>Is it free?</summary><p>The calendar is free. The full guide will be a paid download, and the price will be shown before you pay.</p></details><details name="g"><summary>How will I get the free calendar?</summary><p>Join the early-access list. When the calendar is ready, I will email it to you.</p></details><details name="g"><summary>What format will the guide be in?</summary><p>A downloadable guide you can read on your phone or print. I will confirm the exact format before it goes on sale.</p></details><details name="g"><summary>Which festival dates will it follow?</summary><p>Festival dates change every year and differ by calendar and region. I will say which calendar each date follows, and I suggest you confirm with your local panchang or priest.</p></details><details name="g"><summary>Will it match my family's tradition?</summary><p>It marks where practices differ by region and tradition and names its sources. It cannot cover every family tradition, so please check with your own family or priest.</p></details><details name="g"><summary>Do you perform pujas?</summary><p>No. The puja preparation session is for planning and learning only. For a puja itself, please work with a qualified pandit.</p></details><details name="g"><summary>Can I suggest a topic?</summary><p>Yes. Message me on Instagram with the festival or vrat you would like covered.</p></details>
+  <p class="more-q">Still have a question? <a href="https://www.instagram.com/timelinebyharsh/" target="_blank" rel="noopener noreferrer">Message me on Instagram</a></p>
 </div></section>
 
-<section class="sec"><div class="wrapn q"><h2 class="h">Have a question first?</h2><a href="https://www.instagram.com/timelinebyharsh/" target="_blank" rel="noopener noreferrer">Message me on Instagram</a></div></section>
 </main>
 <script>
 (function () {
@@ -153,7 +153,7 @@ fieldset.fld legend{width:100%}
 <footer>
   <div class="wrap top">
     <div class="fb">
-      <a class="brand" href="index.html"><img src="assets/logo.jpg" width="40" height="40" alt="Harsh Upadhyay"><span><b>Timeline by Harsh</b><small>@timelinebyharsh</small></span></a>
+      <div class="brand"><a class="b-av" href="index.html" aria-label="Home"><img src="assets/logo.jpg" width="40" height="40" alt="Harsh Upadhyay"></a><span class="b-txt"><a class="b-name" href="index.html">Harsh</a><a class="b-ig" href="https://www.instagram.com/timelinebyharsh/" target="_blank" rel="noopener noreferrer">@timelinebyharsh</a></span></div>
       <p>Private one-on-one calls for overthinking, daily routine and big life decisions.</p>
       <a class="ig" href="https://www.instagram.com/timelinebyharsh/" target="_blank" rel="noopener noreferrer">Instagram</a>
     </div>
@@ -184,5 +184,13 @@ fieldset.fld legend{width:100%}
     <p class="shloka" aria-hidden="true">ॐ सर्वे भवन्तु सुखिनः</p>
   </div>
 </footer>
+<div class="mobile-bar show" id="mobileBar"><a href="index.html#booking" class="mobile-bar-cta">Book a call</a></div>
+<script>
+(function () {
+  var bar = document.getElementById('mobileBar'), ft = document.querySelector('footer');
+  if (!bar || !ft || !('IntersectionObserver' in window)) return;
+  new IntersectionObserver(function (e) { bar.classList.toggle('show', !e[0].isIntersecting); }).observe(ft);
+})();
+</script>
 </body>
 </html>

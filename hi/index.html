@@ -189,7 +189,7 @@
       list-style: none;
     }
 
-    @media (min-width: 768px) {
+    @media (min-width: 960px) {
       .nav-menu { display: flex; }
     }
 
@@ -1397,7 +1397,8 @@
        ========================================================= */
     /* buttons: same height and type size everywhere */
     .btn-solid, .form-btn, .mobile-bar-cta, .step-back { display: inline-flex; align-items: center; justify-content: center; min-height: 3rem; padding: 0 1.75rem; font-size: 1rem; font-weight: 500; line-height: 1; }
-    .header-cta { display: inline-flex; align-items: center; min-height: 2.5rem; padding: 0 1.25rem; font-size: 0.9rem; font-weight: 500; opacity: 1; visibility: visible; transform: none; }
+    .header-cta { display: inline-flex; align-items: center; min-height: 2.5rem; padding: 0 1.25rem; font-size: 0.9rem; font-weight: 500; opacity: 1; visibility: visible; transform: none; white-space: nowrap; }
+    .nav-item a { white-space: nowrap; }
     .service-action-col .btn-solid { min-height: 3rem; padding: 0 1.25rem; font-size: 1rem; }
     .form-btn { width: 100%; }
     .step-nav .form-btn { flex: 1; width: auto; }
@@ -1658,6 +1659,89 @@
       .tab-btn { min-width: 0; padding: 0.7rem 0.5rem; font-size: 0.85rem; gap: 0.35rem; }
       .tab-btn svg { width: 14px; height: 14px; }
     }
+
+    /* =========================================================
+       r16: responsive hardening (44px touch targets, 12px minimum text)
+       ========================================================= */
+    .journey-time { font-size: 0.75rem; }
+    @media (max-width: 820px) {
+      .lang-switch { min-width: 44px; min-height: 44px; display: inline-flex; align-items: center; justify-content: center; padding: 0 0.8rem; }
+      .hero-link { display: inline-flex; align-items: center; min-height: 44px; padding: 0 0.35rem; }
+      .incl summary { min-height: 44px; }
+      .tab-btn { min-height: 44px; }
+      .cal-container a[target="_blank"] { display: inline-flex; align-items: center; min-height: 44px; }
+      .book-link { display: inline-flex; align-items: center; min-height: 44px; }
+      .form-input, .form-select { min-height: 44px; }
+      .step-back { min-height: 44px; }
+      .pay-close { width: 44px; height: 44px; top: 0.4rem; right: 0.5rem; }
+      .pay-vpa button { min-height: 44px; padding: 0 0.6rem; }
+      .footer-col ul { gap: 0; }
+      .footer-col a, .footer-ig { display: inline-flex; align-items: center; min-height: 44px; }
+      .faq-stack summary { min-height: 44px; }
+    }
+
+    /* =========================================================
+       r17: header brand = avatar (home) + name (home) + handle (Instagram)
+       ========================================================= */
+    .b-av { display: block; line-height: 0; border-radius: 50%; }
+    .b-txt { display: flex; flex-direction: column; align-items: flex-start; }
+    .b-name { font-size: 0.95rem; font-weight: 600; line-height: 1.25; color: var(--text); transition: color 0.2s; }
+    .b-name:hover { color: var(--accent); }
+    .b-ig { font-size: 0.75rem; line-height: 1.3; color: var(--text-faint); padding: 0.15rem 0; transition: color 0.2s; }
+    .b-ig:hover { color: var(--accent); }
+    .site-footer .b-name { color: #F4EFE6; }
+    .site-footer .b-ig { color: #9A958A; }
+    .site-footer .b-name:hover, .site-footer .b-ig:hover { color: var(--accent); }
+    .b-name { padding: 0.2rem 0; }
+    .b-ig { padding: 0.28rem 0; }
+    @media (max-width: 400px) { .container { padding: 0 1rem; } .site-brand { gap: 0.55rem; } .b-ig { font-size: 0.72rem; } .lang-switch { min-width: 40px; padding: 0 0.4rem; } }
+
+    /* =========================================================
+       r18: Learn section, segmented topic tabs (same control as Choose a time) + one bar card
+       ========================================================= */
+    .lseg { position: relative; display: flex; width: max-content; max-width: 100%; margin: 2rem auto 2.25rem; padding: 4px; background: #EBDDCA; border-radius: 14px; --i: 3; --n: 4; }
+    .lseg::before { content: ""; position: absolute; top: 4px; bottom: 4px; left: 4px; width: calc((100% - 8px) / var(--n)); background: var(--white); border-radius: 10px; box-shadow: 0 1px 2px rgba(33,37,43,0.08), 0 4px 12px rgba(33,37,43,0.08); transform: translateX(calc(var(--i) * 100%)); transition: transform 0.45s var(--ease); }
+    .ltab { position: relative; z-index: 1; flex: 1 1 0; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; min-width: 8.5rem; min-height: 44px; padding: 0.7rem 1.1rem; border-radius: 10px; color: var(--text-muted); font-size: 0.9rem; font-weight: 500; white-space: nowrap; transition: color 0.3s; }
+    .ltab:hover { color: var(--text); }
+    .ltab[aria-selected="true"] { color: var(--text); font-weight: 600; }
+    .lti { display: grid; place-items: center; width: 1.1rem; height: 1.1rem; color: var(--text-faint); transition: color 0.3s; }
+    .lti svg { width: 1.05rem; height: 1.05rem; }
+    .lti .omg { font-family: var(--font-deva); font-size: 1.05rem; line-height: 1; transform: translateY(0.08em); }
+    .ltab[aria-selected="true"] .lti, .ltab:hover .lti { color: var(--accent); }
+    .lpanel { text-align: center; animation: settleIn 0.45s var(--ease) both; }
+    .lph { max-width: 38rem; margin: 0 auto 1.5rem; }
+    .lph h3 { font-family: var(--font-display); font-weight: 600; font-size: clamp(1.5rem, 3vw, 2rem); line-height: 1.2; margin-bottom: 0.5rem; }
+    .lph p { color: var(--text-muted); font-size: 1rem; }
+    .lpc { max-width: 46rem; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 1.5rem; align-items: center; background: var(--tint); border: 1px solid transparent; border-radius: 12px; padding: 1.5rem 1.75rem; text-align: left; transition: border-color 0.3s var(--ease); }
+    .lpc:hover { border-color: rgba(255,111,30,0.5); }
+    .lchip { display: inline-block; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600; color: var(--accent); margin-bottom: 0.5rem; }
+    .lpc h4 { font-family: var(--font-display); font-weight: 600; font-size: 1.35rem; line-height: 1.25; margin-bottom: 0.3rem; }
+    .lpc p { color: var(--text-muted); font-size: 0.925rem; max-width: 30rem; }
+    .lside { display: flex; flex-direction: column; gap: 0.6rem; align-items: stretch; width: 12.5rem; }
+    .lside .btn-solid, .lside .lbtn2 { width: 100%; justify-content: center; }
+    .lbtn2 { display: inline-flex; align-items: center; justify-content: center; min-height: 3rem; border: 1px solid var(--border-strong); border-radius: 9999px; background: var(--white); color: var(--text); font-size: 1rem; font-weight: 500; transition: border-color 0.2s, color 0.2s; }
+    .lbtn2:hover { border-color: var(--accent); color: var(--accent); }
+    @media (max-width: 699px) {
+      .lseg { width: 100%; }
+      .ltab { flex-direction: column; gap: 0.25rem; min-width: 0; min-height: 4.2rem; padding: 0.55rem 0.1rem; font-size: 0.75rem; }
+      .lpc { grid-template-columns: minmax(0, 1fr); padding: 1.5rem 1.1rem; text-align: center; }
+      .lpc p { margin: 0 auto; }
+      .lside { width: 100%; }
+    }
+
+    /* =========================================================
+       r19: one header everywhere: language pill (EN | HI), active nav item
+       ========================================================= */
+    .lang-switch { display: inline-flex; align-items: center; gap: 0; padding: 3px; background: #EBDDCA; border: 0; border-radius: 9999px; min-width: 0; min-height: 0; }
+    .lang-switch a, .lang-switch span { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 40px; padding: 0 0.6rem; border-radius: 9999px; font-size: 0.8rem; font-weight: 600; line-height: 1; color: var(--text-muted); transition: color 0.2s, background 0.2s; }
+    .lang-switch .on { background: var(--white); color: var(--text); box-shadow: 0 1px 2px rgba(33,37,43,0.1); }
+    .lang-switch a:hover { color: var(--accent); }
+    .nav-item a[aria-current="page"] { color: var(--accent); }
+    @media (max-width: 400px) { .lang-switch { padding: 2px; } .lang-switch a, .lang-switch span { min-width: 40px; padding: 0 0.45rem; } }
+
+    .pay-fallback { width: 100%; margin-top: 1.25rem; }
+    .pay-modal.noqr .pay-qr { display: none; }
+    .pay-modal.noqr .pay-app { display: inline-flex; }
   </style>
 </head>
 <body>
@@ -1682,26 +1766,9 @@
   <!-- Site Header -->
   <header class="site-header">
     <div class="container header-inner">
-      <a href="#" class="site-brand">
-        <img class="brand-logo" src="../assets/logo.jpg" width="40" height="40" alt="Harsh Upadhyay">
-        <div>
-          <div class="brand-title">Timeline by Harsh</div>
-          <div class="brand-sub">@timelinebyharsh</div>
-        </div>
-      </a>
-
-      <ul class="nav-menu">
-        <li class="nav-item"><a href="#diagnostic">Find your fit</a></li>
-        <li class="nav-item"><a href="#journey">How it works</a></li>
-        <li class="nav-item"><a href="#services">Sessions</a></li>
-        <li class="nav-item"><a href="guides.html">Guides</a></li>
-        <li class="nav-item"><a href="#faq">Questions</a></li>
-      </ul>
-
-      <div class="hdr-actions">
-        <a class="lang-switch" href="../index.html" hreflang="en" lang="en" title="English" aria-label="Switch to English">EN</a>
-        <a href="#booking" class="header-cta">Book a call</a>
-      </div>
+      <div class="site-brand"><a class="b-av" href="index.html" aria-label="Home"><img class="brand-logo" src="../assets/logo.jpg" width="40" height="40" alt="Harsh Upadhyay"></a><span class="b-txt"><a class="b-name" href="index.html">Harsh</a><a class="b-ig" href="https://www.instagram.com/timelinebyharsh/" target="_blank" rel="noopener noreferrer">@timelinebyharsh</a></span></div>
+      <ul class="nav-menu"><li class="nav-item"><a href="index.html#diagnostic">Find your fit</a></li><li class="nav-item"><a href="index.html#journey">How it works</a></li><li class="nav-item"><a href="index.html#services">Sessions</a></li><li class="nav-item"><a href="guides.html">Guides</a></li><li class="nav-item"><a href="index.html#faq">Questions</a></li></ul>
+      <div class="hdr-actions"><div class="lang-switch" role="group" aria-label="Language"><a href="../index.html" hreflang="en" lang="en" title="English">EN</a><span class="on" aria-current="true">HI</span></div><a href="index.html#booking" class="header-cta">Book a call</a></div>
     </div>
   </header>
 
@@ -2121,33 +2188,19 @@
   <section class="learn-section" id="learn">
     <div class="container">
       <h2 class="section-heading rise">Learn the stories behind the tradition</h2>
-      <p class="section-intro">Hindu itihaas, mandir, rituals aur shaastra, Instagram par aasaan Hindi mein. Yahan dekhein main kya share karta hoon, aur aage kya bana raha hoon.</p>
+      <p class="section-intro">Hindu itihaas, mandir, rituals aur shaastra, Instagram par aasaan Hindi mein. Ek topic chunein aur dekhein main kya share karta hoon aur aage kya aa raha hai.</p>
 
-      <div class="pillars">
-        <div class="pillar rise"><svg class="sym" aria-hidden="true"><use href="#trishul"/></svg><h3>Mandir and history</h3><p>Hamare mandiron ke peeche ki kahaniyan aur virasat.</p></div>
-        <div class="pillar rise"><svg class="sym" aria-hidden="true"><use href="#diya"/></svg><h3>Rituals and traditions</h3><p>Rituals kyun, kaise aur kab kiye jaate hain.</p></div>
-        <div class="pillar rise"><svg class="sym" aria-hidden="true"><use href="#lotus"/></svg><h3>Scriptures and philosophy</h3><p>Gita, Ramayan aur Mahabharat, aasaan shabdon mein.</p></div>
-        <div class="pillar rise"><span class="om-glyph" aria-hidden="true">ॐ</span><h3>Festivals and vrat</h3><p>Taiyaari aur matlab, saaf shabdon mein.</p></div>
+      <div class="lseg" id="learnSeg" role="tablist" aria-label="Topics" style="--i:3">
+        <button type="button" class="ltab" role="tab" data-i="0" aria-selected="false"><span class="lti"><svg aria-hidden="true"><use href="#trishul"/></svg></span><span>Mandir</span></button>
+        <button type="button" class="ltab" role="tab" data-i="1" aria-selected="false"><span class="lti"><svg aria-hidden="true"><use href="#diya"/></svg></span><span>Rituals</span></button>
+        <button type="button" class="ltab" role="tab" data-i="2" aria-selected="false"><span class="lti"><svg aria-hidden="true"><use href="#lotus"/></svg></span><span>Scriptures</span></button>
+        <button type="button" class="ltab" role="tab" data-i="3" aria-selected="true"><span class="lti"><span class="omg" aria-hidden="true">ॐ</span></span><span>Festivals</span></button>
       </div>
 
-      <div class="guide-flagship rise">
-        <div class="guide-main">
-          <span class="guide-tag">Coming first</span>
-          <h3>The Hindu Festival and Vrat Companion</h3>
-          <p>Aapke tyohaaron aur vraton ke liye ek guide: har ek ka matlab, taiyaari kaise karein, aur kya-kya chahiye.</p>
-          <ul class="guide-list">
-            <li>Major festivals explained</li>
-            <li>Preparation checklists</li>
-            <li>Common puja samagri lists</li>
-            <li>Basic ritual steps</li>
-            <li>Mantra meanings and pronunciation</li>
-            <li>Regional differences, clearly marked</li>
-          </ul>
-          <p class="guide-note">Tithiyan aur riwaaj kshetra aur parampara ke hisaab se alag hote hain. Jahan farq hai main likh deta hoon aur apne sources ka naam bhi.</p>
-        </div>
-        <div class="guide-actions"><a href="#join" class="btn-solid guide-cta">Get early access</a><a href="guides.html" class="hero-link">See the guide</a></div>
+      <div class="lpanel" id="learnPanel" role="tabpanel">
+        <div class="lph"><h3 id="lpTitle">Festivals and vrat</h3><p id="lpDesc">Tyohaaron ka calendar, taiyaari aur har vrat ka matlab.</p></div>
+        <div id="lpCard"><div class="lpc"><div><span class="lchip">Coming first</span><h4>The Hindu Festival and Vrat Companion</h4><p>Aapke tyohaaron aur vraton ke liye ek guide: har ek ka matlab, taiyaari kaise karein, aur kya-kya chahiye.</p></div><div class="lside"><a class="btn-solid" href="#join">Get early access</a><a class="lbtn2" href="guides.html">See the guide</a></div></div></div>
       </div>
-
     </div>
   </section>
 
@@ -2342,13 +2395,7 @@
   <footer class="site-footer">
     <div class="container footer-top">
       <div class="footer-brand">
-        <a class="site-brand" href="#">
-          <img class="brand-logo" src="../assets/logo.jpg" width="40" height="40" alt="Harsh Upadhyay">
-          <div>
-            <div class="brand-title">Timeline by Harsh</div>
-            <div class="brand-sub">@timelinebyharsh</div>
-          </div>
-        </a>
+        <div class="site-brand"><a class="b-av" href="index.html" aria-label="Home"><img class="brand-logo" src="../assets/logo.jpg" width="40" height="40" alt="Harsh Upadhyay"></a><span class="b-txt"><a class="b-name" href="index.html">Harsh</a><a class="b-ig" href="https://www.instagram.com/timelinebyharsh/" target="_blank" rel="noopener noreferrer">@timelinebyharsh</a></span></div>
         <p>Zyada sochne, roz ke routine aur bade faislon ke liye private one-on-one calls.</p>
         <a class="footer-ig" href="https://www.instagram.com/timelinebyharsh/" target="_blank" rel="noopener noreferrer">Instagram</a>
       </div>
@@ -2421,6 +2468,7 @@
       </div>
 
       <p class="pay-done" id="payDone" hidden>Dhanyavaad. Main payment dekhkar aapki booking confirm karoonga. Confirm hote hi Cal.com aapko Meet link email kar dega.</p>
+      <button type="button" class="btn-solid pay-fallback" id="payFallback" hidden>Pay now</button>
     </div>
   </div>
 
@@ -2830,24 +2878,36 @@
         var amount = PRICE[current.slug];
         $('paySub').textContent = NAME[current.slug] + (current.when ? ' · ' + current.when : '');
         $('payDone').hidden = true;
+        $('payFallback').hidden = true;
         $('utrErr').textContent = '';
         if (SITE.upiId) {
           var link = 'upi://pay?pa=' + encodeURIComponent(SITE.upiId) + '&pn=' + encodeURIComponent(SITE.upiName) + '&am=' + amount + '&cu=INR&tn=' + encodeURIComponent(NAME[current.slug] + ' booking');
           $('payAmount').textContent = '\u20B9' + amount;
           $('payVpa').textContent = SITE.upiId;
           $('payApp').href = link;
-          try { var q = qrcode(0, 'M'); q.addData(link); q.make(); $('payQr').innerHTML = q.createSvgTag(4, 0); } catch (e) { $('payQr').textContent = ''; }
+          modal.classList.remove('noqr');
+          try { var q = qrcode(0, 'M'); q.addData(link); q.make(); $('payQr').innerHTML = q.createSvgTag(4, 0); }
+          catch (e) { $('payQr').textContent = ''; modal.classList.add('noqr'); }   /* QR failed: show the UPI app button on every screen */
           $('payBlock').hidden = false;
+          $('payFallback').hidden = true;
         } else {
+          /* no UPI ID configured: send the visitor to the card / UPI checkout instead of a dead end */
           $('payBlock').hidden = true;
           $('payDone').hidden = false;
-          $('payDone').textContent = 'Dhanyavaad. Aapki booking ki request mil gayi hai. Main jaldi hi email se confirm karoonga.';
+          $('payDone').textContent = 'Aapka slot request ho gaya hai. Confirm karne ke liye apne session ka payment karein.';
+          $('payFallback').hidden = false;
         }
         modal.hidden = false;
         document.body.style.overflow = 'hidden';
       }
       function close() { modal.hidden = true; document.body.style.overflow = ''; }
 
+      var TRACK = { 'clarity-call-30': '1:1 Clarity & Roadmap Call (30 Mins)', 'dincharya-45': 'Daily Dincharya & Habit Blueprint (45 Mins)', 'deep-dive-60': 'Deep-Dive Personal Advisory (60 Mins)' };
+      $('payFallback').addEventListener('click', function () {
+        close();
+        if (typeof selectServiceAndScroll === 'function') selectServiceAndScroll(TRACK[current.slug]);
+        else { var t = document.querySelector('.tab-btn[data-tab="priority"]'); if (t) t.click(); document.getElementById('booking').scrollIntoView({ behavior: 'smooth' }); }
+      });
       $('payClose').addEventListener('click', close);
       modal.addEventListener('click', function (e) { if (e.target === modal) close(); });
       document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !modal.hidden) close(); });
@@ -2947,6 +3007,33 @@
           .catch(function (ex) { say(ex.message, 'err'); })
           .then(function () { btn.disabled = false; });
       });
+    })();
+  </script>
+
+  <script>
+    /* Learn section tabs: same sliding control as Choose a time */
+    (function () {
+      var seg = document.getElementById('learnSeg'); if (!seg) return;
+      var tabs = Array.prototype.slice.call(seg.querySelectorAll('.ltab'));
+      var IG = 'https://www.instagram.com/timelinebyharsh/';
+      var C = [
+        { topic: 'Mandir and history', desc: 'Hamare mandiron ke peeche ki kahaniyan, itihaas aur virasat, aasaan shabdon mein.', status: 'On Instagram', title: 'Temple stories', line: 'Mandiron ki kahaniyan, itihaas aur virasat, aasaan Hindi mein.', cta: 'Follow on Instagram', href: IG, ext: true },
+        { topic: 'Rituals and traditions', desc: 'Rituals kyun, kaise aur kab kiye jaate hain, taaki aap sirf steps nahi, matlab bhi samjhein.', status: 'Planned', title: 'Daily Puja Guide for Beginners', line: 'Roz ki puja ki aasaan shuruaat: kya chahiye aur aam kram kya hai.', cta: 'Join the list', href: '#join' },
+        { topic: 'Scriptures and philosophy', desc: 'Gita, Ramayan aur Mahabharat aur unki seekh, saaf bhasha mein.', status: 'Planned', title: 'Bhagavad Gita Beginner Study Guide', line: 'Gita ke mukhya vicharon ka aasaan bhasha mein parichay.', cta: 'Join the list', href: '#join' },
+        { topic: 'Festivals and vrat', desc: 'Tyohaaron ka calendar, taiyaari aur har vrat ka matlab.', status: 'Coming first', title: 'The Hindu Festival and Vrat Companion', line: 'Aapke tyohaaron aur vraton ke liye ek guide: har ek ka matlab, taiyaari kaise karein, aur kya-kya chahiye.', cta: 'Get early access', href: '#join', more: 'See the guide' }
+      ];
+      function show(i, animate) {
+        var c = C[i], p = document.getElementById('learnPanel');
+        tabs.forEach(function (t, k) { t.setAttribute('aria-selected', k === i ? 'true' : 'false'); });
+        seg.style.setProperty('--i', i);
+        if (animate) { p.style.animation = 'none'; void p.offsetWidth; p.style.animation = ''; }
+        document.getElementById('lpTitle').textContent = c.topic;
+        document.getElementById('lpDesc').textContent = c.desc;
+        var more = c.more ? '<a class="lbtn2" href="guides.html">' + c.more + '</a>' : '';
+        var tgt = c.ext ? ' target="_blank" rel="noopener noreferrer"' : '';
+        document.getElementById('lpCard').innerHTML = '<div class="lpc"><div><span class="lchip">' + c.status + '</span><h4>' + c.title + '</h4><p>' + c.line + '</p></div><div class="lside"><a class="btn-solid" href="' + c.href + '"' + tgt + '>' + c.cta + '</a>' + more + '</div></div>';
+      }
+      tabs.forEach(function (t, i) { t.addEventListener('click', function () { show(i, true); }); });
     })();
   </script>
 </body>

@@ -22,13 +22,12 @@ HEAD = '''<!DOCTYPE html>
 <body>
 <header>
   <div class="wrap bar">
-    <a class="brand" href="index.html"><img src="../assets/logo.jpg" width="40" height="40" alt="Harsh Upadhyay"><span><b>Timeline by Harsh</b><small>@timelinebyharsh</small></span></a>
+    <div class="brand"><a class="b-av" href="index.html" aria-label="Home"><img src="../assets/logo.jpg" width="40" height="40" alt="Harsh Upadhyay"></a><span class="b-txt"><a class="b-name" href="index.html">Harsh</a><a class="b-ig" href="https://www.instagram.com/timelinebyharsh/" target="_blank" rel="noopener noreferrer">@timelinebyharsh</a></span></div>
     <nav><a class="lang" href="../{fn}" hreflang="en" lang="en" title="English" aria-label="Switch to English">EN</a><a class="cta" href="index.html#booking">Book a call</a></nav>
   </div>
 </header>
 <section class="title">
   <div class="wrap rise">
-    <span class="om" aria-hidden="true">ॐ</span>
     <h1>{title}</h1>
     <p>{sub}</p>
   </div>
@@ -39,7 +38,7 @@ HEAD = '''<!DOCTYPE html>
 <footer>
   <div class="wrap top">
     <div class="fb">
-      <a class="brand" href="index.html"><img src="../assets/logo.jpg" width="40" height="40" alt="Harsh Upadhyay"><span><b>Timeline by Harsh</b><small>@timelinebyharsh</small></span></a>
+      <div class="brand"><a class="b-av" href="index.html" aria-label="Home"><img src="../assets/logo.jpg" width="40" height="40" alt="Harsh Upadhyay"></a><span class="b-txt"><a class="b-name" href="index.html">Harsh</a><a class="b-ig" href="https://www.instagram.com/timelinebyharsh/" target="_blank" rel="noopener noreferrer">@timelinebyharsh</a></span></div>
       <p>Zyada sochne, roz ke routine aur bade faislon ke liye private one-on-one calls.</p>
       <a class="ig" href="https://www.instagram.com/timelinebyharsh/" target="_blank" rel="noopener noreferrer">Instagram</a>
     </div>
@@ -308,6 +307,7 @@ PAGES['collaborate.html'] = ('Collaborate', 'Timeline by Harsh ke saath collabor
 ''')
 
 
+PAGES.pop('about.html', None)   # the About page is built by tools/build_about.py
 import re as _re
 def _h2s(path):
     return _re.findall(r'<h2>(.*?)</h2>', open(path, encoding='utf-8').read(), flags=_re.S)

@@ -11,50 +11,76 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Fraunces:opsz,wght,SOFT@9..144,300..700,0..100&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="legal.css">
+<style>
+main{background:#fff}
+.wrapn{max-width:960px;margin:0 auto;padding:0 1.5rem}
+.sec{padding:4.5rem 0}.sec.tint{background:var(--tint)}
+.tag{display:inline-block;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--accent);margin-bottom:.6rem}
+.ab-hero{background:linear-gradient(180deg,#fff 0%,#FFF8F0 100%);padding:4rem 0 4.5rem}
+.ab-grid{display:grid;grid-template-columns:1fr;gap:2rem;justify-items:center;text-align:center;align-items:center}
+@media(min-width:800px){.ab-grid{grid-template-columns:auto 1fr;gap:3.5rem;justify-items:start;text-align:left}}
+.ab-photo{width:9.5rem;height:9.5rem;border-radius:50%;padding:5px;background:linear-gradient(135deg,#FF6F1E,#FFB27A);box-shadow:0 20px 40px rgba(255,111,30,.22)}
+.ab-photo img{width:100%;height:100%;border-radius:50%;object-fit:cover;display:block;border:4px solid #fff}
+@media(min-width:800px){.ab-photo{width:12rem;height:12rem}}
+.ab-intro h1{font-family:var(--display);font-weight:600;font-size:clamp(2.2rem,5vw,3.4rem);line-height:1.1;letter-spacing:-.02em;margin-bottom:1rem}
+.ab-intro .lead{color:var(--muted);font-size:1.1rem;max-width:34rem;margin-bottom:1.75rem}
+.ab-intro .lead b{color:var(--text);font-weight:600}
+.ab-links{display:flex;flex-direction:column;gap:.75rem;align-items:stretch}
+@media(min-width:560px){.ab-links{flex-direction:row;align-items:center;gap:1.5rem}}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:3rem;padding:0 1.75rem;border-radius:9999px;background:var(--accent);color:#fff;font-size:1rem;font-weight:500;transition:background .2s,box-shadow .25s}
+.btn:hover{background:var(--accent-hover);box-shadow:0 6px 18px rgba(255,111,30,.3)}
+.tl{display:inline-flex;align-items:center;justify-content:center;min-height:44px;color:var(--muted);text-decoration:underline;text-decoration-color:var(--border-strong);text-underline-offset:5px;transition:color .2s,text-decoration-color .2s}
+.tl:hover{color:var(--accent);text-decoration-color:var(--accent)}
+h2.h{font-family:var(--display);font-weight:600;font-size:clamp(1.6rem,3vw,2.1rem);line-height:1.25;margin-bottom:1.25rem}
+.center{text-align:center}
+.why p{color:var(--muted);font-size:1.1rem;max-width:40rem;margin:0 auto}
+.cards{display:grid;grid-template-columns:1fr;gap:1.1rem}
+@media(min-width:800px){.cards.c3{grid-template-columns:repeat(3,1fr)}}
+.card{border:1px solid var(--border);background:var(--bg);border-radius:12px;padding:1.75rem 1.5rem;text-align:center;transition:border-color .3s var(--ease),box-shadow .3s var(--ease)}
+.card:hover{border-color:rgba(255,111,30,.5);box-shadow:0 10px 30px rgba(33,37,43,.06)}
+.card .n{font-family:var(--display);font-size:2rem;line-height:1;color:var(--accent);margin-bottom:.6rem;display:block}
+.card h3{font-family:var(--display);font-weight:500;font-size:1.3rem;margin-bottom:.4rem}
+.card p{color:var(--muted);font-size:.95rem}
+.quote{font-family:var(--display);font-weight:500;font-size:clamp(1.4rem,3vw,2rem);line-height:1.4;max-width:40rem;margin:0 auto;text-align:center;text-wrap:balance}
+.quote::before{content:"";display:block;width:3rem;height:3px;border-radius:3px;background:var(--accent);margin:0 auto 1.5rem}
+.note{max-width:40rem;margin:1.5rem auto 0;text-align:center;color:var(--muted);font-size:.9rem}
+.priv{display:flex;flex-direction:column;gap:1rem;align-items:center;text-align:center}
+.priv p{color:var(--muted);max-width:34rem}
+.cta-band{background:var(--tint);border-radius:12px;padding:3rem 1.5rem;text-align:center}
+.cta-band p{color:var(--muted);margin-bottom:1.5rem}
+.cta-row{display:flex;flex-direction:column;gap:.75rem;align-items:stretch;max-width:20rem;margin:0 auto}
+@media(min-width:560px){.cta-row{flex-direction:row;max-width:none;justify-content:center;align-items:center;gap:1.5rem}}
+</style>
 </head>
 <body>
-<header>
-  <div class="wrap bar">
-    <a class="brand" href="index.html"><img src="assets/logo.jpg" width="40" height="40" alt="Harsh Upadhyay"><span><b>Timeline by Harsh</b><small>@timelinebyharsh</small></span></a>
-    <nav><a class="lang" href="hi/about.html" hreflang="hi" lang="hi" title="Hinglish" aria-label="Switch to Hinglish">HI</a><a class="cta" href="index.html#booking">Book a call</a></nav>
+<header class="site-header">
+    <div class="container header-inner">
+      <div class="site-brand"><a class="b-av" href="index.html" aria-label="Home"><img class="brand-logo" src="assets/logo.jpg" width="40" height="40" alt="Harsh Upadhyay"></a><span class="b-txt"><a class="b-name" href="index.html">Harsh</a><a class="b-ig" href="https://www.instagram.com/timelinebyharsh/" target="_blank" rel="noopener noreferrer">@timelinebyharsh</a></span></div>
+      <ul class="nav-menu"><li class="nav-item"><a href="index.html#diagnostic">Find your fit</a></li><li class="nav-item"><a href="index.html#journey">How it works</a></li><li class="nav-item"><a href="index.html#services">Sessions</a></li><li class="nav-item"><a href="guides.html">Guides</a></li><li class="nav-item"><a href="index.html#faq">Questions</a></li></ul>
+      <div class="hdr-actions"><div class="lang-switch" role="group" aria-label="Language"><span class="on" aria-current="true">EN</span><a href="hi/about.html" hreflang="hi" lang="hi" title="Hinglish">HI</a></div><a href="index.html#booking" class="header-cta">Book a call</a></div>
+    </div>
+  </header>
+<section class="ab-hero"><div class="wrapn ab-grid">
+  <div class="ab-photo"><img src="assets/logo.jpg" width="150" height="150" alt="Harsh Upadhyay"></div>
+  <div class="ab-intro">
+    <span class="tag">About</span>
+    <h1>Hi, I am Harsh</h1>
+    <p class="lead">I am Harsh Upadhyay, the person behind <b>Timeline by Harsh</b>. I create Hindu religious content on Instagram and talk with people about Sanatan Dharma and everyday life.</p>
+    <div class="ab-links"><a class="btn" href="index.html#booking">Book a call</a><a class="tl" href="https://www.instagram.com/timelinebyharsh/" target="_blank" rel="noopener noreferrer">@timelinebyharsh on Instagram</a></div>
   </div>
-</header>
-<section class="title">
-  <div class="wrap rise">
-    <span class="om" aria-hidden="true">ॐ</span>
-    <h1>About</h1>
-    <p>Who I am and how these calls work</p>
-  </div>
-</section>
-<article>
-
-<h2>Hello, I am Harsh</h2>
-<p>I am Harsh Upadhyay, the person behind <strong>Timeline by Harsh</strong> (@timelinebyharsh). I create Hindu religious content on Instagram and talk with people about Sanatan Dharma and everyday life.</p>
-<p>The problems people bring are usually familiar: too much overthinking, a routine that keeps slipping, or a big decision that is hard to make alone. A comment or a short message is rarely enough for that, which is why I offer one-on-one calls.</p>
-
-<h2>What a call is</h2>
-<p>A private conversation over Google Meet, just you and me. You explain where you are stuck. I ask direct questions to find the real problem. Then we agree on a few clear steps for the days ahead. Afterwards I send you a written summary on WhatsApp within 24 hours.</p>
-<p>I draw on practical wisdom, daily practices such as dhyan, and the values I have learned from Sanatan Dharma. I will not give you generic motivation.</p>
-
-<h2>What a call is not</h2>
-<ul>
-<li>It is not therapy, counselling, or medical advice.</li>
-<li>It is not legal, financial, or investment advice.</li>
-<li>It is not a guarantee of any result. You do the work, I help you see it clearly.</li>
-</ul>
-<p>If you are in crisis or feel unsafe, please contact your local emergency services (in India, call 112) or a trusted person nearby.</p>
-
-<h2>How I look after your privacy</h2>
-<p>What you tell me stays between us. I collect only what is needed to book and prepare for your call. You can read the details in the <a href="privacy.html">privacy policy</a>.</p>
-
-<h2>Ready to talk?</h2>
-<p>You can <a href="index.html#diagnostic">find which session fits</a> or go straight to <a href="index.html#booking">choosing a time</a>. If you have a question first, message <a href="https://www.instagram.com/timelinebyharsh/" rel="noopener noreferrer">@timelinebyharsh</a> on Instagram, or reply to your booking confirmation email or WhatsApp message.</p>
-
-</article>
+</div></section>
+<main>
+<section class="sec why"><div class="wrapn center"><h2 class="h">Why I take calls</h2><p>The problems people bring are usually familiar: too much overthinking, a routine that keeps slipping, or a big decision that is hard to make alone. A comment or a short message is rarely enough for that, which is why I offer one-on-one calls.</p></div></section>
+<section class="sec tint"><div class="wrapn center"><h2 class="h">How a call works</h2><div class="cards c3"><div class="card"><span class="n">01</span><h3>You talk</h3><p>You explain where you are stuck. Take your time. Nobody is rushing you.</p></div><div class="card"><span class="n">02</span><h3>I ask</h3><p>I ask direct questions to find the real problem, not just the loudest one.</p></div><div class="card"><span class="n">03</span><h3>We plan</h3><p>We agree a few clear steps for the days ahead. I send a written summary on WhatsApp within 24 hours.</p></div></div></div></section>
+<section class="sec"><div class="wrapn center"><h2 class="h">What I draw on</h2><p class="quote">Practical wisdom, daily practices such as dhyan, and what I have learned from Sanatan Dharma. Not generic motivation.</p></div></section>
+<section class="sec tint"><div class="wrapn center"><h2 class="h">What a call is not</h2><div class="cards c3"><div class="card"><h3>Not therapy</h3><p>It is not therapy, counselling or medical advice.</p></div><div class="card"><h3>Not professional advice</h3><p>It is not legal, financial or investment advice.</p></div><div class="card"><h3>Not a guarantee</h3><p>You do the work. I help you see it clearly.</p></div></div><p class="note">If you are in crisis or feel unsafe, please contact your local emergency services (in India, call 112) or someone you trust.</p></div></section>
+<section class="sec"><div class="wrapn priv"><h2 class="h" style="margin-bottom:0">Your privacy</h2><p>What you tell me stays between us. I collect only what is needed to book and prepare for your call.</p><a class="tl" href="privacy.html">Read the privacy policy</a></div></section>
+<section class="sec" style="padding-top:0"><div class="wrapn"><div class="cta-band"><h2 class="h">Ready to talk?</h2><p>Find the session that fits, or go straight to choosing a time.</p><div class="cta-row"><a class="btn" href="index.html#booking">Book a call</a><a class="tl" href="index.html#diagnostic">Find your fit</a></div></div></div></section>
+</main>
 <footer>
   <div class="wrap top">
     <div class="fb">
-      <a class="brand" href="index.html"><img src="assets/logo.jpg" width="40" height="40" alt="Harsh Upadhyay"><span><b>Timeline by Harsh</b><small>@timelinebyharsh</small></span></a>
+      <div class="brand"><a class="b-av" href="index.html" aria-label="Home"><img src="assets/logo.jpg" width="40" height="40" alt="Harsh Upadhyay"></a><span class="b-txt"><a class="b-name" href="index.html">Harsh</a><a class="b-ig" href="https://www.instagram.com/timelinebyharsh/" target="_blank" rel="noopener noreferrer">@timelinebyharsh</a></span></div>
       <p>Private one-on-one calls for overthinking, daily routine and big life decisions.</p>
       <a class="ig" href="https://www.instagram.com/timelinebyharsh/" target="_blank" rel="noopener noreferrer">Instagram</a>
     </div>
@@ -85,5 +111,13 @@
     <p class="shloka" aria-hidden="true">ॐ सर्वे भवन्तु सुखिनः</p>
   </div>
 </footer>
+<div class="mobile-bar show" id="mobileBar"><a href="index.html#booking" class="mobile-bar-cta">Book a call</a></div>
+<script>
+(function () {
+  var bar = document.getElementById('mobileBar'), ft = document.querySelector('footer');
+  if (!bar || !ft || !('IntersectionObserver' in window)) return;
+  new IntersectionObserver(function (e) { bar.classList.toggle('show', !e[0].isIntersecting); }).observe(ft);
+})();
+</script>
 </body>
 </html>

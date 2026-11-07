@@ -68,22 +68,22 @@ fieldset.fld legend{width:100%}
 .faq summary::after{content:"+";color:var(--faint);font-size:1.3rem;line-height:1;transition:transform .35s var(--ease)}
 .faq details[open] summary::after{transform:rotate(45deg)}
 .faq p{color:var(--muted);margin-top:.6rem;font-size:.95rem}
-.q{text-align:center}
-.q p{color:var(--muted);margin-bottom:.9rem}
-.q a{color:var(--text);text-decoration:underline;text-decoration-color:var(--border-strong);text-underline-offset:5px;transition:color .2s,text-decoration-color .2s}
-.q a:hover{color:var(--accent);text-decoration-color:var(--accent)}
+.more-q{margin-top:1.5rem;font-size:.95rem;color:var(--muted)}
+.more-q a{color:var(--text);text-decoration:underline;text-decoration-color:var(--border-strong);text-underline-offset:5px;transition:color .2s,text-decoration-color .2s}
+.more-q a:hover{color:var(--accent);text-decoration-color:var(--accent)}
+@media(max-width:820px){.faq summary{min-height:44px;align-items:center}.more-q a{display:inline-flex;align-items:center;min-height:44px}.fld input[type=email],.fld input[type=tel]{min-height:44px}.chip span{min-height:44px}.sbtn{min-height:48px}.consent{min-height:44px;align-items:center}}
 </style>
 </head>
 <body>
-<header>
-  <div class="wrap bar">
-    <a class="brand" href="index.html"><img src="../assets/logo.jpg" width="40" height="40" alt="Harsh Upadhyay"><span><b>Timeline by Harsh</b><small>@timelinebyharsh</small></span></a>
-    <nav><a class="lang" href="../guides.html" hreflang="en" lang="en" title="English" aria-label="Switch to English">EN</a><a class="cta" href="index.html#booking">Book a call</a></nav>
-  </div>
-</header>
+<header class="site-header">
+    <div class="container header-inner">
+      <div class="site-brand"><a class="b-av" href="index.html" aria-label="Home"><img class="brand-logo" src="../assets/logo.jpg" width="40" height="40" alt="Harsh Upadhyay"></a><span class="b-txt"><a class="b-name" href="index.html">Harsh</a><a class="b-ig" href="https://www.instagram.com/timelinebyharsh/" target="_blank" rel="noopener noreferrer">@timelinebyharsh</a></span></div>
+      <ul class="nav-menu"><li class="nav-item"><a href="index.html#diagnostic">Find your fit</a></li><li class="nav-item"><a href="index.html#journey">How it works</a></li><li class="nav-item"><a href="index.html#services">Sessions</a></li><li class="nav-item"><a href="guides.html" aria-current="page">Guides</a></li><li class="nav-item"><a href="index.html#faq">Questions</a></li></ul>
+      <div class="hdr-actions"><div class="lang-switch" role="group" aria-label="Language"><a href="../guides.html" hreflang="en" lang="en" title="English">EN</a><span class="on" aria-current="true">HI</span></div><a href="index.html#booking" class="header-cta">Book a call</a></div>
+    </div>
+  </header>
 <section class="title">
   <div class="wrap rise">
-    <span class="om" aria-hidden="true">ॐ</span>
     <h1>Guides</h1>
     <p>Aapki paramparaon ke liye aasaan, sources wali guides</p>
   </div>
@@ -123,10 +123,10 @@ fieldset.fld legend{width:100%}
 
 <section class="sec tint"><div class="wrapn faq" style="max-width:720px">
   <h2 class="h">Common questions</h2>
-  <details name="g"><summary>When will it be ready?</summary><p>Main abhi ise bana raha hoon. List join karein, tayyar hote hi main aapko likhunga.</p></details><details name="g"><summary>Is it free?</summary><p>Calendar free hai. Poori guide paid download hogi, aur keemat pay karne se pehle dikhayi jaayegi.</p></details><details name="g"><summary>Will it match my family's tradition?</summary><p>Ye likhti hai ki kshetra aur parampara ke hisaab se riwaaj kahan alag hain, aur sources ka naam deti hai. Ye har parivaar ki parampara ko cover nahi kar sakti, isliye apne parivaar ya pandit se zaroor poochein.</p></details>
+  <details name="g"><summary>When will it be ready?</summary><p>Main abhi ise bana raha hoon. List join karein, tayyar hote hi main aapko likhunga.</p></details><details name="g"><summary>Is it free?</summary><p>Calendar free hai. Poori guide paid download hogi, aur keemat pay karne se pehle dikhayi jaayegi.</p></details><details name="g"><summary>How will I get the free calendar?</summary><p>Early-access list join karein. Calendar tayyar hote hi main use aapko email kar doonga.</p></details><details name="g"><summary>What format will the guide be in?</summary><p>Ek download karne wali guide jo aap phone par padh sakte hain ya print kar sakte hain. Bikri se pehle main exact format bata doonga.</p></details><details name="g"><summary>Which festival dates will it follow?</summary><p>Tyohaaron ki tithiyan har saal badalti hain aur calendar aur kshetra ke hisaab se alag hoti hain. Main likhunga ki har tithi kaun sa calendar follow karti hai, aur aap apne local panchang ya pandit se confirm zaroor karein.</p></details><details name="g"><summary>Will it match my family's tradition?</summary><p>Ye likhti hai ki kshetra aur parampara ke hisaab se riwaaj kahan alag hain, aur sources ka naam deti hai. Ye har parivaar ki parampara ko cover nahi kar sakti, isliye apne parivaar ya pandit se zaroor poochein.</p></details><details name="g"><summary>Do you perform pujas?</summary><p>Nahi. Puja preparation session sirf planning aur seekhne ke liye hai. Puja ke liye kisi qualified pandit ke saath kaam karein.</p></details><details name="g"><summary>Can I suggest a topic?</summary><p>Haan. Instagram par message karke bata dein ki kaun sa tyohaar ya vrat aap chahte hain.</p></details>
+  <p class="more-q">Abhi bhi koi sawaal hai? <a href="https://www.instagram.com/timelinebyharsh/" target="_blank" rel="noopener noreferrer">Message me on Instagram</a></p>
 </div></section>
 
-<section class="sec"><div class="wrapn q"><h2 class="h">Have a question first?</h2><a href="https://www.instagram.com/timelinebyharsh/" target="_blank" rel="noopener noreferrer">Message me on Instagram</a></div></section>
 </main>
 <script>
 (function () {
@@ -153,7 +153,7 @@ fieldset.fld legend{width:100%}
 <footer>
   <div class="wrap top">
     <div class="fb">
-      <a class="brand" href="index.html"><img src="../assets/logo.jpg" width="40" height="40" alt="Harsh Upadhyay"><span><b>Timeline by Harsh</b><small>@timelinebyharsh</small></span></a>
+      <div class="brand"><a class="b-av" href="index.html" aria-label="Home"><img src="../assets/logo.jpg" width="40" height="40" alt="Harsh Upadhyay"></a><span class="b-txt"><a class="b-name" href="index.html">Harsh</a><a class="b-ig" href="https://www.instagram.com/timelinebyharsh/" target="_blank" rel="noopener noreferrer">@timelinebyharsh</a></span></div>
       <p>Zyada sochne, roz ke routine aur bade faislon ke liye private one-on-one calls.</p>
       <a class="ig" href="https://www.instagram.com/timelinebyharsh/" target="_blank" rel="noopener noreferrer">Instagram</a>
     </div>
@@ -184,5 +184,13 @@ fieldset.fld legend{width:100%}
     <p class="shloka" aria-hidden="true">ॐ सर्वे भवन्तु सुखिनः</p>
   </div>
 </footer>
+<div class="mobile-bar show" id="mobileBar"><a href="index.html#booking" class="mobile-bar-cta">Book a call</a></div>
+<script>
+(function () {
+  var bar = document.getElementById('mobileBar'), ft = document.querySelector('footer');
+  if (!bar || !ft || !('IntersectionObserver' in window)) return;
+  new IntersectionObserver(function (e) { bar.classList.toggle('show', !e[0].isIntersecting); }).observe(ft);
+})();
+</script>
 </body>
 </html>

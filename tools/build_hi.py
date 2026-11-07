@@ -32,7 +32,7 @@ KEEP = {
  'Major festivals explained','Preparation checklists','Common puja samagri lists','Basic ritual steps','Mantra meanings and pronunciation','Regional differences, clearly marked',
  'Get early access','See the guide','Be the first to get them','What are you interested in?','Join the list','Collaborate',
  'About','Policies','Privacy','Terms','Refunds','Cookies','© 2026 Timeline by Harsh. All rights reserved.',
- 'Booking requested','One last step','Pay with UPI app','Copy','Email you booked with','UTR or reference number from your UPI app','I have paid',
+ 'Booking requested','One last step','Pay with UPI app','Pay now','Copy','Email you booked with','UTR or reference number from your UPI app','I have paid',
  "btn.disabled = false; btn.textContent = 'I have paid'","btn.textContent = 'Sending'","'Copied'",
  'Payment received','Session Confirmed','<span>Track:</span>','<span>Fee:</span>','Message on WhatsApp','Pay ₹${price} securely',
 }
@@ -241,15 +241,10 @@ node('Thank you. I will check the payment and confirm your booking. Cal.com will
 
 # ---------- guides, puja preparation, early-access list ----------
 node('Learn the stories behind the tradition', 'Parampara ke peeche ki kahaniyan seekhein')
-node('Hindu history, temples, rituals and scriptures, told in simple Hindi on Instagram. Here is what I share, and what I am building next.', 'Hindu itihaas, mandir, rituals aur shaastra, Instagram par aasaan Hindi mein. Yahan dekhein main kya share karta hoon, aur aage kya bana raha hoon.')
 node('Mandir and history', 'Mandir aur itihaas')
-node('The stories and heritage behind our temples.', 'Hamare mandiron ke peeche ki kahaniyan aur virasat.')
 node('Rituals and traditions', 'Rituals aur parampara')
-node('Why, how and when rituals are done.', 'Rituals kyun, kaise aur kab kiye jaate hain.')
 node('Scriptures and philosophy', 'Shaastra aur darshan')
-node('The Gita, Ramayana and Mahabharata, simply explained.', 'Gita, Ramayan aur Mahabharat, aasaan shabdon mein.')
 node('Festivals and vrat', 'Tyohaar aur vrat')
-node('Preparation and meaning, in plain words.', 'Taiyaari aur matlab, saaf shabdon mein.')
 node('Coming first', 'Sabse pehle aa raha hai')
 node('One guide for the festivals and vrats you observe: what each one means, how to prepare, and what you will need.', 'Aapke tyohaaron aur vraton ke liye ek guide: har ek ka matlab, taiyaari kaise karein, aur kya-kya chahiye.')
 node('Major festivals explained', 'Bade tyohaaron ki jaankari')
@@ -258,7 +253,6 @@ node('Common puja samagri lists', 'Puja samagri ki aam list')
 node('Basic ritual steps', 'Rituals ke basic steps')
 node('Mantra meanings and pronunciation', 'Mantra ka matlab aur uchcharan')
 node('Regional differences, clearly marked', 'Kshetra ke hisaab se farq, saaf likha hua')
-node('Dates and practices differ by region and tradition. I mark where they do and name my sources.', 'Tithiyan aur riwaaj kshetra aur parampara ke hisaab se alag hote hain. Jahan farq hai main likh deta hoon aur apne sources ka naam bhi.')
 node('Get early access', 'Pehle access paayein')
 node('Be the first to get them', 'Sabse pehle paayein')
 node('Join the early-access list. You will get the free Hindu Festival and Vrat Calendar when it is ready, and first access to guides and live sessions.', 'Early-access list join karein. Free Hindu Festival and Vrat Calendar tayyar hote hi aapko milega, aur guides aur live sessions ka pehle access bhi.')
@@ -269,8 +263,19 @@ node('Join the list', 'List join karein')
 node('Collaborate', 'Saath kaam karein')
 node('See the guide', 'Guide dekhein')
 
+node('Hindu history, temples, rituals and scriptures, told in simple Hindi on Instagram. Pick a topic to see what I share and what is coming.', 'Hindu itihaas, mandir, rituals aur shaastra, Instagram par aasaan Hindi mein. Ek topic chunein aur dekhein main kya share karta hoon aur aage kya aa raha hai.')
+node('Festival calendars, preparation and the meaning behind each vrat.', 'Tyohaaron ka calendar, taiyaari aur har vrat ka matlab.')
+
 # JS strings
 J = [
+ ('The stories, history and heritage behind our temples, told simply.', 'Hamare mandiron ke peeche ki kahaniyan, itihaas aur virasat, aasaan shabdon mein.'),
+ ('Why, how and when rituals are done, so you understand the meaning and not only the steps.', 'Rituals kyun, kaise aur kab kiye jaate hain, taaki aap sirf steps nahi, matlab bhi samjhein.'),
+ ('The Gita, Ramayana and Mahabharata and what they teach, in plain language.', 'Gita, Ramayan aur Mahabharat aur unki seekh, saaf bhasha mein.'),
+ ('Festival calendars, preparation and the meaning behind each vrat.', 'Tyohaaron ka calendar, taiyaari aur har vrat ka matlab.'),
+ ('Temple stories, history and heritage, told in simple Hindi.', 'Mandiron ki kahaniyan, itihaas aur virasat, aasaan Hindi mein.'),
+ ('A simple start for a daily puja: what you need and the usual order.', 'Roz ki puja ki aasaan shuruaat: kya chahiye aur aam kram kya hai.'),
+ ('A plain-language introduction to the main ideas of the Gita.', 'Gita ke mukhya vicharon ka aasaan bhasha mein parichay.'),
+ ('One guide for the festivals and vrats you observe: what each one means, how to prepare, and what you will need.', 'Aapke tyohaaron aur vraton ke liye ek guide: har ek ka matlab, taiyaari kaise karein, aur kya-kya chahiye.'),
  ('Please enter a valid 10-digit WhatsApp number, or leave it empty.', 'Kripya 10 digit ka sahi WhatsApp number likhein, ya khaali chhod dein.'),
  ('Please tick the box to agree.', 'Kripya sahmati ka box tick karein.'),
  ("say('Sending...', '')", "say('Bhej rahe hain...', '')"),
@@ -282,6 +287,7 @@ J = [
  ('<b>What helps:</b> A routine borrowed from someone else rarely lasts. We build a simple morning and evening rhythm around your real work hours, one you can keep on a bad day too.', '<b>What helps:</b> Kisi aur se udhaar liya routine kam hi tikta hai. Hum aapke asli kaam ke time ke hisaab se subah-shaam ka aasaan routine banate hain, jo kharab din mein bhi chal sake.'),
  ('<b>What helps:</b> Family and friends give kind advice. You may need an outside view, free of emotional bias, to weigh your options and choose with a calm mind.', '<b>What helps:</b> Ghar waale aur dost pyaar se salah dete hain. Aapko shayad ek bahar ki nazar chahiye, jo bina kisi bhavna ke aapke options tole aur aap shaant mann se chun sakein.'),
  ('<b>What helps:</b> Often you already know the answer, but the noise around you is louder. This is a quiet, judgment-free space to say it out loud.', '<b>What helps:</b> Aksar jawaab aapko pehle se pata hota hai, bas aaspaas ka shor zyada hota hai. Ye ek shaant jagah hai jahan koi judge nahi karega, aap khulkar bol sakte hain.'),
+ ('Your slot is requested. Pay for your session to confirm it.', 'Aapka slot request ho gaya hai. Confirm karne ke liye apne session ka payment karein.'),
  ('Please enter your full name.', 'Kripya apna poora naam likhein.'),
  ('Please enter a valid email address.', 'Kripya sahi email likhein.'),
  ('Please enter a valid 10-digit Indian WhatsApp number.', 'Kripya 10 digit ka sahi WhatsApp number likhein.'),
@@ -294,7 +300,6 @@ J = [
  ('Please choose a date.', 'Kripya date chunein.'),
  ('Please enter your city.', 'Kripya apni city likhein.'),
  ('Please enter your age (15 to 85).', 'Kripya apni umar likhein (15 se 85).'),
- ('Thank you. Your booking is requested. I will confirm it by email shortly.', 'Dhanyavaad. Aapki booking ki request mil gayi hai. Main jaldi hi email se confirm karoonga.'),
  ('Please enter the email you booked with.', 'Kripya woh email likhein jisse book kiya tha.'),
  ('Please enter the UTR or reference number from your UPI app.', 'Kripya UPI app wala UTR ya reference number likhein.'),
  ('Something went wrong.', 'Kuch gadbad ho gayi.'),
@@ -321,7 +326,6 @@ node('~ हर्ष उपाध्याय', '~ Harsh Upadhyay')
 # page shell
 raw('<html lang="en">', '<html lang="hi-Latn">')
 s = s.replace('src="assets/', 'src="../assets/').replace('href="assets/', 'href="../assets/').replace('content="assets/', 'content="../assets/')
-raw('<a class="lang-switch" href="hi/index.html" hreflang="hi" lang="hi" title="Hinglish" aria-label="Switch to Hinglish">HI</a>', '<a class="lang-switch" href="../index.html" hreflang="en" lang="en" title="English" aria-label="Switch to English">EN</a>')
 raw('<link rel="alternate" hreflang="hi" href="hi/index.html">', '<link rel="alternate" hreflang="en" href="../index.html">')
 s = s.replace('.footer-col h4', '.footer-col h4', 1)
 

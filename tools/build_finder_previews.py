@@ -214,7 +214,7 @@ function layout(el,d){ const a=Math.abs(d); el.style.opacity=1-Math.min(a,1)*0.3
 function onFrame(f){ needle.style.transform=`rotate(${f*60}deg)`; fillArc.setAttribute('stroke-dasharray',`${f/(N-1)*100} 100`); }
 function onSel(i){ ticks.forEach((t,k)=>t.classList.toggle('on',k<=i)); }
 '''
-for fn,name,css,body,js in [('roll-1-drum','Roll 1: Drum picker',css1,body1,js1),('roll-2-odometer','Roll 2: Odometer',css2,body2,js2),('roll-3-dial','Roll 3: Speedometer dial',css3,body3,js3)]:
+for fn,name,css,body,js in [('roll-3-dial','Roll 3: Speedometer dial',css3,body3,js3)]:
     h=HEAD.replace('@@NAME@@',name).replace('@@CSS@@',css).replace('@@BODY@@',body).replace('@@JS@@',js).replace('@@DATA@@',dj)
     open(f'finder-options/{fn}.html','w',encoding='utf-8').write(h)
 print('written')

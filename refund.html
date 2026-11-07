@@ -13,15 +13,15 @@
 <link rel="stylesheet" href="legal.css">
 </head>
 <body>
-<header>
-  <div class="wrap bar">
-    <a class="brand" href="index.html"><img src="assets/logo.jpg" width="40" height="40" alt="Harsh Upadhyay"><span><b>Timeline by Harsh</b><small>@timelinebyharsh</small></span></a>
-    <nav><a class="lang" href="hi/refund.html" hreflang="hi" lang="hi" title="Hinglish" aria-label="Switch to Hinglish">HI</a><a class="cta" href="index.html#booking">Book a call</a></nav>
-  </div>
-</header>
+<header class="site-header">
+    <div class="container header-inner">
+      <div class="site-brand"><a class="b-av" href="index.html" aria-label="Home"><img class="brand-logo" src="assets/logo.jpg" width="40" height="40" alt="Harsh Upadhyay"></a><span class="b-txt"><a class="b-name" href="index.html">Harsh</a><a class="b-ig" href="https://www.instagram.com/timelinebyharsh/" target="_blank" rel="noopener noreferrer">@timelinebyharsh</a></span></div>
+      <ul class="nav-menu"><li class="nav-item"><a href="index.html#diagnostic">Find your fit</a></li><li class="nav-item"><a href="index.html#journey">How it works</a></li><li class="nav-item"><a href="index.html#services">Sessions</a></li><li class="nav-item"><a href="guides.html">Guides</a></li><li class="nav-item"><a href="index.html#faq">Questions</a></li></ul>
+      <div class="hdr-actions"><div class="lang-switch" role="group" aria-label="Language"><span class="on" aria-current="true">EN</span><a href="hi/refund.html" hreflang="hi" lang="hi" title="Hinglish">HI</a></div><a href="index.html#booking" class="header-cta">Book a call</a></div>
+    </div>
+  </header>
 <section class="title">
   <div class="wrap rise">
-    <span class="om" aria-hidden="true">ॐ</span>
     <h1>Refunds and Rescheduling</h1>
     <p>Last updated: 8 November 2026</p>
   </div>
@@ -60,7 +60,7 @@
 <footer>
   <div class="wrap top">
     <div class="fb">
-      <a class="brand" href="index.html"><img src="assets/logo.jpg" width="40" height="40" alt="Harsh Upadhyay"><span><b>Timeline by Harsh</b><small>@timelinebyharsh</small></span></a>
+      <div class="brand"><a class="b-av" href="index.html" aria-label="Home"><img src="assets/logo.jpg" width="40" height="40" alt="Harsh Upadhyay"></a><span class="b-txt"><a class="b-name" href="index.html">Harsh</a><a class="b-ig" href="https://www.instagram.com/timelinebyharsh/" target="_blank" rel="noopener noreferrer">@timelinebyharsh</a></span></div>
       <p>Private one-on-one calls for overthinking, daily routine and big life decisions.</p>
       <a class="ig" href="https://www.instagram.com/timelinebyharsh/" target="_blank" rel="noopener noreferrer">Instagram</a>
     </div>
@@ -91,5 +91,13 @@
     <p class="shloka" aria-hidden="true">ॐ सर्वे भवन्तु सुखिनः</p>
   </div>
 </footer>
+<div class="mobile-bar show" id="mobileBar"><a href="index.html#booking" class="mobile-bar-cta">Book a call</a></div>
+<script>
+(function () {
+  var bar = document.getElementById('mobileBar'), ft = document.querySelector('footer');
+  if (!bar || !ft || !('IntersectionObserver' in window)) return;
+  new IntersectionObserver(function (e) { bar.classList.toggle('show', !e[0].isIntersecting); }).observe(ft);
+})();
+</script>
 </body>
 </html>

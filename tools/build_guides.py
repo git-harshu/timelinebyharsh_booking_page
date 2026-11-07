@@ -35,7 +35,13 @@ EN = dict(
  faq_h='Common questions',
  faq=[('When will it be ready?','I am preparing it now. Join the list and I will write to you when it is ready.'),
       ('Is it free?','The calendar is free. The full guide will be a paid download, and the price will be shown before you pay.'),
-      ('Will it match my family\'s tradition?','It marks where practices differ by region and tradition and names its sources. It cannot cover every family tradition, so please check with your own family or priest.')],
+      ('How will I get the free calendar?','Join the early-access list. When the calendar is ready, I will email it to you.'),
+      ('What format will the guide be in?','A downloadable guide you can read on your phone or print. I will confirm the exact format before it goes on sale.'),
+      ('Which festival dates will it follow?','Festival dates change every year and differ by calendar and region. I will say which calendar each date follows, and I suggest you confirm with your local panchang or priest.'),
+      ('Will it match my family\'s tradition?','It marks where practices differ by region and tradition and names its sources. It cannot cover every family tradition, so please check with your own family or priest.'),
+      ('Do you perform pujas?','No. The puja preparation session is for planning and learning only. For a puja itself, please work with a qualified pandit.'),
+      ('Can I suggest a topic?','Yes. Message me on Instagram with the festival or vrat you would like covered.')],
+ more_q='Still have a question?', more_a='Message me on Instagram',
  q_h='Have a question first?', q_a='Message me on Instagram',
  e_email='Please enter a valid email address.', e_wa='Please enter a valid 10-digit WhatsApp number, or leave it empty.', e_box='Please tick the box to agree.', sending='Sending...', ok='Thank you. You are on the list. I will write when the first guide is ready.', e_gen='Something went wrong.',
  cta='Book a call', home='index.html', ig_label='Instagram', toggle='<a class="lang" href="hi/guides.html" hreflang="hi" lang="hi" title="Hinglish" aria-label="Switch to Hinglish">HI</a>',
@@ -69,7 +75,13 @@ HI = dict(
  faq_h='Common questions',
  faq=[('When will it be ready?','Main abhi ise bana raha hoon. List join karein, tayyar hote hi main aapko likhunga.'),
       ('Is it free?','Calendar free hai. Poori guide paid download hogi, aur keemat pay karne se pehle dikhayi jaayegi.'),
-      ('Will it match my family\'s tradition?','Ye likhti hai ki kshetra aur parampara ke hisaab se riwaaj kahan alag hain, aur sources ka naam deti hai. Ye har parivaar ki parampara ko cover nahi kar sakti, isliye apne parivaar ya pandit se zaroor poochein.')],
+      ('How will I get the free calendar?','Early-access list join karein. Calendar tayyar hote hi main use aapko email kar doonga.'),
+      ('What format will the guide be in?','Ek download karne wali guide jo aap phone par padh sakte hain ya print kar sakte hain. Bikri se pehle main exact format bata doonga.'),
+      ('Which festival dates will it follow?','Tyohaaron ki tithiyan har saal badalti hain aur calendar aur kshetra ke hisaab se alag hoti hain. Main likhunga ki har tithi kaun sa calendar follow karti hai, aur aap apne local panchang ya pandit se confirm zaroor karein.'),
+      ('Will it match my family\'s tradition?','Ye likhti hai ki kshetra aur parampara ke hisaab se riwaaj kahan alag hain, aur sources ka naam deti hai. Ye har parivaar ki parampara ko cover nahi kar sakti, isliye apne parivaar ya pandit se zaroor poochein.'),
+      ('Do you perform pujas?','Nahi. Puja preparation session sirf planning aur seekhne ke liye hai. Puja ke liye kisi qualified pandit ke saath kaam karein.'),
+      ('Can I suggest a topic?','Haan. Instagram par message karke bata dein ki kaun sa tyohaar ya vrat aap chahte hain.')],
+ more_q='Abhi bhi koi sawaal hai?', more_a='Message me on Instagram',
  q_h='Have a question first?', q_a='Message me on Instagram',
  e_email='Kripya sahi email likhein.', e_wa='Kripya 10 digit ka sahi WhatsApp number likhein, ya khaali chhod dein.', e_box='Kripya sahmati ka box tick karein.', sending='Bhej rahe hain...', ok='Dhanyavaad. Aap list mein hain. Pehli guide tayyar hote hi main likhunga.', e_gen='Kuch gadbad ho gayi.',
  cta='Book a call', home='index.html', ig_label='Instagram', toggle='<a class="lang" href="../guides.html" hreflang="en" lang="en" title="English" aria-label="Switch to English">EN</a>',
@@ -132,10 +144,10 @@ fieldset.fld legend{width:100%}
 .faq summary::after{content:"+";color:var(--faint);font-size:1.3rem;line-height:1;transition:transform .35s var(--ease)}
 .faq details[open] summary::after{transform:rotate(45deg)}
 .faq p{color:var(--muted);margin-top:.6rem;font-size:.95rem}
-.q{text-align:center}
-.q p{color:var(--muted);margin-bottom:.9rem}
-.q a{color:var(--text);text-decoration:underline;text-decoration-color:var(--border-strong);text-underline-offset:5px;transition:color .2s,text-decoration-color .2s}
-.q a:hover{color:var(--accent);text-decoration-color:var(--accent)}
+.more-q{margin-top:1.5rem;font-size:.95rem;color:var(--muted)}
+.more-q a{color:var(--text);text-decoration:underline;text-decoration-color:var(--border-strong);text-underline-offset:5px;transition:color .2s,text-decoration-color .2s}
+.more-q a:hover{color:var(--accent);text-decoration-color:var(--accent)}
+@media(max-width:820px){.faq summary{min-height:44px;align-items:center}.more-q a{display:inline-flex;align-items:center;min-height:44px}.fld input[type=email],.fld input[type=tel]{min-height:44px}.chip span{min-height:44px}.sbtn{min-height:48px}.consent{min-height:44px;align-items:center}}
 '''
 
 def page(L, base, out, prefix):
@@ -143,7 +155,7 @@ def page(L, base, out, prefix):
     # head
     t = re.sub(r'<title>.*?</title>', f'<title>{L["title"]} | Timeline by Harsh</title>', t, 1, flags=re.S)
     t = re.sub(r'<meta name="description" content="[^"]*">', f'<meta name="description" content="{L["meta"]}">', t, 1)
-    t = t.replace('hi/about.html', 'hi/guides.html').replace('../about.html', '../guides.html')
+    t = t.replace('hi/privacy.html', 'hi/guides.html').replace('../privacy.html', '../guides.html')
     # toggle (already points to guides after the replace above)
     # title section
     t = re.sub(r'<h1>.*?</h1>', f'<h1>{L["title"]}</h1>', t, 1, flags=re.S)
@@ -191,9 +203,9 @@ def page(L, base, out, prefix):
 <section class="sec tint"><div class="wrapn faq" style="max-width:720px">
   <h2 class="h">{L['faq_h']}</h2>
   {faq}
+  <p class="more-q">{L['more_q']} <a href="https://www.instagram.com/timelinebyharsh/" target="_blank" rel="noopener noreferrer">{L['more_a']}</a></p>
 </div></section>
 
-<section class="sec"><div class="wrapn q"><h2 class="h">{L['q_h']}</h2><a href="https://www.instagram.com/timelinebyharsh/" target="_blank" rel="noopener noreferrer">{L['q_a']}</a></div></section>
 </main>
 <script>
 (function () {{
@@ -220,6 +232,6 @@ def page(L, base, out, prefix):
     t = re.sub(r'<article>.*?</article>', lambda m: main, t, 1, flags=re.S)
     open(out, 'w', encoding='utf-8').write(t)
 
-page(EN, 'about.html', 'guides.html', '')
-page(HI, 'hi/about.html', 'hi/guides.html', '../')
+page(EN, 'privacy.html', 'guides.html', '')
+page(HI, 'hi/privacy.html', 'hi/guides.html', '../')
 print('guides pages written')
