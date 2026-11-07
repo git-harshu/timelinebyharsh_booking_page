@@ -5,3 +5,8 @@ node_modules
 dist/
 .dev.vars
 .wrangler/
+.env*
+!.env.example
+*.pem
+*.key
+.DS_Store

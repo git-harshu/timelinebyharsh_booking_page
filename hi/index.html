@@ -1773,6 +1773,14 @@
     .lside { min-width: 12.5rem; width: auto; }
     .lside .btn-solid, .lside .lbtn2 { width: 100%; white-space: nowrap; padding: 0 1.5rem; gap: 0.5rem; }
     .lig { width: 1.1rem; height: 1.1rem; flex-shrink: 0; }
+    /* section rhythm after the reorder: white / tint alternate, booking last */
+    #shop { background: var(--tint); }
+    #learn { background: var(--white); }
+    #join { background: var(--tint); }
+    #faq { background: var(--white); }
+    .quote-banner { background: var(--tint); }
+    #booking { background: var(--white); }
+    #shop .book-card { background: var(--white); }
   </style>
 </head>
 <body>
@@ -2088,33 +2096,79 @@
     </div>
   </section>
 
-  <section class="booking-section" id="booking">
+  <section class="shop-section" id="shop">
     <div class="container">
-      <h2 class="section-heading rise">Choose a time</h2>
+      <h2 class="section-heading rise">Books I Recommend</h2>
       <p class="section-intro">
-        Calendar se khaali slot chunein. Booking ke baad aap UPI se payment karte hain aur main aapka slot confirm karta hoon.
+        Ye kitaabein aur cheezein main khud use karta hoon. Ye Amazon affiliate links hain: inse kharidne par mujhe thoda commission milta hai, aapko koi extra kharcha nahi.
       </p>
 
-
-      <!-- Cal.com booking (the UPI step opens after a booking) -->
-      <div class="tab-panel active" id="panel-cal">
-        <div class="cal-container">
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;flex-wrap:wrap;gap:0.5rem">
-            <span style="font-size:0.85rem;color:var(--text-muted)">Live availability, booked on Google Meet</span>
-            <a href="https://cal.com/harsh-upadhyay-tsgoiw/clarity-call-30" target="_blank" rel="noopener noreferrer" style="font-size:0.8rem;color:var(--accent);font-weight:500">Open in new tab</a>
+      <div class="shop-grid">
+        <!-- Item 1: Atomic Habits -->
+        <div class="book-card rise">
+          <div class="book-art">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="2"/>
+              <path d="M12 2a10 10 0 1 0 10 10"/>
+              <path d="M12 6a6 6 0 1 0 6 6"/>
+            </svg>
           </div>
-          <div style="width:100%;height:620px;overflow:scroll" id="my-cal-inline"></div>
-          <script type="text/javascript">
-            Cal("inline", {
-              elementOrSelector: "#my-cal-inline",
-              calLink: "harsh-upadhyay-tsgoiw/clarity-call-30",
-              layout: "month_view"
-            });
-          </script>
+          <span class="book-tag">Discipline</span>
+          <div class="book-title">Atomic Habits</div>
+          <p class="book-desc">James Clear ka aasaan tareeka, buri aadaton ka chakra todne aur roz aage badhte rehne ke liye.</p>
+          <a href="https://www.amazon.in/dp/1847941834?tag=timelineharsh-21" target="_blank" rel="noopener noreferrer" class="book-link">View on Amazon</a>
+        </div>
+
+        <!-- Item 2: Bhagavad Gita -->
+        <div class="book-card rise">
+          <div class="book-art">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/>
+              <path d="M6 6h10"/>
+              <path d="M6 10h10"/>
+            </svg>
+          </div>
+          <span class="book-tag">Philosophy</span>
+          <div class="book-title">The Bhagavad Gita As It Is</div>
+          <p class="book-desc">Kartavya, nateeje ki chinta chhodne aur zindagi ki ladaiyon mein saaf soch paane ki sadabahaar kitaab.</p>
+          <a href="https://www.amazon.in/dp/9384564227?tag=timelineharsh-21" target="_blank" rel="noopener noreferrer" class="book-link">View on Amazon</a>
+        </div>
+
+        <!-- Item 3: Rudraksha Mala -->
+        <div class="book-card rise">
+          <div class="book-art">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="5" r="2"/>
+              <circle cx="17" cy="8" r="2"/>
+              <circle cx="19" cy="13" r="2"/>
+              <circle cx="16" cy="18" r="2"/>
+              <circle cx="12" cy="20" r="2"/>
+              <circle cx="8" cy="18" r="2"/>
+              <circle cx="5" cy="13" r="2"/>
+              <circle cx="7" cy="8" r="2"/>
+            </svg>
+          </div>
+          <span class="book-tag">Grounding</span>
+          <div class="book-title">5-Mukhi Rudraksha Mala</div>
+          <p class="book-desc">108+1 certified daane, roz mantra jaap aur dhyan ke liye, aur busy din mein mann ko sthir rakhne ke liye.</p>
+          <a href="https://www.amazon.in/s?k=5+mukhi+rudraksha+mala+certified&tag=timelineharsh-21" target="_blank" rel="noopener noreferrer" class="book-link">View on Amazon</a>
+        </div>
+
+        <!-- Item 4: Analog Focus Timer -->
+        <div class="book-card rise">
+          <div class="book-art">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="9"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+          <span class="book-tag">Deep Work</span>
+          <div class="book-title">Analog Visual Focus Timer</div>
+          <p class="book-desc">Phone ke timer ki jagah mechanical timer, taaki 30 minute ke focus mein notifications na aayein.</p>
+          <a href="https://www.amazon.in/s?k=pomodoro+timer+analog&tag=timelineharsh-21" target="_blank" rel="noopener noreferrer" class="book-link">View on Amazon</a>
         </div>
       </div>
-
-          </div>
+    </div>
   </section>
 
   <section class="learn-section" id="learn">
@@ -2218,81 +2272,6 @@
     </div>
   </section>
 
-  <section class="shop-section" id="shop">
-    <div class="container">
-      <h2 class="section-heading rise">Books I Recommend</h2>
-      <p class="section-intro">
-        Ye kitaabein aur cheezein main khud use karta hoon. Ye Amazon affiliate links hain: inse kharidne par mujhe thoda commission milta hai, aapko koi extra kharcha nahi.
-      </p>
-
-      <div class="shop-grid">
-        <!-- Item 1: Atomic Habits -->
-        <div class="book-card rise">
-          <div class="book-art">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="2"/>
-              <path d="M12 2a10 10 0 1 0 10 10"/>
-              <path d="M12 6a6 6 0 1 0 6 6"/>
-            </svg>
-          </div>
-          <span class="book-tag">Discipline</span>
-          <div class="book-title">Atomic Habits</div>
-          <p class="book-desc">James Clear ka aasaan tareeka, buri aadaton ka chakra todne aur roz aage badhte rehne ke liye.</p>
-          <a href="https://www.amazon.in/dp/1847941834?tag=timelineharsh-21" target="_blank" rel="noopener noreferrer" class="book-link">View on Amazon</a>
-        </div>
-
-        <!-- Item 2: Bhagavad Gita -->
-        <div class="book-card rise">
-          <div class="book-art">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/>
-              <path d="M6 6h10"/>
-              <path d="M6 10h10"/>
-            </svg>
-          </div>
-          <span class="book-tag">Philosophy</span>
-          <div class="book-title">The Bhagavad Gita As It Is</div>
-          <p class="book-desc">Kartavya, nateeje ki chinta chhodne aur zindagi ki ladaiyon mein saaf soch paane ki sadabahaar kitaab.</p>
-          <a href="https://www.amazon.in/dp/9384564227?tag=timelineharsh-21" target="_blank" rel="noopener noreferrer" class="book-link">View on Amazon</a>
-        </div>
-
-        <!-- Item 3: Rudraksha Mala -->
-        <div class="book-card rise">
-          <div class="book-art">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="5" r="2"/>
-              <circle cx="17" cy="8" r="2"/>
-              <circle cx="19" cy="13" r="2"/>
-              <circle cx="16" cy="18" r="2"/>
-              <circle cx="12" cy="20" r="2"/>
-              <circle cx="8" cy="18" r="2"/>
-              <circle cx="5" cy="13" r="2"/>
-              <circle cx="7" cy="8" r="2"/>
-            </svg>
-          </div>
-          <span class="book-tag">Grounding</span>
-          <div class="book-title">5-Mukhi Rudraksha Mala</div>
-          <p class="book-desc">108+1 certified daane, roz mantra jaap aur dhyan ke liye, aur busy din mein mann ko sthir rakhne ke liye.</p>
-          <a href="https://www.amazon.in/s?k=5+mukhi+rudraksha+mala+certified&tag=timelineharsh-21" target="_blank" rel="noopener noreferrer" class="book-link">View on Amazon</a>
-        </div>
-
-        <!-- Item 4: Analog Focus Timer -->
-        <div class="book-card rise">
-          <div class="book-art">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="9"/>
-              <polyline points="12 6 12 12 16 14"/>
-            </svg>
-          </div>
-          <span class="book-tag">Deep Work</span>
-          <div class="book-title">Analog Visual Focus Timer</div>
-          <p class="book-desc">Phone ke timer ki jagah mechanical timer, taaki 30 minute ke focus mein notifications na aayein.</p>
-          <a href="https://www.amazon.in/s?k=pomodoro+timer+analog&tag=timelineharsh-21" target="_blank" rel="noopener noreferrer" class="book-link">View on Amazon</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <section class="quote-banner">
     <div class="container quote-inner rise">
       <span class="quote-om" aria-hidden="true">ॐ</span>
@@ -2301,6 +2280,35 @@
       </blockquote>
       <div class="quote-author">~ Harsh Upadhyay</div>
     </div>
+  </section>
+
+  <section class="booking-section" id="booking">
+    <div class="container">
+      <h2 class="section-heading rise">Choose a time</h2>
+      <p class="section-intro">
+        Calendar se khaali slot chunein. Booking ke baad aap UPI se payment karte hain aur main aapka slot confirm karta hoon.
+      </p>
+
+
+      <!-- Cal.com booking (the UPI step opens after a booking) -->
+      <div class="tab-panel active" id="panel-cal">
+        <div class="cal-container">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;flex-wrap:wrap;gap:0.5rem">
+            <span style="font-size:0.85rem;color:var(--text-muted)">Live availability, booked on Google Meet</span>
+            <a href="https://cal.com/harsh-upadhyay-tsgoiw/clarity-call-30" target="_blank" rel="noopener noreferrer" style="font-size:0.8rem;color:var(--accent);font-weight:500">Open in new tab</a>
+          </div>
+          <div style="width:100%;height:620px;overflow:scroll" id="my-cal-inline"></div>
+          <script type="text/javascript">
+            Cal("inline", {
+              elementOrSelector: "#my-cal-inline",
+              calLink: "harsh-upadhyay-tsgoiw/clarity-call-30",
+              layout: "month_view"
+            });
+          </script>
+        </div>
+      </div>
+
+          </div>
   </section>
 
   <!-- Visual Clarity Diagnostic -->
