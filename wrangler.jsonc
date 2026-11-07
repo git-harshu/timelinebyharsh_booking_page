@@ -4,7 +4,6 @@
   "name": "harsh-timeline",
   "main": "worker/index.js",
   // Pinned so a deploy can only land in Akashy8889@gmail.com's Cloudflare account.
-  "account_id": "774ef1aff85a0f549e18d729866ed821",
   "compatibility_date": "2025-09-01",
   "compatibility_flags": ["nodejs_compat"],
   "workers_dev": true,
