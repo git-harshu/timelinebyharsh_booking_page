@@ -1596,6 +1596,79 @@
       .hero-copy { display: block; }
       .hero-waves { height: 130px; }
     }
+
+    /* =========================================================
+       r15: guides, early-access list, collaborate link
+       ========================================================= */
+    .learn-section { background: var(--white); padding: 5.5rem 0; text-align: center; }
+    .join-section { background: var(--tint); padding: 5.5rem 0; text-align: center; }
+    .faq-section { background: var(--white); }
+    .shop-section { background: var(--tint); }
+    .quote-banner { background: var(--white); }
+
+    .pillars { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin: 2.5rem auto 2.75rem; max-width: 960px; }
+    @media (min-width: 800px) { .pillars { grid-template-columns: repeat(4, 1fr); gap: 1.25rem; } }
+    .pillar { background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem 1rem; transition: border-color 0.3s var(--ease), box-shadow 0.3s var(--ease); }
+    .pillar:hover { border-color: rgba(255,111,30,0.5); box-shadow: 0 10px 30px rgba(33,37,43,0.06); }
+    .pillar .sym, .pillar .om-glyph { width: 1.9rem; height: 1.9rem; margin: 0 auto 0.75rem; display: block; color: var(--accent); font-size: 1.9rem; line-height: 1.9rem; text-align: center; }
+    .pillar h3 { font-family: var(--font-display); font-weight: 500; font-size: 1.15rem; line-height: 1.3; margin-bottom: 0.35rem; }
+    .pillar p { font-size: 0.875rem; color: var(--text-muted); line-height: 1.55; }
+
+    .guide-flagship { display: grid; grid-template-columns: 1fr; gap: 1.5rem; align-items: center; text-align: left; max-width: 960px; margin: 0 auto 1.25rem; padding: 2rem 1.5rem; background: var(--tint); border-radius: 12px; }
+    @media (min-width: 800px) { .guide-flagship { grid-template-columns: 1fr auto; padding: 2.5rem 2.5rem; gap: 2.5rem; } }
+    .guide-tag { display: inline-block; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600; color: var(--accent); margin-bottom: 0.6rem; }
+    .guide-main h3 { font-family: var(--font-display); font-weight: 600; font-size: clamp(1.5rem, 3vw, 2rem); line-height: 1.25; margin-bottom: 0.6rem; }
+    .guide-main > p { color: var(--text-muted); max-width: 34rem; }
+    .guide-list { list-style: none; display: grid; grid-template-columns: 1fr; gap: 0.35rem 1.5rem; margin: 1.1rem 0 1rem; }
+    @media (min-width: 560px) { .guide-list { grid-template-columns: 1fr 1fr; } }
+    .guide-list li { font-size: 0.925rem; color: var(--text); padding-left: 1.1rem; position: relative; }
+    .guide-list li::before { content: ""; position: absolute; left: 0; top: 0.62em; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+    .guide-note { font-size: 0.85rem; color: var(--text-muted); }
+    .guide-cta { white-space: nowrap; }
+    @media (max-width: 799px) { .guide-flagship { text-align: center; } .guide-list { text-align: left; max-width: 22rem; margin-left: auto; margin-right: auto; } .guide-main > p { margin-left: auto; margin-right: auto; } .guide-cta { width: 100%; } }
+
+    .more-ways { display: grid; grid-template-columns: 1fr; gap: 1.25rem; max-width: 960px; margin: 0 auto 1.5rem; text-align: left; }
+    @media (min-width: 800px) { .more-ways { grid-template-columns: 1fr 1fr; } }
+    .way { border: 1px solid var(--border); background: var(--bg); border-radius: 12px; padding: 1.5rem; transition: border-color 0.3s var(--ease), box-shadow 0.3s var(--ease); }
+    .way:hover { border-color: rgba(255,111,30,0.5); box-shadow: 0 10px 30px rgba(33,37,43,0.06); }
+    .way h3 { font-family: var(--font-display); font-weight: 500; font-size: 1.3rem; margin-bottom: 0.4rem; }
+    .way p { color: var(--text-muted); font-size: 0.925rem; }
+    @media (max-width: 799px) { .way { text-align: center; } }
+    .also { font-size: 0.875rem; color: var(--text-muted); max-width: 40rem; margin: 0 auto; }
+
+    .join-wrap { max-width: 44rem; }
+    .join-form { background: var(--white); border-radius: 12px; padding: 1.75rem 1.5rem; text-align: left; margin-top: 0.5rem; }
+    @media (min-width: 640px) { .join-form { padding: 2.25rem 2.25rem; } }
+    .join-row { display: grid; grid-template-columns: 1fr; gap: 0 1rem; }
+    @media (min-width: 640px) { .join-row { grid-template-columns: 1fr 1fr; } }
+    .join-interests { border: 0; margin: 0.25rem 0 1.25rem; display: flex; flex-wrap: wrap; gap: 0.6rem; }
+    .join-interests legend { display: block; width: 100%; margin-bottom: 0.6rem; padding: 0; }
+    .chip { cursor: pointer; }
+    .chip input { position: absolute; opacity: 0; pointer-events: none; }
+    .chip span { display: inline-flex; align-items: center; min-height: 2.5rem; padding: 0 1rem; border: 1px solid var(--border-strong); border-radius: 9999px; font-size: 0.9rem; color: var(--text-muted); background: var(--bg); transition: background 0.25s, border-color 0.25s, color 0.25s; }
+    .chip:hover span { border-color: var(--accent); color: var(--text); }
+    .chip input:checked + span { background: rgba(255,111,30,0.1); border-color: var(--accent); color: var(--text); font-weight: 500; }
+    .chip input:focus-visible + span { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+    .consent { display: flex; gap: 0.7rem; align-items: flex-start; font-size: 0.875rem; color: var(--text-muted); margin-bottom: 1.25rem; cursor: pointer; }
+    .consent input { margin-top: 0.3rem; accent-color: var(--accent); width: 1.05rem; height: 1.05rem; flex-shrink: 0; }
+    .join-btn { width: 100%; }
+    .join-btn:disabled { opacity: 0.55; }
+    .join-msg { min-height: 1.25rem; margin-top: 0.9rem; font-size: 0.9rem; text-align: center; color: var(--text-muted); }
+    .join-msg.err { color: #B42318; }
+    .join-msg.ok { color: var(--ok-text); font-weight: 500; }
+    .aff-note { font-size: 0.8rem; }
+
+    /* small phones: nothing wider than the screen */
+    .pillars { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .pillar h3, .pillar p, .way h3, .guide-main h3 { overflow-wrap: break-word; }
+    @media (max-width: 480px) { .pillar { padding: 1.25rem 0.75rem; } .pillar h3 { font-size: 1.05rem; } }
+    @media (max-width: 359px) { .pillars { grid-template-columns: minmax(0, 1fr); } }
+    @media (max-width: 480px) {
+      .booking-tabs { width: 100%; }
+      .tab-btn { min-width: 0; padding: 0.7rem 0.5rem; font-size: 0.85rem; gap: 0.35rem; }
+      .tab-btn svg { width: 14px; height: 14px; }
+    }
   </style>
 </head>
 <body>
@@ -1632,11 +1705,12 @@
         <li class="nav-item"><a href="#diagnostic">Find your fit</a></li>
         <li class="nav-item"><a href="#journey">How it works</a></li>
         <li class="nav-item"><a href="#services">Sessions</a></li>
+        <li class="nav-item"><a href="#learn">Guides</a></li>
         <li class="nav-item"><a href="#faq">Questions</a></li>
       </ul>
 
       <div class="hdr-actions">
-        <a class="lang-switch" href="hi/index.html" hreflang="hi" lang="hi">Hinglish</a>
+        <a class="lang-switch" href="hi/index.html" hreflang="hi" lang="hi" title="Hinglish" aria-label="Switch to Hinglish">HI</a>
         <a href="#booking" class="header-cta">Book a call</a>
       </div>
     </div>
@@ -2055,6 +2129,87 @@
     </div>
   </section>
 
+  <section class="learn-section" id="learn">
+    <div class="container">
+      <h2 class="section-heading rise">Learn the stories behind the tradition</h2>
+      <p class="section-intro">Hindu history, temples, rituals and scriptures, told in simple Hindi on Instagram. Here is what I share, and what I am building next.</p>
+
+      <div class="pillars">
+        <div class="pillar rise"><svg class="sym" aria-hidden="true"><use href="#trishul"/></svg><h3>Mandir and history</h3><p>The stories and heritage behind our temples.</p></div>
+        <div class="pillar rise"><svg class="sym" aria-hidden="true"><use href="#diya"/></svg><h3>Rituals and traditions</h3><p>Why, how and when rituals are done.</p></div>
+        <div class="pillar rise"><svg class="sym" aria-hidden="true"><use href="#lotus"/></svg><h3>Scriptures and philosophy</h3><p>The Gita, Ramayana and Mahabharata, simply explained.</p></div>
+        <div class="pillar rise"><span class="om-glyph" aria-hidden="true">ॐ</span><h3>Festivals and vrat</h3><p>Preparation and meaning, in plain words.</p></div>
+      </div>
+
+      <div class="guide-flagship rise">
+        <div class="guide-main">
+          <span class="guide-tag">Coming first</span>
+          <h3>The Hindu Festival and Vrat Companion</h3>
+          <p>One guide for the festivals and vrats you observe: what each one means, how to prepare, and what you will need.</p>
+          <ul class="guide-list">
+            <li>Major festivals explained</li>
+            <li>Preparation checklists</li>
+            <li>Common puja samagri lists</li>
+            <li>Basic ritual steps</li>
+            <li>Mantra meanings and pronunciation</li>
+            <li>Regional differences, clearly marked</li>
+          </ul>
+          <p class="guide-note">Dates and practices differ by region and tradition. I mark where they do and name my sources.</p>
+        </div>
+        <a href="#join" class="btn-solid guide-cta">Get early access</a>
+      </div>
+
+      <div class="more-ways">
+        <div class="way rise">
+          <span class="guide-tag">Coming soon</span>
+          <h3>Live group sessions</h3>
+          <p>Small online sessions on the Gita, rituals and festivals, with time for your questions.</p>
+        </div>
+        <div class="way rise">
+          <span class="guide-tag">Coming soon</span>
+          <h3>Puja preparation session</h3>
+          <p>A short one-on-one to plan a puja: samagri, the usual sequence, and where practices differ. This is planning and education. I do not perform pujas.</p>
+        </div>
+      </div>
+      <p class="also rise">Also planned: Daily Puja Guide for Beginners, Bhagavad Gita Beginner Study Guide, and a Hindu Rituals and Traditions Handbook.</p>
+    </div>
+  </section>
+
+  <section class="join-section" id="join">
+    <div class="container join-wrap">
+      <h2 class="section-heading rise">Be the first to get them</h2>
+      <p class="section-intro">Join the early-access list. You will get the free Hindu Festival and Vrat Calendar when it is ready, and first access to guides and live sessions.</p>
+
+      <form class="join-form rise" id="joinForm" novalidate>
+        <div class="join-row">
+          <div class="form-field">
+            <label for="jEmail" class="form-label">Email</label>
+            <input type="email" id="jEmail" class="form-input" placeholder="rahul@example.com" required autocomplete="email">
+          </div>
+          <div class="form-field">
+            <label for="jWa" class="form-label">WhatsApp (optional)</label>
+            <input type="tel" id="jWa" class="form-input" placeholder="10-digit number" autocomplete="tel" inputmode="numeric">
+          </div>
+        </div>
+
+        <fieldset class="join-interests">
+          <legend class="form-label">What are you interested in?</legend>
+          <label class="chip"><input type="checkbox" name="interest" value="Festival and vrat guide" checked><span>Festival and vrat guide</span></label>
+          <label class="chip"><input type="checkbox" name="interest" value="Live sessions"><span>Live sessions</span></label>
+          <label class="chip"><input type="checkbox" name="interest" value="Puja preparation session"><span>Puja preparation session</span></label>
+          <label class="chip"><input type="checkbox" name="interest" value="Gita study circle"><span>Gita study circle</span></label>
+        </fieldset>
+
+        <input type="text" name="website" id="jHp" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+        <label class="consent"><input type="checkbox" id="jConsent"><span>I agree to receive messages about these resources. I can stop anytime.</span></label>
+
+        <button type="submit" class="btn-solid join-btn" id="jBtn">Join the list</button>
+        <p class="join-msg" id="jMsg" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
   <section class="faq-section" id="faq">
     <div class="container faq-split">
       <div class="faq-intro">
@@ -2122,7 +2277,7 @@
           <span class="book-tag">Discipline</span>
           <div class="book-title">Atomic Habits</div>
           <p class="book-desc">James Clear's practical framework for breaking destructive loops and building steady daily momentum.</p>
-          <a href="https://www.amazon.in/dp/1847941834?tag=timelineharsh-21" target="_blank" rel="noopener noreferrer" class="book-link">View on Amazon</a>
+          <a href="https://www.amazon.in/dp/1847941834?tag=timelineharsh-21" target="_blank" rel="noopener noreferrer" class="book-link">View on Amazon (affiliate link)</a>
         </div>
 
         <!-- Item 2: Bhagavad Gita -->
@@ -2137,7 +2292,7 @@
           <span class="book-tag">Philosophy</span>
           <div class="book-title">The Bhagavad Gita As It Is</div>
           <p class="book-desc">A timeless manual on duty, detaching from outcome anxiety, and finding clarity in life's battles.</p>
-          <a href="https://www.amazon.in/dp/9384564227?tag=timelineharsh-21" target="_blank" rel="noopener noreferrer" class="book-link">View on Amazon</a>
+          <a href="https://www.amazon.in/dp/9384564227?tag=timelineharsh-21" target="_blank" rel="noopener noreferrer" class="book-link">View on Amazon (affiliate link)</a>
         </div>
 
         <!-- Item 3: Rudraksha Mala -->
@@ -2157,7 +2312,7 @@
           <span class="book-tag">Grounding</span>
           <div class="book-title">5-Mukhi Rudraksha Mala</div>
           <p class="book-desc">108+1 certified beads used for daily mantra dhyan and emotional centering during busy workdays.</p>
-          <a href="https://www.amazon.in/s?k=5+mukhi+rudraksha+mala+certified&tag=timelineharsh-21" target="_blank" rel="noopener noreferrer" class="book-link">View on Amazon</a>
+          <a href="https://www.amazon.in/s?k=5+mukhi+rudraksha+mala+certified&tag=timelineharsh-21" target="_blank" rel="noopener noreferrer" class="book-link">View on Amazon (affiliate link)</a>
         </div>
 
         <!-- Item 4: Analog Focus Timer -->
@@ -2171,7 +2326,7 @@
           <span class="book-tag">Deep Work</span>
           <div class="book-title">Analog Visual Focus Timer</div>
           <p class="book-desc">A mechanical timer to replace phone timers, eliminating notifications during 30-minute focus blocks.</p>
-          <a href="https://www.amazon.in/s?k=pomodoro+timer+analog&tag=timelineharsh-21" target="_blank" rel="noopener noreferrer" class="book-link">View on Amazon</a>
+          <a href="https://www.amazon.in/s?k=pomodoro+timer+analog&tag=timelineharsh-21" target="_blank" rel="noopener noreferrer" class="book-link">View on Amazon (affiliate link)</a>
         </div>
       </div>
     </div>
@@ -2230,6 +2385,7 @@
           <li><a href="#booking">Choose a time</a></li>
           <li><a href="#faq">Common questions</a></li>
           <li><a href="about.html">About</a></li>
+          <li><a href="collaborate.html">Collaborate</a></li>
         </ul>
       </nav>
 
@@ -2786,6 +2942,34 @@
       function sync() { var a = active(); if (mq.matches) { a.dataset.open = '1'; place(a, false); } else { place(a, false); } }
       (mq.addEventListener ? mq.addEventListener('change', sync) : mq.addListener(sync));
       sync();
+    })();
+  </script>
+
+  <script>
+    /* early-access list form */
+    (function () {
+      var f = document.getElementById('joinForm'); if (!f) return;
+      var msg = document.getElementById('jMsg'), btn = document.getElementById('jBtn');
+      function say(t, c) { msg.textContent = t; msg.className = 'join-msg' + (c ? ' ' + c : ''); }
+      f.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var email = document.getElementById('jEmail').value.trim();
+        var wa = document.getElementById('jWa').value.replace(/\D/g, '').slice(-10);
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) return say('Please enter a valid email address.', 'err');
+        if (wa && !/^[6-9]\d{9}$/.test(wa)) return say('Please enter a valid 10-digit WhatsApp number, or leave it empty.', 'err');
+        if (!document.getElementById('jConsent').checked) return say('Please tick the box to agree.', 'err');
+        var interests = Array.prototype.map.call(f.querySelectorAll('input[name=interest]:checked'), function (i) { return i.value; });
+        btn.disabled = true; say('Sending...', '');
+        fetch('/api/subscribe', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: email, whatsapp: wa, interests: interests, consent: true, website: document.getElementById('jHp').value }) })
+          .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
+          .then(function (res) {
+            if (!res.ok) throw new Error(res.j.error || 'Something went wrong.');
+            f.reset(); say('Thank you. You are on the list. I will write when the first guide is ready.', 'ok');
+          })
+          .catch(function (ex) { say(ex.message, 'err'); })
+          .then(function () { btn.disabled = false; });
+      });
     })();
   </script>
 </body>

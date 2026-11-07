@@ -23,7 +23,7 @@ HEAD = '''<!DOCTYPE html>
 <header>
   <div class="wrap bar">
     <a class="brand" href="index.html"><img src="../assets/logo.jpg" width="40" height="40" alt="Harsh Upadhyay"><span><b>Timeline by Harsh</b><small>@timelinebyharsh</small></span></a>
-    <nav><a class="lang" href="../{fn}" hreflang="en" lang="en">English</a><a class="cta" href="index.html#booking">Call book karein</a></nav>
+    <nav><a class="lang" href="../{fn}" hreflang="en" lang="en" title="English" aria-label="Switch to English">EN</a><a class="cta" href="index.html#booking">Call book karein</a></nav>
   </div>
 </header>
 <section class="title">
@@ -49,6 +49,7 @@ HEAD = '''<!DOCTYPE html>
       <li><a href="index.html#booking">Time chunein</a></li>
       <li><a href="index.html#faq">Aam sawaal</a></li>
       <li><a href="about.html">Parichay</a></li>
+      <li><a href="collaborate.html">Saath kaam karein</a></li>
     </ul></nav>
     <nav class="fc" aria-label="Sessions"><h4>Sessions</h4><ul>
       <li><a href="index.html#services">Clarity Call</a></li>
@@ -111,6 +112,7 @@ PAGES['privacy.html'] = ('Privacy Policy', f'Aakhri update: {UPD}', 'Timeline by
 <li>Aapne kaun sa session chuna, aur pasand ki date aur time</li>
 <li>Aap kis baare mein baat karna chahte hain, aur koi aur baat jo aap batana chahein</li>
 <li>Agar aap UPI se payment karte hain, toh payment ka reference number (UTR) aur woh email jisse aapne book kiya</li>
+<li>Agar aap early-access list join karte hain, toh aapka email, optional WhatsApp number aur woh topics jo aap chunte hain</li>
 </ul>
 <p>Calendar se book karne par scheduling service woh jaankari maangti hai jo use chahiye, jaise aapka naam aur email.</p>
 <p>Aapki dikkat ka byora personal ho sakta hai. Kripya wahi batayein jisme aap comfortable hon.</p>
@@ -121,6 +123,7 @@ PAGES['privacy.html'] = ('Privacy Policy', f'Aakhri update: {UPD}', 'Timeline by
 <li>Aapki call tay karne aur Google Meet link bhejne ke liye</li>
 <li>Call ki taiyaari karne aur WhatsApp par likhit summary bhejne ke liye</li>
 <li>Payment confirm karne aur booking emails bhejne ke liye</li>
+<li>Aapne jo guides, calendar aur updates maange hain woh bhejne ke liye</li>
 <li>Aapke sawaalon ke jawaab dene, time badalne ya refund karne ke liye, aur woh records rakhne ke liye jo kanoon maangta hai</li>
 </ul>
 <p>Main aapki jaankari bechta nahi hoon aur advertising ke liye use nahi karta.</p>
@@ -185,8 +188,11 @@ PAGES['terms.html'] = ('Terms of Use', f'Aakhri update: {UPD}', 'Timeline by Har
 <li>Aap jo batate hain main use private rakhta hoon. Sirf tab todoonga jab kanoon maange, ya jab mujhe lage ki kisi ko gambhir khatra hai.</li>
 </ul>
 
+<h2>Guides aur live sessions</h2>
+<p>Guides aur live sessions seekhne ke liye hain. Tyohaaron ki tithiyan aur puja ke riwaaj kshetra aur parampara ke hisaab se alag hote hain, isliye koi bhi riwaaj apnane se pehle apne parivaar ya pandit se pooch lein. Main kisi puja, mantra ya product se dhan, vivah, safalta ya suraksha ka vaada nahi karta. Jab koi guide ya session bikri par aayega, uski keemat aur refund ke niyam pay karne se pehle dikhaye jaayenge.</p>
+
 <h2>Kitaabein aur links</h2>
-<p>Kitaabon wale section mein Amazon affiliate links hain. Inse kharidne par mujhe thoda commission mil sakta hai, aapko koi extra kharcha nahi. Doosri sites ke apne niyam hote hain.</p>
+<p>Kitaabon wale section mein Amazon affiliate links hain, aur har link par "affiliate link" likha hota hai. Inse kharidne par mujhe thoda commission mil sakta hai, aapko koi extra kharcha nahi. Doosri sites ke apne niyam hote hain.</p>
 
 <h2>Mera content</h2>
 <p>Is site ka text, design aur tasveerein Timeline by Harsh ki hain, jab tak kuch aur na likha ho. Kripya ijaazat ke bina copy na karein.</p>
@@ -257,6 +263,47 @@ PAGES['cookies.html'] = ('Cookie Policy', f'Aakhri update: {UPD}', 'Timeline by 
 
 <h2>Aur jaankari</h2>
 <p>Aapki jaankari kaise use hoti hai, ye jaanne ke liye <a href="privacy.html">privacy policy</a> padhein. {CONTACT}</p>
+''')
+
+
+PAGES['collaborate.html'] = ('Saath kaam karein', 'Timeline by Harsh ke saath collaborate karein', 'Brands, publishers aur platforms ke liye: Timeline by Harsh ke saath kaise kaam karein.', f'''
+<h2>Ye page kinke liye hai</h2>
+<p>Un brands, publishers aur platforms ke liye jo Hindu itihaas, mandir, rituals aur shaastra mein dilchaspi rakhne wali audience tak pahunchna chahte hain.</p>
+
+<h2>Timeline by Harsh ke baare mein</h2>
+<p>Timeline by Harsh, Harsh Upadhyay ka Hindi-first Instagram page hai. Ye Hindu itihaas, mandir, paramparayein, tyohaar aur shaastra ko aasaan kahaniyon mein samjhata hai. Audience zyada tar India mein hai.</p>
+
+<h2>Main kinke saath kaam karta hoon</h2>
+<ul>
+<li>Rudraksha aur devotional product brands</li>
+<li>Puja samagri banane wale</li>
+<li>Kitaab publishers</li>
+<li>Hindu education platforms</li>
+<li>Faith-tech aur puja-booking platforms</li>
+<li>Mandir aur teerth yatra service providers</li>
+</ul>
+
+<h2>Saath kaam karne ke tareeke</h2>
+<ul>
+<li>Dedicated Instagram Reels</li>
+<li>Kisi product ke aas-paas educational content</li>
+<li>Instagram Stories</li>
+<li>Tyohaar campaigns</li>
+<li>Lambi partnerships</li>
+<li>Affiliate aur performance-based collaborations</li>
+</ul>
+
+<h2>Main kaise kaam karta hoon</h2>
+<ul>
+<li>Main kisi puja, mantra, ratna ya product se dhan, vivah, safalta ya suraksha ki guarantee ka vaada nahi karta.</li>
+<li>Rudraksha, ratna ya spiritual product ke baare mein kuch kehne se pehle main specifications check karta hoon.</li>
+<li>Sponsored aur affiliate content par saaf label hota hai, jaise Ad, Sponsored, Collaboration ya Affiliate.</li>
+<li>Itihaas ke saboot, dharmik maanyata, shaastra ki vyakhya aur kshetriya riwaaj main alag-alag rakhta hoon.</li>
+<li>Puja booking jaisi services ke liye main provider, ritual, keemat aur confirmation pehle verify karta hoon.</li>
+</ul>
+
+<h2>Sampark karein</h2>
+<p>Instagram par {IG} ko message karein, aur batayein: aapka brand, product ya service, aap kis audience tak pahunchna chahte hain, aur aapki timeline. Reach aur audience ki details main maangne par share karta hoon.</p>
 ''')
 
 for fn, (title, sub, desc, body) in PAGES.items():

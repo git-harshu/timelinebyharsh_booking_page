@@ -182,7 +182,7 @@ node('Grounding', 'Mann ki shaanti')
 node('5-Mukhi Rudraksha Mala', '5 Mukhi Rudraksha Mala')
 node('108+1 certified beads used for daily mantra dhyan and emotional centering during busy workdays.', '108+1 certified daane, roz mantra jaap aur dhyan ke liye, aur busy din mein mann ko sthir rakhne ke liye.')
 node('A mechanical timer to replace phone timers, eliminating notifications during 30-minute focus blocks.', 'Phone ke timer ki jagah mechanical timer, taaki 30 minute ke focus mein notifications na aayein.')
-node('View on Amazon', 'Amazon par dekhein')
+node('View on Amazon (affiliate link)', 'Amazon par dekhein (affiliate link)')
 
 # footer
 node('Private one-on-one calls for overthinking, daily routine and big life decisions.', 'Zyada sochne, roz ke routine aur bade faislon ke liye private one-on-one calls.')
@@ -205,8 +205,46 @@ attr('placeholder', '12 digit number', '12 digit ka number')
 node('I have paid', 'Maine pay kar diya')
 node('Thank you. I will check the payment and confirm your booking. Cal.com will email you the Meet link once it is confirmed.', 'Dhanyavaad. Main payment dekhkar aapki booking confirm karoonga. Confirm hote hi Cal.com aapko Meet link email kar dega.')
 
+
+# ---------- guides, puja preparation, early-access list ----------
+node('Learn the stories behind the tradition', 'Parampara ke peeche ki kahaniyan seekhein')
+node('Hindu history, temples, rituals and scriptures, told in simple Hindi on Instagram. Here is what I share, and what I am building next.', 'Hindu itihaas, mandir, rituals aur shaastra, Instagram par aasaan Hindi mein. Yahan dekhein main kya share karta hoon, aur aage kya bana raha hoon.')
+node('Mandir and history', 'Mandir aur itihaas')
+node('The stories and heritage behind our temples.', 'Hamare mandiron ke peeche ki kahaniyan aur virasat.')
+node('Rituals and traditions', 'Rituals aur parampara')
+node('Why, how and when rituals are done.', 'Rituals kyun, kaise aur kab kiye jaate hain.')
+node('Scriptures and philosophy', 'Shaastra aur darshan')
+node('The Gita, Ramayana and Mahabharata, simply explained.', 'Gita, Ramayan aur Mahabharat, aasaan shabdon mein.')
+node('Festivals and vrat', 'Tyohaar aur vrat')
+node('Preparation and meaning, in plain words.', 'Taiyaari aur matlab, saaf shabdon mein.')
+node('Coming first', 'Sabse pehle aa raha hai')
+node('One guide for the festivals and vrats you observe: what each one means, how to prepare, and what you will need.', 'Aapke tyohaaron aur vraton ke liye ek guide: har ek ka matlab, taiyaari kaise karein, aur kya-kya chahiye.')
+node('Major festivals explained', 'Bade tyohaaron ki jaankari')
+node('Preparation checklists', 'Taiyaari ki checklist')
+node('Common puja samagri lists', 'Puja samagri ki aam list')
+node('Basic ritual steps', 'Rituals ke basic steps')
+node('Mantra meanings and pronunciation', 'Mantra ka matlab aur uchcharan')
+node('Regional differences, clearly marked', 'Kshetra ke hisaab se farq, saaf likha hua')
+node('Dates and practices differ by region and tradition. I mark where they do and name my sources.', 'Tithiyan aur riwaaj kshetra aur parampara ke hisaab se alag hote hain. Jahan farq hai main likh deta hoon aur apne sources ka naam bhi.')
+node('Get early access', 'Pehle access paayein')
+node('Coming soon', 'Jald aa raha hai')
+node('Small online sessions on the Gita, rituals and festivals, with time for your questions.', 'Gita, rituals aur tyohaaron par chhote online sessions, aapke sawaalon ke liye time ke saath.')
+node('A short one-on-one to plan a puja: samagri, the usual sequence, and where practices differ. This is planning and education. I do not perform pujas.', 'Puja plan karne ke liye ek chhota one-on-one: samagri, aam kram, aur jahan riwaaj alag hote hain. Ye planning aur jaankari ke liye hai. Main puja karwata nahi hoon.')
+node('Also planned: Daily Puja Guide for Beginners, Bhagavad Gita Beginner Study Guide, and a Hindu Rituals and Traditions Handbook.', 'Aage aur bhi: Beginners ke liye Daily Puja Guide, Bhagavad Gita Beginner Study Guide, aur Hindu Rituals and Traditions Handbook.')
+node('Be the first to get them', 'Sabse pehle paayein')
+node('Join the early-access list. You will get the free Hindu Festival and Vrat Calendar when it is ready, and first access to guides and live sessions.', 'Early-access list join karein. Free Hindu Festival and Vrat Calendar tayyar hote hi aapko milega, aur guides aur live sessions ka pehle access bhi.')
+node('What are you interested in?', 'Aapko kis mein dilchaspi hai?')
+node('Festival and vrat guide', 'Festival aur vrat guide')
+node('I agree to receive messages about these resources. I can stop anytime.', 'Mujhe in resources ke baare mein messages bhejna theek hai. Kabhi bhi band karwa sakte hain.')
+node('Join the list', 'List join karein')
+node('Collaborate', 'Saath kaam karein')
+
 # JS strings
 J = [
+ ('Please enter a valid 10-digit WhatsApp number, or leave it empty.', 'Kripya 10 digit ka sahi WhatsApp number likhein, ya khaali chhod dein.'),
+ ('Please tick the box to agree.', 'Kripya sahmati ka box tick karein.'),
+ ("say('Sending...', '')", "say('Bhej rahe hain...', '')"),
+ ('Thank you. You are on the list. I will write when the first guide is ready.', 'Dhanyavaad. Aap list mein hain. Pehli guide tayyar hote hi main likhunga.'),
  ('price: "₹299 · 30 minutes"', 'price: "₹299 · 30 minute"'),
  ('price: "₹499 · 45 minutes"', 'price: "₹499 · 45 minute"'),
  ('price: "₹699 · 60 minutes"', 'price: "₹699 · 60 minute"'),
@@ -253,7 +291,7 @@ node('~ हर्ष उपाध्याय', '~ Harsh Upadhyay')
 # page shell
 raw('<html lang="en">', '<html lang="hi-Latn">')
 s = s.replace('src="assets/', 'src="../assets/').replace('href="assets/', 'href="../assets/').replace('content="assets/', 'content="../assets/')
-raw('<a class="lang-switch" href="hi/index.html" hreflang="hi" lang="hi">Hinglish</a>', '<a class="lang-switch" href="../index.html" hreflang="en" lang="en">English</a>')
+raw('<a class="lang-switch" href="hi/index.html" hreflang="hi" lang="hi" title="Hinglish" aria-label="Switch to Hinglish">HI</a>', '<a class="lang-switch" href="../index.html" hreflang="en" lang="en" title="English" aria-label="Switch to English">EN</a>')
 raw('<link rel="alternate" hreflang="hi" href="hi/index.html">', '<link rel="alternate" hreflang="en" href="../index.html">')
 s = s.replace('.footer-col h4', '.footer-col h4', 1)
 

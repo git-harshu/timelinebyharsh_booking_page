@@ -134,3 +134,26 @@ export async function sendPaymentClaim({ email, utr, amount, session, slot }) {
   jobs.push(t.sendMail({ from, to: email, replyTo: owner, subject: "I received your payment reference", html: shell("Payment reference received", ack) }));
   return Promise.allSettled(jobs);
 }
+
+
+// 4) Early-access list signup (guides, live sessions, puja preparation). Mails Harsh the lead and thanks the subscriber.
+export async function sendSignup({ email, whatsapp, interests }) {
+  const t = transport();
+  const from = `"Harsh | Timeline by Harsh" <${process.env.GMAIL_USER}>`;
+  const owner = process.env.OWNER_EMAIL || process.env.GMAIL_USER;
+  const list = interests && interests.length ? interests.join(", ") : "-";
+
+  const table = `<table style="border-collapse:collapse;width:100%;background:#FAF8F5;border:1px solid #E7E2D9;border-radius:8px;overflow:hidden">
+    ${row("Email", email)}
+    ${row("WhatsApp", whatsapp ? "+91 " + whatsapp : "-")}
+    ${row("Interested in", list)}
+    ${row("Consent", "Agreed to receive messages about these resources")}
+  </table>`;
+  const jobs = [
+    t.sendMail({ from, to: owner, replyTo: email, subject: `New early-access signup: ${email}`, html: shell("New early-access signup", table) })
+  ];
+  const ack = `<p style="font-size:15px;line-height:1.6;color:#21252B">Thank you for joining the list.</p>
+    <p style="font-size:14px;line-height:1.6;color:#5E6470">I will write to you when the first guide is ready. You asked about: <b>${esc(list)}</b>. To stop these messages at any time, just reply to this email.</p>`;
+  jobs.push(t.sendMail({ from, to: email, replyTo: owner, subject: "You are on the list", html: shell("You are on the list", ack) }));
+  return Promise.allSettled(jobs);
+}
