@@ -3,17 +3,17 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Timeline by Harsh | 1:1 Personal Advisory & Consultations</title>
-  <meta name="description" content="Private 1:1 consultations with Harsh Upadhyay (@timelinebyharsh). Focused, honest conversations to solve your creative roadblocks, daily discipline, and life direction.">
+  <title>Timeline by Harsh | 1:1 Personal Guidance & Life Consultation</title>
+  <meta name="description" content="Private 1:1 personal guidance consultations with Harsh Upadhyay (@timelinebyharsh). Focused, honest conversations to solve overthinking, build daily discipline, and find life clarity.">
   
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Timeline by Harsh | 1:1 Personal Advisory">
-  <meta property="og:description" content="Thirty minutes. Just you, me, and the one problem you can't seem to solve. Private consultations with Harsh (@timelinebyharsh).">
+  <meta property="og:title" content="Timeline by Harsh | 1:1 Personal Guidance">
+  <meta property="og:description" content="Thirty minutes. Just you, me, and the one problem you can't seem to solve. Private 1:1 consultations with Harsh (@timelinebyharsh).">
   <meta property="og:site_name" content="Timeline by Harsh">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Timeline by Harsh (@timelinebyharsh)">
-  <meta name="twitter:description" content="Private 1:1 consultations with Harsh Upadhyay. Book your slot on Cal.com.">
+  <meta name="twitter:description" content="Private 1:1 personal consultations with Harsh Upadhyay. Book your slot on Cal.com.">
 
   <!-- Favicon -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%2321252B'/><text x='50' y='66' font-size='50' font-family='Poppins,sans-serif' font-weight='600' fill='%23FF6F1E' text-anchor='middle'>H</text></svg>">
@@ -64,13 +64,6 @@
   </script>
 
   <style>
-    /*
-      De-slopified Design Tokens:
-      - Clean, intentional palette: Warm Ivory, Charcoal, Saffron Orange
-      - Controlled typography with generous line-height
-      - Editorial whitespace over decorative boxes
-      - Zero gratuitous drop shadows, zero cartoonish gradient badges
-    */
     :root {
       --bg: #FAF8F5;               /* Warm Ivory */
       --bg-surface: #FFFFFF;
@@ -84,11 +77,11 @@
       --border: #E7E2D9;           /* Warm Hairline */
       --border-strong: #D5CEBF;
       --font: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      --radius-sm: 4px;
-      --radius-md: 8px;
-      --radius-lg: 12px;
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
       --radius-pill: 9999px;
-      --max-w: 1040px;
+      --max-w: 960px;
     }
 
     *, *::before, *::after {
@@ -161,7 +154,6 @@
       place-items: center;
       font-weight: 600;
       font-size: 0.95rem;
-      letter-spacing: -0.02em;
     }
 
     .brand-mark span { color: var(--accent); }
@@ -213,38 +205,97 @@
       transition: background 0.15s ease;
     }
 
-    .header-cta:hover {
-      background: var(--accent);
-    }
+    .header-cta:hover { background: var(--accent); }
 
-    /* ---------------- Hero (Editorial & Author-Driven) ---------------- */
+    /* ---------------- Hero (Vertically Centered & Balanced) ---------------- */
     .hero {
-      padding: 4.5rem 0 3.5rem;
+      min-height: calc(100vh - 4.25rem);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 3.5rem 1.5rem;
       border-bottom: 1px solid var(--border);
+      position: relative;
     }
 
-    @media (min-width: 768px) {
-      .hero { padding: 6rem 0 4.5rem; }
+    /* Creator Visual Portrait Badge */
+    .creator-visual-wrap {
+      margin-bottom: 1.5rem;
+      position: relative;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
     }
 
-    .hero-lead-label {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      font-weight: 600;
+    .creator-avatar-ring {
+      width: 5.5rem;
+      height: 5.5rem;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #FF6F1E, #FFA25B);
+      padding: 3px;
+      box-shadow: 0 8px 24px rgba(255, 111, 30, 0.22);
+      position: relative;
+    }
+
+    .creator-avatar-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: var(--text);
+      color: #FFFFFF;
+      display: grid;
+      place-items: center;
+      font-size: 1.85rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .creator-avatar-inner span {
       color: var(--accent);
-      margin-bottom: 1.25rem;
-      display: block;
+    }
+
+    .creator-verified-badge {
+      position: absolute;
+      bottom: 2px;
+      right: 2px;
+      width: 1.4rem;
+      height: 1.4rem;
+      border-radius: 50%;
+      background: #15803D;
+      color: #FFFFFF;
+      display: grid;
+      place-items: center;
+      font-size: 0.75rem;
+      border: 2px solid var(--bg);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .creator-name-pill {
+      margin-top: 0.75rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      padding: 0.25rem 0.85rem;
+      border-radius: var(--radius-pill);
     }
 
     .hero-headline {
-      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      font-size: clamp(2.1rem, 5vw, 3.4rem);
       font-weight: 700;
-      line-height: 1.15;
+      line-height: 1.18;
       color: var(--text);
       letter-spacing: -0.025em;
-      max-width: 48rem;
-      margin-bottom: 1.5rem;
+      max-width: 44rem;
+      margin: 0 auto 1.25rem;
     }
 
     .hero-headline em {
@@ -254,19 +305,20 @@
     }
 
     .hero-summary {
-      font-size: clamp(1.05rem, 2vw, 1.2rem);
+      font-size: clamp(1rem, 2vw, 1.15rem);
       color: var(--text-muted);
-      line-height: 1.7;
-      max-width: 42rem;
-      margin-bottom: 2.25rem;
-      font-weight: 400;
+      line-height: 1.75;
+      max-width: 38rem;
+      margin: 0 auto 2.25rem;
     }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
+      justify-content: center;
       gap: 1rem;
+      margin-bottom: 2.25rem;
     }
 
     .btn-solid {
@@ -280,6 +332,7 @@
       padding: 0.8rem 1.6rem;
       border-radius: var(--radius-pill);
       transition: all 0.15s ease;
+      box-shadow: 0 4px 14px rgba(255, 111, 30, 0.25);
     }
 
     .btn-solid:hover {
@@ -305,28 +358,71 @@
       border-color: var(--text);
     }
 
-    .hero-note {
-      margin-top: 2rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid var(--border);
+    .hero-trust-list {
       display: flex;
       align-items: center;
+      justify-content: center;
       gap: 1.5rem;
       font-size: 0.825rem;
       color: var(--text-faint);
       flex-wrap: wrap;
     }
 
-    .hero-note span strong {
+    .hero-trust-list span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .hero-trust-list strong {
       color: var(--text);
       font-weight: 600;
     }
 
-    /* ---------------- The Clarity Diagnostic (Tactile & Clean) ---------------- */
+    /* ---------------- Editorial Quote Block ---------------- */
+    .quote-banner {
+      padding: 3rem 1.5rem;
+      background: var(--bg-subtle);
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .quote-inner {
+      max-width: 36rem;
+      margin: 0 auto;
+    }
+
+    .quote-glyph {
+      color: var(--accent);
+      font-size: 1.75rem;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .quote-text {
+      font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+      font-style: italic;
+      color: var(--text);
+      line-height: 1.6;
+      margin-bottom: 0.75rem;
+      font-weight: 400;
+    }
+
+    .quote-author {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 600;
+    }
+
+    /* ---------------- Visual Clarity Diagnostic ---------------- */
     .diagnostic-section {
-      padding: 4.5rem 0;
+      padding: 5rem 0;
       border-bottom: 1px solid var(--border);
       background: var(--bg-surface);
+      text-align: center;
     }
 
     .section-eyebrow {
@@ -340,7 +436,7 @@
     }
 
     .section-heading {
-      font-size: clamp(1.75rem, 3.5vw, 2.35rem);
+      font-size: clamp(1.75rem, 3.5vw, 2.25rem);
       font-weight: 700;
       letter-spacing: -0.02em;
       line-height: 1.25;
@@ -349,65 +445,78 @@
     }
 
     .section-intro {
-      font-size: 0.975rem;
+      font-size: 0.95rem;
       color: var(--text-muted);
-      max-width: 38rem;
-      margin-bottom: 2.5rem;
+      max-width: 36rem;
+      margin: 0 auto 2.5rem;
     }
 
-    .diagnostic-grid {
+    .diag-cards-grid {
       display: grid;
-      gap: 1rem;
+      gap: 1.25rem;
       grid-template-columns: 1fr;
       margin-bottom: 2rem;
     }
 
     @media (min-width: 640px) {
-      .diagnostic-grid {
+      .diag-cards-grid {
         grid-template-columns: repeat(2, 1fr);
       }
     }
 
-    .diag-btn {
+    .diag-card-btn {
       text-align: left;
-      padding: 1.25rem 1.4rem;
+      padding: 1.5rem;
       background: var(--bg);
       border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      transition: all 0.15s ease;
+      border-radius: var(--radius-lg);
+      transition: all 0.2s ease;
       cursor: pointer;
       display: flex;
-      flex-direction: column;
-      gap: 0.35rem;
+      align-items: flex-start;
+      gap: 1.15rem;
     }
 
-    .diag-btn:hover {
+    .diag-card-btn:hover {
       background: #FFFFFF;
       border-color: var(--text);
-      transform: translateY(-1px);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.04);
     }
 
-    .diag-btn.active {
+    .diag-card-btn.active {
       background: #FFFFFF;
       border-color: var(--accent);
-      box-shadow: 0 0 0 1px var(--accent);
+      box-shadow: 0 0 0 2px var(--accent);
     }
 
-    .diag-index {
-      font-size: 0.75rem;
-      font-weight: 600;
+    .diag-icon-box {
+      width: 2.75rem;
+      height: 2.75rem;
+      border-radius: var(--radius-md);
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
       color: var(--accent);
-      letter-spacing: 0.05em;
     }
 
-    .diag-title {
+    .diag-card-btn.active .diag-icon-box {
+      background: var(--accent);
+      color: #FFFFFF;
+      border-color: var(--accent);
+    }
+
+    .diag-card-body h4 {
       font-size: 1rem;
       font-weight: 600;
       color: var(--text);
+      margin-bottom: 0.25rem;
     }
 
-    .diag-desc {
-      font-size: 0.85rem;
+    .diag-card-body p {
+      font-size: 0.825rem;
       color: var(--text-muted);
       line-height: 1.5;
     }
@@ -416,9 +525,11 @@
     .diag-reveal {
       border: 1px solid var(--border-strong);
       border-radius: var(--radius-lg);
-      padding: 2rem;
+      padding: 2.25rem 2rem;
       background: var(--bg);
-      margin-top: 1.5rem;
+      margin: 2rem auto 0;
+      max-width: 780px;
+      text-align: left;
       position: relative;
     }
 
@@ -428,8 +539,9 @@
       top: 0;
       left: 2rem;
       right: 2rem;
-      height: 2px;
+      height: 3px;
       background: var(--accent);
+      border-radius: 3px 3px 0 0;
     }
 
     .reveal-header {
@@ -456,11 +568,10 @@
     }
 
     .reveal-body {
-      font-size: 0.95rem;
+      font-size: 0.925rem;
       color: var(--text-muted);
       line-height: 1.7;
       margin-bottom: 1.5rem;
-      max-width: 44rem;
     }
 
     .reveal-body b {
@@ -474,23 +585,24 @@
       flex-wrap: wrap;
     }
 
-    /* ---------------- Services (Quiet & Clear) ---------------- */
+    /* ---------------- 1:1 Consultation Services ---------------- */
     .services-section {
-      padding: 4.5rem 0;
+      padding: 5rem 0;
       border-bottom: 1px solid var(--border);
+      text-align: center;
     }
 
-    .services-list {
-      display: grid;
-      gap: 2rem;
-      margin-top: 2.5rem;
+    .services-container {
+      max-width: 820px;
+      margin: 0 auto;
+      text-align: left;
     }
 
     .service-row {
       display: grid;
       grid-template-columns: 1fr;
       gap: 1.5rem;
-      padding: 2rem 0;
+      padding: 2.25rem 0;
       border-bottom: 1px solid var(--border);
     }
 
@@ -516,7 +628,7 @@
     }
 
     .service-content p {
-      font-size: 0.95rem;
+      font-size: 0.925rem;
       color: var(--text-muted);
       line-height: 1.7;
       margin-bottom: 1rem;
@@ -552,87 +664,103 @@
       margin-bottom: 0.75rem;
     }
 
-    /* ---------------- Honest Breakdown (No corporate timelines) ---------------- */
-    .breakdown-section {
-      padding: 4.5rem 0;
+    /* ---------------- Visual 30-Minute Journey ---------------- */
+    .journey-section {
+      padding: 5rem 0;
       background: var(--bg-surface);
       border-bottom: 1px solid var(--border);
+      text-align: center;
     }
 
-    .breakdown-grid {
+    .journey-grid {
       display: grid;
       gap: 1.5rem;
-      margin-top: 2.5rem;
+      margin-top: 3rem;
       grid-template-columns: 1fr;
+      text-align: left;
     }
 
     @media (min-width: 680px) {
-      .breakdown-grid {
+      .journey-grid {
         grid-template-columns: repeat(4, 1fr);
       }
     }
 
-    .breakdown-col {
-      padding-left: 1.25rem;
-      border-left: 2px solid var(--border);
+    .journey-step {
+      padding: 1.5rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
       position: relative;
     }
 
-    .breakdown-col:hover {
-      border-left-color: var(--accent);
+    .journey-num {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #FFFFFF;
+      font-size: 0.8rem;
+      font-weight: 700;
+      display: grid;
+      place-items: center;
+      margin-bottom: 1rem;
     }
 
-    .breakdown-time {
+    .journey-time {
       font-size: 0.75rem;
       font-weight: 600;
-      color: var(--accent);
+      color: var(--text-faint);
       letter-spacing: 0.05em;
-      margin-bottom: 0.35rem;
+      margin-bottom: 0.25rem;
     }
 
-    .breakdown-title {
-      font-size: 1rem;
+    .journey-title {
+      font-size: 0.95rem;
       font-weight: 600;
       color: var(--text);
       margin-bottom: 0.35rem;
     }
 
-    .breakdown-desc {
-      font-size: 0.85rem;
+    .journey-desc {
+      font-size: 0.825rem;
       color: var(--text-muted);
       line-height: 1.55;
     }
 
     /* ---------------- Booking Area (Cal.com + Priority Form) ---------------- */
     .booking-section {
-      padding: 4.5rem 0;
+      padding: 5rem 0;
       border-bottom: 1px solid var(--border);
+      text-align: center;
     }
 
     .booking-tabs {
       display: flex;
+      justify-content: center;
       gap: 0.5rem;
-      margin-bottom: 2rem;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 0.75rem;
-      overflow-x: auto;
+      margin-bottom: 2.25rem;
+      flex-wrap: wrap;
     }
 
     .tab-btn {
-      padding: 0.5rem 1rem;
+      padding: 0.55rem 1.25rem;
       font-size: 0.875rem;
       font-weight: 500;
       color: var(--text-muted);
-      border-radius: var(--radius-sm);
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border);
+      background: #FFFFFF;
       transition: all 0.15s ease;
-      white-space: nowrap;
+      cursor: pointer;
     }
 
-    .tab-btn:hover { color: var(--text); }
+    .tab-btn:hover { color: var(--text); border-color: var(--text); }
 
     .tab-btn.active {
-      color: var(--text);
-      background: var(--bg-subtle);
+      color: #FFFFFF;
+      background: var(--text);
+      border-color: var(--text);
       font-weight: 600;
     }
 
@@ -645,22 +773,23 @@
       border: 1px solid var(--border);
       border-radius: var(--radius-lg);
       padding: 1.5rem;
-      min-height: 560px;
+      max-width: 820px;
+      margin: 0 auto;
+      min-height: 580px;
     }
 
-    /* Form Box */
+    /* Priority Form Box */
     .form-container {
-      max-width: 580px;
+      max-width: 540px;
       margin: 0 auto;
       background: #FFFFFF;
       border: 1px solid var(--border);
       border-radius: var(--radius-lg);
       padding: 2.25rem 2rem;
+      text-align: left;
     }
 
-    .form-field {
-      margin-bottom: 1.25rem;
-    }
+    .form-field { margin-bottom: 1.25rem; }
 
     .form-label {
       display: block;
@@ -739,18 +868,20 @@
       display: block;
     }
 
-    /* ---------------- Curated Shop (Minimalist) ---------------- */
+    /* ---------------- Curated Shop (With Visual Mockups) ---------------- */
     .shop-section {
-      padding: 4.5rem 0;
+      padding: 5rem 0;
       background: var(--bg-surface);
       border-bottom: 1px solid var(--border);
+      text-align: center;
     }
 
     .shop-grid {
       display: grid;
       gap: 1.5rem;
-      margin-top: 2rem;
+      margin-top: 2.5rem;
       grid-template-columns: 1fr;
+      text-align: left;
     }
 
     @media (min-width: 600px) {
@@ -761,12 +892,32 @@
       .shop-grid { grid-template-columns: repeat(4, 1fr); }
     }
 
-    .book-item {
-      padding-top: 1rem;
-      border-top: 1px solid var(--border);
+    .book-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      transition: all 0.2s ease;
+    }
+
+    .book-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--text);
+    }
+
+    .book-art {
+      width: 100%;
+      height: 110px;
+      border-radius: var(--radius-md);
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      display: grid;
+      place-items: center;
+      margin-bottom: 1rem;
+      color: var(--accent);
     }
 
     .book-tag {
@@ -789,7 +940,7 @@
       font-size: 0.825rem;
       color: var(--text-muted);
       line-height: 1.5;
-      margin-bottom: 1rem;
+      margin-bottom: 1.25rem;
       flex-grow: 1;
     }
 
@@ -799,21 +950,23 @@
       color: var(--text);
       display: inline-flex;
       align-items: center;
-      gap: 0.25rem;
+      gap: 0.3rem;
       transition: color 0.15s;
     }
 
     .book-link:hover { color: var(--accent); }
 
-    /* ---------------- FAQ (Native Details, Uncluttered) ---------------- */
+    /* ---------------- FAQ ---------------- */
     .faq-section {
-      padding: 4.5rem 0;
+      padding: 5rem 0;
       border-bottom: 1px solid var(--border);
+      text-align: center;
     }
 
     .faq-stack {
       max-width: 680px;
-      margin-top: 2rem;
+      margin: 2.5rem auto 0;
+      text-align: left;
     }
 
     .faq-stack details {
@@ -836,9 +989,8 @@
 
     .faq-stack summary::after {
       content: "+";
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       color: var(--text-faint);
-      font-weight: 400;
     }
 
     .faq-stack details[open] summary::after {
@@ -857,6 +1009,7 @@
       padding: 3.5rem 0 2rem;
       font-size: 0.825rem;
       color: var(--text-faint);
+      text-align: center;
     }
 
     .footer-inner {
@@ -875,7 +1028,7 @@
 
     .footer-links a:hover { color: var(--text); }
 
-    /* ---------------- Sticky Mobile Bar (Compact & Functional) ---------------- */
+    /* ---------------- Compact Mobile Sticky Bar ---------------- */
     .mobile-bar {
       position: fixed;
       bottom: 0;
@@ -932,9 +1085,9 @@
       </a>
 
       <ul class="nav-menu">
-        <li class="nav-item"><a href="#diagnostic">Find Your Focus</a></li>
-        <li class="nav-item"><a href="#services">Services</a></li>
-        <li class="nav-item"><a href="#breakdown">How It Works</a></li>
+        <li class="nav-item"><a href="#diagnostic">Clarity Diagnostic</a></li>
+        <li class="nav-item"><a href="#services">Consultations</a></li>
+        <li class="nav-item"><a href="#journey">How It Works</a></li>
         <li class="nav-item"><a href="#booking">Book Call</a></li>
         <li class="nav-item"><a href="#shop">Curated Reading</a></li>
       </ul>
@@ -943,106 +1096,169 @@
     </div>
   </header>
 
-  <!-- Hero Section -->
+  <!-- Hero (Vertically Centered & Visually Grounded) -->
   <section class="hero">
     <div class="container">
-      <span class="hero-lead-label">Personal 1:1 Consultation</span>
+      
+      <!-- Creator Visual Badge -->
+      <div class="creator-visual-wrap">
+        <div class="creator-avatar-ring">
+          <div class="creator-avatar-inner">
+            H<span>U</span>
+            <div class="creator-verified-badge" title="Verified Creator">✓</div>
+          </div>
+        </div>
+        <div class="creator-name-pill">
+          <span>@timelinebyharsh</span>
+          <span>·</span>
+          <span>Harsh Upadhyay</span>
+        </div>
+      </div>
 
       <h1 class="hero-headline">
         Thirty minutes. Just you, me, and the <em>one problem</em> you can’t seem to solve.
       </h1>
 
       <p class="hero-summary">
-        If you found me through my reels on <b>@timelinebyharsh</b>, you already know I don’t believe in generic advice. When you're stuck between overthinking, creative stagnation, or personal routine — you don’t need another 10-hour course. You need someone outside your head to ask the right questions and give you 3 clear rules for tomorrow.
+        If you found me through my videos on <b>@timelinebyharsh</b>, you already know I don’t believe in generic motivational speeches. When you're overwhelmed by overthinking, inconsistent discipline, or a personal crossroads — you need someone outside your head to ask the right questions and give you 3 clear rules for tomorrow.
       </p>
 
       <div class="hero-actions">
-        <a href="#diagnostic" class="btn-solid">Find Your Focus ↓</a>
-        <a href="#booking" class="btn-outline">Open Calendar (Cal.com)</a>
+        <a href="#diagnostic" class="btn-solid">Take Clarity Diagnostic ↓</a>
+        <a href="#booking" class="btn-outline">Pick Time on Calendar</a>
       </div>
 
-      <div class="hero-note">
-        <span>Over <strong>1,200+</strong> 1:1 calls completed</span>
+      <div class="hero-trust-list">
+        <span>Over <strong>1,200+</strong> 1:1 conversations</span>
         <span>•</span>
         <span>Private Google Meet</span>
         <span>•</span>
-        <span>WhatsApp summary sent within 24h</span>
+        <span>WhatsApp summary delivered within 24h</span>
       </div>
     </div>
   </section>
 
-  <!-- Interactive Diagnostic (Tactile, Human, Non-Gimmicky) -->
+  <!-- Editorial Reflection / Philosophy Quote -->
+  <section class="quote-banner">
+    <div class="container quote-inner">
+      <span class="quote-glyph">ॐ</span>
+      <blockquote class="quote-text">
+        "Parampara koi bandhan nahi — yeh yaad hai us raaste ki, jahan se hum aaye the."
+      </blockquote>
+      <div class="quote-author">— Harsh Upadhyay</div>
+    </div>
+  </section>
+
+  <!-- Visual Clarity Diagnostic -->
   <section class="diagnostic-section" id="diagnostic">
     <div class="container">
-      <span class="section-eyebrow">Clarity Diagnostic</span>
+      <span class="section-eyebrow">Interactive Diagnostic</span>
       <h2 class="section-heading">Where is your head caught right now?</h2>
       <p class="section-intro">
         Select the situation that mirrors your current struggle. We'll show you the exact bottleneck and the session designed to fix it.
       </p>
 
-      <div class="diagnostic-grid">
-        <button type="button" class="diag-btn active" data-diag="paralysis">
-          <span class="diag-index">01</span>
-          <span class="diag-title">Creative & Decision Paralysis</span>
-          <span class="diag-desc">You have 5 ideas but end up scrolling instead of finishing one. Too much mental noise.</span>
+      <div class="diag-cards-grid">
+        <!-- 01: Mental Noise -->
+        <button type="button" class="diag-card-btn active" data-diag="paralysis">
+          <div class="diag-icon-box">
+            <!-- Visual SVG: Focus / Converging thoughts -->
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>
+              <path d="M2 12h20"/>
+            </svg>
+          </div>
+          <div class="diag-card-body">
+            <h4>01 / Overthinking & Mental Noise</h4>
+            <p>You have 5 ideas but end up scrolling instead of finishing one. Too much internal static.</p>
+          </div>
         </button>
 
-        <button type="button" class="diag-btn" data-diag="creator">
-          <span class="diag-index">02</span>
-          <span class="diag-title">Stuck Content & Creator Growth</span>
-          <span class="diag-desc">You post reels consistently, but retention drops at 3 seconds and views have flatlined.</span>
+        <!-- 02: Discipline -->
+        <button type="button" class="diag-card-btn" data-diag="habits">
+          <div class="diag-icon-box">
+            <!-- Visual SVG: Rising Sun / Morning Dincharya -->
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="4"/>
+              <path d="M12 2v2"/><path d="M12 20v2"/>
+              <path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/>
+              <path d="M2 12h2"/><path d="M20 12h2"/>
+              <path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/>
+            </svg>
+          </div>
+          <div class="diag-card-body">
+            <h4>02 / Inconsistent Daily Discipline</h4>
+            <p>You start fresh every Monday, but lose focus by Thursday. Need a realistic, grounded dincharya.</p>
+          </div>
         </button>
 
-        <button type="button" class="diag-btn" data-diag="habits">
-          <span class="diag-index">03</span>
-          <span class="diag-title">Inconsistent Discipline & Routine</span>
-          <span class="diag-desc">You start fresh every Monday, but lose focus by Thursday. Need a realistic dincharya.</span>
+        <!-- 03: Crossroads -->
+        <button type="button" class="diag-card-btn" data-diag="crossroads">
+          <div class="diag-icon-box">
+            <!-- Visual SVG: Crossroads Compass -->
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="12 2 19 21 12 17 5 21 12 2"/>
+            </svg>
+          </div>
+          <div class="diag-card-body">
+            <h4>03 / Major Life Crossroads</h4>
+            <p>Facing a critical career, personal, or life fork. Need an honest audit with zero sugarcoating.</p>
+          </div>
         </button>
 
-        <button type="button" class="diag-btn" data-diag="crossroads">
-          <span class="diag-index">04</span>
-          <span class="diag-title">Major Life or Career Crossroads</span>
-          <span class="diag-desc">Facing a fork in the road and need an honest, objective audit with zero sugarcoating.</span>
+        <!-- 04: Sounding Board -->
+        <button type="button" class="diag-card-btn" data-diag="sounding">
+          <div class="diag-icon-box">
+            <!-- Visual SVG: Sanctuary / Honest dialogue -->
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+          </div>
+          <div class="diag-card-body">
+            <h4>04 / Confidential Sounding Board</h4>
+            <p>Need a safe, private space to speak freely without judgment, expectations, or unwanted opinions.</p>
+          </div>
         </button>
       </div>
 
-      <!-- Diagnostic Outcome Box -->
+      <!-- Diagnostic Outcome Reveal -->
       <div class="diag-reveal" id="diagReveal">
         <div class="reveal-header">
           <div>
-            <div class="reveal-title" id="diagTitle">30-Minute Clarity & Action Call</div>
-            <div style="font-size:0.8rem;color:var(--text-faint)">1-on-1 Private Video Session via Google Meet</div>
+            <div class="reveal-title" id="diagTitle">30-Minute 1:1 Clarity Call</div>
+            <div style="font-size:0.8rem;color:var(--text-faint)">Private 1-on-1 Session via Google Meet</div>
           </div>
           <div class="reveal-price" id="diagPrice">₹299 Commitment Fee</div>
         </div>
 
         <p class="reveal-body" id="diagBody">
-          <b>The Diagnosis:</b> You don't have an execution problem; you have an <em>overchoice problem</em>. Trying to consume more reels or self-help books only adds more noise. In 30 minutes, we isolate the single root blockage holding you back and map out 3 immediate steps for tomorrow.
+          <b>The Diagnosis:</b> You don't have an execution problem; you have an <em>overchoice problem</em>. Trying to consume more videos or self-help books only adds more noise. In 30 minutes, we isolate the single root blockage holding you back and map out 3 immediate steps for tomorrow.
         </p>
 
         <div class="reveal-actions">
           <a href="#booking" id="diagBookBtn" class="btn-solid" style="font-size:0.875rem">Book This Session →</a>
-          <span style="font-size:0.8rem;color:var(--text-faint)">Includes 24-hour WhatsApp summary notes</span>
+          <span style="font-size:0.8rem;color:var(--text-faint)">Includes 24h WhatsApp action notes</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- All Services (Clean, Typographic, No Tiered Pricing Slop) -->
+  <!-- 1:1 Consultation Services (Zero Brand Audit / Social Media Content) -->
   <section class="services-section" id="services">
     <div class="container">
-      <span class="section-eyebrow">Consultation Options</span>
-      <h2 class="section-heading">Direct, Transparent Advisory</h2>
+      <span class="section-eyebrow">Personal Advisory Options</span>
+      <h2 class="section-heading">1:1 Consultation Tracks</h2>
       <p class="section-intro">
         Every call is 1-on-1 directly with Harsh. Pick the scope that fits what you want to solve.
       </p>
 
-      <div class="services-list">
+      <div class="services-container">
         <!-- Service 1 -->
         <div class="service-row">
           <div class="service-meta">
             <h3>1:1 Clarity Call</h3>
-            <span>30 Minutes · Video Call</span>
+            <span>30 Minutes · Video Session</span>
           </div>
           <div class="service-content">
             <p>
@@ -1061,34 +1277,11 @@
           </div>
         </div>
 
-        <!-- Service 2 -->
+        <!-- Service 2: Dincharya & Habit Realignment -->
         <div class="service-row">
           <div class="service-meta">
-            <h3>Creator & Brand Audit</h3>
-            <span>45 Minutes · Strategic Review</span>
-          </div>
-          <div class="service-content">
-            <p>
-              For individuals making content or building a personal brand. We open your profile together, dissect your hooks, audience retention, and build a sustainable 30-day rhythm.
-            </p>
-            <ul>
-              <li>Honest audit of your bio, positioning, and niche clarity</li>
-              <li>Detailed breakdown of your last 9 reels & opening 3-second hooks</li>
-              <li>Audience retention strategies that don't rely on cheap gimmicks</li>
-              <li>Realistic 30-day posting calendar</li>
-            </ul>
-          </div>
-          <div class="service-action-col">
-            <span class="service-fee">₹699</span>
-            <a href="#booking" class="btn-outline select-service" data-service="Creator & Social Media Audit (45 Mins)" style="font-size:0.825rem;padding:0.5rem 1rem">Reserve Slot</a>
-          </div>
-        </div>
-
-        <!-- Service 3 -->
-        <div class="service-row">
-          <div class="service-meta">
-            <h3>Daily Dincharya Blueprint</h3>
-            <span>45 Minutes · Lifestyle Session</span>
+            <h3>Daily Dincharya & Habit Blueprint</h3>
+            <span>45 Minutes · Lifestyle Realignment</span>
           </div>
           <div class="service-content">
             <p>
@@ -1106,42 +1299,69 @@
             <a href="#booking" class="btn-outline select-service" data-service="Daily Dincharya & Habit Blueprint (45 Mins)" style="font-size:0.825rem;padding:0.5rem 1rem">Reserve Slot</a>
           </div>
         </div>
+
+        <!-- Service 3: Deep-Dive Personal Advisory -->
+        <div class="service-row">
+          <div class="service-meta">
+            <h3>Deep-Dive Personal Advisory</h3>
+            <span>60 Minutes · Comprehensive Session</span>
+          </div>
+          <div class="service-content">
+            <p>
+              For complex, multi-layered life crossroads, career transitions, or family expectations. We dig deep into root assumptions, remove emotional fog, and build a 90-day trajectory.
+            </p>
+            <ul>
+              <li>Full 60-minute in-depth personal conversation</li>
+              <li>Comprehensive diagnostic of mental blocks and decision crossroads</li>
+              <li>Written 90-day action playbook delivered post-call</li>
+              <li>7 days of direct WhatsApp voice-note follow-up support</li>
+            </ul>
+          </div>
+          <div class="service-action-col">
+            <span class="service-fee">₹699</span>
+            <a href="#booking" class="btn-outline select-service" data-service="Deep-Dive Personal Advisory (60 Mins)" style="font-size:0.825rem;padding:0.5rem 1rem">Reserve Slot</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- How the Call Actually Works -->
-  <section class="breakdown-section" id="breakdown">
+  <!-- Visual 30-Minute Journey -->
+  <section class="journey-section" id="journey">
     <div class="container">
       <span class="section-eyebrow">Zero Fluff Structure</span>
       <h2 class="section-heading">How We Spend Our 30 Minutes</h2>
       <p class="section-intro">
-        No small talk. No canned motivational speeches. Here is the exact structure of how Harsh runs your session.
+        No awkward small talk. No canned motivational clichés. Here is the exact minute-by-minute structure of how Harsh runs your session.
       </p>
 
-      <div class="breakdown-grid">
-        <div class="breakdown-col">
-          <div class="breakdown-time">00:00 – 05:00</div>
-          <div class="breakdown-title">1. You Talk</div>
-          <p class="breakdown-desc">Explain where you are stuck, what you've tried, and what isn't working. Completely unfiltered.</p>
+      <div class="journey-grid">
+        <div class="journey-step">
+          <div class="journey-num">01</div>
+          <div class="journey-time">00:00 – 05:00</div>
+          <div class="journey-title">You Speak Freely</div>
+          <p class="journey-desc">Explain where you are stuck, what you've tried, and what isn't working. Completely unfiltered.</p>
         </div>
 
-        <div class="breakdown-col">
-          <div class="breakdown-time">05:00 – 15:00</div>
-          <div class="breakdown-title">2. Harsh Probes</div>
-          <p class="breakdown-desc">Targeted, direct questions to separate symptoms from the actual root problem.</p>
+        <div class="journey-step">
+          <div class="journey-num">02</div>
+          <div class="journey-time">05:00 – 15:00</div>
+          <div class="journey-title">Harsh Probes</div>
+          <p class="journey-desc">Targeted, direct questions to separate symptoms from the actual root problem.</p>
         </div>
 
-        <div class="breakdown-col">
-          <div class="breakdown-time">15:00 – 25:00</div>
-          <div class="breakdown-title">3. The Solution</div>
-          <p class="breakdown-desc">A realistic plan built on what has actually worked in practice — not theoretical fluff.</p>
+        <div class="journey-step">
+          <div class="journey-num">03</div>
+          <div class="journey-time">15:00 – 25:00</div>
+          <div class="journey-title">The Strategy</div>
+          <p class="journey-desc">A realistic, tested plan built on practical wisdom — not theoretical self-help fluff.</p>
         </div>
 
-        <div class="breakdown-col">
-          <div class="breakdown-time">25:00 – 30:00</div>
-          <div class="breakdown-title">4. Next 3 Steps</div>
-          <p class="breakdown-desc">We lock in the 3 exact actions you will take tomorrow morning to break the inertia.</p>
+        <div class="journey-step">
+          <div class="journey-num">04</div>
+          <div class="journey-time">25:00 – 30:00</div>
+          <div class="journey-title">Next 3 Steps</div>
+          <p class="journey-desc">We lock in the 3 exact actions you will take tomorrow morning to break the inertia.</p>
         </div>
       </div>
     </div>
@@ -1185,7 +1405,7 @@
           <div style="margin-bottom:1.5rem">
             <h3 style="font-size:1.2rem;font-weight:700;color:var(--text);margin-bottom:0.25rem">Priority Appointment</h3>
             <p style="font-size:0.825rem;color:var(--text-muted)">
-              ₹299 commitment fee ensures dedicated preparation time for your specific questions.
+              Commitment fee ensures dedicated preparation time for your specific questions.
             </p>
           </div>
 
@@ -1218,10 +1438,10 @@
             <div class="form-field">
               <label for="cTrack" class="form-label">Consultation Track</label>
               <select id="cTrack" name="track" class="form-select" required>
-                <option value="1:1 Clarity & Roadmap Call (30 Mins)">1:1 Clarity & Roadmap Call (30 Mins — ₹299)</option>
-                <option value="Creator & Social Media Audit (45 Mins)">Creator & Social Media Audit (45 Mins — ₹699)</option>
-                <option value="Daily Dincharya & Habit Blueprint (45 Mins)">Daily Dincharya & Habit Blueprint (45 Mins — ₹499)</option>
-                <option value="General Life Guidance & Sounding Board">General Life Guidance & Sounding Board (₹299)</option>
+                <option value="1:1 Clarity & Roadmap Call (30 Mins)" data-price="299">1:1 Clarity & Roadmap Call (30 Mins — ₹299)</option>
+                <option value="Daily Dincharya & Habit Blueprint (45 Mins)" data-price="499">Daily Dincharya & Habit Blueprint (45 Mins — ₹499)</option>
+                <option value="Deep-Dive Personal Advisory (60 Mins)" data-price="699">Deep-Dive Personal Advisory (60 Mins — ₹699)</option>
+                <option value="General Life Guidance & Sounding Board" data-price="299">General Life Guidance & Sounding Board (₹299)</option>
               </select>
             </div>
 
@@ -1261,48 +1481,84 @@
     </div>
   </section>
 
-  <!-- Curated Reading & Essentials (Minimalist) -->
+  <!-- Curated Reading & Essentials (With Visual Art) -->
   <section class="shop-section" id="shop">
     <div class="container">
       <span class="section-eyebrow">Curated Reading & Essentials</span>
       <h2 class="section-heading">Books Harsh Personally Recommends</h2>
       <p class="section-intro">
-        No affiliate junk. These are the exact books and tools that have tangibly shaped my daily discipline and clarity.
+        No affiliate junk. These are the exact books and tools that have tangibly shaped daily discipline and mental clarity.
       </p>
 
       <div class="shop-grid">
-        <div class="book-item">
+        <!-- Item 1: Atomic Habits -->
+        <div class="book-card">
+          <div class="book-art">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="2"/>
+              <path d="M12 2a10 10 0 1 0 10 10"/>
+              <path d="M12 6a6 6 0 1 0 6 6"/>
+            </svg>
+          </div>
           <span class="book-tag">Discipline</span>
           <div class="book-title">Atomic Habits</div>
           <p class="book-desc">James Clear's practical framework for breaking destructive loops and building steady daily momentum.</p>
-          <a href="https://www.amazon.in/dp/1847941834?tag=timelineharsh-21" target="_blank" rel="noopener noreferrer" class="book-link">Amazon ↗</a>
+          <a href="https://www.amazon.in/dp/1847941834?tag=timelineharsh-21" target="_blank" rel="noopener noreferrer" class="book-link">View on Amazon ↗</a>
         </div>
 
-        <div class="book-item">
+        <!-- Item 2: Bhagavad Gita -->
+        <div class="book-card">
+          <div class="book-art">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/>
+              <path d="M6 6h10"/>
+              <path d="M6 10h10"/>
+            </svg>
+          </div>
           <span class="book-tag">Philosophy</span>
           <div class="book-title">The Bhagavad Gita As It Is</div>
           <p class="book-desc">A timeless manual on duty, detaching from outcome anxiety, and finding clarity in life's battles.</p>
-          <a href="https://www.amazon.in/dp/9384564227?tag=timelineharsh-21" target="_blank" rel="noopener noreferrer" class="book-link">Amazon ↗</a>
+          <a href="https://www.amazon.in/dp/9384564227?tag=timelineharsh-21" target="_blank" rel="noopener noreferrer" class="book-link">View on Amazon ↗</a>
         </div>
 
-        <div class="book-item">
+        <!-- Item 3: Rudraksha Mala -->
+        <div class="book-card">
+          <div class="book-art">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="5" r="2"/>
+              <circle cx="17" cy="8" r="2"/>
+              <circle cx="19" cy="13" r="2"/>
+              <circle cx="16" cy="18" r="2"/>
+              <circle cx="12" cy="20" r="2"/>
+              <circle cx="8" cy="18" r="2"/>
+              <circle cx="5" cy="13" r="2"/>
+              <circle cx="7" cy="8" r="2"/>
+            </svg>
+          </div>
           <span class="book-tag">Grounding</span>
           <div class="book-title">5-Mukhi Rudraksha Mala</div>
           <p class="book-desc">108+1 certified beads used for daily mantra dhyan and emotional centering during busy workdays.</p>
-          <a href="https://www.amazon.in/s?k=5+mukhi+rudraksha+mala+certified&tag=timelineharsh-21" target="_blank" rel="noopener noreferrer" class="book-link">Amazon ↗</a>
+          <a href="https://www.amazon.in/s?k=5+mukhi+rudraksha+mala+certified&tag=timelineharsh-21" target="_blank" rel="noopener noreferrer" class="book-link">View on Amazon ↗</a>
         </div>
 
-        <div class="book-item">
+        <!-- Item 4: Analog Focus Timer -->
+        <div class="book-card">
+          <div class="book-art">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="9"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
           <span class="book-tag">Deep Work</span>
           <div class="book-title">Analog Visual Focus Timer</div>
           <p class="book-desc">A mechanical timer to replace phone timers, eliminating notifications during 30-minute focus blocks.</p>
-          <a href="https://www.amazon.in/s?k=pomodoro+timer+analog&tag=timelineharsh-21" target="_blank" rel="noopener noreferrer" class="book-link">Amazon ↗</a>
+          <a href="https://www.amazon.in/s?k=pomodoro+timer+analog&tag=timelineharsh-21" target="_blank" rel="noopener noreferrer" class="book-link">View on Amazon ↗</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FAQ (Accessible, Non-Cluttered) -->
+  <!-- FAQ -->
   <section class="faq-section">
     <div class="container">
       <span class="section-eyebrow">Common Questions</span>
@@ -1315,8 +1571,8 @@
         </details>
 
         <details name="faq">
-          <summary>Why is there a ₹299 commitment fee?</summary>
-          <p>When calls were free, many booked slots without showing up, blocking people who genuinely needed guidance. A nominal ₹299 fee filters for committed individuals and ensures Harsh can dedicate uninterrupted time and preparation to you.</p>
+          <summary>Why is there a commitment fee?</summary>
+          <p>When calls were free, many booked slots without showing up, blocking people who genuinely needed guidance. A nominal commitment fee filters for committed individuals and ensures Harsh can dedicate uninterrupted time and preparation to you.</p>
         </details>
 
         <details name="faq">
@@ -1326,7 +1582,7 @@
 
         <details name="faq">
           <summary>Is the conversation kept confidential?</summary>
-          <p>Strictly confidential. Whatever personal, professional, or creative struggles you share remain solely between you and Harsh.</p>
+          <p>Strictly confidential. Whatever personal, professional, or life struggles you share remain solely between you and Harsh.</p>
         </details>
 
         <details name="faq">
@@ -1341,12 +1597,12 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <div>
-        <strong>Timeline by Harsh</strong> · Authentic 1:1 Personal Advisory
+        <strong>Timeline by Harsh</strong> · Authentic 1:1 Personal Guidance
       </div>
 
       <ul class="footer-links">
         <li><a href="#diagnostic">Diagnostic</a></li>
-        <li><a href="#services">Services</a></li>
+        <li><a href="#services">Consultations</a></li>
         <li><a href="#booking">Book Call</a></li>
         <li><a href="/bookings.html">Admin</a></li>
       </ul>
@@ -1367,32 +1623,32 @@
     // 1. Diagnostic Data & State
     const diagnosticData = {
       paralysis: {
-        title: "30-Minute Clarity & Action Call",
+        title: "30-Minute 1:1 Clarity Call",
         price: "₹299 Commitment Fee",
-        body: "<b>The Diagnosis:</b> You don't have an execution problem; you have an <em>overchoice problem</em>. Trying to consume more reels or self-help books only adds more noise. In 30 minutes, we isolate the single root blockage holding you back and map out 3 immediate steps for tomorrow.",
+        body: "<b>The Diagnosis:</b> You don't have an execution problem; you have an <em>overchoice problem</em>. Trying to consume more videos or self-help books only adds more noise. In 30 minutes, we isolate the single root blockage holding you back and map out 3 immediate steps for tomorrow.",
         serviceTrack: "1:1 Clarity & Roadmap Call (30 Mins)"
-      },
-      creator: {
-        title: "Creator & Social Media Audit",
-        price: "₹699 · 45 Mins Strategic Call",
-        body: "<b>The Diagnosis:</b> Your content is losing people in the first 3 seconds. High-effort reels with flatlined views usually mean poor storytelling hooks or confused niche positioning. We audit your last 9 posts together and build an actionable 30-day rhythm.",
-        serviceTrack: "Creator & Social Media Audit (45 Mins)"
       },
       habits: {
         title: "Daily Dincharya & Habit Blueprint",
         price: "₹499 · 45 Mins Lifestyle Session",
-        body: "<b>The Diagnosis:</b> Motivation fluctuates; structure endures. You are trying to adopt someone else's 5 AM routine instead of designing habits that fit your actual work hours. We build a simple, realistic routine that protects your mental calm and focus.",
+        body: "<b>The Diagnosis:</b> Motivation fluctuates; structure endures. You are trying to adopt someone else's rigid 5 AM routine instead of designing habits that fit your actual work hours. We build a simple, realistic routine that protects your mental calm and focus.",
         serviceTrack: "Daily Dincharya & Habit Blueprint (45 Mins)"
       },
       crossroads: {
+        title: "Deep-Dive Personal Advisory",
+        price: "₹699 · 60 Mins Comprehensive Session",
+        body: "<b>The Diagnosis:</b> When you're standing at a major career or life crossroad, friends and family give polite advice. You need an honest, outside perspective with zero emotional bias to pull apart your options and help you make a firm, peaceful decision.",
+        serviceTrack: "Deep-Dive Personal Advisory (60 Mins)"
+      },
+      sounding: {
         title: "1:1 Strategic Sounding Board",
         price: "₹299 · 30 Mins Unfiltered Call",
-        body: "<b>The Diagnosis:</b> When you're standing at a major career or life crossroad, friends and family give polite advice. You need an honest, outside perspective with zero emotional bias to pull apart your options and help you make a firm decision.",
+        body: "<b>The Diagnosis:</b> Sometimes you already know the answer in your gut, but the social noise around you is drowning it out. This session is a calm, judgment-free space to speak your truth and validate your internal compass.",
         serviceTrack: "General Life Guidance & Sounding Board"
       }
     };
 
-    const diagBtns = document.querySelectorAll(".diag-btn");
+    const diagBtns = document.querySelectorAll(".diag-card-btn");
     const diagTitle = document.getElementById("diagTitle");
     const diagPrice = document.getElementById("diagPrice");
     const diagBody = document.getElementById("diagBody");
@@ -1415,9 +1671,22 @@
       });
     });
 
-    // 2. Select Service & Pre-fill Form
+    // 2. Select Service & Pre-fill Form + Dynamic Fee Update
+    const trackSelect = document.getElementById("cTrack");
+    const submitBtn = document.getElementById("submitBtn");
+
+    function updateSubmitButtonFee() {
+      if (!trackSelect || !submitBtn) return;
+      const selectedOption = trackSelect.options[trackSelect.selectedIndex];
+      const price = selectedOption.getAttribute("data-price") || "299";
+      submitBtn.textContent = `Proceed to Secure Payment (₹${price} via UPI/Card) →`;
+    }
+
+    if (trackSelect) {
+      trackSelect.addEventListener("change", updateSubmitButtonFee);
+    }
+
     function selectServiceAndScroll(trackName) {
-      const trackSelect = document.getElementById("cTrack");
       if (trackSelect) {
         for (let i = 0; i < trackSelect.options.length; i++) {
           if (trackSelect.options[i].value.includes(trackName.slice(0, 15))) {
@@ -1425,6 +1694,7 @@
             break;
           }
         }
+        updateSubmitButtonFee();
       }
       const priorityTab = document.querySelector('.tab-btn[data-tab="priority"]');
       if (priorityTab) priorityTab.click();
@@ -1453,7 +1723,7 @@
       });
     });
 
-    // 4. Default Date
+    // 4. Default Date (Tomorrow)
     const cDateInput = document.getElementById("cDate");
     const tmrw = new Date();
     tmrw.setDate(tmrw.getDate() + 1);
@@ -1462,7 +1732,6 @@
 
     // 5. Razorpay Booking Form Submission
     const bookingForm = document.getElementById("priorityBookingForm");
-    const submitBtn = document.getElementById("submitBtn");
     const statusBanner = document.getElementById("statusBanner");
 
     function setStatus(msg, type) {
@@ -1520,6 +1789,9 @@
           throw new Error(order.error || "Failed to initialize order");
         }
 
+        const selectedOption = trackSelect.options[trackSelect.selectedIndex];
+        const displayFee = selectedOption.getAttribute("data-price") || "299";
+
         const options = {
           key: order.key_id,
           amount: order.amount,
@@ -1542,7 +1814,7 @@
                 body: JSON.stringify(paymentResp)
               });
             } catch (err) {}
-            renderSuccess(payload, paymentResp.razorpay_payment_id);
+            renderSuccess(payload, paymentResp.razorpay_payment_id, displayFee);
           }
         };
 
@@ -1561,7 +1833,7 @@
       }
     });
 
-    function renderSuccess(formData, paymentId) {
+    function renderSuccess(formData, paymentId, fee) {
       const wrapper = document.getElementById("formWrapper");
       wrapper.innerHTML = `
         <div style="text-align:center;padding:1.5rem 0">
@@ -1574,7 +1846,7 @@
           <div style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-md);padding:1rem 1.25rem;text-align:left;max-width:380px;margin:0 auto 1.5rem;font-size:0.85rem">
             <div style="display:flex;justify-content:space-between;margin-bottom:0.35rem"><span>Track:</span><b>${escapeHtml(formData.track)}</b></div>
             <div style="display:flex;justify-content:space-between;margin-bottom:0.35rem"><span>Date:</span><span>${escapeHtml(formData.preferred_date)} @ ${escapeHtml(formData.preferred_time)}</span></div>
-            <div style="display:flex;justify-content:space-between;margin-bottom:0.35rem"><span>Fee:</span><b>₹299.00</b></div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:0.35rem"><span>Fee:</span><b>₹${escapeHtml(fee || "299")}.00</b></div>
             <div style="display:flex;justify-content:space-between;font-size:0.775rem;color:var(--text-faint)"><span>Payment ID:</span><code>${escapeHtml(paymentId)}</code></div>
           </div>
 
