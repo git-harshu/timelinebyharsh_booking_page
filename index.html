@@ -482,17 +482,6 @@
       position: relative;
     }
 
-    .diag-reveal::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 2rem;
-      right: 2rem;
-      height: 3px;
-      background: var(--accent);
-      border-radius: 3px 3px 0 0;
-    }
-
     .reveal-header {
       display: flex;
       justify-content: space-between;
@@ -1187,7 +1176,6 @@
     .diag-card-btn.active { box-shadow: none; background: var(--white); border-color: var(--accent); }
     .diag-card-btn.active::before { transform: scaleY(1); }
     .diag-reveal { margin: 0; max-width: none; background: var(--tint); border-radius: var(--radius-lg); padding: 2rem 1.75rem; }
-    .diag-reveal::before { left: 1.75rem; right: 1.75rem; }
 
     /* service cards */
     .services-container { max-width: 1080px; display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
@@ -1556,7 +1544,7 @@
       .diag-split { display: block; }
       .diag-cards-grid { display: block !important; }
       .diag-cards-grid > .diag-card-btn { margin-bottom: 0.85rem; scroll-margin-top: 5.5rem; }
-      .diag-reveal { margin: -0.1rem 0 1rem; padding: 1.75rem 1.4rem; position: static; animation: settleIn 0.5s var(--ease) both; }
+      .diag-reveal { margin: 0.5rem 0 1rem; padding: 1.75rem 1.4rem; position: static; animation: settleIn 0.5s var(--ease) both; }
       .diag-reveal[hidden] { display: none; }
       .reveal-header { flex-direction: column; align-items: flex-start; }
       .reveal-actions { flex-direction: column; align-items: stretch; gap: 0.75rem; text-align: center; }
@@ -1625,6 +1613,7 @@
     .guide-list li::before { content: ""; position: absolute; left: 0; top: 0.62em; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
     .guide-note { font-size: 0.85rem; color: var(--text-muted); }
     .guide-cta { white-space: nowrap; }
+    .guide-actions { display: flex; flex-direction: column; align-items: center; gap: 0.9rem; }
     @media (max-width: 799px) { .guide-flagship { text-align: center; } .guide-list { text-align: left; max-width: 22rem; margin-left: auto; margin-right: auto; } .guide-main > p { margin-left: auto; margin-right: auto; } .guide-cta { width: 100%; } }
 
     .more-ways { display: grid; grid-template-columns: 1fr; gap: 1.25rem; max-width: 960px; margin: 0 auto 1.5rem; text-align: left; }
@@ -1705,7 +1694,7 @@
         <li class="nav-item"><a href="#diagnostic">Find your fit</a></li>
         <li class="nav-item"><a href="#journey">How it works</a></li>
         <li class="nav-item"><a href="#services">Sessions</a></li>
-        <li class="nav-item"><a href="#learn">Guides</a></li>
+        <li class="nav-item"><a href="guides.html">Guides</a></li>
         <li class="nav-item"><a href="#faq">Questions</a></li>
       </ul>
 
@@ -2156,22 +2145,9 @@
           </ul>
           <p class="guide-note">Dates and practices differ by region and tradition. I mark where they do and name my sources.</p>
         </div>
-        <a href="#join" class="btn-solid guide-cta">Get early access</a>
+        <div class="guide-actions"><a href="#join" class="btn-solid guide-cta">Get early access</a><a href="guides.html" class="hero-link">See the guide</a></div>
       </div>
 
-      <div class="more-ways">
-        <div class="way rise">
-          <span class="guide-tag">Coming soon</span>
-          <h3>Live group sessions</h3>
-          <p>Small online sessions on the Gita, rituals and festivals, with time for your questions.</p>
-        </div>
-        <div class="way rise">
-          <span class="guide-tag">Coming soon</span>
-          <h3>Puja preparation session</h3>
-          <p>A short one-on-one to plan a puja: samagri, the usual sequence, and where practices differ. This is planning and education. I do not perform pujas.</p>
-        </div>
-      </div>
-      <p class="also rise">Also planned: Daily Puja Guide for Beginners, Bhagavad Gita Beginner Study Guide, and a Hindu Rituals and Traditions Handbook.</p>
     </div>
   </section>
 
@@ -2277,7 +2253,7 @@
           <span class="book-tag">Discipline</span>
           <div class="book-title">Atomic Habits</div>
           <p class="book-desc">James Clear's practical framework for breaking destructive loops and building steady daily momentum.</p>
-          <a href="https://www.amazon.in/dp/1847941834?tag=timelineharsh-21" target="_blank" rel="noopener noreferrer" class="book-link">View on Amazon (affiliate link)</a>
+          <a href="https://www.amazon.in/dp/1847941834?tag=timelineharsh-21" target="_blank" rel="noopener noreferrer" class="book-link">View on Amazon</a>
         </div>
 
         <!-- Item 2: Bhagavad Gita -->
@@ -2292,7 +2268,7 @@
           <span class="book-tag">Philosophy</span>
           <div class="book-title">The Bhagavad Gita As It Is</div>
           <p class="book-desc">A timeless manual on duty, detaching from outcome anxiety, and finding clarity in life's battles.</p>
-          <a href="https://www.amazon.in/dp/9384564227?tag=timelineharsh-21" target="_blank" rel="noopener noreferrer" class="book-link">View on Amazon (affiliate link)</a>
+          <a href="https://www.amazon.in/dp/9384564227?tag=timelineharsh-21" target="_blank" rel="noopener noreferrer" class="book-link">View on Amazon</a>
         </div>
 
         <!-- Item 3: Rudraksha Mala -->
@@ -2312,7 +2288,7 @@
           <span class="book-tag">Grounding</span>
           <div class="book-title">5-Mukhi Rudraksha Mala</div>
           <p class="book-desc">108+1 certified beads used for daily mantra dhyan and emotional centering during busy workdays.</p>
-          <a href="https://www.amazon.in/s?k=5+mukhi+rudraksha+mala+certified&tag=timelineharsh-21" target="_blank" rel="noopener noreferrer" class="book-link">View on Amazon (affiliate link)</a>
+          <a href="https://www.amazon.in/s?k=5+mukhi+rudraksha+mala+certified&tag=timelineharsh-21" target="_blank" rel="noopener noreferrer" class="book-link">View on Amazon</a>
         </div>
 
         <!-- Item 4: Analog Focus Timer -->
@@ -2326,7 +2302,7 @@
           <span class="book-tag">Deep Work</span>
           <div class="book-title">Analog Visual Focus Timer</div>
           <p class="book-desc">A mechanical timer to replace phone timers, eliminating notifications during 30-minute focus blocks.</p>
-          <a href="https://www.amazon.in/s?k=pomodoro+timer+analog&tag=timelineharsh-21" target="_blank" rel="noopener noreferrer" class="book-link">View on Amazon (affiliate link)</a>
+          <a href="https://www.amazon.in/s?k=pomodoro+timer+analog&tag=timelineharsh-21" target="_blank" rel="noopener noreferrer" class="book-link">View on Amazon</a>
         </div>
       </div>
     </div>
@@ -2384,6 +2360,7 @@
           <li><a href="#journey">How it works</a></li>
           <li><a href="#booking">Choose a time</a></li>
           <li><a href="#faq">Common questions</a></li>
+          <li><a href="guides.html">Guides</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="collaborate.html">Collaborate</a></li>
         </ul>

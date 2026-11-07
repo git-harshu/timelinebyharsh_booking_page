@@ -23,7 +23,7 @@ HEAD = '''<!DOCTYPE html>
 <header>
   <div class="wrap bar">
     <a class="brand" href="index.html"><img src="../assets/logo.jpg" width="40" height="40" alt="Harsh Upadhyay"><span><b>Timeline by Harsh</b><small>@timelinebyharsh</small></span></a>
-    <nav><a class="lang" href="../{fn}" hreflang="en" lang="en" title="English" aria-label="Switch to English">EN</a><a class="cta" href="index.html#booking">Call book karein</a></nav>
+    <nav><a class="lang" href="../{fn}" hreflang="en" lang="en" title="English" aria-label="Switch to English">EN</a><a class="cta" href="index.html#booking">Book a call</a></nav>
   </div>
 </header>
 <section class="title">
@@ -43,13 +43,14 @@ HEAD = '''<!DOCTYPE html>
       <p>Zyada sochne, roz ke routine aur bade faislon ke liye private one-on-one calls.</p>
       <a class="ig" href="https://www.instagram.com/timelinebyharsh/" target="_blank" rel="noopener noreferrer">Instagram</a>
     </div>
-    <nav class="fc" aria-label="Dekhein"><h4>Dekhein</h4><ul>
-      <li><a href="index.html#diagnostic">Sahi session chunein</a></li>
-      <li><a href="index.html#journey">Kaise kaam karta hai</a></li>
-      <li><a href="index.html#booking">Time chunein</a></li>
-      <li><a href="index.html#faq">Aam sawaal</a></li>
-      <li><a href="about.html">Parichay</a></li>
-      <li><a href="collaborate.html">Saath kaam karein</a></li>
+    <nav class="fc" aria-label="Explore"><h4>Explore</h4><ul>
+      <li><a href="index.html#diagnostic">Find your fit</a></li>
+      <li><a href="index.html#journey">How it works</a></li>
+      <li><a href="index.html#booking">Choose a time</a></li>
+      <li><a href="index.html#faq">Common questions</a></li>
+      <li><a href="guides.html">Guides</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="collaborate.html">Collaborate</a></li>
     </ul></nav>
     <nav class="fc" aria-label="Sessions"><h4>Sessions</h4><ul>
       <li><a href="index.html#services">Clarity Call</a></li>
@@ -64,7 +65,7 @@ HEAD = '''<!DOCTYPE html>
     </ul></nav>
   </div>
   <div class="wrap bottom">
-    <p>© 2026 Timeline by Harsh. Sabhi adhikaar surakshit.</p>
+    <p>© 2026 Timeline by Harsh. All rights reserved.</p>
     <p class="note2">Guidance calls therapy, medical, legal ya paison ki salah nahi hain. Kitaabon ke links Amazon affiliate links hain.</p>
     <p class="shloka" aria-hidden="true">ॐ सर्वे भवन्तु सुखिनः</p>
   </div>
@@ -74,7 +75,7 @@ HEAD = '''<!DOCTYPE html>
 '''
 
 PAGES = {}
-PAGES['about.html'] = ('Parichay', 'Main kaun hoon aur ye calls kaise kaam karti hain', 'Harsh Upadhyay ke baare mein aur Timeline by Harsh ki one-on-one guidance calls kaise kaam karti hain.', f'''
+PAGES['about.html'] = ('About', 'Main kaun hoon aur ye calls kaise kaam karti hain', 'Harsh Upadhyay ke baare mein aur Timeline by Harsh ki one-on-one guidance calls kaise kaam karti hain.', f'''
 <h2>Namaste, main Harsh hoon</h2>
 <p>Main Harsh Upadhyay hoon, <strong>Timeline by Harsh</strong> (@timelinebyharsh) ke peeche. Main Instagram par Hindu dharmik content banata hoon aur Sanatan Dharma aur roz ki zindagi par logon se baat karta hoon.</p>
 <p>Log aksar ek jaisi dikkatein lekar aate hain: zyada sochna, aisa routine jo tikta nahi, ya koi bada faisla jo akele lena mushkil hai. Iske liye ek comment ya chhota message kaafi nahi hota, isiliye main one-on-one calls karta hoon.</p>
@@ -192,7 +193,7 @@ PAGES['terms.html'] = ('Terms of Use', f'Aakhri update: {UPD}', 'Timeline by Har
 <p>Guides aur live sessions seekhne ke liye hain. Tyohaaron ki tithiyan aur puja ke riwaaj kshetra aur parampara ke hisaab se alag hote hain, isliye koi bhi riwaaj apnane se pehle apne parivaar ya pandit se pooch lein. Main kisi puja, mantra ya product se dhan, vivah, safalta ya suraksha ka vaada nahi karta. Jab koi guide ya session bikri par aayega, uski keemat aur refund ke niyam pay karne se pehle dikhaye jaayenge.</p>
 
 <h2>Kitaabein aur links</h2>
-<p>Kitaabon wale section mein Amazon affiliate links hain, aur har link par "affiliate link" likha hota hai. Inse kharidne par mujhe thoda commission mil sakta hai, aapko koi extra kharcha nahi. Doosri sites ke apne niyam hote hain.</p>
+<p>Kitaabon wale section mein Amazon affiliate links hain, aur section mein ye likha hota hai. Inse kharidne par mujhe thoda commission mil sakta hai, aapko koi extra kharcha nahi. Doosri sites ke apne niyam hote hain.</p>
 
 <h2>Mera content</h2>
 <p>Is site ka text, design aur tasveerein Timeline by Harsh ki hain, jab tak kuch aur na likha ho. Kripya ijaazat ke bina copy na karein.</p>
@@ -210,7 +211,7 @@ PAGES['terms.html'] = ('Terms of Use', f'Aakhri update: {UPD}', 'Timeline by Har
 <p>{CONTACT}</p>
 ''')
 
-PAGES['refund.html'] = ('Refunds aur Time badalna', f'Aakhri update: {UPD}', 'Timeline by Harsh ki guidance calls ke liye time badalne aur refund ke niyam.', f'''
+PAGES['refund.html'] = ('Refunds and Rescheduling', f'Aakhri update: {UPD}', 'Timeline by Harsh ki guidance calls ke liye time badalne aur refund ke niyam.', f'''
 <p class="note">Chhote mein: call se kam se kam 6 ghante pehle bata dein toh time free mein badal sakte hain. Agar main aapki call nahi kar paaya, toh poora refund milega.</p>
 
 <h2>Time badalna</h2>
@@ -266,7 +267,7 @@ PAGES['cookies.html'] = ('Cookie Policy', f'Aakhri update: {UPD}', 'Timeline by 
 ''')
 
 
-PAGES['collaborate.html'] = ('Saath kaam karein', 'Timeline by Harsh ke saath collaborate karein', 'Brands, publishers aur platforms ke liye: Timeline by Harsh ke saath kaise kaam karein.', f'''
+PAGES['collaborate.html'] = ('Collaborate', 'Timeline by Harsh ke saath collaborate karein', 'Brands, publishers aur platforms ke liye: Timeline by Harsh ke saath kaise kaam karein.', f'''
 <h2>Ye page kinke liye hai</h2>
 <p>Un brands, publishers aur platforms ke liye jo Hindu itihaas, mandir, rituals aur shaastra mein dilchaspi rakhne wali audience tak pahunchna chahte hain.</p>
 
@@ -305,6 +306,19 @@ PAGES['collaborate.html'] = ('Saath kaam karein', 'Timeline by Harsh ke saath co
 <h2>Sampark karein</h2>
 <p>Instagram par {IG} ko message karein, aur batayein: aapka brand, product ya service, aap kis audience tak pahunchna chahte hain, aur aapki timeline. Reach aur audience ki details main maangne par share karta hoon.</p>
 ''')
+
+
+import re as _re
+def _h2s(path):
+    return _re.findall(r'<h2>(.*?)</h2>', open(path, encoding='utf-8').read(), flags=_re.S)
+for fn in list(PAGES):
+    title, sub, desc, body = PAGES[fn]
+    en = _h2s(fn)
+    hi = _re.findall(r'<h2>(.*?)</h2>', body, flags=_re.S)
+    assert len(en) == len(hi), (fn, len(en), len(hi))
+    it = iter(en)
+    body = _re.sub(r'<h2>.*?</h2>', lambda m: '<h2>' + next(it) + '</h2>', body, flags=_re.S)
+    PAGES[fn] = (title, sub, desc, body)
 
 for fn, (title, sub, desc, body) in PAGES.items():
     open('hi/' + fn, 'w', encoding='utf-8').write(HEAD.format(title=title, sub=sub, desc=desc, body=body, fn=fn))

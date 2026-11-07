@@ -64,3 +64,5 @@ nav{display:flex;align-items:center}
 
 body{font-variation-settings:'SOFT' 100,'WONK' 0}
 .title h1,article h2{font-weight:600}
+.cta{white-space:nowrap}
+@media(max-width:480px){.brand small{display:none}.brand b{font-size:.9rem}.cta{padding:0 .9rem;font-size:.85rem}.lang{margin-right:.6rem;padding:.3rem .6rem}}

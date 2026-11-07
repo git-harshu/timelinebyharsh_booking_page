@@ -7,19 +7,52 @@ import re, sys
 s = open('index.html', encoding='utf-8').read()
 missing = []
 
+
+# Hinglish rule: only sentences are translated. Headings, eyebrows, buttons, form labels, tags and the whole
+# "How a session goes" section stay in English, exactly as on the English page.
+KEEP = {
+ 'Find your fit','How it works','Questions','Book a call','Or book a call','What is on your mind?',
+ 'It is rarely a lack of discipline.','At night','The loop','By Thursday','The fade','At home','The advice',
+ 'Clarity Finder','Which one sounds like you?','Overthinking','A routine that keeps slipping','A big decision','Someone to talk to',
+ 'Suggested session','₹299 · 30 minutes','What helps:','Book this session','Written summary on WhatsApp within 24 hours',
+ 'What changes after one honest conversation','See how a call goes','You can say the problem in one sentence.','You leave with three steps, not thirty.','You stop carrying it alone.',
+ 'How a session goes','Thirty minutes. Just you, me, and the one problem you cannot seem to solve.','You talk','Say it unfiltered.','I ask','Direct questions find the root.','We plan','A plan built on practical wisdom.','Next three steps','Three actions for tomorrow morning.',
+ 'Pick the length that fits','30 minutes · Google Meet','45 minutes · Google Meet','60 minutes · Google Meet','What is included','Book',
+ 'Choose a time','Live availability, booked on Google Meet','Open in new tab','About you','Your question','Which session?',
+ 'Clarity Call, 30 min, ₹299','Dincharya Reset, 45 min, ₹499','Deep Dive, 60 min, ₹699','General Life Guidance & Sounding Board (₹299)',
+ 'Preferred date','Time window','Morning (9 AM – 12 PM)','Afternoon (1 PM – 4 PM)','Evening (6 PM – 9 PM)','Night (9 PM – 11 PM)',
+ 'Full name','Email address','City','Age','WhatsApp number','What is the one problem you want to talk about?','Back','Continue','Pay ₹299 securely',
+ 'Rahul Sharma','10-digit number','A few lines is enough.','you@example.com','12 digit number',
+ 'Booking progress','Explore','Close','UPI QR code',
+ 'Common questions','Something else on your mind?','Message me on Instagram',
+ 'Where does the call happen?','Which session should I pick?','Why do the calls have a fee?','Can I reschedule if something comes up?','Is what I share kept private?','Is this therapy or medical advice?','How should I prepare?',
+ 'refund policy','privacy policy','terms',
+ 'Books I Recommend','Discipline','Philosophy','Grounding','Deep Work','5-Mukhi Rudraksha Mala','View on Amazon',
+ 'Learn the stories behind the tradition','Mandir and history','Rituals and traditions','Scriptures and philosophy','Festivals and vrat','Coming first',
+ 'Major festivals explained','Preparation checklists','Common puja samagri lists','Basic ritual steps','Mantra meanings and pronunciation','Regional differences, clearly marked',
+ 'Get early access','See the guide','Be the first to get them','What are you interested in?','Join the list','Collaborate',
+ 'About','Policies','Privacy','Terms','Refunds','Cookies','© 2026 Timeline by Harsh. All rights reserved.',
+ 'Booking requested','One last step','Pay with UPI app','Copy','Email you booked with','UTR or reference number from your UPI app','I have paid',
+ "btn.disabled = false; btn.textContent = 'I have paid'","btn.textContent = 'Sending'","'Copied'",
+ 'Payment received','Session Confirmed','<span>Track:</span>','<span>Fee:</span>','Message on WhatsApp','Pay ₹${price} securely',
+}
+
 def node(en, hi):
     global s
+    if en in KEEP: return
     s, n = re.subn(r'(>\s*)' + re.escape(en) + r'(\s*<)', lambda m: m.group(1) + hi + m.group(2), s)
     if n == 0: missing.append(('node', en))
 
 def attr(name, en, hi):
     global s
+    if en in KEEP: return
     a = f'{name}="{en}"'
     if a not in s: missing.append((name, en)); return
     s = s.replace(a, f'{name}="{hi}"')
 
 def raw(en, hi):
     global s
+    if en in KEEP: return
     if en not in s: missing.append(('raw', en)); return
     s = s.replace(en, hi)
 
@@ -182,7 +215,7 @@ node('Grounding', 'Mann ki shaanti')
 node('5-Mukhi Rudraksha Mala', '5 Mukhi Rudraksha Mala')
 node('108+1 certified beads used for daily mantra dhyan and emotional centering during busy workdays.', '108+1 certified daane, roz mantra jaap aur dhyan ke liye, aur busy din mein mann ko sthir rakhne ke liye.')
 node('A mechanical timer to replace phone timers, eliminating notifications during 30-minute focus blocks.', 'Phone ke timer ki jagah mechanical timer, taaki 30 minute ke focus mein notifications na aayein.')
-node('View on Amazon (affiliate link)', 'Amazon par dekhein (affiliate link)')
+node('View on Amazon', 'Amazon par dekhein')
 
 # footer
 node('Private one-on-one calls for overthinking, daily routine and big life decisions.', 'Zyada sochne, roz ke routine aur bade faislon ke liye private one-on-one calls.')
@@ -227,10 +260,6 @@ node('Mantra meanings and pronunciation', 'Mantra ka matlab aur uchcharan')
 node('Regional differences, clearly marked', 'Kshetra ke hisaab se farq, saaf likha hua')
 node('Dates and practices differ by region and tradition. I mark where they do and name my sources.', 'Tithiyan aur riwaaj kshetra aur parampara ke hisaab se alag hote hain. Jahan farq hai main likh deta hoon aur apne sources ka naam bhi.')
 node('Get early access', 'Pehle access paayein')
-node('Coming soon', 'Jald aa raha hai')
-node('Small online sessions on the Gita, rituals and festivals, with time for your questions.', 'Gita, rituals aur tyohaaron par chhote online sessions, aapke sawaalon ke liye time ke saath.')
-node('A short one-on-one to plan a puja: samagri, the usual sequence, and where practices differ. This is planning and education. I do not perform pujas.', 'Puja plan karne ke liye ek chhota one-on-one: samagri, aam kram, aur jahan riwaaj alag hote hain. Ye planning aur jaankari ke liye hai. Main puja karwata nahi hoon.')
-node('Also planned: Daily Puja Guide for Beginners, Bhagavad Gita Beginner Study Guide, and a Hindu Rituals and Traditions Handbook.', 'Aage aur bhi: Beginners ke liye Daily Puja Guide, Bhagavad Gita Beginner Study Guide, aur Hindu Rituals and Traditions Handbook.')
 node('Be the first to get them', 'Sabse pehle paayein')
 node('Join the early-access list. You will get the free Hindu Festival and Vrat Calendar when it is ready, and first access to guides and live sessions.', 'Early-access list join karein. Free Hindu Festival and Vrat Calendar tayyar hote hi aapko milega, aur guides aur live sessions ka pehle access bhi.')
 node('What are you interested in?', 'Aapko kis mein dilchaspi hai?')
@@ -238,6 +267,7 @@ node('Festival and vrat guide', 'Festival aur vrat guide')
 node('I agree to receive messages about these resources. I can stop anytime.', 'Mujhe in resources ke baare mein messages bhejna theek hai. Kabhi bhi band karwa sakte hain.')
 node('Join the list', 'List join karein')
 node('Collaborate', 'Saath kaam karein')
+node('See the guide', 'Guide dekhein')
 
 # JS strings
 J = [
@@ -248,10 +278,10 @@ J = [
  ('price: "₹299 · 30 minutes"', 'price: "₹299 · 30 minute"'),
  ('price: "₹499 · 45 minutes"', 'price: "₹499 · 45 minute"'),
  ('price: "₹699 · 60 minutes"', 'price: "₹699 · 60 minute"'),
- ('<b>Kya kaam aata hai:</b> Too many options can feel like a lack of discipline, but it is mostly noise. In thirty minutes we find the one thing that matters and agree three steps for tomorrow.', '<b>Kya kaam aata hai:</b> Bahut saare options discipline ki kami jaise lagte hain, par asal mein woh shor hote hain. 30 minute mein hum woh ek cheez dhoondte hain jo zaroori hai, aur kal ke liye teen kadam tay karte hain.'),
- ('<b>Kya kaam aata hai:</b> A routine borrowed from someone else rarely lasts. We build a simple morning and evening rhythm around your real work hours, one you can keep on a bad day too.', '<b>Kya kaam aata hai:</b> Kisi aur se udhaar liya routine kam hi tikta hai. Hum aapke asli kaam ke time ke hisaab se subah-shaam ka aasaan routine banate hain, jo kharab din mein bhi chal sake.'),
- ('<b>Kya kaam aata hai:</b> Family and friends give kind advice. You may need an outside view, free of emotional bias, to weigh your options and choose with a calm mind.', '<b>Kya kaam aata hai:</b> Ghar waale aur dost pyaar se salah dete hain. Aapko shayad ek bahar ki nazar chahiye, jo bina kisi bhavna ke aapke options tole aur aap shaant mann se chun sakein.'),
- ('<b>Kya kaam aata hai:</b> Often you already know the answer, but the noise around you is louder. This is a quiet, judgment-free space to say it out loud.', '<b>Kya kaam aata hai:</b> Aksar jawaab aapko pehle se pata hota hai, bas aaspaas ka shor zyada hota hai. Ye ek shaant jagah hai jahan koi judge nahi karega, aap khulkar bol sakte hain.'),
+ ('<b>What helps:</b> Too many options can feel like a lack of discipline, but it is mostly noise. In thirty minutes we find the one thing that matters and agree three steps for tomorrow.', '<b>What helps:</b> Bahut saare options discipline ki kami jaise lagte hain, par asal mein woh shor hote hain. 30 minute mein hum woh ek cheez dhoondte hain jo zaroori hai, aur kal ke liye teen kadam tay karte hain.'),
+ ('<b>What helps:</b> A routine borrowed from someone else rarely lasts. We build a simple morning and evening rhythm around your real work hours, one you can keep on a bad day too.', '<b>What helps:</b> Kisi aur se udhaar liya routine kam hi tikta hai. Hum aapke asli kaam ke time ke hisaab se subah-shaam ka aasaan routine banate hain, jo kharab din mein bhi chal sake.'),
+ ('<b>What helps:</b> Family and friends give kind advice. You may need an outside view, free of emotional bias, to weigh your options and choose with a calm mind.', '<b>What helps:</b> Ghar waale aur dost pyaar se salah dete hain. Aapko shayad ek bahar ki nazar chahiye, jo bina kisi bhavna ke aapke options tole aur aap shaant mann se chun sakein.'),
+ ('<b>What helps:</b> Often you already know the answer, but the noise around you is louder. This is a quiet, judgment-free space to say it out loud.', '<b>What helps:</b> Aksar jawaab aapko pehle se pata hota hai, bas aaspaas ka shor zyada hota hai. Ye ek shaant jagah hai jahan koi judge nahi karega, aap khulkar bol sakte hain.'),
  ('Please enter your full name.', 'Kripya apna poora naam likhein.'),
  ('Please enter a valid email address.', 'Kripya sahi email likhein.'),
  ('Please enter a valid 10-digit Indian WhatsApp number.', 'Kripya 10 digit ka sahi WhatsApp number likhein.'),

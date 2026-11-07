@@ -482,17 +482,6 @@
       position: relative;
     }
 
-    .diag-reveal::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 2rem;
-      right: 2rem;
-      height: 3px;
-      background: var(--accent);
-      border-radius: 3px 3px 0 0;
-    }
-
     .reveal-header {
       display: flex;
       justify-content: space-between;
@@ -1187,7 +1176,6 @@
     .diag-card-btn.active { box-shadow: none; background: var(--white); border-color: var(--accent); }
     .diag-card-btn.active::before { transform: scaleY(1); }
     .diag-reveal { margin: 0; max-width: none; background: var(--tint); border-radius: var(--radius-lg); padding: 2rem 1.75rem; }
-    .diag-reveal::before { left: 1.75rem; right: 1.75rem; }
 
     /* service cards */
     .services-container { max-width: 1080px; display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
@@ -1556,7 +1544,7 @@
       .diag-split { display: block; }
       .diag-cards-grid { display: block !important; }
       .diag-cards-grid > .diag-card-btn { margin-bottom: 0.85rem; scroll-margin-top: 5.5rem; }
-      .diag-reveal { margin: -0.1rem 0 1rem; padding: 1.75rem 1.4rem; position: static; animation: settleIn 0.5s var(--ease) both; }
+      .diag-reveal { margin: 0.5rem 0 1rem; padding: 1.75rem 1.4rem; position: static; animation: settleIn 0.5s var(--ease) both; }
       .diag-reveal[hidden] { display: none; }
       .reveal-header { flex-direction: column; align-items: flex-start; }
       .reveal-actions { flex-direction: column; align-items: stretch; gap: 0.75rem; text-align: center; }
@@ -1625,6 +1613,7 @@
     .guide-list li::before { content: ""; position: absolute; left: 0; top: 0.62em; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
     .guide-note { font-size: 0.85rem; color: var(--text-muted); }
     .guide-cta { white-space: nowrap; }
+    .guide-actions { display: flex; flex-direction: column; align-items: center; gap: 0.9rem; }
     @media (max-width: 799px) { .guide-flagship { text-align: center; } .guide-list { text-align: left; max-width: 22rem; margin-left: auto; margin-right: auto; } .guide-main > p { margin-left: auto; margin-right: auto; } .guide-cta { width: 100%; } }
 
     .more-ways { display: grid; grid-template-columns: 1fr; gap: 1.25rem; max-width: 960px; margin: 0 auto 1.5rem; text-align: left; }
@@ -1702,16 +1691,16 @@
       </a>
 
       <ul class="nav-menu">
-        <li class="nav-item"><a href="#diagnostic">Sahi session chunein</a></li>
-        <li class="nav-item"><a href="#journey">Kaise kaam karta hai</a></li>
+        <li class="nav-item"><a href="#diagnostic">Find your fit</a></li>
+        <li class="nav-item"><a href="#journey">How it works</a></li>
         <li class="nav-item"><a href="#services">Sessions</a></li>
-        <li class="nav-item"><a href="#learn">Guides</a></li>
-        <li class="nav-item"><a href="#faq">Sawaal</a></li>
+        <li class="nav-item"><a href="guides.html">Guides</a></li>
+        <li class="nav-item"><a href="#faq">Questions</a></li>
       </ul>
 
       <div class="hdr-actions">
         <a class="lang-switch" href="../index.html" hreflang="en" lang="en" title="English" aria-label="Switch to English">EN</a>
-        <a href="#booking" class="header-cta">Call book karein</a>
+        <a href="#booking" class="header-cta">Book a call</a>
       </div>
     </div>
   </header>
@@ -1729,8 +1718,8 @@
         </p>
 
         <div class="hero-actions">
-          <a href="#diagnostic" class="btn-solid" id="heroCta">Aapke mann mein kya hai?</a>
-          <a href="#booking" class="hero-link">Ya seedha call book karein</a>
+          <a href="#diagnostic" class="btn-solid" id="heroCta">What is on your mind?</a>
+          <a href="#booking" class="hero-link">Or book a call</a>
         </div>
       </div>
     </div>
@@ -1749,22 +1738,22 @@
   <!-- Editorial Reflection / Philosophy Quote -->
   <section class="understand-section" id="why">
     <div class="container">
-      <h2 class="section-heading rise">Ye aksar discipline ki kami nahi hoti.</h2>
+      <h2 class="section-heading rise">It is rarely a lack of discipline.</h2>
 
       <div class="truths">
         <div class="truth rise">
-          <span class="truth-label">Raat ko</span>
-          <h3>Wahi uljhan</h3>
+          <span class="truth-label">At night</span>
+          <h3>The loop</h3>
           <p>Wahi baat baar-baar dimaag mein ghoomti hai. Aap thak jaate hain, phir bhi samajh nahi aata ki asli dikkat kya hai.</p>
         </div>
         <div class="truth rise">
-          <span class="truth-label">Thursday tak</span>
-          <h3>Josh thanda pad jaata hai</h3>
+          <span class="truth-label">By Thursday</span>
+          <h3>The fade</h3>
           <p>Monday ko shuruaat zordaar hoti hai. Thursday tak plan chhoot jaata hai, aur weekend se pehle hi guilt aa jaata hai.</p>
         </div>
         <div class="truth rise">
-          <span class="truth-label">Ghar par</span>
-          <h3>Sabki salah</h3>
+          <span class="truth-label">At home</span>
+          <h3>The advice</h3>
           <p>Sabke paas apni raay hai. Jo log aapse pyaar karte hain, woh bhi chahte hain ki aap wahi chunein jo woh kahein.</p>
         </div>
       </div>
@@ -1775,8 +1764,8 @@
 
   <section class="diagnostic-section" id="diagnostic">
     <div class="container">
-      <span class="section-eyebrow">Sahi raasta</span>
-      <h2 class="section-heading rise">Inmein se kaun sa aap jaisa lagta hai?</h2>
+      <span class="section-eyebrow">Clarity Finder</span>
+      <h2 class="section-heading rise">Which one sounds like you?</h2>
       <p class="section-intro">
         Jo sabse kareeb lage uspar tap karein. Main bataunga ki aam taur par kya kaam aata hai.
       </p>
@@ -1790,7 +1779,7 @@
             <svg class="sym sym-lg" aria-hidden="true"><use href="#lotus"/></svg>
           </div>
           <div class="diag-card-body">
-            <h4>Zyada sochna</h4>
+            <h4>Overthinking</h4>
             <p>Bahut saare ideas, poora kuch nahi.</p>
           </div>
         </button>
@@ -1802,7 +1791,7 @@
             <svg class="sym sym-lg" aria-hidden="true"><use href="#diya"/></svg>
           </div>
           <div class="diag-card-body">
-            <h4>Routine jo tikta nahi</h4>
+            <h4>A routine that keeps slipping</h4>
             <p>Monday ko nayi shuruaat, Thursday tak sab khatam.</p>
           </div>
         </button>
@@ -1816,7 +1805,7 @@
             </svg>
           </div>
           <div class="diag-card-body">
-            <h4>Ek bada faisla</h4>
+            <h4>A big decision</h4>
             <p>Do raaste hain, aur sachchi raay dene wala koi nahi.</p>
           </div>
         </button>
@@ -1828,7 +1817,7 @@
             <span class="om-glyph" aria-hidden="true">ॐ</span>
           </div>
           <div class="diag-card-body">
-            <h4>Koi jisse baat kar sakein</h4>
+            <h4>Someone to talk to</h4>
             <p>Ek safe jagah jahan khulkar bol sakein.</p>
           </div>
         </button>
@@ -1841,16 +1830,16 @@
             <div class="reveal-title" id="diagTitle">Clarity Call</div>
             <div style="font-size:0.8rem;color:var(--text-faint)">Suggested session</div>
           </div>
-          <div class="reveal-price" id="diagPrice">₹299 · 30 minute</div>
+          <div class="reveal-price" id="diagPrice">₹299 · 30 minutes</div>
         </div>
 
         <p class="reveal-body" id="diagBody">
-          <b>Kya kaam aata hai:</b> Bahut saare options discipline ki kami jaise lagte hain, par asal mein woh shor hote hain. 30 minute mein hum woh ek cheez dhoondte hain jo zaroori hai, aur kal ke liye teen kadam tay karte hain.
+          <b>What helps:</b> Bahut saare options discipline ki kami jaise lagte hain, par asal mein woh shor hote hain. 30 minute mein hum woh ek cheez dhoondte hain jo zaroori hai, aur kal ke liye teen kadam tay karte hain.
         </p>
 
         <div class="reveal-actions">
-          <a href="#booking" id="diagBookBtn" class="btn-solid" style="font-size:0.875rem">Ye session book karein</a>
-          <span style="font-size:0.8rem;color:var(--text-faint)">24 ghante mein WhatsApp par likhit summary</span>
+          <a href="#booking" id="diagBookBtn" class="btn-solid" style="font-size:0.875rem">Book this session</a>
+          <span style="font-size:0.8rem;color:var(--text-faint)">Written summary on WhatsApp within 24 hours</span>
         </div>
       </div>
       </div>
@@ -1860,22 +1849,22 @@
   <section class="relief-section" id="relief">
     <div class="container relief-split">
       <div class="relief-intro">
-        <h2 class="section-heading rise">Ek sachchi baatcheet ke baad kya badalta hai</h2>
+        <h2 class="section-heading rise">What changes after one honest conversation</h2>
         <p>Main 30 minute mein nayi zindagi ka vaada nahi kar sakta. Par hum in cheezon ki taraf kaam karte hain.</p>
-        <a class="hero-link" href="#journey">Dekhein call kaise chalti hai</a>
+        <a class="hero-link" href="#journey">See how a call goes</a>
       </div>
 
       <div class="relief-list">
         <div class="relief-item rise">
-          <h3>Aap apni dikkat ek line mein bol paate hain.</h3>
+          <h3>You can say the problem in one sentence.</h3>
           <p>Bahut saara bojh isliye hota hai kyunki asli dikkat pata nahi hoti. Use naam dena pehli raahat hai.</p>
         </div>
         <div class="relief-item rise">
-          <h3>Aapke paas tees nahi, sirf teen kadam hote hain.</h3>
+          <h3>You leave with three steps, not thirty.</h3>
           <p>Itne chhote ki kal subah se shuru kar sakein, aur itne saaf ki pata chale kab poore hue.</p>
         </div>
         <div class="relief-item rise">
-          <h3>Aap akele bojh nahi uthaate.</h3>
+          <h3>You stop carrying it alone.</h3>
           <p>Koi jo aapki situation se bahar hai, usne aapki baat suni aur aapke saath milkar socha.</p>
         </div>
       </div>
@@ -1884,38 +1873,38 @@
 
   <section class="journey-section" id="journey">
     <div class="container">
-      <h2 class="section-heading rise">Session kaise chalta hai</h2>
+      <h2 class="section-heading rise">How a session goes</h2>
       <p class="section-intro">
-        30 minute. Bas aap, main, aur woh ek dikkat jo suljh nahi rahi.
+        Thirty minutes. Just you, me, and the one problem you cannot seem to solve.
       </p>
 
       <div class="journey-grid">
         <div class="journey-step rise">
           <div class="journey-num">01</div>
           <div class="journey-time">00:00 – 05:00</div>
-          <div class="journey-title">Aap bolte hain</div>
-          <p class="journey-desc">Jaisa hai waisa boliye.</p>
+          <div class="journey-title">You talk</div>
+          <p class="journey-desc">Say it unfiltered.</p>
         </div>
 
         <div class="journey-step rise">
           <div class="journey-num">02</div>
           <div class="journey-time">05:00 – 15:00</div>
-          <div class="journey-title">Main poochta hoon</div>
-          <p class="journey-desc">Seedhe sawaal asli jad tak pahunchate hain.</p>
+          <div class="journey-title">I ask</div>
+          <p class="journey-desc">Direct questions find the root.</p>
         </div>
 
         <div class="journey-step rise">
           <div class="journey-num">03</div>
           <div class="journey-time">15:00 – 25:00</div>
-          <div class="journey-title">Hum plan banate hain</div>
-          <p class="journey-desc">Samajhdari wala, kaam ka plan.</p>
+          <div class="journey-title">We plan</div>
+          <p class="journey-desc">A plan built on practical wisdom.</p>
         </div>
 
         <div class="journey-step rise">
           <div class="journey-num">04</div>
           <div class="journey-time">25:00 – 30:00</div>
-          <div class="journey-title">Agle teen kadam</div>
-          <p class="journey-desc">Kal subah ke liye teen kaam.</p>
+          <div class="journey-title">Next three steps</div>
+          <p class="journey-desc">Three actions for tomorrow morning.</p>
         </div>
       </div>
     </div>
@@ -1923,7 +1912,7 @@
 
   <section class="services-section" id="services">
     <div class="container">
-      <h2 class="section-heading rise">Apne hisaab se time chunein</h2>
+      <h2 class="section-heading rise">Pick the length that fits</h2>
       <p class="section-intro">
         Har call sirf mere saath, ek-ek karke hoti hai. Pakka nahi pata toh Clarity Call se shuru karein.
       </p>
@@ -1933,22 +1922,22 @@
         <div class="service-row rise">
           <div class="service-meta">
             <svg class="sym sym-svc" aria-hidden="true"><use href="#lotus"/></svg><h3>Clarity Call</h3>
-            <span>30 minute · Google Meet</span>
+            <span>30 minutes · Google Meet</span>
           </div>
           <div class="service-content">
             <p>
               Jab aap phanse hue ya bahut pareshan mehsoos karein. Hum asli dikkat dhoondte hain aur aapke paas follow karne ke liye teen rules hote hain.
             </p>
-            <details class="incl"><summary><span>Isme kya milta hai</span><i aria-hidden="true"></i></summary><ul>
+            <details class="incl"><summary><span>What is included</span><i aria-hidden="true"></i></summary><ul>
               <li>5 minute aap bolte hain, beech mein koi nahi tokta</li>
               <li>10 minute seedhe sawaal</li>
               <li>15 minute kal ka plan banane ke liye</li>
-              <li>24 ghante mein WhatsApp par likhit summary</li>
+              <li>Written summary on WhatsApp within 24 hours</li>
             </ul></details>
           </div>
           <div class="service-action-col">
             <span class="service-fee">₹299</span>
-            <a href="#booking" class="btn-solid select-service" data-service="1:1 Clarity & Roadmap Call (30 Mins)">Book karein</a>
+            <a href="#booking" class="btn-solid select-service" data-service="1:1 Clarity & Roadmap Call (30 Mins)">Book</a>
           </div>
         </div>
 
@@ -1956,13 +1945,13 @@
         <div class="service-row rise">
           <div class="service-meta">
             <svg class="sym sym-svc" aria-hidden="true"><use href="#diya"/></svg><h3>Dincharya Reset</h3>
-            <span>45 minute · Google Meet</span>
+            <span>45 minutes · Google Meet</span>
           </div>
           <div class="service-content">
             <p>
               Focus aur shaanti wapas laane ke liye. Aapke kaam ke time aur energy ke hisaab se subah-shaam ka asli routine.
             </p>
-            <details class="incl"><summary><span>Isme kya milta hai</span><i aria-hidden="true"></i></summary><ul>
+            <details class="incl"><summary><span>What is included</span><i aria-hidden="true"></i></summary><ul>
               <li>Aapke din ke hisaab se subah-shaam ka routine</li>
               <li>Bekaar mein phone dekhna kam karne ka plan</li>
               <li>Shuru karne ke liye 10 minute ka aasaan dhyan</li>
@@ -1971,7 +1960,7 @@
           </div>
           <div class="service-action-col">
             <span class="service-fee">₹499</span>
-            <a href="#booking" class="btn-solid select-service" data-service="Daily Dincharya & Habit Blueprint (45 Mins)">Book karein</a>
+            <a href="#booking" class="btn-solid select-service" data-service="Daily Dincharya & Habit Blueprint (45 Mins)">Book</a>
           </div>
         </div>
 
@@ -1979,13 +1968,13 @@
         <div class="service-row rise">
           <div class="service-meta">
             <svg class="sym sym-svc" aria-hidden="true"><use href="#trishul"/></svg><h3>Deep Dive</h3>
-            <span>60 minute · Google Meet</span>
+            <span>60 minutes · Google Meet</span>
           </div>
           <div class="service-content">
             <p>
               Bade mod ke liye, jaise career, ghar ki ummeedein ya koi bada badlaav. Hum aapki soch ko parakhte hain aur 90 din ka raasta banate hain.
             </p>
-            <details class="incl"><summary><span>Isme kya milta hai</span><i aria-hidden="true"></i></summary><ul>
+            <details class="incl"><summary><span>What is included</span><i aria-hidden="true"></i></summary><ul>
               <li>Poora ek ghanta, ghadi dekhe bina</li>
               <li>Faisla kahan atka hai, uski saaf tasveer</li>
               <li>Call ke baad 90 din ka likha hua plan</li>
@@ -1994,7 +1983,7 @@
           </div>
           <div class="service-action-col">
             <span class="service-fee">₹699</span>
-            <a href="#booking" class="btn-solid select-service" data-service="Deep-Dive Personal Advisory (60 Mins)">Book karein</a>
+            <a href="#booking" class="btn-solid select-service" data-service="Deep-Dive Personal Advisory (60 Mins)">Book</a>
           </div>
         </div>
       </div>
@@ -2003,7 +1992,7 @@
 
   <section class="booking-section" id="booking">
     <div class="container">
-      <h2 class="section-heading rise">Time chunein</h2>
+      <h2 class="section-heading rise">Choose a time</h2>
       <p class="section-intro">
         Calendar se khaali slot chunein, ya payment karke priority slot book karein.
       </p>
@@ -2017,8 +2006,8 @@
       <div class="tab-panel active" id="panel-cal">
         <div class="cal-container">
           <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;flex-wrap:wrap;gap:0.5rem">
-            <span style="font-size:0.85rem;color:var(--text-muted)">Live availability, Google Meet par book hoga</span>
-            <a href="https://cal.com/harsh-upadhyay-tsgoiw/clarity-call-30" target="_blank" rel="noopener noreferrer" style="font-size:0.8rem;color:var(--accent);font-weight:500">Naye tab mein kholein</a>
+            <span style="font-size:0.85rem;color:var(--text-muted)">Live availability, booked on Google Meet</span>
+            <a href="https://cal.com/harsh-upadhyay-tsgoiw/clarity-call-30" target="_blank" rel="noopener noreferrer" style="font-size:0.8rem;color:var(--accent);font-weight:500">Open in new tab</a>
           </div>
           <div style="width:100%;height:620px;overflow:scroll" id="my-cal-inline"></div>
           <script type="text/javascript">
@@ -2044,32 +2033,32 @@
           <form id="priorityBookingForm" novalidate>
             <ol class="steps" id="formSteps" aria-label="Booking progress">
               <li class="on"><span>1</span>Session</li>
-              <li><span>2</span>Aapke baare mein</li>
-              <li><span>3</span>Aapka sawaal</li>
+              <li><span>2</span>About you</li>
+              <li><span>3</span>Your question</li>
             </ol>
 
             <div class="step" data-step="1">
               <div class="form-field">
-                <label for="cTrack" class="form-label">Kaun sa session?</label>
+                <label for="cTrack" class="form-label">Which session?</label>
                 <select id="cTrack" name="track" class="form-select" required>
-                  <option value="1:1 Clarity & Roadmap Call (30 Mins)" data-price="299">Clarity Call, 30 minute, ₹299</option>
-                  <option value="Daily Dincharya & Habit Blueprint (45 Mins)" data-price="499">Dincharya Reset, 45 minute, ₹499</option>
-                  <option value="Deep-Dive Personal Advisory (60 Mins)" data-price="699">Deep Dive, 60 minute, ₹699</option>
-                  <option value="General Life Guidance & Sounding Board" data-price="299">General life guidance aur baat karne ki jagah (₹299)</option>
+                  <option value="1:1 Clarity & Roadmap Call (30 Mins)" data-price="299">Clarity Call, 30 min, ₹299</option>
+                  <option value="Daily Dincharya & Habit Blueprint (45 Mins)" data-price="499">Dincharya Reset, 45 min, ₹499</option>
+                  <option value="Deep-Dive Personal Advisory (60 Mins)" data-price="699">Deep Dive, 60 min, ₹699</option>
+                  <option value="General Life Guidance & Sounding Board" data-price="299">General Life Guidance & Sounding Board (₹299)</option>
                 </select>
               </div>
               <div class="form-row">
                 <div class="form-field">
-                  <label for="cDate" class="form-label">Pasand ki date</label>
+                  <label for="cDate" class="form-label">Preferred date</label>
                   <input type="date" id="cDate" name="preferred_date" class="form-input" required>
                 </div>
                 <div class="form-field">
-                  <label for="cTime" class="form-label">Kaun sa time theek rahega</label>
+                  <label for="cTime" class="form-label">Time window</label>
                   <select id="cTime" name="preferred_time" class="form-select" required>
-                    <option value="Morning (9 AM - 12 PM)">Subah (9 baje – 12 baje)</option>
-                    <option value="Afternoon (1 PM - 4 PM)">Dopahar (1 baje – 4 baje)</option>
-                    <option value="Evening (6 PM - 9 PM)" selected>Shaam (6 baje – 9 baje)</option>
-                    <option value="Night (9 PM - 11 PM)">Raat (9 baje – 11 baje)</option>
+                    <option value="Morning (9 AM - 12 PM)">Morning (9 AM – 12 PM)</option>
+                    <option value="Afternoon (1 PM - 4 PM)">Afternoon (1 PM – 4 PM)</option>
+                    <option value="Evening (6 PM - 9 PM)" selected>Evening (6 PM – 9 PM)</option>
+                    <option value="Night (9 PM - 11 PM)">Night (9 PM – 11 PM)</option>
                   </select>
                 </div>
               </div>
@@ -2078,16 +2067,16 @@
             <div class="step" data-step="2" hidden>
               <div class="form-row">
                 <div class="form-field">
-                  <label for="cName" class="form-label">Poora naam</label>
+                  <label for="cName" class="form-label">Full name</label>
                   <input type="text" id="cName" name="name" class="form-input" placeholder="Rahul Sharma" required autocomplete="name">
                 </div>
                 <div class="form-field">
                   <label for="cWhatsapp" class="form-label">WhatsApp number</label>
-                  <input type="tel" id="cWhatsapp" name="whatsapp" class="form-input" placeholder="10 digit ka number" required autocomplete="tel" inputmode="numeric">
+                  <input type="tel" id="cWhatsapp" name="whatsapp" class="form-input" placeholder="10-digit number" required autocomplete="tel" inputmode="numeric">
                 </div>
               </div>
               <div class="form-field">
-                <label for="cEmail" class="form-label">Email</label>
+                <label for="cEmail" class="form-label">Email address</label>
                 <input type="email" id="cEmail" name="email" class="form-input" placeholder="rahul@example.com" required autocomplete="email">
               </div>
               <div class="form-row">
@@ -2096,25 +2085,25 @@
                   <input type="text" id="cCity" name="city" class="form-input" placeholder="City" required>
                 </div>
                 <div class="form-field">
-                  <label for="cAge" class="form-label">Umar</label>
-                  <input type="number" id="cAge" name="age" class="form-input" placeholder="Umar" min="15" max="85" required>
+                  <label for="cAge" class="form-label">Age</label>
+                  <input type="number" id="cAge" name="age" class="form-input" placeholder="Age" min="15" max="85" required>
                 </div>
               </div>
             </div>
 
             <div class="step" data-step="3" hidden>
               <div class="form-field">
-                <label for="cQuestion" class="form-label">Woh ek dikkat kya hai jiske baare mein aap baat karna chahte hain?</label>
-                <textarea id="cQuestion" name="question" class="form-textarea" placeholder="Kuch lines kaafi hain." required></textarea>
+                <label for="cQuestion" class="form-label">What is the one problem you want to talk about?</label>
+                <textarea id="cQuestion" name="question" class="form-textarea" placeholder="A few lines is enough." required></textarea>
               </div>
               <p class="step-summary" id="stepSummary"></p>
             </div>
 
             <div class="step-nav">
-              <button type="button" class="step-back" id="stepBack" hidden>Peeche</button>
-              <button type="button" class="form-btn step-next" id="stepNext">Aage badhein</button>
+              <button type="button" class="step-back" id="stepBack" hidden>Back</button>
+              <button type="button" class="form-btn step-next" id="stepNext">Continue</button>
               <button type="submit" id="submitBtn" class="form-btn" hidden>
-                ₹299 pay karein
+                Pay ₹299 securely
               </button>
             </div>
 
@@ -2131,53 +2120,40 @@
 
   <section class="learn-section" id="learn">
     <div class="container">
-      <h2 class="section-heading rise">Parampara ke peeche ki kahaniyan seekhein</h2>
+      <h2 class="section-heading rise">Learn the stories behind the tradition</h2>
       <p class="section-intro">Hindu itihaas, mandir, rituals aur shaastra, Instagram par aasaan Hindi mein. Yahan dekhein main kya share karta hoon, aur aage kya bana raha hoon.</p>
 
       <div class="pillars">
-        <div class="pillar rise"><svg class="sym" aria-hidden="true"><use href="#trishul"/></svg><h3>Mandir aur itihaas</h3><p>Hamare mandiron ke peeche ki kahaniyan aur virasat.</p></div>
-        <div class="pillar rise"><svg class="sym" aria-hidden="true"><use href="#diya"/></svg><h3>Rituals aur parampara</h3><p>Rituals kyun, kaise aur kab kiye jaate hain.</p></div>
-        <div class="pillar rise"><svg class="sym" aria-hidden="true"><use href="#lotus"/></svg><h3>Shaastra aur darshan</h3><p>Gita, Ramayan aur Mahabharat, aasaan shabdon mein.</p></div>
-        <div class="pillar rise"><span class="om-glyph" aria-hidden="true">ॐ</span><h3>Tyohaar aur vrat</h3><p>Taiyaari aur matlab, saaf shabdon mein.</p></div>
+        <div class="pillar rise"><svg class="sym" aria-hidden="true"><use href="#trishul"/></svg><h3>Mandir and history</h3><p>Hamare mandiron ke peeche ki kahaniyan aur virasat.</p></div>
+        <div class="pillar rise"><svg class="sym" aria-hidden="true"><use href="#diya"/></svg><h3>Rituals and traditions</h3><p>Rituals kyun, kaise aur kab kiye jaate hain.</p></div>
+        <div class="pillar rise"><svg class="sym" aria-hidden="true"><use href="#lotus"/></svg><h3>Scriptures and philosophy</h3><p>Gita, Ramayan aur Mahabharat, aasaan shabdon mein.</p></div>
+        <div class="pillar rise"><span class="om-glyph" aria-hidden="true">ॐ</span><h3>Festivals and vrat</h3><p>Taiyaari aur matlab, saaf shabdon mein.</p></div>
       </div>
 
       <div class="guide-flagship rise">
         <div class="guide-main">
-          <span class="guide-tag">Sabse pehle aa raha hai</span>
+          <span class="guide-tag">Coming first</span>
           <h3>The Hindu Festival and Vrat Companion</h3>
           <p>Aapke tyohaaron aur vraton ke liye ek guide: har ek ka matlab, taiyaari kaise karein, aur kya-kya chahiye.</p>
           <ul class="guide-list">
-            <li>Bade tyohaaron ki jaankari</li>
-            <li>Taiyaari ki checklist</li>
-            <li>Puja samagri ki aam list</li>
-            <li>Rituals ke basic steps</li>
-            <li>Mantra ka matlab aur uchcharan</li>
-            <li>Kshetra ke hisaab se farq, saaf likha hua</li>
+            <li>Major festivals explained</li>
+            <li>Preparation checklists</li>
+            <li>Common puja samagri lists</li>
+            <li>Basic ritual steps</li>
+            <li>Mantra meanings and pronunciation</li>
+            <li>Regional differences, clearly marked</li>
           </ul>
           <p class="guide-note">Tithiyan aur riwaaj kshetra aur parampara ke hisaab se alag hote hain. Jahan farq hai main likh deta hoon aur apne sources ka naam bhi.</p>
         </div>
-        <a href="#join" class="btn-solid guide-cta">Pehle access paayein</a>
+        <div class="guide-actions"><a href="#join" class="btn-solid guide-cta">Get early access</a><a href="guides.html" class="hero-link">See the guide</a></div>
       </div>
 
-      <div class="more-ways">
-        <div class="way rise">
-          <span class="guide-tag">Jald aa raha hai</span>
-          <h3>Live group sessions</h3>
-          <p>Gita, rituals aur tyohaaron par chhote online sessions, aapke sawaalon ke liye time ke saath.</p>
-        </div>
-        <div class="way rise">
-          <span class="guide-tag">Jald aa raha hai</span>
-          <h3>Puja preparation session</h3>
-          <p>Puja plan karne ke liye ek chhota one-on-one: samagri, aam kram, aur jahan riwaaj alag hote hain. Ye planning aur jaankari ke liye hai. Main puja karwata nahi hoon.</p>
-        </div>
-      </div>
-      <p class="also rise">Aage aur bhi: Beginners ke liye Daily Puja Guide, Bhagavad Gita Beginner Study Guide, aur Hindu Rituals and Traditions Handbook.</p>
     </div>
   </section>
 
   <section class="join-section" id="join">
     <div class="container join-wrap">
-      <h2 class="section-heading rise">Sabse pehle paayein</h2>
+      <h2 class="section-heading rise">Be the first to get them</h2>
       <p class="section-intro">Early-access list join karein. Free Hindu Festival and Vrat Calendar tayyar hote hi aapko milega, aur guides aur live sessions ka pehle access bhi.</p>
 
       <form class="join-form rise" id="joinForm" novalidate>
@@ -2188,12 +2164,12 @@
           </div>
           <div class="form-field">
             <label for="jWa" class="form-label">WhatsApp (optional)</label>
-            <input type="tel" id="jWa" class="form-input" placeholder="10 digit ka number" autocomplete="tel" inputmode="numeric">
+            <input type="tel" id="jWa" class="form-input" placeholder="10-digit number" autocomplete="tel" inputmode="numeric">
           </div>
         </div>
 
         <fieldset class="join-interests">
-          <legend class="form-label">Aapko kis mein dilchaspi hai?</legend>
+          <legend class="form-label">What are you interested in?</legend>
           <label class="chip"><input type="checkbox" name="interest" value="Festival and vrat guide" checked><span>Festival aur vrat guide</span></label>
           <label class="chip"><input type="checkbox" name="interest" value="Live sessions"><span>Live sessions</span></label>
           <label class="chip"><input type="checkbox" name="interest" value="Puja preparation session"><span>Puja preparation session</span></label>
@@ -2204,7 +2180,7 @@
 
         <label class="consent"><input type="checkbox" id="jConsent"><span>Mujhe in resources ke baare mein messages bhejna theek hai. Kabhi bhi band karwa sakte hain.</span></label>
 
-        <button type="submit" class="btn-solid join-btn" id="jBtn">List join karein</button>
+        <button type="submit" class="btn-solid join-btn" id="jBtn">Join the list</button>
         <p class="join-msg" id="jMsg" role="status" aria-live="polite"></p>
       </form>
     </div>
@@ -2213,44 +2189,44 @@
   <section class="faq-section" id="faq">
     <div class="container faq-split">
       <div class="faq-intro">
-        <h2 class="section-heading rise">Aam sawaal</h2>
-        <p>Kuch aur poochna hai?</p>
-        <a class="hero-link" href="https://www.instagram.com/timelinebyharsh/" target="_blank" rel="noopener noreferrer">Instagram par mujhe message karein</a>
+        <h2 class="section-heading rise">Common questions</h2>
+        <p>Something else on your mind?</p>
+        <a class="hero-link" href="https://www.instagram.com/timelinebyharsh/" target="_blank" rel="noopener noreferrer">Message me on Instagram</a>
       </div>
 
       <div class="faq-stack">
         <details name="faq">
-          <summary>Call kahan hoti hai?</summary>
+          <summary>Where does the call happen?</summary>
           <p>Google Meet par, bilkul private. Book karne ke baad aapke email aur WhatsApp par Meet link wala calendar invite aa jaata hai.</p>
         </details>
 
         <details name="faq">
-          <summary>Main kaun sa session chunoon?</summary>
+          <summary>Which session should I pick?</summary>
           <p>Clarity Call se shuru karein. Uske baad zaroorat ho toh hum lamba session rakh sakte hain.</p>
         </details>
 
         <details name="faq">
-          <summary>Call ki fees kyun hai?</summary>
+          <summary>Why do the calls have a fee?</summary>
           <p>Jab calls free thi, toh kai log book karke aate nahi the, aur jinhe sach mein zaroorat thi unka time chala jaata tha. Chhoti si fees se slots unhi ke liye rehte hain jo aayenge, aur main aapke liye theek se taiyaari kar paata hoon.</p>
         </details>
 
         <details name="faq">
-          <summary>Kuch kaam aa jaaye toh kya time badal sakta hoon?</summary>
+          <summary>Can I reschedule if something comes up?</summary>
           <p>Haan. Kam se kam 6 ghante pehle WhatsApp par ya confirmation email ka reply karke bata dein, hum bina extra kharche ke doosra time tay kar lenge. Aur jaankari yahan: <a href="refund.html">refund policy</a>.</p>
         </details>
 
         <details name="faq">
-          <summary>Kya meri baat private rehti hai?</summary>
+          <summary>Is what I share kept private?</summary>
           <p>Haan. Jo aap batate hain woh sirf aapke aur mere beech rehta hai. Poori jaankari yahan: <a href="privacy.html">privacy policy</a>.</p>
         </details>
 
         <details name="faq">
-          <summary>Kya ye therapy ya medical advice hai?</summary>
+          <summary>Is this therapy or medical advice?</summary>
           <p>Nahi. Ye guidance wali baatcheet hai, therapy, medical, legal ya paison ki salah nahi. Padhein: <a href="terms.html">terms</a>.</p>
         </details>
 
         <details name="faq">
-          <summary>Main taiyaari kaise karoon?</summary>
+          <summary>How should I prepare?</summary>
           <p>Pen aur kaagaz paas rakhein. Apni main dikkat aur ab tak jo koshish ki hai woh likh lein, taaki hum seedhe jad se shuru kar sakein.</p>
         </details>
       </div>
@@ -2259,7 +2235,7 @@
 
   <section class="shop-section" id="shop">
     <div class="container">
-      <h2 class="section-heading rise">Meri pasand ki kitaabein</h2>
+      <h2 class="section-heading rise">Books I Recommend</h2>
       <p class="section-intro">
         Ye kitaabein aur cheezein main khud use karta hoon. Ye Amazon affiliate links hain: inse kharidne par mujhe thoda commission milta hai, aapko koi extra kharcha nahi.
       </p>
@@ -2277,7 +2253,7 @@
           <span class="book-tag">Discipline</span>
           <div class="book-title">Atomic Habits</div>
           <p class="book-desc">James Clear ka aasaan tareeka, buri aadaton ka chakra todne aur roz aage badhte rehne ke liye.</p>
-          <a href="https://www.amazon.in/dp/1847941834?tag=timelineharsh-21" target="_blank" rel="noopener noreferrer" class="book-link">Amazon par dekhein (affiliate link)</a>
+          <a href="https://www.amazon.in/dp/1847941834?tag=timelineharsh-21" target="_blank" rel="noopener noreferrer" class="book-link">View on Amazon</a>
         </div>
 
         <!-- Item 2: Bhagavad Gita -->
@@ -2289,10 +2265,10 @@
               <path d="M6 10h10"/>
             </svg>
           </div>
-          <span class="book-tag">Zindagi ki seekh</span>
+          <span class="book-tag">Philosophy</span>
           <div class="book-title">The Bhagavad Gita As It Is</div>
           <p class="book-desc">Kartavya, nateeje ki chinta chhodne aur zindagi ki ladaiyon mein saaf soch paane ki sadabahaar kitaab.</p>
-          <a href="https://www.amazon.in/dp/9384564227?tag=timelineharsh-21" target="_blank" rel="noopener noreferrer" class="book-link">Amazon par dekhein (affiliate link)</a>
+          <a href="https://www.amazon.in/dp/9384564227?tag=timelineharsh-21" target="_blank" rel="noopener noreferrer" class="book-link">View on Amazon</a>
         </div>
 
         <!-- Item 3: Rudraksha Mala -->
@@ -2309,10 +2285,10 @@
               <circle cx="7" cy="8" r="2"/>
             </svg>
           </div>
-          <span class="book-tag">Mann ki shaanti</span>
-          <div class="book-title">5 Mukhi Rudraksha Mala</div>
+          <span class="book-tag">Grounding</span>
+          <div class="book-title">5-Mukhi Rudraksha Mala</div>
           <p class="book-desc">108+1 certified daane, roz mantra jaap aur dhyan ke liye, aur busy din mein mann ko sthir rakhne ke liye.</p>
-          <a href="https://www.amazon.in/s?k=5+mukhi+rudraksha+mala+certified&tag=timelineharsh-21" target="_blank" rel="noopener noreferrer" class="book-link">Amazon par dekhein (affiliate link)</a>
+          <a href="https://www.amazon.in/s?k=5+mukhi+rudraksha+mala+certified&tag=timelineharsh-21" target="_blank" rel="noopener noreferrer" class="book-link">View on Amazon</a>
         </div>
 
         <!-- Item 4: Analog Focus Timer -->
@@ -2326,7 +2302,7 @@
           <span class="book-tag">Deep Work</span>
           <div class="book-title">Analog Visual Focus Timer</div>
           <p class="book-desc">Phone ke timer ki jagah mechanical timer, taaki 30 minute ke focus mein notifications na aayein.</p>
-          <a href="https://www.amazon.in/s?k=pomodoro+timer+analog&tag=timelineharsh-21" target="_blank" rel="noopener noreferrer" class="book-link">Amazon par dekhein (affiliate link)</a>
+          <a href="https://www.amazon.in/s?k=pomodoro+timer+analog&tag=timelineharsh-21" target="_blank" rel="noopener noreferrer" class="book-link">View on Amazon</a>
         </div>
       </div>
     </div>
@@ -2377,15 +2353,16 @@
         <a class="footer-ig" href="https://www.instagram.com/timelinebyharsh/" target="_blank" rel="noopener noreferrer">Instagram</a>
       </div>
 
-      <nav class="footer-col" aria-label="Dekhein">
-        <h4>Dekhein</h4>
+      <nav class="footer-col" aria-label="Explore">
+        <h4>Explore</h4>
         <ul>
-          <li><a href="#diagnostic">Sahi session chunein</a></li>
-          <li><a href="#journey">Kaise kaam karta hai</a></li>
-          <li><a href="#booking">Time chunein</a></li>
-          <li><a href="#faq">Aam sawaal</a></li>
-          <li><a href="about.html">Parichay</a></li>
-          <li><a href="collaborate.html">Saath kaam karein</a></li>
+          <li><a href="#diagnostic">Find your fit</a></li>
+          <li><a href="#journey">How it works</a></li>
+          <li><a href="#booking">Choose a time</a></li>
+          <li><a href="#faq">Common questions</a></li>
+          <li><a href="guides.html">Guides</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="collaborate.html">Collaborate</a></li>
         </ul>
       </nav>
 
@@ -2410,7 +2387,7 @@
     </div>
 
     <div class="container footer-bottom">
-      <p>© 2026 Timeline by Harsh. Sabhi adhikaar surakshit.</p>
+      <p>© 2026 Timeline by Harsh. All rights reserved.</p>
       <p class="footer-note">Guidance calls therapy, medical, legal ya paison ki salah nahi hain. Kitaabon ke links Amazon affiliate links hain.</p>
       <p class="footer-shloka" aria-hidden="true">ॐ सर्वे भवन्तु सुखिनः</p>
     </div>
@@ -2421,24 +2398,24 @@
   <!-- UPI payment step (shown after a Cal.com booking is requested) -->
   <div class="pay-modal" id="payModal" hidden role="dialog" aria-modal="true" aria-labelledby="payTitle">
     <div class="pay-card">
-      <button type="button" class="pay-close" id="payClose" aria-label="Band karein">&times;</button>
-      <p class="pay-kicker">Booking request mil gayi</p>
-      <h3 id="payTitle">Bas ek aakhri kadam</h3>
+      <button type="button" class="pay-close" id="payClose" aria-label="Close">&times;</button>
+      <p class="pay-kicker">Booking requested</p>
+      <h3 id="payTitle">One last step</h3>
       <p class="pay-sub" id="paySub"></p>
 
       <div id="payBlock">
         <p class="pay-lead">Apna slot pakka karne ke liye payment karein. Payment dikhte hi main booking confirm kar doonga.</p>
         <div class="pay-amount" id="payAmount"></div>
         <div class="pay-qr" id="payQr" aria-label="UPI QR code"></div>
-        <a class="btn-solid pay-app" id="payApp" href="#">UPI app se pay karein</a>
+        <a class="btn-solid pay-app" id="payApp" href="#">Pay with UPI app</a>
         <p class="pay-vpa">UPI ID: <b id="payVpa"></b> <button type="button" id="payCopy">Copy</button></p>
 
         <form class="utr" id="utrForm" novalidate>
-          <label for="utrEmail">Jis email se book kiya</label>
-          <input type="email" id="utrEmail" autocomplete="email" placeholder="aap@example.com" required>
-          <label for="utrRef">UPI app mein dikhne wala UTR ya reference number</label>
-          <input type="text" id="utrRef" placeholder="12 digit ka number" required autocomplete="off">
-          <button type="submit" class="btn-solid" id="utrSend">Maine pay kar diya</button>
+          <label for="utrEmail">Email you booked with</label>
+          <input type="email" id="utrEmail" autocomplete="email" placeholder="you@example.com" required>
+          <label for="utrRef">UTR or reference number from your UPI app</label>
+          <input type="text" id="utrRef" placeholder="12 digit number" required autocomplete="off">
+          <button type="submit" class="btn-solid" id="utrSend">I have paid</button>
           <p class="pay-err" id="utrErr" role="alert"></p>
         </form>
       </div>
@@ -2449,7 +2426,7 @@
 
   <!-- Compact Mobile Sticky Bar -->
   <div class="mobile-bar" id="mobileBar" aria-hidden="true">
-    <a href="#booking" class="mobile-bar-cta" tabindex="-1">Call book karein</a>
+    <a href="#booking" class="mobile-bar-cta" tabindex="-1">Book a call</a>
   </div>
 
   <!-- Interactive JavaScript Logic -->
@@ -2459,25 +2436,25 @@
       paralysis: {
         title: "Clarity Call",
         price: "₹299 · 30 minute",
-        body: "<b>Kya kaam aata hai:</b> Bahut saare options discipline ki kami jaise lagte hain, par asal mein woh shor hote hain. 30 minute mein hum woh ek cheez dhoondte hain jo zaroori hai, aur kal ke liye teen kadam tay karte hain.",
+        body: "<b>What helps:</b> Bahut saare options discipline ki kami jaise lagte hain, par asal mein woh shor hote hain. 30 minute mein hum woh ek cheez dhoondte hain jo zaroori hai, aur kal ke liye teen kadam tay karte hain.",
         serviceTrack: "1:1 Clarity & Roadmap Call (30 Mins)"
       },
       habits: {
         title: "Dincharya Reset",
         price: "₹499 · 45 minute",
-        body: "<b>Kya kaam aata hai:</b> Kisi aur se udhaar liya routine kam hi tikta hai. Hum aapke asli kaam ke time ke hisaab se subah-shaam ka aasaan routine banate hain, jo kharab din mein bhi chal sake.",
+        body: "<b>What helps:</b> Kisi aur se udhaar liya routine kam hi tikta hai. Hum aapke asli kaam ke time ke hisaab se subah-shaam ka aasaan routine banate hain, jo kharab din mein bhi chal sake.",
         serviceTrack: "Daily Dincharya & Habit Blueprint (45 Mins)"
       },
       crossroads: {
         title: "Deep Dive",
         price: "₹699 · 60 minute",
-        body: "<b>Kya kaam aata hai:</b> Ghar waale aur dost pyaar se salah dete hain. Aapko shayad ek bahar ki nazar chahiye, jo bina kisi bhavna ke aapke options tole aur aap shaant mann se chun sakein.",
+        body: "<b>What helps:</b> Ghar waale aur dost pyaar se salah dete hain. Aapko shayad ek bahar ki nazar chahiye, jo bina kisi bhavna ke aapke options tole aur aap shaant mann se chun sakein.",
         serviceTrack: "Deep-Dive Personal Advisory (60 Mins)"
       },
       sounding: {
         title: "Clarity Call",
         price: "₹299 · 30 minute",
-        body: "<b>Kya kaam aata hai:</b> Aksar jawaab aapko pehle se pata hota hai, bas aaspaas ka shor zyada hota hai. Ye ek shaant jagah hai jahan koi judge nahi karega, aap khulkar bol sakte hain.",
+        body: "<b>What helps:</b> Aksar jawaab aapko pehle se pata hota hai, bas aaspaas ka shor zyada hota hai. Ye ek shaant jagah hai jahan koi judge nahi karega, aap khulkar bol sakte hain.",
         serviceTrack: "1:1 Clarity & Roadmap Call (30 Mins)"
       }
     };
@@ -2513,7 +2490,7 @@
       if (!trackSelect || !submitBtn) return;
       const selectedOption = trackSelect.options[trackSelect.selectedIndex];
       const price = selectedOption.getAttribute("data-price") || "299";
-      submitBtn.textContent = `₹${price} pay karein`;
+      submitBtn.textContent = `Pay ₹${price} securely`;
     }
 
     if (trackSelect) {
@@ -2671,21 +2648,21 @@
       const wrapper = document.getElementById("formWrapper");
       wrapper.innerHTML = `
         <div style="text-align:center;padding:1.5rem 0">
-          <p style="font-size:0.8rem;font-weight:600;color:var(--ok-text);margin-bottom:0.5rem">Payment mil gaya</p>
-          <h3 style="font-family:var(--font-display);font-size:1.6rem;font-weight:500;color:var(--text);margin-bottom:0.35rem">Session confirm ho gaya</h3>
+          <p style="font-size:0.8rem;font-weight:600;color:var(--ok-text);margin-bottom:0.5rem">Payment received</p>
+          <h3 style="font-family:var(--font-display);font-size:1.6rem;font-weight:500;color:var(--text);margin-bottom:0.35rem">Session Confirmed</h3>
           <p style="font-size:0.9rem;color:var(--text-muted);max-width:24rem;margin:0 auto 1.5rem">
             Dhanyavaad, <b>${escapeHtml(formData.name)}</b>. Aapki booking confirm ho gayi hai. Main 24 ghante mein aapke WhatsApp par sampark karoonga.
           </p>
 
           <div style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-md);padding:1rem 1.25rem;text-align:left;max-width:380px;margin:0 auto 1.5rem;font-size:0.85rem">
-            <div style="display:flex;justify-content:space-between;margin-bottom:0.35rem"><span>Session:</span><b>${escapeHtml(formData.track)}</b></div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:0.35rem"><span>Track:</span><b>${escapeHtml(formData.track)}</b></div>
             <div style="display:flex;justify-content:space-between;margin-bottom:0.35rem"><span>Date:</span><span>${escapeHtml(formData.preferred_date)} @ ${escapeHtml(formData.preferred_time)}</span></div>
-            <div style="display:flex;justify-content:space-between;margin-bottom:0.35rem"><span>Fees:</span><b>₹${escapeHtml(fee || "299")}.00</b></div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:0.35rem"><span>Fee:</span><b>₹${escapeHtml(fee || "299")}.00</b></div>
             <div style="display:flex;justify-content:space-between;font-size:0.775rem;color:var(--text-faint)"><span>Payment ID:</span><code>${escapeHtml(paymentId)}</code></div>
           </div>
 
           <a href="https://wa.me/91${formData.whatsapp.replace(/\D/g, '').slice(-10)}?text=${encodeURIComponent('Namaste Harsh, maine abhi ye session book kiya hai: ' + formData.track + ' (Payment ID: ' + paymentId + ')')}" target="_blank" rel="noopener noreferrer" class="btn-solid" style="font-size:0.85rem">
-            WhatsApp par message karein
+            Message on WhatsApp
           </a>
         </div>
       `;
@@ -2875,7 +2852,7 @@
       modal.addEventListener('click', function (e) { if (e.target === modal) close(); });
       document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !modal.hidden) close(); });
       $('payCopy').addEventListener('click', function () {
-        if (navigator.clipboard) navigator.clipboard.writeText(SITE.upiId).then(function () { $('payCopy').textContent = 'Copy ho gaya'; setTimeout(function () { $('payCopy').textContent = 'Copy'; }, 1800); });
+        if (navigator.clipboard) navigator.clipboard.writeText(SITE.upiId).then(function () { $('payCopy').textContent = 'Copied'; setTimeout(function () { $('payCopy').textContent = 'Copy'; }, 1800); });
       });
 
       $('utrForm').addEventListener('submit', function (e) {
@@ -2884,7 +2861,7 @@
         if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { err.textContent = 'Kripya woh email likhein jisse book kiya tha.'; return; }
         if (!/^[A-Za-z0-9]{8,24}$/.test(utr)) { err.textContent = 'Kripya UPI app wala UTR ya reference number likhein.'; return; }
         err.textContent = '';
-        var btn = $('utrSend'); btn.disabled = true; btn.textContent = 'Bhej rahe hain';
+        var btn = $('utrSend'); btn.disabled = true; btn.textContent = 'Sending';
         fetch('/api/upi-claim', { method: 'POST', headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ email: email, utr: utr, amount: PRICE[current.slug], session: NAME[current.slug], slot: current.when }) })
           .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
@@ -2893,7 +2870,7 @@
             $('payBlock').hidden = true; $('payDone').hidden = false;
             $('payDone').textContent = 'Dhanyavaad. Main payment dekhkar aapki booking confirm karoonga. Confirm hote hi Cal.com aapko Meet link email kar dega.';
           })
-          .catch(function (ex) { err.textContent = ex.message; btn.disabled = false; btn.textContent = 'Maine pay kar diya'; });
+          .catch(function (ex) { err.textContent = ex.message; btn.disabled = false; btn.textContent = 'I have paid'; });
       });
 
       function hook() {
