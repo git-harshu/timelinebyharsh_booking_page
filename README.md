@@ -71,3 +71,12 @@ GMAIL_USER=timelinebyharsh@gmail.com
 GMAIL_APP_PASSWORD=xxxx-xxxx-xxxx-xxxx
 OWNER_EMAIL=timelinebyharsh@gmail.com
 ```
+
+
+## UPI payment step (after a Cal.com booking)
+
+Flow: visitor books a slot in the Cal embed (the three events require confirmation and block the slot while unconfirmed) -> the page shows a UPI QR and the exact amount -> visitor pays and sends the UTR -> `api/upi-claim.js` emails Harsh (and acknowledges the visitor) -> Harsh checks his bank app and clicks Confirm in Cal.com (Bookings, Unconfirmed). Cal then sends the Meet link.
+
+To switch it on, set `upiId` in `index.html` (search for `SITE = { upiId`). While it is empty the popup shows a plain thank-you and no QR. Prefer a business UPI ID. `api/upi-claim.js` uses the same Gmail settings as the Razorpay emails.
+
+The popup listens for the Cal embed event `bookingSuccessfulV2`. Test it with one real booking before launch.

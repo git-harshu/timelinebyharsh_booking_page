@@ -49,3 +49,11 @@ footer .top{display:grid;grid-template-columns:1fr;gap:2.5rem;padding-bottom:2.5
 footer .bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.75rem 2rem;padding-top:1.75rem;font-size:.8rem;color:#8F8A7F}
 .note2{max-width:32rem}
 footer .shloka{width:100%;text-align:center;margin:1.25rem 0 0;font-family:var(--deva);font-size:1.05rem;color:#9A958A;letter-spacing:.04em}
+
+footer{padding:4.5rem 0 2rem}
+footer .top{align-items:start;padding-bottom:3rem}
+.fc a,.ig{font-size:.95rem}
+footer .bottom{display:grid;grid-template-columns:1fr;gap:.75rem}
+footer .bottom p{margin:0}
+@media(min-width:860px){footer .bottom{grid-template-columns:1fr 1fr;gap:0 3rem}.note2{text-align:right;justify-self:end}}
+footer .shloka{grid-column:1/-1}

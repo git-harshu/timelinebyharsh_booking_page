@@ -24,6 +24,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
   
+  <script src="assets/qrcode.min.js" defer></script>
+
   <!-- Razorpay Checkout -->
   <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
@@ -1400,6 +1402,109 @@
     .booking-tabs { margin-left: max(0px, calc((100% - 760px) / 2)); }
 
     @media (min-width: 768px) { .mobile-bar { display: none; } }
+
+    /* =========================================================
+       r11: one button size, softer finder cards, transparent mobile bar,
+       calmer footer, UPI payment popup
+       ========================================================= */
+    /* buttons: same height and type size everywhere */
+    .btn-solid, .form-btn, .mobile-bar-cta, .step-back { display: inline-flex; align-items: center; justify-content: center; min-height: 3rem; padding: 0 1.75rem; font-size: 1rem; font-weight: 500; line-height: 1; }
+    .header-cta { display: inline-flex; align-items: center; min-height: 2.5rem; padding: 0 1.25rem; font-size: 0.9rem; font-weight: 500; opacity: 1; visibility: visible; transform: none; }
+    .service-action-col .btn-solid { min-height: 3rem; padding: 0 1.25rem; font-size: 1rem; }
+    .form-btn { width: 100%; }
+    .step-nav .form-btn { flex: 1; width: auto; }
+    #diagBookBtn { font-size: 1rem !important; }
+    .book-link { font-size: 0.9rem; text-decoration: underline; text-decoration-color: var(--border-strong); text-underline-offset: 4px; }
+    .book-link:hover { text-decoration-color: var(--accent); }
+
+    /* mobile bar: transparent, just a floating button */
+    .mobile-bar { background: linear-gradient(to top, rgba(252,244,234,0.92) 0%, rgba(252,244,234,0) 100%); border-top: 0; box-shadow: none; padding: 1.25rem 1rem calc(0.9rem + env(safe-area-inset-bottom)); pointer-events: none; }
+    .mobile-bar-cta { width: 100%; pointer-events: auto; box-shadow: 0 8px 24px rgba(255,111,30,0.35); }
+
+    /* finder choices: softer, taller, bigger text */
+    .diag-cards-grid { gap: 0.85rem; }
+    .diag-card-btn { border: 0; border-radius: 18px; background: var(--white); min-height: 4.75rem; padding: 1.1rem 1.4rem; box-shadow: 0 1px 2px rgba(33,37,43,0.04); transition: box-shadow 0.3s var(--ease), background 0.3s; }
+    .diag-card-btn::before { display: none; }
+    .diag-card-btn:hover { background: var(--white); box-shadow: 0 0 0 1.5px rgba(255,111,30,0.45); }
+    .diag-card-btn.active { background: var(--white); box-shadow: 0 0 0 2px var(--accent); }
+    .diag-icon-box { width: 3.4rem; height: 3.4rem; }
+    .diag-card-body h4 { font-size: 1.25rem; }
+    .diag-card-body p { font-size: 0.925rem; line-height: 1.45; }
+    .diag-reveal { border-radius: 22px; padding: 2.25rem 2rem; }
+
+    /* FAQ intro */
+    .faq-intro p { font-size: 1.05rem; color: var(--text); margin-bottom: 0.9rem; }
+
+    /* footer */
+    .site-footer { padding: 4.5rem 0 2rem; }
+    .footer-top { align-items: start; padding-bottom: 3rem; }
+    .footer-col h4 { margin-bottom: 1.1rem; }
+    .footer-col ul { gap: 0.7rem; }
+    .footer-col a, .footer-ig { font-size: 0.95rem; }
+    .footer-bottom { display: grid; grid-template-columns: 1fr; gap: 0.75rem; align-items: start; padding-top: 1.75rem; }
+    @media (min-width: 860px) { .footer-bottom { grid-template-columns: 1fr 1fr; gap: 0 3rem; } .footer-note { text-align: right; justify-self: end; } }
+    .footer-note { max-width: 30rem; margin: 0; }
+    .footer-bottom p { margin: 0; }
+    .footer-shloka { grid-column: 1 / -1; margin-top: 1.5rem; }
+
+    /* UPI popup */
+    .pay-modal { position: fixed; inset: 0; z-index: 200; background: rgba(33,37,43,0.55); display: grid; place-items: center; padding: 1rem; overflow-y: auto; animation: settleIn 0.4s var(--ease) both; }
+    .pay-modal[hidden] { display: none; }
+    .pay-card { position: relative; width: 100%; max-width: 26rem; background: var(--white); border-radius: 22px; padding: 2rem 1.75rem; text-align: center; margin: auto; }
+    .pay-close { position: absolute; top: 0.75rem; right: 1rem; font-size: 1.75rem; line-height: 1; color: var(--text-faint); width: 2.25rem; height: 2.25rem; border-radius: 50%; }
+    .pay-close:hover { color: var(--text); background: var(--tint); }
+    .pay-kicker { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600; color: var(--accent); margin-bottom: 0.5rem; }
+    .pay-card h3 { font-family: var(--font-display); font-weight: 500; font-size: 1.7rem; line-height: 1.2; }
+    .pay-sub { color: var(--text-muted); font-size: 0.9rem; margin: 0.35rem 0 1rem; }
+    .pay-lead { color: var(--text-muted); font-size: 0.925rem; margin-bottom: 1rem; }
+    .pay-amount { font-family: var(--font-display); font-size: 2.4rem; line-height: 1; margin-bottom: 1rem; }
+    .pay-qr { width: 11.5rem; height: 11.5rem; margin: 0 auto 1rem; padding: 0.6rem; background: #fff; border: 1px solid var(--border); border-radius: 14px; }
+    .pay-qr svg { width: 100%; height: 100%; display: block; }
+    .pay-app { display: none; width: 100%; margin-bottom: 0.9rem; }
+    @media (max-width: 767px) { .pay-app { display: inline-flex; } .pay-qr { display: none; } }
+    .pay-vpa { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem; }
+    .pay-vpa b { color: var(--text); font-weight: 600; word-break: break-all; }
+    .pay-vpa button { color: var(--accent); font-weight: 500; margin-left: 0.4rem; font-size: 0.85rem; }
+    .utr { text-align: left; border-top: 1px solid var(--border); padding-top: 1.1rem; display: grid; gap: 0.4rem; }
+    .utr label { font-size: 0.8rem; font-weight: 500; color: var(--text-muted); }
+    .utr input { width: 100%; padding: 0.8rem 0.9rem; border: 1px solid var(--border-strong); border-radius: 12px; font-size: 0.95rem; background: var(--bg); }
+    .utr input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(255,111,30,0.15); }
+    .utr .btn-solid { width: 100%; margin-top: 0.6rem; }
+    .utr .btn-solid:disabled { opacity: 0.55; }
+    .pay-err { color: #B42318; font-size: 0.8rem; min-height: 1rem; margin: 0.25rem 0 0; }
+    .pay-done { color: var(--text); font-size: 0.975rem; line-height: 1.6; padding: 1rem 0 0.25rem; }
+    .pay-modal[hidden] ~ * {}
+
+    /* =========================================================
+       r12: no bars above the three moments, plain Om in the strip,
+       gentle hover colours (nothing moves), finder card matches choices
+       ========================================================= */
+    .truth { border-top: 0; padding-top: 0; }
+    .marquee-om { color: #fff; font-family: var(--font-deva); font-size: 1.15rem; line-height: 1; opacity: 0.9; }
+    .marquee:hover .marquee-track { animation-play-state: paused; }
+
+    /* hover: colour and soft shadow only */
+    .service-row { transition: box-shadow 0.3s var(--ease), border-color 0.3s; }
+    .service-row:hover { border-color: rgba(255,111,30,0.5); box-shadow: 0 10px 30px rgba(33,37,43,0.06); }
+    .truth h3, .relief-item h3, .journey-title { transition: color 0.25s; }
+    .truth:hover h3, .relief-item:hover h3, .journey-step:hover .journey-title { color: var(--accent); }
+    .book-card .book-art { transition: filter 0.3s; }
+    .book-card:hover .book-art { filter: saturate(1.35) brightness(0.98); }
+    .book-card:hover .book-title { color: var(--accent); }
+    .book-title { transition: color 0.25s; }
+    .faq-stack summary { transition: color 0.25s; }
+    .faq-stack summary:hover { color: var(--accent); }
+    .footer-col a, .footer-ig, .nav-item a, .hero-link { transition: color 0.2s; }
+    .btn-solid, .header-cta, .form-btn, .mobile-bar-cta { transition: background 0.2s, box-shadow 0.25s; }
+    .btn-solid:hover, .form-btn:hover { box-shadow: 0 6px 18px rgba(255,111,30,0.3); }
+    .tab-btn:hover svg { color: var(--accent); }
+
+    /* finder: the detail card is exactly as tall as the four choices */
+    @media (min-width: 860px) {
+      .diag-split { align-items: stretch; }
+      .diag-reveal { position: static; display: flex; flex-direction: column; }
+      .diag-reveal .reveal-actions { margin-top: auto; }
+    }
   </style>
 </head>
 <body>
@@ -1456,7 +1561,7 @@
         </p>
 
         <div class="hero-actions">
-          <a href="#diagnostic" class="btn-solid" id="heroCta">What is weighing on you?</a>
+          <a href="#diagnostic" class="btn-solid" id="heroCta">What is on your mind?</a>
           <a href="#booking" class="hero-link">Or book a call</a>
         </div>
       </div>
@@ -1470,7 +1575,7 @@
 
   <!-- Shloka marquee -->
   <div class="marquee" aria-hidden="true">
-    <div class="marquee-track"><span class="shloka">ॐ शान्तिः शान्तिः शान्तिः</span><svg class="sym" aria-hidden="true"><use href="#lotus"/></svg><span class="shloka">योगः कर्मसु कौशलम्</span><svg class="sym" aria-hidden="true"><use href="#diya"/></svg><span class="shloka">तमसो मा ज्योतिर्गमय</span><svg class="sym" aria-hidden="true"><use href="#lotus"/></svg><span class="shloka">कर्मण्येवाधिकारस्ते</span><svg class="sym" aria-hidden="true"><use href="#diya"/></svg><span class="shloka">सर्वे भवन्तु सुखिनः</span><svg class="sym" aria-hidden="true"><use href="#lotus"/></svg><span class="shloka">असतो मा सद्गमय</span><svg class="sym" aria-hidden="true"><use href="#diya"/></svg><span class="shloka">ॐ शान्तिः शान्तिः शान्तिः</span><svg class="sym" aria-hidden="true"><use href="#lotus"/></svg><span class="shloka">योगः कर्मसु कौशलम्</span><svg class="sym" aria-hidden="true"><use href="#diya"/></svg><span class="shloka">तमसो मा ज्योतिर्गमय</span><svg class="sym" aria-hidden="true"><use href="#lotus"/></svg><span class="shloka">कर्मण्येवाधिकारस्ते</span><svg class="sym" aria-hidden="true"><use href="#diya"/></svg><span class="shloka">सर्वे भवन्तु सुखिनः</span><svg class="sym" aria-hidden="true"><use href="#lotus"/></svg><span class="shloka">असतो मा सद्गमय</span><svg class="sym" aria-hidden="true"><use href="#diya"/></svg></div>
+    <div class="marquee-track"><span class="shloka">ॐ शान्तिः शान्तिः शान्तिः</span><span class="marquee-om" aria-hidden="true">ॐ</span><span class="shloka">योगः कर्मसु कौशलम्</span><span class="marquee-om" aria-hidden="true">ॐ</span><span class="shloka">तमसो मा ज्योतिर्गमय</span><span class="marquee-om" aria-hidden="true">ॐ</span><span class="shloka">कर्मण्येवाधिकारस्ते</span><span class="marquee-om" aria-hidden="true">ॐ</span><span class="shloka">सर्वे भवन्तु सुखिनः</span><span class="marquee-om" aria-hidden="true">ॐ</span><span class="shloka">असतो मा सद्गमय</span><span class="marquee-om" aria-hidden="true">ॐ</span><span class="shloka">ॐ शान्तिः शान्तिः शान्तिः</span><span class="marquee-om" aria-hidden="true">ॐ</span><span class="shloka">योगः कर्मसु कौशलम्</span><span class="marquee-om" aria-hidden="true">ॐ</span><span class="shloka">तमसो मा ज्योतिर्गमय</span><span class="marquee-om" aria-hidden="true">ॐ</span><span class="shloka">कर्मण्येवाधिकारस्ते</span><span class="marquee-om" aria-hidden="true">ॐ</span><span class="shloka">सर्वे भवन्तु सुखिनः</span><span class="marquee-om" aria-hidden="true">ॐ</span><span class="shloka">असतो मा सद्गमय</span><span class="marquee-om" aria-hidden="true">ॐ</span></div>
   </div>
 
   <!-- Editorial Reflection / Philosophy Quote -->
@@ -1492,7 +1597,7 @@
         <div class="truth rise">
           <span class="truth-label">At home</span>
           <h3>The advice</h3>
-          <p>Everyone has an opinion. The people who love you also have a stake in what you choose.</p>
+          <p>Everyone has an opinion. The people who love you also want a say in what you choose.</p>
         </div>
       </div>
 
@@ -1505,7 +1610,7 @@
       <span class="section-eyebrow">Clarity Finder</span>
       <h2 class="section-heading rise">Which one sounds like you?</h2>
       <p class="section-intro">
-        Tap the closest one. I will show you what usually helps.
+        Tap the one that feels closest. I will show you what usually helps.
       </p>
 
       <div class="diag-split rise">
@@ -1576,7 +1681,7 @@
         </p>
 
         <div class="reveal-actions">
-          <a href="#booking" id="diagBookBtn" class="btn-solid" style="font-size:0.875rem">Book this session →</a>
+          <a href="#booking" id="diagBookBtn" class="btn-solid" style="font-size:0.875rem">Book this session</a>
           <span style="font-size:0.8rem;color:var(--text-faint)">Written summary on WhatsApp within 24 hours</span>
         </div>
       </div>
@@ -1595,15 +1700,15 @@
       <div class="relief-list">
         <div class="relief-item rise">
           <h3>You can say the problem in one sentence.</h3>
-          <p>Much of the weight comes from not knowing what the real problem is. Naming it is the first relief.</p>
+          <p>A lot of the heaviness comes from not knowing what the real problem is. Naming it is the first relief.</p>
         </div>
         <div class="relief-item rise">
           <h3>You leave with three steps, not thirty.</h3>
-          <p>Small enough to start tomorrow morning, clear enough to know when you have done them.</p>
+          <p>Small enough to start tomorrow morning, and clear enough to know when you are done.</p>
         </div>
         <div class="relief-item rise">
           <h3>You stop carrying it alone.</h3>
-          <p>Someone outside your head, with no stake in your answer, has listened and thought it through with you.</p>
+          <p>Someone outside your situation has listened and thought it through with you.</p>
         </div>
       </div>
     </div>
@@ -1745,7 +1850,7 @@
         <div class="cal-container">
           <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;flex-wrap:wrap;gap:0.5rem">
             <span style="font-size:0.85rem;color:var(--text-muted)">Live availability, booked on Google Meet</span>
-            <a href="https://cal.com/harsh-upadhyay-tsgoiw/clarity-call-30" target="_blank" rel="noopener noreferrer" style="font-size:0.8rem;color:var(--accent);font-weight:500">Open in new tab ↗</a>
+            <a href="https://cal.com/harsh-upadhyay-tsgoiw/clarity-call-30" target="_blank" rel="noopener noreferrer" style="font-size:0.8rem;color:var(--accent);font-weight:500">Open in new tab</a>
           </div>
           <div style="width:100%;height:620px;overflow:scroll" id="my-cal-inline"></div>
           <script type="text/javascript">
@@ -1841,7 +1946,7 @@
               <button type="button" class="step-back" id="stepBack" hidden>Back</button>
               <button type="button" class="form-btn step-next" id="stepNext">Continue</button>
               <button type="submit" id="submitBtn" class="form-btn" hidden>
-                Pay ₹299 securely →
+                Pay ₹299 securely
               </button>
             </div>
 
@@ -1860,8 +1965,8 @@
     <div class="container faq-split">
       <div class="faq-intro">
         <h2 class="section-heading rise">Common questions</h2>
-        <p>Cannot find your answer? Message me and I will reply.</p>
-        <a class="btn-outline" href="https://www.instagram.com/timelinebyharsh/" target="_blank" rel="noopener noreferrer">Message on Instagram</a>
+        <p>Something else on your mind?</p>
+        <a class="hero-link" href="https://www.instagram.com/timelinebyharsh/" target="_blank" rel="noopener noreferrer">Message me on Instagram</a>
       </div>
 
       <div class="faq-stack">
@@ -1923,7 +2028,7 @@
           <span class="book-tag">Discipline</span>
           <div class="book-title">Atomic Habits</div>
           <p class="book-desc">James Clear's practical framework for breaking destructive loops and building steady daily momentum.</p>
-          <a href="https://www.amazon.in/dp/1847941834?tag=timelineharsh-21" target="_blank" rel="noopener noreferrer" class="book-link">View on Amazon ↗</a>
+          <a href="https://www.amazon.in/dp/1847941834?tag=timelineharsh-21" target="_blank" rel="noopener noreferrer" class="book-link">View on Amazon</a>
         </div>
 
         <!-- Item 2: Bhagavad Gita -->
@@ -1938,7 +2043,7 @@
           <span class="book-tag">Philosophy</span>
           <div class="book-title">The Bhagavad Gita As It Is</div>
           <p class="book-desc">A timeless manual on duty, detaching from outcome anxiety, and finding clarity in life's battles.</p>
-          <a href="https://www.amazon.in/dp/9384564227?tag=timelineharsh-21" target="_blank" rel="noopener noreferrer" class="book-link">View on Amazon ↗</a>
+          <a href="https://www.amazon.in/dp/9384564227?tag=timelineharsh-21" target="_blank" rel="noopener noreferrer" class="book-link">View on Amazon</a>
         </div>
 
         <!-- Item 3: Rudraksha Mala -->
@@ -1958,7 +2063,7 @@
           <span class="book-tag">Grounding</span>
           <div class="book-title">5-Mukhi Rudraksha Mala</div>
           <p class="book-desc">108+1 certified beads used for daily mantra dhyan and emotional centering during busy workdays.</p>
-          <a href="https://www.amazon.in/s?k=5+mukhi+rudraksha+mala+certified&tag=timelineharsh-21" target="_blank" rel="noopener noreferrer" class="book-link">View on Amazon ↗</a>
+          <a href="https://www.amazon.in/s?k=5+mukhi+rudraksha+mala+certified&tag=timelineharsh-21" target="_blank" rel="noopener noreferrer" class="book-link">View on Amazon</a>
         </div>
 
         <!-- Item 4: Analog Focus Timer -->
@@ -1972,7 +2077,7 @@
           <span class="book-tag">Deep Work</span>
           <div class="book-title">Analog Visual Focus Timer</div>
           <p class="book-desc">A mechanical timer to replace phone timers, eliminating notifications during 30-minute focus blocks.</p>
-          <a href="https://www.amazon.in/s?k=pomodoro+timer+analog&tag=timelineharsh-21" target="_blank" rel="noopener noreferrer" class="book-link">View on Amazon ↗</a>
+          <a href="https://www.amazon.in/s?k=pomodoro+timer+analog&tag=timelineharsh-21" target="_blank" rel="noopener noreferrer" class="book-link">View on Amazon</a>
         </div>
       </div>
     </div>
@@ -2020,7 +2125,7 @@
           </div>
         </a>
         <p>Private one-on-one calls for overthinking, daily routine and big life decisions.</p>
-        <a class="footer-ig" href="https://www.instagram.com/timelinebyharsh/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+        <a class="footer-ig" href="https://www.instagram.com/timelinebyharsh/" target="_blank" rel="noopener noreferrer">Instagram</a>
       </div>
 
       <nav class="footer-col" aria-label="Explore">
@@ -2062,6 +2167,35 @@
   </footer>
 
   
+
+  <!-- UPI payment step (shown after a Cal.com booking is requested) -->
+  <div class="pay-modal" id="payModal" hidden role="dialog" aria-modal="true" aria-labelledby="payTitle">
+    <div class="pay-card">
+      <button type="button" class="pay-close" id="payClose" aria-label="Close">&times;</button>
+      <p class="pay-kicker">Booking requested</p>
+      <h3 id="payTitle">One last step</h3>
+      <p class="pay-sub" id="paySub"></p>
+
+      <div id="payBlock">
+        <p class="pay-lead">Pay to confirm your slot. I confirm the booking once I see the payment.</p>
+        <div class="pay-amount" id="payAmount"></div>
+        <div class="pay-qr" id="payQr" aria-label="UPI QR code"></div>
+        <a class="btn-solid pay-app" id="payApp" href="#">Pay with UPI app</a>
+        <p class="pay-vpa">UPI ID: <b id="payVpa"></b> <button type="button" id="payCopy">Copy</button></p>
+
+        <form class="utr" id="utrForm" novalidate>
+          <label for="utrEmail">Email you booked with</label>
+          <input type="email" id="utrEmail" autocomplete="email" placeholder="you@example.com" required>
+          <label for="utrRef">UTR or reference number from your UPI app</label>
+          <input type="text" id="utrRef" placeholder="12 digit number" required autocomplete="off">
+          <button type="submit" class="btn-solid" id="utrSend">I have paid</button>
+          <p class="pay-err" id="utrErr" role="alert"></p>
+        </form>
+      </div>
+
+      <p class="pay-done" id="payDone" hidden>Thank you. I will check the payment and confirm your booking. Cal.com will email you the Meet link once it is confirmed.</p>
+    </div>
+  </div>
 
   <!-- Compact Mobile Sticky Bar -->
   <div class="mobile-bar" id="mobileBar" aria-hidden="true">
@@ -2129,7 +2263,7 @@
       if (!trackSelect || !submitBtn) return;
       const selectedOption = trackSelect.options[trackSelect.selectedIndex];
       const price = selectedOption.getAttribute("data-price") || "299";
-      submitBtn.textContent = `Pay ₹${price} securely →`;
+      submitBtn.textContent = `Pay ₹${price} securely`;
     }
 
     if (trackSelect) {
@@ -2421,19 +2555,108 @@
   </script>
 
   <script>
-    /* header + mobile "Book a call" show only when the hero button is out of view and the booking section is not on screen */
+    /* mobile "Book a call" bar: show once the hero button is out of view, hide while the booking section is on screen */
     (function () {
-      var hero = document.getElementById('heroCta'), book = document.getElementById('booking');
-      var hdr = document.querySelector('.header-cta'), bar = document.getElementById('mobileBar');
-      if (!hero || !book || !('IntersectionObserver' in window)) { if (hdr) hdr.classList.add('show'); if (bar) bar.classList.add('show'); return; }
+      var hero = document.getElementById('heroCta'), book = document.getElementById('booking'), bar = document.getElementById('mobileBar');
+      if (!bar) return;
+      if (!hero || !book || !('IntersectionObserver' in window)) { bar.classList.add('show'); return; }
       var heroSeen = true, bookSeen = false;
       function apply() {
         var on = !heroSeen && !bookSeen;
-        if (hdr) hdr.classList.toggle('show', on);
-        if (bar) { bar.classList.toggle('show', on); bar.setAttribute('aria-hidden', on ? 'false' : 'true'); var a = bar.querySelector('a'); if (a) a.tabIndex = on ? 0 : -1; }
+        bar.classList.toggle('show', on);
+        bar.setAttribute('aria-hidden', on ? 'false' : 'true');
+        var a = bar.querySelector('a'); if (a) a.tabIndex = on ? 0 : -1;
       }
       new IntersectionObserver(function (e) { heroSeen = e[0].isIntersecting; apply(); }).observe(hero);
       new IntersectionObserver(function (e) { bookSeen = e[0].isIntersecting; apply(); }, { threshold: 0.15 }).observe(book);
+    })();
+  </script>
+
+  <script>
+    /* UPI payment step after a Cal.com booking.
+       Set upiId to Harsh's UPI ID (ideally a business VPA). While it is empty the step shows a plain thank-you and no QR. */
+    (function () {
+      var SITE = { upiId: '', upiName: 'Timeline by Harsh' };
+      var PRICE = { 'clarity-call-30': 299, 'dincharya-45': 499, 'deep-dive-60': 699 };
+      var NAME = { 'clarity-call-30': 'Clarity Call', 'dincharya-45': 'Dincharya Reset', 'deep-dive-60': 'Deep Dive' };
+      var modal = document.getElementById('payModal');
+      if (!modal) return;
+      var $ = function (id) { return document.getElementById(id); };
+      var current = { slug: 'clarity-call-30', when: '' };
+
+      function slugNow(data) {
+        var s = data && data.eventType && data.eventType.slug;
+        if (s && PRICE[s]) return s;
+        var a = document.querySelector('#panel-cal a[target="_blank"]');
+        var m = a && a.href.match(/\/([a-z0-9-]+)\/?$/);
+        return m && PRICE[m[1]] ? m[1] : 'clarity-call-30';
+      }
+      function when(data) {
+        var t = data && (data.startTime || (data.booking && data.booking.startTime));
+        if (!t) return '';
+        var d = new Date(t);
+        if (isNaN(d)) return '';
+        return d.toLocaleString('en-IN', { weekday: 'short', day: 'numeric', month: 'short', hour: 'numeric', minute: '2-digit' });
+      }
+      function open(data) {
+        current.slug = slugNow(data); current.when = when(data);
+        var amount = PRICE[current.slug];
+        $('paySub').textContent = NAME[current.slug] + (current.when ? ' · ' + current.when : '');
+        $('payDone').hidden = true;
+        $('utrErr').textContent = '';
+        if (SITE.upiId) {
+          var link = 'upi://pay?pa=' + encodeURIComponent(SITE.upiId) + '&pn=' + encodeURIComponent(SITE.upiName) + '&am=' + amount + '&cu=INR&tn=' + encodeURIComponent(NAME[current.slug] + ' booking');
+          $('payAmount').textContent = '\u20B9' + amount;
+          $('payVpa').textContent = SITE.upiId;
+          $('payApp').href = link;
+          try { var q = qrcode(0, 'M'); q.addData(link); q.make(); $('payQr').innerHTML = q.createSvgTag(4, 0); } catch (e) { $('payQr').textContent = ''; }
+          $('payBlock').hidden = false;
+        } else {
+          $('payBlock').hidden = true;
+          $('payDone').hidden = false;
+          $('payDone').textContent = 'Thank you. Your booking is requested. I will confirm it by email shortly.';
+        }
+        modal.hidden = false;
+        document.body.style.overflow = 'hidden';
+      }
+      function close() { modal.hidden = true; document.body.style.overflow = ''; }
+
+      $('payClose').addEventListener('click', close);
+      modal.addEventListener('click', function (e) { if (e.target === modal) close(); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !modal.hidden) close(); });
+      $('payCopy').addEventListener('click', function () {
+        if (navigator.clipboard) navigator.clipboard.writeText(SITE.upiId).then(function () { $('payCopy').textContent = 'Copied'; setTimeout(function () { $('payCopy').textContent = 'Copy'; }, 1800); });
+      });
+
+      $('utrForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+        var email = $('utrEmail').value.trim(), utr = $('utrRef').value.trim(), err = $('utrErr');
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { err.textContent = 'Please enter the email you booked with.'; return; }
+        if (!/^[A-Za-z0-9]{8,24}$/.test(utr)) { err.textContent = 'Please enter the UTR or reference number from your UPI app.'; return; }
+        err.textContent = '';
+        var btn = $('utrSend'); btn.disabled = true; btn.textContent = 'Sending';
+        fetch('/api/upi-claim', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: email, utr: utr, amount: PRICE[current.slug], session: NAME[current.slug], slot: current.when }) })
+          .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
+          .then(function (res) {
+            if (!res.ok) throw new Error(res.j.error || 'Something went wrong.');
+            $('payBlock').hidden = true; $('payDone').hidden = false;
+            $('payDone').textContent = 'Thank you. I will check the payment and confirm your booking. Cal.com will email you the Meet link once it is confirmed.';
+          })
+          .catch(function (ex) { err.textContent = ex.message; btn.disabled = false; btn.textContent = 'I have paid'; });
+      });
+
+      function hook() {
+        if (!window.Cal) return setTimeout(hook, 400);
+        Cal('on', { action: 'bookingSuccessfulV2', callback: function (e) { open((e && e.detail && e.detail.data) || {}); } });
+      }
+      hook();
+      window.__openPayStep = open; /* handy for testing: __openPayStep({}) */
+    })();
+
+    /* header button is always there on desktop; only the mobile bar follows scroll */
+    (function () {
+      var hdr = document.querySelector('.header-cta'); if (hdr) hdr.classList.add('show');
     })();
   </script>
 </body>

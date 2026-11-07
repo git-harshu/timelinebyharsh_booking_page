@@ -107,3 +107,30 @@ export async function sendBookingEmails(notes, payment) {
   }
   return Promise.allSettled(jobs);
 }
+
+
+// 3) UPI payment claim: the visitor says they paid and gives the UTR. Harsh checks his bank app, then accepts the booking in Cal.com.
+export async function sendPaymentClaim({ email, utr, amount, session, slot }) {
+  const t = transport();
+  const from = `"Harsh | Timeline by Harsh" <${process.env.GMAIL_USER}>`;
+  const owner = process.env.OWNER_EMAIL || process.env.GMAIL_USER;
+
+  const table = `<table style="border-collapse:collapse;width:100%;background:#FAF8F5;border:1px solid #E7E2D9;border-radius:8px;overflow:hidden">
+    ${row("Booked with email", email)}
+    ${row("Session", session)}
+    ${row("Slot", slot)}
+    ${row("Amount to check", "\u20B9" + amount)}
+    ${row("UTR / reference", utr)}
+  </table>
+  <p style="font-size:14px;line-height:1.6;color:#5E6470;margin-top:16px">
+    Check this payment in your bank or UPI app. If it matches, accept the booking in Cal.com (Bookings, Unconfirmed). If it does not, reply to this email.
+  </p>`;
+
+  const jobs = [
+    t.sendMail({ from, to: owner, replyTo: email, subject: `UPI payment to verify: \u20B9${amount} (${session})`, html: shell("UPI payment to verify", table) })
+  ];
+  const ack = `<p style="font-size:15px;line-height:1.6;color:#21252B">Thank you. I have your payment reference <b>${esc(utr)}</b> for <b>${esc(session)}</b>.</p>
+    <p style="font-size:14px;line-height:1.6;color:#5E6470">I will check it and confirm your booking. Cal.com will email you the Google Meet link once it is confirmed. If you do not hear from me within a few hours, reply to this email.</p>`;
+  jobs.push(t.sendMail({ from, to: email, replyTo: owner, subject: "I received your payment reference", html: shell("Payment reference received", ack) }));
+  return Promise.allSettled(jobs);
+}
