@@ -266,6 +266,8 @@ node('See the guide', 'Guide dekhein')
 node('Hindu history, temples, rituals and scriptures, told in simple Hindi on Instagram. Pick a topic to see what I share and what is coming.', 'Hindu itihaas, mandir, rituals aur shaastra, Instagram par aasaan Hindi mein. Ek topic chunein aur dekhein main kya share karta hoon aur aage kya aa raha hai.')
 node('Festival calendars, preparation and the meaning behind each vrat.', 'Tyohaaron ka calendar, taiyaari aur har vrat ka matlab.')
 
+node('No email after a few hours? Check your spam folder, or', 'Kuch ghanton baad bhi email nahi aaya? Spam folder check karein, ya')
+
 # JS strings
 J = [
  ('The stories, history and heritage behind our temples, told simply.', 'Hamare mandiron ke peeche ki kahaniyan, itihaas aur virasat, aasaan shabdon mein.'),

@@ -1744,6 +1744,35 @@
     .pay-modal.noqr .pay-app { display: inline-flex; }
     .btn-solid[hidden], .pay-fallback[hidden], .pay-app[hidden] { display: none !important; }
     .b-ig { padding: 0.34rem 0; }
+
+    /* =========================================================
+       r20: payment popup wider and shorter on desktop, UPI app button on touch devices;
+            smaller EN | HI switch
+       ========================================================= */
+    .pay-card { max-height: calc(100vh - 2rem); overflow-y: auto; }
+    @media (hover: hover) and (min-width: 820px) {
+      .pay-card { max-width: 44rem; padding: 1.5rem 2rem 1.75rem; }
+      .pay-card h3 { font-size: 1.5rem; }
+      .pay-sub { margin: 0.2rem 0 0.6rem; }
+      .pay-lead { max-width: 30rem; margin: 0 auto 1rem; }
+      .pay-cols { display: grid; grid-template-columns: 14rem minmax(0, 1fr); gap: 2rem; align-items: start; text-align: left; }
+      .pay-left { text-align: center; }
+      .pay-amount { font-size: 2rem; margin-bottom: 0.7rem; }
+      .pay-qr { width: 10.5rem; height: 10.5rem; margin: 0 auto 0.7rem; }
+      .pay-vpa { margin-bottom: 0; }
+      .utr { border-top: 0; padding-top: 0; }
+    }
+    @media (max-height: 720px) and (hover: hover) { .pay-qr { width: 9rem; height: 9rem; } .pay-card { padding-top: 1.1rem; padding-bottom: 1.25rem; } }
+    /* touch devices (any width): no QR, a button that opens the UPI app */
+    @media (pointer: coarse), (max-width: 767px) { .pay-qr { display: none; } .pay-app { display: inline-flex; } }
+
+    .lang-switch { padding: 2px; }
+    .lang-switch a, .lang-switch span { min-width: 34px; min-height: 28px; padding: 0 0.5rem; font-size: 0.72rem; }
+    @media (max-width: 820px) { .lang-switch a, .lang-switch span { min-width: 38px; min-height: 32px; } }
+    @media (max-width: 400px) { .lang-switch a, .lang-switch span { min-width: 34px; min-height: 32px; padding: 0 0.4rem; } }
+    .pay-help { margin-top: 1.1rem; font-size: 0.8rem; color: var(--text-faint); text-align: center; }
+    .pay-help a { color: var(--text-muted); text-decoration: underline; text-decoration-color: var(--border-strong); text-underline-offset: 3px; }
+    .pay-help a:hover { color: var(--accent); }
   </style>
 </head>
 <body>
@@ -2454,10 +2483,13 @@
 
       <div id="payBlock">
         <p class="pay-lead">Apna slot pakka karne ke liye payment karein. Payment dikhte hi main booking confirm kar doonga.</p>
+        <div class="pay-cols">
+        <div class="pay-left">
         <div class="pay-amount" id="payAmount"></div>
         <div class="pay-qr" id="payQr" aria-label="UPI QR code"></div>
         <a class="btn-solid pay-app" id="payApp" href="#">Pay with UPI app</a>
         <p class="pay-vpa">UPI ID: <b id="payVpa"></b> <button type="button" id="payCopy">Copy</button></p>
+        </div>
 
         <form class="utr" id="utrForm" novalidate>
           <label for="utrEmail">Email you booked with</label>
@@ -2467,6 +2499,8 @@
           <button type="submit" class="btn-solid" id="utrSend">I have paid</button>
           <p class="pay-err" id="utrErr" role="alert"></p>
         </form>
+        </div>
+        <p class="pay-help">Kuch ghanton baad bhi email nahi aaya? Spam folder check karein, ya <a href="https://www.instagram.com/timelinebyharsh/" target="_blank" rel="noopener noreferrer">message me on Instagram</a>.</p>
       </div>
 
       <p class="pay-done" id="payDone" hidden>Dhanyavaad. Main payment dekhkar aapki booking confirm karoonga. Confirm hote hi Cal.com aapko Meet link email kar dega.</p>

@@ -10,7 +10,7 @@
     if (['H1','H2','H3','H4','P','LI','A','BUTTON','SPAN','LABEL','SUMMARY'].includes(e.tagName) && e.scrollWidth > e.clientWidth + 2 && cs.overflowX !== 'auto' && cs.overflowX !== 'scroll' && cs.display !== 'inline') out.clip.push(name(e) + ':' + e.scrollWidth + '>' + e.clientWidth);
     if (iw <= 820 && ['A', 'BUTTON', 'SUMMARY', 'INPUT', 'SELECT', 'TEXTAREA'].includes(e.tagName) && !(e.tagName === 'INPUT' && (e.type === 'checkbox' || e.type === 'radio')) && cs.position !== 'fixed') {
       const insideText = e.tagName === 'A' && e.closest('p,li') && !e.closest('.footer-col,.footer-bottom,nav');
-      const brandLink = e.classList.contains('b-name') || e.classList.contains('b-ig');
+      const brandLink = e.classList.contains('b-name') || e.classList.contains('b-ig') || !!e.closest('.lang-switch');
       if (!insideText && (brandLink ? r.height < 24 : (r.height < 40 || r.width < 40))) out.tap.push(name(e) + ':' + Math.round(r.width) + 'x' + Math.round(r.height) + '|' + (e.textContent || '').trim().slice(0, 18));
     }
     const own = [...e.childNodes].some(n => n.nodeType === 3 && n.textContent.trim());

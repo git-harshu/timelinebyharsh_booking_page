@@ -123,3 +123,9 @@ article a{text-decoration:underline}
 @media(max-width:767px){body{padding-bottom:5rem}}
 
 .b-ig{padding:.34rem 0}
+
+/* r20: smaller EN | HI switch */
+.lang-switch{padding:2px}
+.lang-switch a,.lang-switch span{min-width:34px;min-height:28px;padding:0 .5rem;font-size:.72rem}
+@media(max-width:820px){.lang-switch a,.lang-switch span{min-width:38px;min-height:32px}}
+@media(max-width:400px){.lang-switch a,.lang-switch span{min-width:34px;min-height:32px;padding:0 .4rem}}
