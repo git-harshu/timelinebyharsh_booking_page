@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hero option C | Timeline by Harsh</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="base.css">
+<style>
+
+.hero{min-height:calc(100vh - 4.25rem);display:flex;align-items:center;background:var(--bg);padding:4rem 0}
+.grid{display:grid;grid-template-columns:1fr;gap:3.5rem;align-items:center;width:100%}
+@media(min-width:960px){.grid{grid-template-columns:1fr 1fr;gap:5rem}}
+.copy>*{animation:settle 1.2s var(--ease) both}
+.copy>:nth-child(2){animation-delay:.15s}.copy>:nth-child(3){animation-delay:.3s}
+h1{font-size:clamp(2.6rem,4.8vw,4.4rem);line-height:1.08;margin-bottom:1.5rem;max-width:13ch}
+.lead{font-size:1.2rem;max-width:30rem;margin-bottom:2.25rem}
+.thoughts{display:grid;gap:.9rem;max-width:30rem;width:100%;margin:0 auto}
+.card{background:#fff;border:1px solid var(--border);border-radius:20px;padding:1.1rem 1.4rem;box-shadow:0 1px 2px rgba(33,37,43,.04);opacity:0;animation:settle 1s var(--ease) forwards;transition:border-color .3s,box-shadow .3s}
+.card:hover{border-color:rgba(255,111,30,.5);box-shadow:0 10px 30px rgba(33,37,43,.06)}
+.card:nth-child(1){animation-delay:.3s;margin-right:3rem}
+.card:nth-child(2){animation-delay:.6s;margin-left:1.5rem;margin-right:1.5rem}
+.card:nth-child(3){animation-delay:.9s;margin-left:3rem}
+.card small{display:block;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--faint);margin-bottom:.25rem}
+.card p{font-family:var(--display);font-size:1.3rem;line-height:1.3}
+.card.relief{background:var(--accent);border-color:var(--accent);color:#fff;animation-delay:1.4s;margin-top:.6rem;display:flex;align-items:center;gap:1rem}
+.card.relief small{color:rgba(255,255,255,.8)}
+.card.relief .om{font-size:2.2rem;flex-shrink:0;transform:translateY(.1em)}
+@media(max-width:959px){.hero{min-height:0;padding:3rem 0}.copy{text-align:center}.copy h1{max-width:none}.copy .lead{margin-left:auto;margin-right:auto}.actions{justify-content:center}.card:nth-child(n){margin-left:0;margin-right:0}}
+
+</style>
+</head>
+<body>
+<header><div class="wrap bar">
+  <a class="brand" href="#"><img src="../assets/logo.jpg" width="40" height="40" alt="Harsh Upadhyay"><span><b>Timeline by Harsh</b><small>@timelinebyharsh</small></span></a>
+  <nav><ul><li><a href="#">Find your fit</a></li><li><a href="#">How it works</a></li><li><a href="#">Sessions</a></li><li><a href="#">Questions</a></li></ul></nav>
+  <a class="cta" href="#">Book a call</a>
+</div></header>
+<section class="hero"><div class="wrap grid">
+  <div class="copy">
+    <h1>You keep thinking about it. And <em>nothing moves.</em></h1>
+    <p class="lead">Overthinking at night, a routine that fades by Thursday, a decision everyone has an opinion on. You do not need another pep talk. You need someone to think it through with.</p>
+    <div class="actions"><a class="btn" href="#">What is on your mind?</a><a class="link" href="#">Or book a call</a></div>
+  </div>
+  <div class="thoughts" aria-hidden="true">
+    <div class="card"><small>2:13 am</small><p>Same thought, again. Still no answer.</p></div>
+    <div class="card"><small>Thursday</small><p>Monday's plan is already gone.</p></div>
+    <div class="card"><small>At home</small><p>Everyone has an opinion. None of them is yours.</p></div>
+    <div class="card relief"><span class="om">ॐ</span><div><small>After one conversation</small><p>One clear problem. Three steps for tomorrow.</p></div></div>
+  </div>
+</div></section>
+<div class="marquee" aria-hidden="true"><div class="track"><span>ॐ शान्तिः शान्तिः शान्तिः</span><span class="o">ॐ</span><span>योगः कर्मसु कौशलम्</span><span class="o">ॐ</span><span>तमसो मा ज्योतिर्गमय</span><span class="o">ॐ</span><span>कर्मण्येवाधिकारस्ते</span><span class="o">ॐ</span><span>सर्वे भवन्तु सुखिनः</span><span class="o">ॐ</span><span>असतो मा सद्गमय</span><span class="o">ॐ</span><span>ॐ शान्तिः शान्तिः शान्तिः</span><span class="o">ॐ</span><span>योगः कर्मसु कौशलम्</span><span class="o">ॐ</span><span>तमसो मा ज्योतिर्गमय</span><span class="o">ॐ</span><span>कर्मण्येवाधिकारस्ते</span><span class="o">ॐ</span><span>सर्वे भवन्तु सुखिनः</span><span class="o">ॐ</span><span>असतो मा सद्गमय</span><span class="o">ॐ</span></div></div>
+<section class="peek"><div class="wrap"><h2>It is rarely a lack of discipline.</h2></div></section>
+<div class="peek-note">Option C: problem cards ending in relief</div>
+</body>
+</html>

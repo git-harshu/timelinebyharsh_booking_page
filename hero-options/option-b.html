@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hero option B | Timeline by Harsh</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="base.css">
+<style>
+
+.hero{position:relative;overflow:hidden;min-height:calc(100vh - 4.25rem);display:flex;flex-direction:column;align-items:center;justify-content:flex-start;text-align:center;padding:clamp(3.5rem,9vh,6.5rem) 0 0;background:linear-gradient(180deg,#fff 0%,#FDF6EE 60%,#FBE9D8 100%)}
+.stack{position:relative;z-index:2;max-width:56rem;padding:0 1.5rem}
+.stack>*{animation:settle 1.2s var(--ease) both}
+.stack>:nth-child(2){animation-delay:.15s}.stack>:nth-child(3){animation-delay:.3s}
+h1{font-size:clamp(2.6rem,5.6vw,5rem);line-height:1.06;margin-bottom:1.5rem}
+.lead{font-size:1.2rem;max-width:36rem;margin:0 auto 2.25rem}
+.actions{justify-content:center}
+.dome{position:absolute;left:50%;bottom:0;width:min(1100px,140vw);height:clamp(260px,38vh,380px);transform:translateX(-50%);overflow:hidden;z-index:1}
+.dome i{position:absolute;left:50%;border-radius:50%;transform:translateX(-50%)}
+.d1{top:6%;width:100%;aspect-ratio:1;background:#FBE5D3}
+.d2{top:26%;width:70%;aspect-ratio:1;background:#F8D3B6}
+.d3{top:46%;width:42%;aspect-ratio:1;background:#F4BE96}
+.dome .rp{position:absolute;left:50%;top:60%;width:100%;aspect-ratio:1;margin-left:-50%;margin-top:-50%;border-radius:50%;border:1.5px solid var(--accent);opacity:0;animation:ripple 8s cubic-bezier(.2,.6,.3,1) infinite}
+.dome .rp:nth-of-type(2){animation-delay:2.7s}.dome .rp:nth-of-type(3){animation-delay:5.4s}
+.bindu{position:absolute;left:50%;bottom:2.25rem;width:7.5rem;height:7.5rem;margin-left:-3.75rem;border-radius:50%;background:var(--accent);display:grid;place-items:center;box-shadow:0 10px 30px rgba(255,111,30,.3);z-index:3}
+.bindu .om{color:#fff;font-size:3.6rem;transform:translateY(.177em)}
+@media(max-width:700px){.hero{min-height:0;padding-bottom:0}.dome{height:230px}.bindu{width:5.5rem;height:5.5rem;margin-left:-2.75rem;bottom:1.5rem}.bindu .om{font-size:2.6rem}}
+
+</style>
+</head>
+<body>
+<header><div class="wrap bar">
+  <a class="brand" href="#"><img src="../assets/logo.jpg" width="40" height="40" alt="Harsh Upadhyay"><span><b>Timeline by Harsh</b><small>@timelinebyharsh</small></span></a>
+  <nav><ul><li><a href="#">Find your fit</a></li><li><a href="#">How it works</a></li><li><a href="#">Sessions</a></li><li><a href="#">Questions</a></li></ul></nav>
+  <a class="cta" href="#">Book a call</a>
+</div></header>
+<section class="hero">
+  <div class="stack">
+    <h1>You keep thinking about it.<br>And <em>nothing moves.</em></h1>
+    <p class="lead">Overthinking at night, a routine that fades by Thursday, a decision everyone has an opinion on. You do not need another pep talk. You need someone to think it through with.</p>
+    <div class="actions"><a class="btn" href="#">What is on your mind?</a><a class="link" href="#">Or book a call</a></div>
+  </div>
+  <div class="dome" aria-hidden="true"><i class="d1"></i><i class="d2"></i><i class="d3"></i><span class="rp"></span><span class="rp"></span><span class="rp"></span></div>
+  <span class="bindu" aria-hidden="true"><span class="om">ॐ</span></span>
+</section>
+<div class="marquee" aria-hidden="true"><div class="track"><span>ॐ शान्तिः शान्तिः शान्तिः</span><span class="o">ॐ</span><span>योगः कर्मसु कौशलम्</span><span class="o">ॐ</span><span>तमसो मा ज्योतिर्गमय</span><span class="o">ॐ</span><span>कर्मण्येवाधिकारस्ते</span><span class="o">ॐ</span><span>सर्वे भवन्तु सुखिनः</span><span class="o">ॐ</span><span>असतो मा सद्गमय</span><span class="o">ॐ</span><span>ॐ शान्तिः शान्तिः शान्तिः</span><span class="o">ॐ</span><span>योगः कर्मसु कौशलम्</span><span class="o">ॐ</span><span>तमसो मा ज्योतिर्गमय</span><span class="o">ॐ</span><span>कर्मण्येवाधिकारस्ते</span><span class="o">ॐ</span><span>सर्वे भवन्तु सुखिनः</span><span class="o">ॐ</span><span>असतो मा सद्गमय</span><span class="o">ॐ</span></div></div>
+<section class="peek"><div class="wrap"><h2>It is rarely a lack of discipline.</h2></div></section>
+<div class="peek-note">Option B: centered, rising dome</div>
+</body>
+</html>

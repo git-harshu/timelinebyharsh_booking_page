@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Timeline by Harsh | Personal guidance calls</title>
+  <link rel="alternate" hreflang="hi" href="hi/index.html">
   <meta name="description" content="Overthinking, a routine that will not stick, a decision you cannot make alone? Private one-on-one calls with Harsh Upadhyay to think it through.">
   
   <!-- Open Graph -->
@@ -1505,6 +1506,70 @@
       .diag-reveal { position: static; display: flex; flex-direction: column; }
       .diag-reveal .reveal-actions { margin-top: auto; }
     }
+
+    /* language switch */
+    .hdr-actions { display: flex; align-items: center; gap: 1.25rem; }
+    .lang-switch { font-size: 0.85rem; font-weight: 500; color: var(--text-muted); padding: 0.35rem 0.7rem; border: 1px solid var(--border-strong); border-radius: 9999px; transition: color 0.2s, border-color 0.2s; }
+    .lang-switch:hover { color: var(--accent); border-color: var(--accent); }
+
+    /* =========================================================
+       r13: mobile layout. Hero order, centred text, stacking cards, expanding finder
+       ========================================================= */
+    @media (max-width: 899px) {
+      /* hero: heading, graphic, description, buttons */
+      .hero-grid { display: grid; grid-template-columns: 1fr; gap: 0; justify-items: center; text-align: center; }
+      .hero-copy { display: contents; }
+      .hero-headline { order: 1; margin: 0 auto 1.5rem; text-align: center; }
+      .hero-art { order: 2; width: min(58vw, 230px); margin: 0 auto 1.75rem; }
+      .hero-summary { order: 3; margin: 0 auto 1.75rem; text-align: center; }
+      .hero-actions { order: 4; justify-content: center; margin: 0; }
+    }
+
+    @media (max-width: 767px) {
+      /* centre everything */
+      .relief-intro, .faq-intro { text-align: center; }
+      .relief-intro .section-heading, .faq-intro .section-heading { text-align: center; }
+      .relief-intro p, .faq-intro p { margin-left: auto; margin-right: auto; }
+      .relief-item { text-align: center; }
+      .relief-item p { margin-left: auto; margin-right: auto; }
+      .journey-step { text-align: center; }
+      .service-row { text-align: center; }
+      .sym-svc { margin-left: auto; margin-right: auto; }
+      .service-action-col .service-fee { text-align: center; }
+      .incl { text-align: center; }
+      .incl ul { text-align: left; display: inline-block; }
+      .book-card { text-align: center; }
+      .faq-stack { text-align: left; }
+
+      /* the three moments: cards that stack on top of each other as you scroll */
+      .truths { display: block; margin: 2.25rem auto 2.5rem; }
+      .truth { position: sticky; top: calc(5.25rem + var(--i, 0) * 0.9rem); margin-bottom: 1.1rem; padding: 2.25rem 1.5rem; min-height: 15rem; border-radius: 26px; text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center; box-shadow: 0 12px 30px rgba(33,37,43,0.08); }
+      .truth:nth-child(1) { --i: 0; background: var(--tint); }
+      .truth:nth-child(2) { --i: 1; background: var(--accent); }
+      .truth:nth-child(3) { --i: 2; background: var(--tint); }
+      .truth:nth-child(2) .truth-label, .truth:nth-child(2) h3, .truth:nth-child(2) p { color: #fff; }
+      .truth:nth-child(2) .truth-label { opacity: 0.85; }
+      .truth:hover h3 { color: inherit; }
+      .truth:nth-child(2):hover h3 { color: #fff; }
+      .truth p { max-width: 20rem; }
+
+      /* finder: the detail opens under the chosen card */
+      .diag-split { display: block; }
+      .diag-cards-grid { display: block !important; }
+      .diag-cards-grid > .diag-card-btn { margin-bottom: 0.85rem; scroll-margin-top: 5.5rem; }
+      .diag-reveal { margin: -0.1rem 0 1rem; padding: 1.75rem 1.4rem; position: static; animation: settleIn 0.5s var(--ease) both; }
+      .diag-reveal[hidden] { display: none; }
+      .reveal-header { flex-direction: column; align-items: flex-start; }
+      .reveal-actions { flex-direction: column; align-items: stretch; gap: 0.75rem; text-align: center; }
+      .reveal-actions .btn-solid { width: 100%; }
+    }
+
+    @media (max-width: 767px) { .header-cta { display: none; } .brand-title { font-size: 0.95rem; } }
+
+    /* all cards share one 12px radius */
+    :root { --radius-md: 12px; --radius-lg: 12px; }
+    .diag-card-btn, .diag-reveal, .service-row, .book-card .book-art, .cal-container, .form-container, .pay-card, .step-summary, .pay-qr { border-radius: 12px; }
+    @media (max-width: 767px) { .truth { border-radius: 12px; } .diag-reveal { border-radius: 12px; } }
   </style>
 </head>
 <body>
@@ -1544,7 +1609,10 @@
         <li class="nav-item"><a href="#faq">Questions</a></li>
       </ul>
 
-      <a href="#booking" class="header-cta">Book a call</a>
+      <div class="hdr-actions">
+        <a class="lang-switch" href="hi/index.html" hreflang="hi" lang="hi">हिंदी</a>
+        <a href="#booking" class="header-cta">Book a call</a>
+      </div>
     </div>
   </header>
 
@@ -2435,7 +2503,7 @@
           </div>
 
           <a href="https://wa.me/91${formData.whatsapp.replace(/\D/g, '').slice(-10)}?text=${encodeURIComponent('Hi Harsh, I just booked my session for ' + formData.track + ' (Payment ID: ' + paymentId + ')')}" target="_blank" rel="noopener noreferrer" class="btn-solid" style="font-size:0.85rem">
-            Message on WhatsApp →
+            Message on WhatsApp
           </a>
         </div>
       `;
@@ -2657,6 +2725,41 @@
     /* header button is always there on desktop; only the mobile bar follows scroll */
     (function () {
       var hdr = document.querySelector('.header-cta'); if (hdr) hdr.classList.add('show');
+    })();
+  </script>
+
+  <script>
+    /* mobile finder: the detail card opens right under the chosen card; desktop keeps it in the right column */
+    (function () {
+      var split = document.querySelector('.diag-split'), reveal = document.getElementById('diagReveal');
+      var list = document.querySelector('.diag-cards-grid');
+      if (!split || !reveal || !list) return;
+      var mq = window.matchMedia('(max-width: 859px)');
+      var btns = list.querySelectorAll('.diag-card-btn');
+      function place(btn, scroll) {
+        if (mq.matches) {
+          reveal.hidden = false;
+          btn.insertAdjacentElement('afterend', reveal);
+          reveal.style.animation = 'none'; void reveal.offsetWidth; reveal.style.animation = '';
+          if (scroll) btn.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else {
+          reveal.hidden = false;
+          if (reveal.parentElement !== split) split.appendChild(reveal);
+        }
+      }
+      function active() { return list.querySelector('.diag-card-btn.active') || btns[0]; }
+      btns.forEach(function (b) {
+        b.addEventListener('click', function () {
+          if (!mq.matches) return;
+          if (b.dataset.open === '1' && reveal.previousElementSibling === b && !reveal.hidden) { reveal.hidden = true; b.dataset.open = '0'; return; }
+          btns.forEach(function (x) { x.dataset.open = '0'; });
+          b.dataset.open = '1';
+          setTimeout(function () { place(b, true); }, 0);
+        });
+      });
+      function sync() { var a = active(); if (mq.matches) { a.dataset.open = '1'; place(a, false); } else { place(a, false); } }
+      (mq.addEventListener ? mq.addEventListener('change', sync) : mq.addListener(sync));
+      sync();
     })();
   </script>
 </body>

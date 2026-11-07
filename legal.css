@@ -57,3 +57,7 @@ footer .bottom{display:grid;grid-template-columns:1fr;gap:.75rem}
 footer .bottom p{margin:0}
 @media(min-width:860px){footer .bottom{grid-template-columns:1fr 1fr;gap:0 3rem}.note2{text-align:right;justify-self:end}}
 footer .shloka{grid-column:1/-1}
+
+.lang{font-size:.85rem;font-weight:500;color:var(--muted);padding:.35rem .75rem;border:1px solid var(--border-strong);border-radius:9999px;margin-right:1rem;transition:color .2s,border-color .2s}
+.lang:hover{color:var(--accent);border-color:var(--accent)}
+nav{display:flex;align-items:center}

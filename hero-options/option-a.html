@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hero option A | Timeline by Harsh</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="base.css">
+<style>
+
+.hero{min-height:calc(100vh - 4.25rem);display:flex;align-items:center;background:linear-gradient(180deg,#fff 0%,#FCF4EA 100%);padding:4rem 0}
+.grid{display:grid;grid-template-columns:1fr;gap:3rem;align-items:center;width:100%}
+@media(min-width:960px){.grid{grid-template-columns:1.1fr .9fr;gap:5rem}}
+.copy>*{animation:settle 1.2s var(--ease) both}
+.copy>:nth-child(2){animation-delay:.15s}.copy>:nth-child(3){animation-delay:.3s}
+h1{font-size:clamp(2.6rem,4.8vw,4.5rem);line-height:1.08;margin-bottom:1.5rem;max-width:13ch}
+.lead{font-size:1.2rem;max-width:30rem;margin-bottom:2.25rem}
+.art{position:relative;width:min(100%,520px);aspect-ratio:1;margin:0 auto}
+.art::before{content:"";position:absolute;inset:4%;border-radius:50%;background:#FBE5D3}
+.art::after{content:"";position:absolute;inset:22%;border-radius:50%;background:#F8D3B6}
+.rp{position:absolute;inset:0;border-radius:50%;border:1.5px solid var(--accent);opacity:0;animation:ripple 7.5s cubic-bezier(.2,.6,.3,1) infinite;z-index:1}
+.rp:nth-child(2){animation-delay:2.5s}.rp:nth-child(3){animation-delay:5s}
+.bindu{position:absolute;left:50%;top:50%;width:36%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;background:var(--accent);display:grid;place-items:center;z-index:2;box-shadow:0 10px 30px rgba(255,111,30,.28)}
+.bindu .om{color:#fff;font-size:clamp(3.2rem,6vw,5.2rem);transform:translateY(.177em)}
+@media(max-width:959px){.hero{min-height:0;padding:3rem 0}.art{width:min(62vw,260px);order:-1}.copy{text-align:center}.copy .lead{margin-left:auto;margin-right:auto}.actions{justify-content:center}h1{max-width:none}}
+
+</style>
+</head>
+<body>
+<header><div class="wrap bar">
+  <a class="brand" href="#"><img src="../assets/logo.jpg" width="40" height="40" alt="Harsh Upadhyay"><span><b>Timeline by Harsh</b><small>@timelinebyharsh</small></span></a>
+  <nav><ul><li><a href="#">Find your fit</a></li><li><a href="#">How it works</a></li><li><a href="#">Sessions</a></li><li><a href="#">Questions</a></li></ul></nav>
+  <a class="cta" href="#">Book a call</a>
+</div></header>
+<section class="hero"><div class="wrap grid">
+  <div class="copy">
+    <h1>You keep thinking about it. And <em>nothing moves.</em></h1>
+    <p class="lead">Overthinking at night, a routine that fades by Thursday, a decision everyone has an opinion on. You do not need another pep talk. You need someone to think it through with.</p>
+    <div class="actions"><a class="btn" href="#">What is on your mind?</a><a class="link" href="#">Or book a call</a></div>
+  </div>
+  <div class="art" aria-hidden="true"><span class="rp"></span><span class="rp"></span><span class="rp"></span><span class="bindu"><span class="om">ॐ</span></span></div>
+</div></section>
+<div class="marquee" aria-hidden="true"><div class="track"><span>ॐ शान्तिः शान्तिः शान्तिः</span><span class="o">ॐ</span><span>योगः कर्मसु कौशलम्</span><span class="o">ॐ</span><span>तमसो मा ज्योतिर्गमय</span><span class="o">ॐ</span><span>कर्मण्येवाधिकारस्ते</span><span class="o">ॐ</span><span>सर्वे भवन्तु सुखिनः</span><span class="o">ॐ</span><span>असतो मा सद्गमय</span><span class="o">ॐ</span><span>ॐ शान्तिः शान्तिः शान्तिः</span><span class="o">ॐ</span><span>योगः कर्मसु कौशलम्</span><span class="o">ॐ</span><span>तमसो मा ज्योतिर्गमय</span><span class="o">ॐ</span><span>कर्मण्येवाधिकारस्ते</span><span class="o">ॐ</span><span>सर्वे भवन्तु सुखिनः</span><span class="o">ॐ</span><span>असतो मा सद्गमय</span><span class="o">ॐ</span></div></div>
+<section class="peek"><div class="wrap"><h2>It is rarely a lack of discipline.</h2></div></section>
+<div class="peek-note">Option A: balanced split, full height</div>
+</body>
+</html>

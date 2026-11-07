@@ -1,0 +1,2774 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Timeline by Harsh | पर्सनल गाइडेंस कॉल</title>
+  <link rel="alternate" hreflang="en" href="../index.html">
+  <meta name="description" content="ज़्यादा सोचना, ऐसा रूटीन जो टिकता नहीं, या ऐसा फैसला जो अकेले नहीं हो पा रहा? हर्ष उपाध्याय के साथ प्राइवेट वन-ऑन-वन कॉल।">
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Timeline by Harsh | पर्सनल गाइडेंस कॉल">
+  <meta property="og:description" content="30 मिनट। बस आप, मैं, और वो एक दिक्कत जो सुलझ नहीं रही। हर्ष (@timelinebyharsh) के साथ प्राइवेट कॉल।">
+  <meta property="og:site_name" content="Timeline by Harsh">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Timeline by Harsh (@timelinebyharsh)">
+  <meta name="twitter:description" content="हर्ष उपाध्याय के साथ प्राइवेट वन-ऑन-वन कॉल। अपने हिसाब से समय चुनें।">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="../assets/logo.jpg">
+  <meta property="og:image" content="../assets/logo.jpg">
+
+  <!-- Typography: Newsreader (headlines) + DM Sans (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Tiro+Devanagari+Hindi&family=Noto+Sans+Devanagari:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <script src="../assets/qrcode.min.js" defer></script>
+
+  <!-- Razorpay Checkout -->
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+  <!-- Cal.com Official Embed -->
+  <script type="text/javascript">
+    (function (C, A, L) {
+      let p = function (a, ar) { a.q.push(ar); };
+      let d = C.document;
+      C.Cal = C.Cal || function () {
+        let cal = C.Cal;
+        let ar = arguments;
+        if (!cal.loaded) {
+          cal.ns = {};
+          cal.q = cal.q || [];
+          d.head.appendChild(d.createElement("script")).src = A;
+          cal.loaded = true;
+        }
+        if (ar[0] === L) {
+          const api = function () { p(api, arguments); };
+          const namespace = ar[1];
+          api.q = api.q || [];
+          if (typeof namespace === "string") {
+            cal.ns[namespace] = cal.ns[namespace] || api;
+            p(cal.ns[namespace], ar);
+            p(cal, ["initNamespace", namespace]);
+          } else p(cal, ar);
+          return;
+        }
+        p(cal, ar);
+      };
+    })(window, "https://app.cal.com/embed/embed.js", "init");
+
+    Cal("init", { origin: "https://app.cal.com" });
+    Cal("ui", {
+      styles: { branding: { brandColor: "#FF6F1E" } },
+      hideEventTypeDetails: false,
+      layout: "month_view"
+    });
+  </script>
+
+  <script>document.documentElement.className += ' js';</script>
+
+  <style>
+    :root {
+      --bg: #FAF8F5;               /* Warm Ivory */
+      --bg-surface: #FFFFFF;
+      --bg-subtle: #F4F0E8;        /* Soft Warm Beige */
+      --text: #21252B;             /* Editorial Charcoal */
+      --text-muted: #5E6470;       /* Calm Muted */
+      --text-faint: #8E95A2;
+      --accent: #FF6F1E;           /* Saffron Accent */
+      --accent-hover: #E85B0D;
+      --accent-subtle: rgba(255, 111, 30, 0.08);
+      --border: #E7E2D9;           /* Warm Hairline */
+      --border-strong: #D5CEBF;
+      --font: 'DM Sans', sans-serif;
+      --font-display: 'Newsreader', Georgia, serif;
+      --font-deva: 'Tiro Devanagari Hindi', 'Noto Serif Devanagari', serif;
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
+      --ok-bg: #E6EFE4;
+      --ok-text: #2F5D2A;
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+      --radius-pill: 9999px;
+      --max-w: 960px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.75;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: 4.5rem;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button { font-family: inherit; cursor: pointer; border: none; background: none; }
+    input, textarea, select { font-family: inherit; }
+
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* ---------------- Header ---------------- */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 90;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 4.25rem;
+    }
+
+    .site-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .brand-mark {
+      width: 2.25rem;
+      height: 2.25rem;
+      border-radius: var(--radius-sm);
+      background: var(--text);
+      color: #FFFFFF;
+      display: grid;
+      place-items: center;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .brand-mark span { color: var(--accent); }
+
+    .brand-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text);
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+    }
+
+    .brand-sub {
+      font-size: 0.725rem;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    .nav-menu {
+      display: none;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    @media (min-width: 768px) {
+      .nav-menu { display: flex; }
+    }
+
+    .nav-item a {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      transition: color 0.15s ease;
+    }
+
+    .nav-item a:hover { color: var(--accent); }
+
+    .header-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: var(--text);
+      color: #FFFFFF;
+      font-size: 0.8rem;
+      font-weight: 500;
+      padding: 0.45rem 1rem;
+      border-radius: var(--radius-pill);
+      transition: background 0.15s ease;
+    }
+
+    .header-cta:hover { background: var(--accent); }
+
+    /* ---------------- Hero (Vertically Centered & Balanced) ---------------- */
+    .hero {
+      min-height: calc(100vh - 4.25rem);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 3.5rem 1.5rem;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+
+    /* Byline: plain text, no fake avatar or verified tick */
+    .hero-byline {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-headline {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 5.2vw, 3.6rem);
+      font-weight: 500;
+      line-height: 1.15;
+      color: var(--text);
+      letter-spacing: -0.015em;
+      max-width: 44rem;
+      margin: 0 auto 1.25rem;
+      text-wrap: balance;
+    }
+
+    .hero-headline em {
+      font-style: normal;
+      color: var(--accent);
+    }
+
+    .hero-summary {
+      font-size: clamp(1rem, 2vw, 1.15rem);
+      color: var(--text-muted);
+      line-height: 1.75;
+      max-width: 38rem;
+      margin: 0 auto 2.25rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2.25rem;
+    }
+
+    .btn-solid {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--accent);
+      color: #FFFFFF;
+      font-weight: 500;
+      font-size: 0.95rem;
+      padding: 0.8rem 1.6rem;
+      border-radius: var(--radius-pill);
+      transition: all 0.15s ease;
+    }
+
+    .btn-solid:hover {
+      background: var(--accent-hover);
+    }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border-strong);
+      font-weight: 500;
+      font-size: 0.95rem;
+      padding: 0.8rem 1.6rem;
+      border-radius: var(--radius-pill);
+      transition: all 0.15s ease;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--text);
+    }
+
+    .hero-trust-list {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      font-size: 0.825rem;
+      color: var(--text-faint);
+      flex-wrap: wrap;
+    }
+
+    .hero-trust-list span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .hero-trust-list strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    /* ---------------- Editorial Quote Block ---------------- */
+    .quote-banner {
+      padding: 3rem 1.5rem;
+      background: var(--bg-subtle);
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .quote-inner {
+      max-width: 36rem;
+      margin: 0 auto;
+    }
+
+    .quote-glyph {
+      color: var(--accent);
+      font-size: 1.75rem;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .quote-text {
+      font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+      font-style: italic;
+      color: var(--text);
+      line-height: 1.6;
+      margin-bottom: 0.75rem;
+      font-weight: 400;
+    }
+
+    .quote-author {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 600;
+    }
+
+    /* ---------------- Visual Clarity Diagnostic ---------------- */
+    .diagnostic-section {
+      padding: 5rem 0;
+      border-bottom: 1px solid var(--border);
+      background: var(--bg-surface);
+      text-align: center;
+    }
+
+    .section-eyebrow {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .section-heading {
+      font-family: var(--font-display);
+      font-size: clamp(1.9rem, 3.8vw, 2.5rem);
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      text-wrap: balance;
+      line-height: 1.25;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-intro {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      max-width: 36rem;
+      margin: 0 auto 2.5rem;
+    }
+
+    .diag-cards-grid {
+      display: grid;
+      gap: 1.25rem;
+      grid-template-columns: 1fr;
+      margin-bottom: 2rem;
+    }
+
+    @media (min-width: 640px) {
+      .diag-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .diag-card-btn {
+      text-align: left;
+      padding: 1.5rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      transition: all 0.2s ease;
+      cursor: pointer;
+      display: flex;
+      align-items: flex-start;
+      gap: 1.15rem;
+    }
+
+    .diag-card-btn:hover {
+      background: #FFFFFF;
+      border-color: var(--accent);
+    }
+
+    .diag-card-btn.active {
+      background: #FFFFFF;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px var(--accent);
+    }
+
+    .diag-icon-box {
+      width: 2.75rem;
+      height: 2.75rem;
+      border-radius: var(--radius-md);
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      color: var(--accent);
+    }
+
+    .diag-card-btn.active .diag-icon-box {
+      background: var(--accent);
+      color: #FFFFFF;
+      border-color: var(--accent);
+    }
+
+    .diag-card-body h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.25rem;
+    }
+
+    .diag-card-body p {
+      font-size: 0.825rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Diagnosis Reveal Box */
+    .diag-reveal {
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-lg);
+      padding: 2.25rem 2rem;
+      background: var(--bg);
+      margin: 2rem auto 0;
+      max-width: 780px;
+      text-align: left;
+      position: relative;
+    }
+
+    .diag-reveal::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 2rem;
+      right: 2rem;
+      height: 3px;
+      background: var(--accent);
+      border-radius: 3px 3px 0 0;
+    }
+
+    .reveal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .reveal-title {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .reveal-price {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .reveal-body {
+      font-size: 0.925rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .reveal-body b {
+      color: var(--text);
+    }
+
+    .reveal-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* ---------------- 1:1 Consultation Services ---------------- */
+    .services-section {
+      padding: 5rem 0;
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .services-container {
+      max-width: 820px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .service-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      padding: 2.25rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    @media (min-width: 768px) {
+      .service-row {
+        grid-template-columns: 220px 1fr 180px;
+        align-items: baseline;
+        gap: 2.5rem;
+      }
+    }
+
+    .service-meta h3 {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 500;
+      color: var(--text);
+      line-height: 1.3;
+      margin-bottom: 0.25rem;
+    }
+
+    .service-meta span {
+      font-size: 0.8rem;
+      color: var(--text-faint);
+    }
+
+    .service-content p {
+      font-size: 0.925rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    .service-content ul {
+      list-style: none;
+      display: grid;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      color: var(--text);
+    }
+
+    .service-content ul li::before {
+      content: "· ";
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .service-action-col {
+      text-align: left;
+    }
+
+    @media (min-width: 768px) {
+      .service-action-col { text-align: right; }
+    }
+
+    .service-fee {
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--text);
+      display: block;
+      margin-bottom: 0.75rem;
+    }
+
+    /* ---------------- Visual 30-Minute Journey ---------------- */
+    .journey-section {
+      padding: 5rem 0;
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .journey-grid {
+      display: grid;
+      gap: 1.5rem;
+      margin-top: 3rem;
+      grid-template-columns: 1fr;
+      text-align: left;
+    }
+
+    @media (min-width: 680px) {
+      .journey-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .journey-step {
+      padding: 1.25rem 0 0;
+      border-top: 1px solid var(--border-strong);
+      position: relative;
+    }
+
+    .journey-num {
+      font-family: var(--font-display);
+      color: var(--accent);
+      font-size: 1.5rem;
+      font-weight: 500;
+      line-height: 1;
+      margin-bottom: 0.75rem;
+    }
+
+    .journey-time {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-faint);
+      letter-spacing: 0.05em;
+      margin-bottom: 0.25rem;
+    }
+
+    .journey-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.35rem;
+    }
+
+    .journey-desc {
+      font-size: 0.825rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    /* ---------------- Booking Area (Cal.com + Priority Form) ---------------- */
+    .booking-section {
+      padding: 5rem 0;
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .booking-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 2.25rem;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      padding: 0.55rem 1.25rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      background: #FFFFFF;
+      transition: all 0.15s ease;
+      cursor: pointer;
+    }
+
+    .tab-btn:hover { color: var(--text); border-color: var(--text); }
+
+    .tab-btn.active {
+      color: #FFFFFF;
+      background: var(--text);
+      border-color: var(--text);
+      font-weight: 600;
+    }
+
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* Cal Box */
+    .cal-container {
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      max-width: 820px;
+      margin: 0 auto;
+      min-height: 580px;
+    }
+
+    /* Priority Form Box */
+    .form-container {
+      max-width: 540px;
+      margin: 0 auto;
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2.25rem 2rem;
+      text-align: left;
+    }
+
+    .form-field { margin-bottom: 1.25rem; }
+
+    .form-label {
+      display: block;
+      font-size: 0.825rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.35rem;
+    }
+
+    .form-input, .form-select, .form-textarea {
+      width: 100%;
+      background: #FAFAF8;
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-sm);
+      padding: 0.7rem 0.85rem;
+      font-size: 0.9rem;
+      color: var(--text);
+      transition: border-color 0.15s ease;
+    }
+
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      background: #FFFFFF;
+      border-color: var(--accent);
+      outline: none;
+    }
+
+    .form-textarea {
+      min-height: 5rem;
+      resize: vertical;
+    }
+
+    .form-row {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: 1fr;
+    }
+
+    @media (min-width: 540px) {
+      .form-row { grid-template-columns: 1fr 1fr; }
+    }
+
+    .form-btn {
+      width: 100%;
+      background: var(--accent);
+      color: #FFFFFF;
+      font-weight: 500;
+      font-size: 0.95rem;
+      padding: 0.85rem;
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      margin-top: 0.5rem;
+      transition: background 0.15s ease;
+    }
+
+    .form-btn:hover { background: var(--accent-hover); }
+    .form-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    .status-banner {
+      padding: 0.75rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+      margin-top: 1rem;
+      display: none;
+    }
+
+    .status-banner.error {
+      background: #FDF2F2;
+      color: #9B1C1C;
+      border-left: 3px solid #E02424;
+      display: block;
+    }
+
+    .status-banner.loading {
+      background: #EFF6FF;
+      color: #1E40AF;
+      display: block;
+    }
+
+    /* ---------------- Curated Shop (With Visual Mockups) ---------------- */
+    .shop-section {
+      padding: 5rem 0;
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .shop-grid {
+      display: grid;
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+      grid-template-columns: 1fr;
+      text-align: left;
+    }
+
+    @media (min-width: 600px) {
+      .shop-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (min-width: 900px) {
+      .shop-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    .book-card {
+      border-top: 1px solid var(--border-strong);
+      padding: 1.25rem 0 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.2s ease;
+    }
+
+    .book-card:hover {
+      border-color: var(--accent);
+    }
+
+
+    .book-art {
+      width: 100%;
+      height: 110px;
+      border-radius: var(--radius-md);
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      display: grid;
+      place-items: center;
+      margin-bottom: 1rem;
+      color: var(--accent);
+    }
+
+    .book-tag {
+      font-size: 0.725rem;
+      color: var(--accent);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.25rem;
+    }
+
+    .book-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.35rem;
+    }
+
+    .book-desc {
+      font-size: 0.825rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: 1.25rem;
+      flex-grow: 1;
+    }
+
+    .book-link {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: color 0.15s;
+    }
+
+    .book-link:hover { color: var(--accent); }
+
+    /* ---------------- FAQ ---------------- */
+    .faq-section {
+      padding: 5rem 0;
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .faq-stack {
+      max-width: 680px;
+      margin: 2.5rem auto 0;
+      text-align: left;
+    }
+
+    .faq-stack details {
+      border-bottom: 1px solid var(--border);
+      padding: 1.15rem 0;
+    }
+
+    .faq-stack summary {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text);
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .faq-stack summary::-webkit-details-marker { display: none; }
+
+    .faq-stack summary::after {
+      content: "+";
+      font-size: 1.2rem;
+      color: var(--text-faint);
+    }
+
+    .faq-stack details[open] summary::after {
+      content: "—";
+    }
+
+    .faq-stack p {
+      margin-top: 0.75rem;
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    /* ---------------- Footer ---------------- */
+    .site-footer {
+      padding: 3.5rem 0 2rem;
+      font-size: 0.825rem;
+      color: var(--text-faint);
+      text-align: center;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .footer-links a:hover { color: var(--text); }
+
+    /* ---------------- Compact Mobile Sticky Bar ---------------- */
+    .mobile-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 80;
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      padding: 0.65rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    @media (min-width: 768px) {
+      .mobile-bar { display: none; }
+      body { padding-bottom: 0; }
+    }
+
+    .mobile-bar-text {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .mobile-bar-sub {
+      font-size: 0.725rem;
+      color: var(--text-muted);
+      display: block;
+    }
+
+    .mobile-bar-cta {
+      background: var(--accent);
+      color: #FFFFFF;
+      font-size: 0.8rem;
+      font-weight: 500;
+      padding: 0.45rem 1.1rem;
+      border-radius: var(--radius-md);
+    }
+
+    /* =========================================================
+       r3: visual-first, sacred symbols, living micro-interactions
+       ========================================================= */
+    .sym { width: 1.25rem; height: 1.25rem; flex-shrink: 0; color: var(--accent); }
+    .sym-lg { width: 1.6rem; height: 1.6rem; }
+    .om-mini { font-family: var(--font-deva); color: var(--accent); font-size: 1rem; line-height: 1; }
+    .om-glyph { font-family: var(--font-deva); font-size: 1.6rem; line-height: 1; }
+
+    /* entrance: settle in (page load, not hover) */
+    @keyframes settleIn { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @keyframes breathe { 0%, 100% { opacity: 0.55; transform: scale(0.96); } 50% { opacity: 1; transform: scale(1.04); } }
+    @keyframes flicker { 0%, 100% { transform: scale(1, 1) rotate(0); } 30% { transform: scale(0.94, 1.06) rotate(-1.5deg); } 60% { transform: scale(1.04, 0.96) rotate(1.5deg); } }
+    @keyframes ringOut { from { opacity: 0.55; transform: scale(1); } to { opacity: 0; transform: scale(2.1); } }
+    @keyframes drift { to { transform: translateX(-50%); } }
+
+    .hero { overflow: hidden; }
+    .hero-stack { position: relative; z-index: 1; }
+    .hero-stack > * { animation: settleIn 1.3s var(--ease) both; }
+    .hero-stack > :nth-child(1) { animation-delay: 0.05s; }
+    .hero-stack > :nth-child(2) { animation-delay: 0.2s; }
+    .hero-stack > :nth-child(3) { animation-delay: 0.35s; }
+    .hero-stack > :nth-child(4) { animation-delay: 0.5s; }
+    .hero-stack > :nth-child(5) { animation-delay: 0.65s; }
+
+    .hero-mandala {
+      position: absolute; left: 50%; top: 50%;
+      width: min(120vw, 780px); height: min(120vw, 780px);
+      margin: calc(min(120vw, 780px) / -2) 0 0 calc(min(120vw, 780px) / -2);
+      color: var(--accent); opacity: 0.17; pointer-events: none;
+      animation: spin 120s linear infinite;
+    }
+    .hero-mandala-in { width: min(80vw, 520px); height: min(80vw, 520px); margin: calc(min(80vw, 520px) / -2) 0 0 calc(min(80vw, 520px) / -2); opacity: 0.13; animation-duration: 80s; animation-direction: reverse; }
+
+    .hero-byline { display: inline-flex; align-items: center; gap: 0.5rem; }
+    .hero-summary { max-width: 30rem; }
+    .hero-trust-list { gap: 0.75rem 1.75rem; }
+    .hero-trust-list .sym { width: 1.1rem; height: 1.1rem; }
+
+    /* shloka marquee */
+    .marquee { overflow: hidden; background: var(--text); color: #F4EFE6; padding: 0.95rem 0; border-bottom: 1px solid var(--border); }
+    .marquee-track { display: flex; align-items: center; gap: 2.25rem; width: max-content; animation: drift 70s linear infinite; }
+    .shloka { font-family: var(--font-deva); font-size: 1.15rem; white-space: nowrap; letter-spacing: 0.02em; }
+    .marquee .sym { color: var(--accent); width: 1.4rem; height: 1.4rem; }
+
+    /* dark quote block with breathing Om and a slow mandala */
+    .quote-banner { position: relative; overflow: hidden; background: var(--text); border-bottom: 0; padding: 5.5rem 1.5rem; }
+    .quote-mandala { position: absolute; left: 50%; top: 50%; width: 560px; height: 560px; margin: -280px 0 0 -280px; color: var(--accent); opacity: 0.16; animation: spin 150s linear infinite; pointer-events: none; }
+    .quote-inner { position: relative; z-index: 1; }
+    .om-lamp { display: inline-grid; place-items: center; width: 5.5rem; height: 5.5rem; border-radius: 50%; margin-bottom: 1.25rem; background: radial-gradient(circle, rgba(255,111,30,0.28), rgba(255,111,30,0) 68%); animation: breathe 6s ease-in-out infinite; }
+    .quote-glyph { font-family: var(--font-deva); font-size: 3rem; color: var(--accent); margin: 0; }
+    .quote-text { font-family: var(--font-display); font-style: normal; font-size: clamp(1.4rem, 3.2vw, 2rem); line-height: 1.4; color: #F4EFE6; }
+    .quote-author { color: #B8B2A6; }
+
+    /* scroll reveal (only when JS is on, so content never gets stuck hidden) */
+    .js .rise { opacity: 0; transform: translateY(18px); transition: opacity 0.9s var(--ease), transform 0.9s var(--ease); transition-delay: var(--d, 0s); }
+    .js .rise.in { opacity: 1; transform: none; }
+
+    /* diagnostic: icon-led cards, hover = colour only */
+    .diag-icon-box { position: relative; width: 3.25rem; height: 3.25rem; border-radius: 50%; }
+    .diag-icon-box::after { content: ""; position: absolute; inset: 0; border-radius: 50%; border: 2px solid var(--accent); opacity: 0; pointer-events: none; }
+    .diag-card-btn.active .diag-icon-box::after { animation: ringOut 1.3s var(--ease) 1; }
+    .diag-card-btn.active .diag-icon-box { color: #FFFFFF; }
+    .diag-card-btn .sym { color: currentColor; transition: transform 0.6s var(--ease); }
+    .diag-card-btn.active .sym { transform: scale(1.12); }
+    .diag-card-btn { align-items: center; padding: 1.25rem 1.5rem; }
+    .diag-card-body h4 { font-family: var(--font-display); font-size: 1.15rem; font-weight: 500; margin-bottom: 0.1rem; }
+    .diag-card-body p { font-size: 0.85rem; }
+    .diag-reveal { background: var(--bg-subtle); border: 0; }
+    .diag-reveal.swap { animation: settleIn 0.7s var(--ease) both; }
+
+    /* services: symbol + collapsed details (plus rotates, like a lotus opening) */
+    .service-meta { position: relative; }
+    .sym-svc { width: 2.25rem; height: 2.25rem; margin-bottom: 0.6rem; display: block; }
+    .service-meta h3 { margin-bottom: 0.15rem; }
+    .incl { margin-top: 0.85rem; }
+    .incl summary { list-style: none; cursor: pointer; display: inline-flex; align-items: center; gap: 0.6rem; font-size: 0.8rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted); transition: color 0.25s; }
+    .incl summary::-webkit-details-marker { display: none; }
+    .incl summary:hover { color: var(--accent); }
+    .incl summary i { position: relative; width: 0.8rem; height: 0.8rem; transition: transform 0.4s var(--ease); }
+    .incl summary i::before, .incl summary i::after { content: ""; position: absolute; background: currentColor; }
+    .incl summary i::before { left: 0; right: 0; top: 50%; height: 1.5px; margin-top: -0.75px; }
+    .incl summary i::after { top: 0; bottom: 0; left: 50%; width: 1.5px; margin-left: -0.75px; }
+    .incl[open] summary i { transform: rotate(45deg); }
+    .incl ul { margin-top: 0.75rem; animation: settleIn 0.5s var(--ease) both; }
+
+    /* journey: the line draws itself, a diya dot lights at the start */
+    .journey-step { border-top: 0; padding-top: 1.5rem; }
+    .journey-step::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 1.4s var(--ease) var(--d, 0s); }
+    .journey-step.in::before { transform: scaleX(1); }
+    .journey-step::after { content: ""; position: absolute; top: -4px; left: 0; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); opacity: 0; transition: opacity 0.6s var(--ease) var(--d, 0s); }
+    .journey-step.in::after { opacity: 1; animation: breathe 3.5s ease-in-out infinite; }
+    .journey-num { font-size: 2.4rem; }
+
+    /* books: colour-block covers instead of boxes */
+    .book-art { height: 150px; border: 0; color: var(--text); }
+    .book-card:nth-child(1) .book-art { background: #F6E2D3; }
+    .book-card:nth-child(2) .book-art { background: #EFE6C9; }
+    .book-card:nth-child(3) .book-art { background: #E4DCEB; }
+    .book-card:nth-child(4) .book-art { background: #D9E5DC; }
+    .book-card:hover { border-color: var(--border-strong); }
+    .book-art svg { width: 52px; height: 52px; transition: transform 0.8s var(--ease); }
+    .book-card:hover .book-art svg { transform: rotate(18deg); }
+
+    /* faq plus rotates */
+    .faq-stack summary::after { transition: transform 0.35s var(--ease); }
+    .faq-stack details[open] summary::after { content: "+"; transform: rotate(45deg); }
+
+    /* press feedback only, no lift */
+    .btn-solid:active, .btn-outline:active, .header-cta:active { transform: scale(0.97); }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+      .js .rise { opacity: 1; transform: none; }
+      .marquee-track { width: auto; flex-wrap: wrap; justify-content: center; }
+    }
+
+    /* =========================================================
+       r4: split hero, light quote, master-detail finder,
+       service cards, alternating sections, tab bar
+       ========================================================= */
+    :root { --tint: #F6EADC; --white: #FFFFFF; }
+
+    /* alternating section colours: white, tint, white, tint ... */
+    .hero { background: var(--white); border-bottom: 0; }
+    .quote-banner { background: var(--tint); }
+    .diagnostic-section { background: var(--white); border-bottom: 0; }
+    .services-section { background: var(--tint); border-bottom: 0; }
+    .journey-section { background: var(--white); border-bottom: 0; }
+    .booking-section { background: var(--tint); border-bottom: 0; }
+    .shop-section { background: var(--white); border-bottom: 0; }
+    .faq-section { background: var(--tint); border-bottom: 0; }
+    .site-footer { background: var(--white); }
+
+    /* hero: copy left, art right, nothing sits behind the text */
+    .hero { display: block; min-height: 0; text-align: left; padding: 4.5rem 0 4rem; overflow: hidden; }
+    .hero-grid { display: grid; grid-template-columns: 1fr; gap: 2.5rem; align-items: center; }
+    @media (min-width: 900px) { .hero-grid { grid-template-columns: 1.1fr 0.9fr; gap: 3rem; } .hero { padding: 5.5rem 0 5rem; } }
+    .hero-copy { text-align: left; }
+    .hero-headline { margin-left: 0; margin-right: 0; font-size: clamp(2.2rem, 4.6vw, 3.5rem); }
+    .hero-summary { margin-left: 0; margin-right: 0; max-width: 29rem; }
+    .hero-actions { justify-content: flex-start; margin-bottom: 1.75rem; }
+    .hero-trust-list { justify-content: flex-start; }
+    .hero-byline { display: inline-flex; }
+    .hero-art { position: relative; width: min(78vw, 440px); aspect-ratio: 1; margin: 0 auto; order: -1; }
+    @media (min-width: 900px) { .hero-art { order: 0; width: min(100%, 440px); } }
+    @media (max-width: 899px) { .hero-art { width: min(60vw, 260px); } .hero-copy { text-align: center; } .hero-actions, .hero-trust-list { justify-content: center; } .hero-summary { margin-left: auto; margin-right: auto; } .hero-headline { margin-left: auto; margin-right: auto; } }
+    .hero-glow { position: absolute; inset: -12%; border-radius: 50%; background: radial-gradient(circle, rgba(255,111,30,0.22), rgba(255,111,30,0) 66%); animation: breathe 7s ease-in-out infinite; }
+    .art-ring { position: absolute; inset: 0; width: 100%; height: 100%; color: var(--accent); opacity: 0.9; animation: spin 90s linear infinite; }
+    .art-ring-in { inset: 17%; width: 66%; height: 66%; opacity: 0.8; animation-duration: 60s; animation-direction: reverse; }
+    .orbit { position: absolute; inset: -3%; animation: spin 36s linear infinite; }
+    .orbit::before { content: ""; position: absolute; top: 0; left: 50%; width: 10px; height: 10px; margin-left: -5px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 6px rgba(255,111,30,0.18); }
+    .hero-om { position: absolute; inset: 0; display: grid; place-items: center; font-family: var(--font-deva); font-size: clamp(3.5rem, 8vw, 6rem); color: var(--accent); animation: breathe 6s ease-in-out infinite; }
+
+    /* quote: Hindi, light, diya row (a different motif from the hero) */
+    .quote-banner { padding: 5rem 1.5rem; }
+    .quote-om { display: block; font-family: var(--font-deva); font-size: 2.25rem; color: var(--accent); margin-bottom: 1.25rem; }
+    .quote-text { font-family: var(--font-deva); font-size: clamp(1.5rem, 3.4vw, 2.3rem); line-height: 1.6; color: var(--text); max-width: 40rem; margin: 0 auto 1rem; font-weight: 400; }
+    .quote-author { color: var(--text-muted); font-family: var(--font-deva); font-size: 1rem; letter-spacing: 0.04em; text-transform: none; }
+    .diya-row { display: flex; justify-content: center; align-items: flex-end; gap: 1.5rem; margin-top: 2.25rem; }
+    .diya-svg { width: 2.6rem; height: 2.6rem; overflow: visible; }
+    .diya-svg:nth-child(2) { width: 3.4rem; height: 3.4rem; }
+    .diya-svg .bowl { fill: none; stroke: var(--text-muted); stroke-width: 1.7; stroke-linejoin: round; }
+    .diya-svg .flame { fill: var(--accent); stroke: none; transform-box: fill-box; transform-origin: 50% 100%; animation: flicker 2.4s ease-in-out infinite; }
+    .diya-svg:nth-child(2) .flame { animation-delay: -0.8s; }
+    .diya-svg:nth-child(3) .flame { animation-delay: -1.5s; }
+
+    /* clarity finder: choices left, detail right */
+    .diag-split { display: grid; grid-template-columns: 1fr; gap: 1.5rem; text-align: left; max-width: 1000px; margin: 0 auto; }
+    @media (min-width: 860px) { .diag-split { grid-template-columns: 0.95fr 1.05fr; gap: 2rem; align-items: start; } .diag-reveal { position: sticky; top: 6rem; } }
+    .diag-cards-grid { grid-template-columns: 1fr !important; gap: 0.75rem; margin-bottom: 0; }
+    .diag-card-btn { width: 100%; padding: 1rem 1.25rem; border-radius: var(--radius-md); background: var(--bg); border: 1px solid var(--border); position: relative; }
+    .diag-card-btn::before { content: ""; position: absolute; left: 0; top: 14%; bottom: 14%; width: 3px; border-radius: 3px; background: var(--accent); transform: scaleY(0); transition: transform 0.4s var(--ease); }
+    .diag-card-btn.active { box-shadow: none; background: var(--white); border-color: var(--accent); }
+    .diag-card-btn.active::before { transform: scaleY(1); }
+    .diag-reveal { margin: 0; max-width: none; background: var(--tint); border-radius: var(--radius-lg); padding: 2rem 1.75rem; }
+    .diag-reveal::before { left: 1.75rem; right: 1.75rem; }
+
+    /* service cards */
+    .services-container { max-width: 1080px; display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
+    @media (min-width: 900px) { .services-container { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; align-items: stretch; } }
+    .service-row { display: flex; flex-direction: column; gap: 0; padding: 1.75rem; background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); border-bottom: 1px solid var(--border); align-items: stretch; }
+    .service-meta { order: 1; }
+    .service-content { order: 2; margin-top: 1rem; }
+    .service-action-col { order: 3; margin-top: auto; padding-top: 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; text-align: left; }
+    .sym-svc { width: 3.25rem; height: 3.25rem; padding: 0.7rem; border-radius: 50%; background: rgba(255,111,30,0.1); margin-bottom: 1rem; }
+    .service-meta h3 { font-size: 1.4rem; }
+    .service-content p { font-size: 0.9rem; color: var(--text-muted); }
+    .service-fee { font-family: var(--font-display); font-size: 2rem; font-weight: 500; color: var(--text); line-height: 1; margin: 0; }
+    .service-action-col .btn-solid { padding: 0.65rem 1.25rem; font-size: 0.875rem; }
+    .incl summary { font-size: 0.75rem; }
+
+    /* journey refinement: each step shows its share of the 30 minutes */
+    .journey-grid { gap: 2rem; }
+    .journey-step { text-align: left; }
+    .journey-time { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-faint); }
+    .journey-title { font-family: var(--font-display); font-size: 1.3rem; font-weight: 500; margin: 0.25rem 0 0.4rem; }
+    .journey-dur { height: 6px; border-radius: 6px; background: var(--tint); margin: 0.65rem 0 0.9rem; overflow: hidden; }
+    .journey-dur i { display: block; height: 100%; width: var(--p); background: var(--accent); border-radius: 6px; transform: scaleX(0); transform-origin: left; transition: transform 1.2s var(--ease) calc(var(--d, 0s) + 0.3s); }
+    .journey-step.in .journey-dur i { transform: scaleX(1); }
+    .journey-desc { font-size: 0.875rem; }
+
+    /* booking tabs: left aligned, clear selected state */
+    .booking-tabs { justify-content: flex-start; gap: 0; border-bottom: 1px solid var(--border-strong); margin-bottom: 2rem; flex-wrap: nowrap; overflow-x: auto; }
+    .tab-btn { position: relative; border: 0; border-radius: var(--radius-md) var(--radius-md) 0 0; background: transparent; padding: 0.95rem 1.4rem; font-size: 0.9rem; font-weight: 500; color: var(--text-muted); white-space: nowrap; transition: color 0.25s, background 0.25s; }
+    .tab-btn::after { content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 3px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 0.45s var(--ease); }
+    .tab-btn:hover { color: var(--text); border-color: transparent; background: rgba(255,111,30,0.06); }
+    .tab-btn.active { color: var(--text); background: var(--white); font-weight: 600; border-color: transparent; }
+    .tab-btn.active::after { transform: scaleX(1); }
+    .tab-btn.active::before { content: ""; display: inline-block; width: 7px; height: 7px; margin-right: 0.55rem; border-radius: 50%; background: var(--accent); vertical-align: middle; }
+
+    .shop-grid .book-card, .faq-stack details { background: transparent; }
+
+    /* =========================================================
+       r5: logo, cleaner header, bg order, Om scroll button
+       ========================================================= */
+    .brand-logo { width: 2.5rem; height: 2.5rem; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent); flex-shrink: 0; display: block; }
+    .site-brand { gap: 0.75rem; }
+    .nav-menu { gap: 1.75rem; }
+    .brand-sub { color: var(--text-faint); }
+
+    .faq-section { background: var(--white); }
+    .shop-section { background: var(--tint); }
+    .faq-stack a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+
+    ::selection { background: rgba(255, 111, 30, 0.28); color: var(--text); }
+
+    .footer-inner { justify-content: space-between; }
+    .footer-links { flex-wrap: wrap; gap: 0.75rem 1.5rem; }
+    .footer-shloka { text-align: center; margin-top: 2rem; font-family: var(--font-deva); font-size: 1rem; color: var(--text-faint); letter-spacing: 0.04em; }
+
+
+    /* =========================================================
+       r6: segmented tabs, stepped form, FAQ split, real footer
+       ========================================================= */
+    /* journey: calmer line, no progress bars */
+    .journey-step::before { background: var(--border-strong); }
+    .journey-step::after { background: var(--text-faint); animation: none !important; }
+
+    /* quote attribution */
+    .quote-author { margin-top: 0.25rem; }
+
+    /* booking tabs: segmented control with a sliding thumb */
+    .booking-tabs { position: relative; display: flex; width: max-content; max-width: 100%; margin: 0 0 2rem; padding: 4px; gap: 0; background: #EBDDCA; border: 0; border-radius: 14px; overflow: visible; --i: 0; }
+    .booking-tabs::before { content: ""; position: absolute; top: 4px; bottom: 4px; left: 4px; width: calc((100% - 8px) / 2); background: var(--white); border-radius: 10px; box-shadow: 0 1px 2px rgba(33,37,43,0.08), 0 4px 12px rgba(33,37,43,0.08); transform: translateX(calc(var(--i) * 100%)); transition: transform 0.45s var(--ease); }
+    .tab-btn { position: relative; z-index: 1; flex: 1 1 0; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; min-width: 9.5rem; padding: 0.7rem 1.25rem; border: 0; border-radius: 10px; background: transparent !important; color: var(--text-muted); font-size: 0.9rem; font-weight: 500; transition: color 0.3s; }
+    .tab-btn::after { display: none; }
+    .tab-btn.active::before { content: none; }
+    .tab-btn:hover { color: var(--text); }
+    .tab-btn.active { color: var(--text); font-weight: 600; }
+    .tab-btn svg { color: var(--text-faint); transition: color 0.3s; }
+    .tab-btn.active svg { color: var(--accent); }
+
+    /* stepped form */
+    .steps { list-style: none; display: flex; align-items: center; gap: 0; margin-bottom: 1.75rem; }
+    .steps li { position: relative; flex: 1; display: flex; align-items: center; gap: 0.6rem; font-size: 0.8rem; font-weight: 500; color: var(--text-faint); white-space: nowrap; }
+    .steps li span { display: grid; place-items: center; width: 1.65rem; height: 1.65rem; border-radius: 50%; border: 1.5px solid var(--border-strong); font-size: 0.75rem; font-weight: 600; flex-shrink: 0; background: var(--white); transition: all 0.35s var(--ease); }
+    .steps li:not(:last-child)::after { content: ""; flex: 1; height: 1.5px; margin: 0 0.75rem; background: var(--border-strong); transition: background 0.4s var(--ease); }
+    .steps li.on { color: var(--text); }
+    .steps li.on span { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .steps li.done { color: var(--text-muted); }
+    .steps li.done span { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .steps li.done:not(:last-child)::after { background: var(--accent); }
+    @media (max-width: 520px) { .steps li { font-size: 0; gap: 0; } .steps li.on { font-size: 0.8rem; gap: 0.6rem; flex: 2; } }
+    .step { animation: settleIn 0.5s var(--ease) both; }
+    .step[hidden] { display: none; }
+    .step-summary { font-size: 0.85rem; color: var(--text-muted); background: var(--tint); border-radius: var(--radius-md); padding: 0.75rem 1rem; margin-bottom: 1.25rem; }
+    .step-nav { display: flex; align-items: center; gap: 0.75rem; margin-top: 0.5rem; }
+    .step-nav .form-btn { flex: 1; width: auto; }
+    .step-back { padding: 0.85rem 1.25rem; border: 1px solid var(--border-strong); border-radius: var(--radius-md); font-size: 0.9rem; font-weight: 500; color: var(--text-muted); background: transparent; transition: color 0.2s, border-color 0.2s; }
+    .step-back:hover { color: var(--text); border-color: var(--text); }
+    .step-nav [hidden] { display: none !important; }
+
+    /* FAQ: heading left, answers right */
+    .faq-split { display: grid; grid-template-columns: 1fr; gap: 2rem; text-align: left; }
+    @media (min-width: 860px) { .faq-split { grid-template-columns: 0.8fr 1.2fr; gap: 4rem; align-items: start; } .faq-intro { position: sticky; top: 6rem; } }
+    .faq-intro .section-heading { text-align: left; margin-bottom: 0.75rem; }
+    .faq-intro p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem; max-width: 22rem; }
+    .faq-stack { max-width: none; margin: 0; }
+
+    /* footer */
+    .site-footer { background: var(--text); color: #C9C4BA; text-align: left; padding: 4rem 0 2rem; font-size: 0.9rem; }
+    .footer-top { display: grid; grid-template-columns: 1fr; gap: 2.5rem; padding-bottom: 2.5rem; border-bottom: 1px solid rgba(255,255,255,0.12); }
+    @media (min-width: 860px) { .footer-top { grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 3rem; } }
+    .footer-brand p { margin: 1.1rem 0 1rem; max-width: 20rem; line-height: 1.65; color: #B3AEA3; }
+    .site-footer .brand-title { color: #F4EFE6; }
+    .site-footer .brand-sub { color: #9A958A; }
+    .footer-ig { color: var(--accent); font-weight: 500; transition: color 0.2s; }
+    .footer-ig:hover { color: #FFA25B; }
+    .footer-col h4 { font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600; color: #F4EFE6; margin-bottom: 1rem; }
+    .footer-col ul { list-style: none; display: grid; gap: 0.6rem; }
+    .footer-col a { color: #B3AEA3; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--accent); }
+    .footer-bottom { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.75rem 2rem; padding-top: 1.75rem; font-size: 0.8rem; color: #8F8A7F; }
+    .footer-note { max-width: 32rem; }
+    .footer-shloka { width: 100%; text-align: center; margin: 1.25rem 0 0; font-family: var(--font-deva); font-size: 1.05rem; color: #9A958A; letter-spacing: 0.04em; }
+
+    /* =========================================================
+       r7: calmer hero, one clean chakra, Om in its own disc
+       ========================================================= */
+    .hero { background: linear-gradient(180deg, var(--white) 0%, #FCF4EA 100%); padding: 5rem 0 4.5rem; }
+    .hero-headline { margin-bottom: 1rem; }
+    .hero-summary { font-size: 1.1rem; margin-bottom: 2rem; max-width: 26rem; }
+    .hero-actions { margin-bottom: 0; }
+    .hero-art { width: min(100%, 420px); }
+    @media (max-width: 899px) { .hero-art { width: min(64vw, 260px); } }
+    .chakra { position: absolute; inset: 0; width: 100%; height: 100%; color: var(--accent); opacity: 0.55; animation: spin 140s linear infinite; }
+    .om-disc { position: absolute; left: 50%; top: 50%; width: 40%; aspect-ratio: 1; transform: translate(-50%, -50%); border-radius: 50%; background: var(--white); border: 1.5px solid rgba(255,111,30,0.45); display: grid; place-items: center; box-shadow: 0 0 0 10px #FCF4EA; }
+    .om-disc .hero-om { position: static; inset: auto; font-size: clamp(3rem, 7vw, 5rem); line-height: 1; animation: none; }
+
+    /* =========================================================
+       r8: ripple + bindu hero art, one button system
+       ========================================================= */
+    @keyframes ripple { 0% { transform: scale(0.42); opacity: 0.55; } 100% { transform: scale(1); opacity: 0; } }
+    .hero-art { position: relative; width: min(100%, 400px); aspect-ratio: 1; margin: 0 auto; }
+    .hero-art::before { content: ""; position: absolute; inset: 4%; border-radius: 50%; background: #FBE5D3; }
+    .hero-art::after { content: ""; position: absolute; inset: 22%; border-radius: 50%; background: #F8D3B6; }
+    .ripple { position: absolute; inset: 0; border-radius: 50%; border: 1.5px solid var(--accent); opacity: 0; animation: ripple 7.5s cubic-bezier(0.2, 0.6, 0.3, 1) infinite; z-index: 1; }
+    .ripple:nth-child(2) { animation-delay: 2.5s; }
+    .ripple:nth-child(3) { animation-delay: 5s; }
+    .bindu { position: absolute; left: 50%; top: 50%; width: 36%; aspect-ratio: 1; transform: translate(-50%, -50%); border-radius: 50%; background: var(--accent); display: grid; place-items: center; z-index: 2; box-shadow: 0 10px 30px rgba(255,111,30,0.28); }
+    .bindu .hero-om { position: static; display: block; font-family: var(--font-deva); font-size: clamp(2.8rem, 6.5vw, 4.4rem); line-height: 1; color: #fff; animation: none; transform: translateY(0.177em); }
+    @media (max-width: 899px) { .hero-art { width: min(62vw, 250px); } }
+
+    /* one button system: orange pill = primary, quiet text link = secondary */
+    .header-cta, .btn-solid, .form-btn, .mobile-bar-cta { background: var(--accent); color: #fff; border-radius: 9999px; font-weight: 500; transition: background 0.2s; }
+    .header-cta:hover, .btn-solid:hover, .form-btn:hover, .mobile-bar-cta:hover { background: var(--accent-hover); }
+    .header-cta { font-size: 0.85rem; padding: 0.55rem 1.2rem; }
+    .btn-solid { font-size: 0.9rem; padding: 0.75rem 1.5rem; }
+    .form-btn { font-size: 0.95rem; padding: 0.85rem 1.5rem; }
+    .hero-actions { gap: 1.5rem; }
+    .hero-link { font-size: 0.9rem; color: var(--text-muted); text-decoration: underline; text-decoration-color: var(--border-strong); text-underline-offset: 5px; transition: color 0.2s, text-decoration-color 0.2s; }
+    .hero-link:hover { color: var(--accent); text-decoration-color: var(--accent); }
+    .step-back { border-radius: 9999px; }
+
+    /* =========================================================
+       r9: one "Book a call" at a time
+       header button appears after the hero button scrolls away;
+       mobile gets a bottom bar instead of a header button
+       ========================================================= */
+    .header-cta { opacity: 0; visibility: hidden; transform: translateY(-4px); transition: opacity 0.4s var(--ease), transform 0.4s var(--ease), visibility 0.4s, background 0.2s; }
+    .header-cta.show { opacity: 1; visibility: visible; transform: none; }
+    @media (max-width: 767px) { .header-cta { display: none; } }
+
+    .mobile-bar { background: rgba(255,255,255,0.97); border-top: 1px solid var(--border); padding: 0.7rem 1rem calc(0.7rem + env(safe-area-inset-bottom)); display: block; transform: translateY(110%); transition: transform 0.5s var(--ease); box-shadow: 0 -6px 20px rgba(33,37,43,0.06); }
+    .mobile-bar.show { transform: none; }
+    .mobile-bar-cta { display: block; width: 100%; text-align: center; font-size: 0.95rem; font-weight: 600; padding: 0.85rem 1rem; border-radius: 9999px; }
+    .mobile-bar-cta:active { transform: scale(0.98); }
+
+    /* =========================================================
+       r10: problem first, then relief, then the path to a call
+       ========================================================= */
+    .understand-section { background: var(--white); padding: 5.5rem 0; text-align: center; }
+    .diagnostic-section { background: var(--tint); }
+    .relief-section { background: var(--white); padding: 5.5rem 0; }
+    .journey-section { background: var(--tint); }
+    .services-section { background: var(--white); }
+    .booking-section { background: var(--tint); }
+    .faq-section { background: var(--white); }
+    .shop-section { background: var(--tint); }
+    .quote-banner { background: var(--white); border-bottom: 0; }
+    .diag-reveal { background: var(--white); }
+    .service-row { background: var(--bg); }
+
+    .truths { display: grid; grid-template-columns: 1fr; gap: 2rem; margin: 3rem auto 3.5rem; max-width: 960px; text-align: left; }
+    @media (min-width: 800px) { .truths { grid-template-columns: repeat(3, 1fr); gap: 2.5rem; } }
+    .truth { border-top: 1px solid var(--border-strong); padding-top: 1.25rem; }
+    .truth-label { display: block; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600; color: var(--accent); margin-bottom: 0.6rem; }
+    .truth h3 { font-family: var(--font-display); font-weight: 500; font-size: 1.5rem; line-height: 1.25; margin-bottom: 0.5rem; }
+    .truth p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.65; }
+    .reframe { font-family: var(--font-display); font-size: clamp(1.5rem, 3.2vw, 2.1rem); line-height: 1.4; max-width: 36rem; margin: 0 auto; color: var(--text); text-wrap: balance; }
+
+    .relief-split { display: grid; grid-template-columns: 1fr; gap: 2.5rem; text-align: left; }
+    @media (min-width: 860px) { .relief-split { grid-template-columns: 0.85fr 1.15fr; gap: 4.5rem; align-items: start; } .relief-intro { position: sticky; top: 6rem; } }
+    .relief-intro .section-heading { text-align: left; margin-bottom: 0.9rem; }
+    .relief-intro p { color: var(--text-muted); font-size: 1rem; max-width: 24rem; margin-bottom: 1.5rem; }
+    .relief-item { padding: 1.75rem 0; border-top: 1px solid var(--border-strong); }
+    .relief-item:last-child { border-bottom: 1px solid var(--border-strong); }
+    .relief-item h3 { font-family: var(--font-display); font-weight: 500; font-size: clamp(1.35rem, 2.6vw, 1.7rem); line-height: 1.3; margin-bottom: 0.5rem; }
+    .relief-item p { color: var(--text-muted); font-size: 0.975rem; max-width: 30rem; }
+
+    /* session cards: price, then a full-width button */
+    .service-action-col { flex-direction: column; align-items: stretch; justify-content: flex-start; gap: 1rem; }
+    .service-action-col .service-fee { text-align: left; }
+    .service-action-col .btn-solid { width: 100%; justify-content: center; text-align: center; padding: 0.85rem 1.25rem; font-size: 0.95rem; }
+
+    /* booking: tabs and both panels share one column so the left edges line up */
+    .cal-container, .form-container { max-width: 760px; width: 100%; margin-left: auto; margin-right: auto; }
+    .booking-tabs { margin-left: max(0px, calc((100% - 760px) / 2)); }
+
+    @media (min-width: 768px) { .mobile-bar { display: none; } }
+
+    /* =========================================================
+       r11: one button size, softer finder cards, transparent mobile bar,
+       calmer footer, UPI payment popup
+       ========================================================= */
+    /* buttons: same height and type size everywhere */
+    .btn-solid, .form-btn, .mobile-bar-cta, .step-back { display: inline-flex; align-items: center; justify-content: center; min-height: 3rem; padding: 0 1.75rem; font-size: 1rem; font-weight: 500; line-height: 1; }
+    .header-cta { display: inline-flex; align-items: center; min-height: 2.5rem; padding: 0 1.25rem; font-size: 0.9rem; font-weight: 500; opacity: 1; visibility: visible; transform: none; }
+    .service-action-col .btn-solid { min-height: 3rem; padding: 0 1.25rem; font-size: 1rem; }
+    .form-btn { width: 100%; }
+    .step-nav .form-btn { flex: 1; width: auto; }
+    #diagBookBtn { font-size: 1rem !important; }
+    .book-link { font-size: 0.9rem; text-decoration: underline; text-decoration-color: var(--border-strong); text-underline-offset: 4px; }
+    .book-link:hover { text-decoration-color: var(--accent); }
+
+    /* mobile bar: transparent, just a floating button */
+    .mobile-bar { background: linear-gradient(to top, rgba(252,244,234,0.92) 0%, rgba(252,244,234,0) 100%); border-top: 0; box-shadow: none; padding: 1.25rem 1rem calc(0.9rem + env(safe-area-inset-bottom)); pointer-events: none; }
+    .mobile-bar-cta { width: 100%; pointer-events: auto; box-shadow: 0 8px 24px rgba(255,111,30,0.35); }
+
+    /* finder choices: softer, taller, bigger text */
+    .diag-cards-grid { gap: 0.85rem; }
+    .diag-card-btn { border: 0; border-radius: 18px; background: var(--white); min-height: 4.75rem; padding: 1.1rem 1.4rem; box-shadow: 0 1px 2px rgba(33,37,43,0.04); transition: box-shadow 0.3s var(--ease), background 0.3s; }
+    .diag-card-btn::before { display: none; }
+    .diag-card-btn:hover { background: var(--white); box-shadow: 0 0 0 1.5px rgba(255,111,30,0.45); }
+    .diag-card-btn.active { background: var(--white); box-shadow: 0 0 0 2px var(--accent); }
+    .diag-icon-box { width: 3.4rem; height: 3.4rem; }
+    .diag-card-body h4 { font-size: 1.25rem; }
+    .diag-card-body p { font-size: 0.925rem; line-height: 1.45; }
+    .diag-reveal { border-radius: 22px; padding: 2.25rem 2rem; }
+
+    /* FAQ intro */
+    .faq-intro p { font-size: 1.05rem; color: var(--text); margin-bottom: 0.9rem; }
+
+    /* footer */
+    .site-footer { padding: 4.5rem 0 2rem; }
+    .footer-top { align-items: start; padding-bottom: 3rem; }
+    .footer-col h4 { margin-bottom: 1.1rem; }
+    .footer-col ul { gap: 0.7rem; }
+    .footer-col a, .footer-ig { font-size: 0.95rem; }
+    .footer-bottom { display: grid; grid-template-columns: 1fr; gap: 0.75rem; align-items: start; padding-top: 1.75rem; }
+    @media (min-width: 860px) { .footer-bottom { grid-template-columns: 1fr 1fr; gap: 0 3rem; } .footer-note { text-align: right; justify-self: end; } }
+    .footer-note { max-width: 30rem; margin: 0; }
+    .footer-bottom p { margin: 0; }
+    .footer-shloka { grid-column: 1 / -1; margin-top: 1.5rem; }
+
+    /* UPI popup */
+    .pay-modal { position: fixed; inset: 0; z-index: 200; background: rgba(33,37,43,0.55); display: grid; place-items: center; padding: 1rem; overflow-y: auto; animation: settleIn 0.4s var(--ease) both; }
+    .pay-modal[hidden] { display: none; }
+    .pay-card { position: relative; width: 100%; max-width: 26rem; background: var(--white); border-radius: 22px; padding: 2rem 1.75rem; text-align: center; margin: auto; }
+    .pay-close { position: absolute; top: 0.75rem; right: 1rem; font-size: 1.75rem; line-height: 1; color: var(--text-faint); width: 2.25rem; height: 2.25rem; border-radius: 50%; }
+    .pay-close:hover { color: var(--text); background: var(--tint); }
+    .pay-kicker { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600; color: var(--accent); margin-bottom: 0.5rem; }
+    .pay-card h3 { font-family: var(--font-display); font-weight: 500; font-size: 1.7rem; line-height: 1.2; }
+    .pay-sub { color: var(--text-muted); font-size: 0.9rem; margin: 0.35rem 0 1rem; }
+    .pay-lead { color: var(--text-muted); font-size: 0.925rem; margin-bottom: 1rem; }
+    .pay-amount { font-family: var(--font-display); font-size: 2.4rem; line-height: 1; margin-bottom: 1rem; }
+    .pay-qr { width: 11.5rem; height: 11.5rem; margin: 0 auto 1rem; padding: 0.6rem; background: #fff; border: 1px solid var(--border); border-radius: 14px; }
+    .pay-qr svg { width: 100%; height: 100%; display: block; }
+    .pay-app { display: none; width: 100%; margin-bottom: 0.9rem; }
+    @media (max-width: 767px) { .pay-app { display: inline-flex; } .pay-qr { display: none; } }
+    .pay-vpa { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem; }
+    .pay-vpa b { color: var(--text); font-weight: 600; word-break: break-all; }
+    .pay-vpa button { color: var(--accent); font-weight: 500; margin-left: 0.4rem; font-size: 0.85rem; }
+    .utr { text-align: left; border-top: 1px solid var(--border); padding-top: 1.1rem; display: grid; gap: 0.4rem; }
+    .utr label { font-size: 0.8rem; font-weight: 500; color: var(--text-muted); }
+    .utr input { width: 100%; padding: 0.8rem 0.9rem; border: 1px solid var(--border-strong); border-radius: 12px; font-size: 0.95rem; background: var(--bg); }
+    .utr input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(255,111,30,0.15); }
+    .utr .btn-solid { width: 100%; margin-top: 0.6rem; }
+    .utr .btn-solid:disabled { opacity: 0.55; }
+    .pay-err { color: #B42318; font-size: 0.8rem; min-height: 1rem; margin: 0.25rem 0 0; }
+    .pay-done { color: var(--text); font-size: 0.975rem; line-height: 1.6; padding: 1rem 0 0.25rem; }
+    .pay-modal[hidden] ~ * {}
+
+    /* =========================================================
+       r12: no bars above the three moments, plain Om in the strip,
+       gentle hover colours (nothing moves), finder card matches choices
+       ========================================================= */
+    .truth { border-top: 0; padding-top: 0; }
+    .marquee-om { color: #fff; font-family: var(--font-deva); font-size: 1.15rem; line-height: 1; opacity: 0.9; }
+    .marquee:hover .marquee-track { animation-play-state: paused; }
+
+    /* hover: colour and soft shadow only */
+    .service-row { transition: box-shadow 0.3s var(--ease), border-color 0.3s; }
+    .service-row:hover { border-color: rgba(255,111,30,0.5); box-shadow: 0 10px 30px rgba(33,37,43,0.06); }
+    .truth h3, .relief-item h3, .journey-title { transition: color 0.25s; }
+    .truth:hover h3, .relief-item:hover h3, .journey-step:hover .journey-title { color: var(--accent); }
+    .book-card .book-art { transition: filter 0.3s; }
+    .book-card:hover .book-art { filter: saturate(1.35) brightness(0.98); }
+    .book-card:hover .book-title { color: var(--accent); }
+    .book-title { transition: color 0.25s; }
+    .faq-stack summary { transition: color 0.25s; }
+    .faq-stack summary:hover { color: var(--accent); }
+    .footer-col a, .footer-ig, .nav-item a, .hero-link { transition: color 0.2s; }
+    .btn-solid, .header-cta, .form-btn, .mobile-bar-cta { transition: background 0.2s, box-shadow 0.25s; }
+    .btn-solid:hover, .form-btn:hover { box-shadow: 0 6px 18px rgba(255,111,30,0.3); }
+    .tab-btn:hover svg { color: var(--accent); }
+
+    /* finder: the detail card is exactly as tall as the four choices */
+    @media (min-width: 860px) {
+      .diag-split { align-items: stretch; }
+      .diag-reveal { position: static; display: flex; flex-direction: column; }
+      .diag-reveal .reveal-actions { margin-top: auto; }
+    }
+
+    /* language switch */
+    .hdr-actions { display: flex; align-items: center; gap: 1.25rem; }
+    .lang-switch { font-size: 0.85rem; font-weight: 500; color: var(--text-muted); padding: 0.35rem 0.7rem; border: 1px solid var(--border-strong); border-radius: 9999px; transition: color 0.2s, border-color 0.2s; }
+    .lang-switch:hover { color: var(--accent); border-color: var(--accent); }
+
+    /* =========================================================
+       r13: mobile layout. Hero order, centred text, stacking cards, expanding finder
+       ========================================================= */
+    @media (max-width: 899px) {
+      /* hero: heading, graphic, description, buttons */
+      .hero-grid { display: grid; grid-template-columns: 1fr; gap: 0; justify-items: center; text-align: center; }
+      .hero-copy { display: contents; }
+      .hero-headline { order: 1; margin: 0 auto 1.5rem; text-align: center; }
+      .hero-art { order: 2; width: min(58vw, 230px); margin: 0 auto 1.75rem; }
+      .hero-summary { order: 3; margin: 0 auto 1.75rem; text-align: center; }
+      .hero-actions { order: 4; justify-content: center; margin: 0; }
+    }
+
+    @media (max-width: 767px) {
+      /* centre everything */
+      .relief-intro, .faq-intro { text-align: center; }
+      .relief-intro .section-heading, .faq-intro .section-heading { text-align: center; }
+      .relief-intro p, .faq-intro p { margin-left: auto; margin-right: auto; }
+      .relief-item { text-align: center; }
+      .relief-item p { margin-left: auto; margin-right: auto; }
+      .journey-step { text-align: center; }
+      .service-row { text-align: center; }
+      .sym-svc { margin-left: auto; margin-right: auto; }
+      .service-action-col .service-fee { text-align: center; }
+      .incl { text-align: center; }
+      .incl ul { text-align: left; display: inline-block; }
+      .book-card { text-align: center; }
+      .faq-stack { text-align: left; }
+
+      /* the three moments: cards that stack on top of each other as you scroll */
+      .truths { display: block; margin: 2.25rem auto 2.5rem; }
+      .truth { position: sticky; top: calc(5.25rem + var(--i, 0) * 0.9rem); margin-bottom: 1.1rem; padding: 2.25rem 1.5rem; min-height: 15rem; border-radius: 26px; text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center; box-shadow: 0 12px 30px rgba(33,37,43,0.08); }
+      .truth:nth-child(1) { --i: 0; background: var(--tint); }
+      .truth:nth-child(2) { --i: 1; background: var(--accent); }
+      .truth:nth-child(3) { --i: 2; background: var(--tint); }
+      .truth:nth-child(2) .truth-label, .truth:nth-child(2) h3, .truth:nth-child(2) p { color: #fff; }
+      .truth:nth-child(2) .truth-label { opacity: 0.85; }
+      .truth:hover h3 { color: inherit; }
+      .truth:nth-child(2):hover h3 { color: #fff; }
+      .truth p { max-width: 20rem; }
+
+      /* finder: the detail opens under the chosen card */
+      .diag-split { display: block; }
+      .diag-cards-grid { display: block !important; }
+      .diag-cards-grid > .diag-card-btn { margin-bottom: 0.85rem; scroll-margin-top: 5.5rem; }
+      .diag-reveal { margin: -0.1rem 0 1rem; padding: 1.75rem 1.4rem; position: static; animation: settleIn 0.5s var(--ease) both; }
+      .diag-reveal[hidden] { display: none; }
+      .reveal-header { flex-direction: column; align-items: flex-start; }
+      .reveal-actions { flex-direction: column; align-items: stretch; gap: 0.75rem; text-align: center; }
+      .reveal-actions .btn-solid { width: 100%; }
+    }
+
+    @media (max-width: 767px) { .header-cta { display: none; } .brand-title { font-size: 0.95rem; } }
+
+    /* all cards share one 12px radius */
+    :root { --radius-md: 12px; --radius-lg: 12px; }
+    .diag-card-btn, .diag-reveal, .service-row, .book-card .book-art, .cal-container, .form-container, .pay-card, .step-summary, .pay-qr { border-radius: 12px; }
+    @media (max-width: 767px) { .truth { border-radius: 12px; } .diag-reveal { border-radius: 12px; } }
+
+    /* Hindi version: Devanagari-friendly type */
+    :root { --font: 'DM Sans', 'Noto Sans Devanagari', sans-serif; --font-display: 'Newsreader', 'Tiro Devanagari Hindi', Georgia, serif; }
+    body { line-height: 1.85; }
+    h1, h2, h3, h4, .hero-headline, .section-heading, .truth h3, .relief-item h3, .journey-title, .reveal-title, .reframe, .service-meta h3, .diag-card-body h4, .pay-card h3 { letter-spacing: 0 !important; line-height: 1.4; }
+    .hero-headline { font-size: clamp(2.2rem, 4.2vw, 3.7rem); }
+    .btn-solid, .form-btn, .mobile-bar-cta, .header-cta { line-height: 1.3; }
+    .truth-label, .footer-col h4, .pay-kicker { letter-spacing: 0.04em; text-transform: none; }
+  </style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="lotus" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M24 7C30 15 30 27 24 36C18 27 18 15 24 7Z"/>
+    <path d="M24 36C24 36 13 33 11 20C18 21 23 27 24 36Z"/>
+    <path d="M24 36C24 36 35 33 37 20C30 21 25 27 24 36Z"/>
+    <path d="M24 36C24 36 10 37 5 27C12 25 20 28 24 36Z"/>
+    <path d="M24 36C24 36 38 37 43 27C36 25 28 28 24 36Z"/>
+    <path d="M10 41Q24 47 38 41"/></g></symbol>
+  <symbol id="trishul" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M24 4V44"/><path d="M24 4L21 10H27Z"/>
+    <path d="M12 8V19C12 26 17 29 24 29C31 29 36 26 36 19V8"/>
+    <path d="M12 8L9.5 13H14.5Z"/><path d="M36 8L33.5 13H38.5Z"/>
+    <path d="M20 36H28"/></g></symbol>
+  <symbol id="diya" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M5 28H43C43 37 35 43 24 43C13 43 5 37 5 28Z"/>
+    <path d="M24 6C29 12 30 18 24 24C18 18 19 12 24 6Z"/></g></symbol>
+</svg>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#" class="site-brand">
+        <img class="brand-logo" src="../assets/logo.jpg" width="40" height="40" alt="Harsh Upadhyay">
+        <div>
+          <div class="brand-title">Timeline by Harsh</div>
+          <div class="brand-sub">@timelinebyharsh</div>
+        </div>
+      </a>
+
+      <ul class="nav-menu">
+        <li class="nav-item"><a href="#diagnostic">सही सेशन चुनें</a></li>
+        <li class="nav-item"><a href="#journey">कैसे काम करता है</a></li>
+        <li class="nav-item"><a href="#services">सेशन</a></li>
+        <li class="nav-item"><a href="#faq">सवाल</a></li>
+      </ul>
+
+      <div class="hdr-actions">
+        <a class="lang-switch" href="../index.html" hreflang="en" lang="en">English</a>
+        <a href="#booking" class="header-cta">कॉल बुक करें</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero (Vertically Centered & Visually Grounded) -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy hero-stack">
+        <h1 class="hero-headline">
+          आप बार-बार सोचते रहते हैं। और <em>कुछ आगे नहीं बढ़ता।</em>
+        </h1>
+
+        <p class="hero-summary">
+          रात को ज़्यादा सोचना, ऐसा रूटीन जो गुरुवार तक टूट जाता है, ऐसा फैसला जिस पर सबकी अपनी राय है। आपको एक और भाषण नहीं चाहिए। आपको कोई चाहिए जिसके साथ बैठकर आप इसे सुलझा सकें।
+        </p>
+
+        <div class="hero-actions">
+          <a href="#diagnostic" class="btn-solid" id="heroCta">आपके मन में क्या चल रहा है?</a>
+          <a href="#booking" class="hero-link">या सीधे कॉल बुक करें</a>
+        </div>
+      </div>
+
+      <div class="hero-art" aria-hidden="true">
+        <span class="ripple"></span><span class="ripple"></span><span class="ripple"></span>
+        <span class="bindu"><span class="hero-om">ॐ</span></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Shloka marquee -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track"><span class="shloka">ॐ शान्तिः शान्तिः शान्तिः</span><span class="marquee-om" aria-hidden="true">ॐ</span><span class="shloka">योगः कर्मसु कौशलम्</span><span class="marquee-om" aria-hidden="true">ॐ</span><span class="shloka">तमसो मा ज्योतिर्गमय</span><span class="marquee-om" aria-hidden="true">ॐ</span><span class="shloka">कर्मण्येवाधिकारस्ते</span><span class="marquee-om" aria-hidden="true">ॐ</span><span class="shloka">सर्वे भवन्तु सुखिनः</span><span class="marquee-om" aria-hidden="true">ॐ</span><span class="shloka">असतो मा सद्गमय</span><span class="marquee-om" aria-hidden="true">ॐ</span><span class="shloka">ॐ शान्तिः शान्तिः शान्तिः</span><span class="marquee-om" aria-hidden="true">ॐ</span><span class="shloka">योगः कर्मसु कौशलम्</span><span class="marquee-om" aria-hidden="true">ॐ</span><span class="shloka">तमसो मा ज्योतिर्गमय</span><span class="marquee-om" aria-hidden="true">ॐ</span><span class="shloka">कर्मण्येवाधिकारस्ते</span><span class="marquee-om" aria-hidden="true">ॐ</span><span class="shloka">सर्वे भवन्तु सुखिनः</span><span class="marquee-om" aria-hidden="true">ॐ</span><span class="shloka">असतो मा सद्गमय</span><span class="marquee-om" aria-hidden="true">ॐ</span></div>
+  </div>
+
+  <!-- Editorial Reflection / Philosophy Quote -->
+  <section class="understand-section" id="why">
+    <div class="container">
+      <h2 class="section-heading rise">ये अक्सर अनुशासन की कमी नहीं होती।</h2>
+
+      <div class="truths">
+        <div class="truth rise">
+          <span class="truth-label">रात को</span>
+          <h3>वही उलझन</h3>
+          <p>वही बात बार-बार दिमाग में घूमती है। आप थक जाते हैं, फिर भी समझ नहीं आता कि असली दिक्कत क्या है।</p>
+        </div>
+        <div class="truth rise">
+          <span class="truth-label">गुरुवार तक</span>
+          <h3>जोश ठंडा पड़ जाता है</h3>
+          <p>सोमवार को शुरुआत ज़ोरदार होती है। गुरुवार तक प्लान छूट जाता है, और वीकेंड से पहले ही गिल्ट आ जाता है।</p>
+        </div>
+        <div class="truth rise">
+          <span class="truth-label">घर पर</span>
+          <h3>सबकी सलाह</h3>
+          <p>सबके पास अपनी राय है। जो लोग आपसे प्यार करते हैं, वो भी चाहते हैं कि आप वही चुनें जो वो कहें।</p>
+        </div>
+      </div>
+
+      <p class="reframe rise">ये कमज़ोरी नहीं है। ये बस ऐसा मन है जिसके पास खुलकर बात करने के लिए कोई नहीं है।</p>
+    </div>
+  </section>
+
+  <section class="diagnostic-section" id="diagnostic">
+    <div class="container">
+      <span class="section-eyebrow">सही रास्ता</span>
+      <h2 class="section-heading rise">इनमें से कौन सा आप जैसा लगता है?</h2>
+      <p class="section-intro">
+        जो सबसे करीब लगे उस पर टैप करें। मैं बताऊँगा कि आमतौर पर क्या काम आता है।
+      </p>
+
+      <div class="diag-split rise">
+      <div class="diag-cards-grid">
+        <!-- 01: Mental Noise -->
+        <button type="button" class="diag-card-btn active" data-diag="paralysis">
+          <div class="diag-icon-box">
+            <!-- Visual SVG: Focus / Converging thoughts -->
+            <svg class="sym sym-lg" aria-hidden="true"><use href="#lotus"/></svg>
+          </div>
+          <div class="diag-card-body">
+            <h4>ज़्यादा सोचना</h4>
+            <p>बहुत सारे आइडिया, पूरा कुछ नहीं।</p>
+          </div>
+        </button>
+
+        <!-- 02: Discipline -->
+        <button type="button" class="diag-card-btn" data-diag="habits">
+          <div class="diag-icon-box">
+            <!-- Visual SVG: Rising Sun / Morning Dincharya -->
+            <svg class="sym sym-lg" aria-hidden="true"><use href="#diya"/></svg>
+          </div>
+          <div class="diag-card-body">
+            <h4>रूटीन जो टिकता नहीं</h4>
+            <p>सोमवार को नई शुरुआत, गुरुवार तक सब खत्म।</p>
+          </div>
+        </button>
+
+        <!-- 03: Crossroads -->
+        <button type="button" class="diag-card-btn" data-diag="crossroads">
+          <div class="diag-icon-box">
+            <!-- Visual SVG: Crossroads Compass -->
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="12 2 19 21 12 17 5 21 12 2"/>
+            </svg>
+          </div>
+          <div class="diag-card-body">
+            <h4>एक बड़ा फैसला</h4>
+            <p>दो रास्ते हैं, और सच्ची राय देने वाला कोई नहीं।</p>
+          </div>
+        </button>
+
+        <!-- 04: Sounding Board -->
+        <button type="button" class="diag-card-btn" data-diag="sounding">
+          <div class="diag-icon-box">
+            <!-- Visual SVG: Sanctuary / Honest dialogue -->
+            <span class="om-glyph" aria-hidden="true">ॐ</span>
+          </div>
+          <div class="diag-card-body">
+            <h4>कोई जिससे बात कर सकें</h4>
+            <p>एक सुरक्षित जगह जहाँ खुलकर बोल सकें।</p>
+          </div>
+        </button>
+      </div>
+
+      <!-- Diagnostic Outcome Reveal -->
+      <div class="diag-reveal" id="diagReveal" aria-live="polite">
+        <div class="reveal-header">
+          <div>
+            <div class="reveal-title" id="diagTitle">क्लैरिटी कॉल</div>
+            <div style="font-size:0.8rem;color:var(--text-faint)">सुझाया गया सेशन</div>
+          </div>
+          <div class="reveal-price" id="diagPrice">₹299 · 30 मिनट</div>
+        </div>
+
+        <p class="reveal-body" id="diagBody">
+          <b>क्या काम आता है:</b> बहुत सारे ऑप्शन अनुशासन की कमी जैसे लगते हैं, पर असल में वो शोर होते हैं। 30 मिनट में हम वो एक चीज़ ढूँढते हैं जो ज़रूरी है, और कल के लिए तीन कदम तय करते हैं।
+        </p>
+
+        <div class="reveal-actions">
+          <a href="#booking" id="diagBookBtn" class="btn-solid" style="font-size:0.875rem">यह सेशन बुक करें</a>
+          <span style="font-size:0.8rem;color:var(--text-faint)">24 घंटे में WhatsApp पर लिखित समरी</span>
+        </div>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="relief-section" id="relief">
+    <div class="container relief-split">
+      <div class="relief-intro">
+        <h2 class="section-heading rise">एक सच्ची बातचीत के बाद क्या बदलता है</h2>
+        <p>मैं 30 मिनट में नई ज़िंदगी का वादा नहीं कर सकता। पर हम इन चीज़ों की तरफ काम करते हैं।</p>
+        <a class="hero-link" href="#journey">देखें कॉल कैसे चलती है</a>
+      </div>
+
+      <div class="relief-list">
+        <div class="relief-item rise">
+          <h3>आप अपनी दिक्कत एक वाक्य में बोल पाते हैं।</h3>
+          <p>बहुत सारा बोझ इसलिए होता है क्योंकि असली दिक्कत पता नहीं होती। उसे नाम देना पहली राहत है।</p>
+        </div>
+        <div class="relief-item rise">
+          <h3>आपके पास तीस नहीं, सिर्फ़ तीन कदम होते हैं।</h3>
+          <p>इतने छोटे कि कल सुबह से शुरू कर सकें, और इतने साफ़ कि पता चले कब पूरे हुए।</p>
+        </div>
+        <div class="relief-item rise">
+          <h3>आप अकेले बोझ नहीं उठाते।</h3>
+          <p>कोई ऐसा जो आपकी हालत से बाहर है, उसने आपकी बात सुनी और आपके साथ मिलकर सोचा।</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="journey-section" id="journey">
+    <div class="container">
+      <h2 class="section-heading rise">सेशन कैसे चलता है</h2>
+      <p class="section-intro">
+        30 मिनट। बस आप, मैं, और वो एक दिक्कत जो सुलझ नहीं रही।
+      </p>
+
+      <div class="journey-grid">
+        <div class="journey-step rise">
+          <div class="journey-num">01</div>
+          <div class="journey-time">00:00 – 05:00</div>
+          <div class="journey-title">आप बोलते हैं</div>
+          <p class="journey-desc">जैसा है वैसा बोलिए।</p>
+        </div>
+
+        <div class="journey-step rise">
+          <div class="journey-num">02</div>
+          <div class="journey-time">05:00 – 15:00</div>
+          <div class="journey-title">मैं पूछता हूँ</div>
+          <p class="journey-desc">सीधे सवाल असली जड़ तक पहुँचाते हैं।</p>
+        </div>
+
+        <div class="journey-step rise">
+          <div class="journey-num">03</div>
+          <div class="journey-time">15:00 – 25:00</div>
+          <div class="journey-title">हम प्लान बनाते हैं</div>
+          <p class="journey-desc">समझदारी वाला, काम का प्लान।</p>
+        </div>
+
+        <div class="journey-step rise">
+          <div class="journey-num">04</div>
+          <div class="journey-time">25:00 – 30:00</div>
+          <div class="journey-title">अगले तीन कदम</div>
+          <p class="journey-desc">कल सुबह के लिए तीन काम।</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="services-section" id="services">
+    <div class="container">
+      <h2 class="section-heading rise">अपने हिसाब से समय चुनें</h2>
+      <p class="section-intro">
+        हर कॉल सिर्फ़ मेरे साथ, एक-एक करके होती है। पक्का नहीं पता तो क्लैरिटी कॉल से शुरू करें।
+      </p>
+
+      <div class="services-container">
+        <!-- Service 1 -->
+        <div class="service-row rise">
+          <div class="service-meta">
+            <svg class="sym sym-svc" aria-hidden="true"><use href="#lotus"/></svg><h3>क्लैरिटी कॉल</h3>
+            <span>30 मिनट · Google Meet</span>
+          </div>
+          <div class="service-content">
+            <p>
+              जब आप फँसा हुआ या बहुत परेशान महसूस करें। हम असली दिक्कत ढूँढते हैं और आपके पास फॉलो करने के लिए तीन नियम होते हैं।
+            </p>
+            <details class="incl"><summary><span>इसमें क्या मिलता है</span><i aria-hidden="true"></i></summary><ul>
+              <li>5 मिनट आप बोलते हैं, बीच में कोई नहीं टोकता</li>
+              <li>10 मिनट सीधे सवाल</li>
+              <li>15 मिनट कल का प्लान बनाने के लिए</li>
+              <li>24 घंटे में WhatsApp पर लिखित समरी</li>
+            </ul></details>
+          </div>
+          <div class="service-action-col">
+            <span class="service-fee">₹299</span>
+            <a href="#booking" class="btn-solid select-service" data-service="1:1 Clarity & Roadmap Call (30 Mins)">बुक करें</a>
+          </div>
+        </div>
+
+        <!-- Service 2: Dincharya & Habit Realignment -->
+        <div class="service-row rise">
+          <div class="service-meta">
+            <svg class="sym sym-svc" aria-hidden="true"><use href="#diya"/></svg><h3>दिनचर्या रीसेट</h3>
+            <span>45 मिनट · Google Meet</span>
+          </div>
+          <div class="service-content">
+            <p>
+              फोकस और शांति वापस लाने के लिए। आपके काम के समय और एनर्जी के हिसाब से सुबह-शाम का असली रूटीन।
+            </p>
+            <details class="incl"><summary><span>इसमें क्या मिलता है</span><i aria-hidden="true"></i></summary><ul>
+              <li>आपके दिन के हिसाब से सुबह-शाम का रूटीन</li>
+              <li>बेकार में फोन देखना कम करने का प्लान</li>
+              <li>शुरू करने के लिए 10 मिनट का आसान ध्यान</li>
+              <li>Notion में रोज़ की आदतों का ट्रैकर</li>
+            </ul></details>
+          </div>
+          <div class="service-action-col">
+            <span class="service-fee">₹499</span>
+            <a href="#booking" class="btn-solid select-service" data-service="Daily Dincharya & Habit Blueprint (45 Mins)">बुक करें</a>
+          </div>
+        </div>
+
+        <!-- Service 3: Deep-Dive Personal Advisory -->
+        <div class="service-row rise">
+          <div class="service-meta">
+            <svg class="sym sym-svc" aria-hidden="true"><use href="#trishul"/></svg><h3>डीप डाइव</h3>
+            <span>60 मिनट · Google Meet</span>
+          </div>
+          <div class="service-content">
+            <p>
+              बड़े मोड़ के लिए, जैसे करियर, घर की उम्मीदें या कोई बड़ा बदलाव। हम आपकी सोच को परखते हैं और 90 दिन का रास्ता बनाते हैं।
+            </p>
+            <details class="incl"><summary><span>इसमें क्या मिलता है</span><i aria-hidden="true"></i></summary><ul>
+              <li>पूरा एक घंटा, घड़ी देखे बिना</li>
+              <li>फैसला कहाँ अटका है, उसकी साफ़ तस्वीर</li>
+              <li>कॉल के बाद 90 दिन का लिखा हुआ प्लान</li>
+              <li>सात दिन WhatsApp वॉइस नोट से फॉलो-अप</li>
+            </ul></details>
+          </div>
+          <div class="service-action-col">
+            <span class="service-fee">₹699</span>
+            <a href="#booking" class="btn-solid select-service" data-service="Deep-Dive Personal Advisory (60 Mins)">बुक करें</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="booking-section" id="booking">
+    <div class="container">
+      <h2 class="section-heading rise">समय चुनें</h2>
+      <p class="section-intro">
+        कैलेंडर से खाली स्लॉट चुनें, या पेमेंट करके प्रायोरिटी स्लॉट बुक करें।
+      </p>
+
+      <div class="booking-tabs">
+        <button type="button" class="tab-btn active" data-tab="cal"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>कैलेंडर</button>
+        <button type="button" class="tab-btn" data-tab="priority"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg>प्रायोरिटी स्लॉट</button>
+      </div>
+
+      <!-- Tab 1: Cal.com Official Embed -->
+      <div class="tab-panel active" id="panel-cal">
+        <div class="cal-container">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;flex-wrap:wrap;gap:0.5rem">
+            <span style="font-size:0.85rem;color:var(--text-muted)">लाइव उपलब्धता, Google Meet पर बुक होगा</span>
+            <a href="https://cal.com/harsh-upadhyay-tsgoiw/clarity-call-30" target="_blank" rel="noopener noreferrer" style="font-size:0.8rem;color:var(--accent);font-weight:500">नए टैब में खोलें</a>
+          </div>
+          <div style="width:100%;height:620px;overflow:scroll" id="my-cal-inline"></div>
+          <script type="text/javascript">
+            Cal("inline", {
+              elementOrSelector: "#my-cal-inline",
+              calLink: "harsh-upadhyay-tsgoiw/clarity-call-30",
+              layout: "month_view"
+            });
+          </script>
+        </div>
+      </div>
+
+      <!-- Tab 2: Priority Razorpay Checkout -->
+      <div class="tab-panel" id="panel-priority">
+        <div class="form-container" id="formWrapper">
+          <div style="margin-bottom:1.5rem">
+            <h3 style="font-size:1.2rem;font-weight:700;color:var(--text);margin-bottom:0.25rem">प्रायोरिटी स्लॉट</h3>
+            <p style="font-size:0.825rem;color:var(--text-muted)">
+              अभी पेमेंट करके अपना समय पक्का करें। मैं कॉल से पहले आपके सवाल की तैयारी करता हूँ।
+            </p>
+          </div>
+
+          <form id="priorityBookingForm" novalidate>
+            <ol class="steps" id="formSteps" aria-label="बुकिंग प्रगति">
+              <li class="on"><span>1</span>सेशन</li>
+              <li><span>2</span>आपके बारे में</li>
+              <li><span>3</span>आपका सवाल</li>
+            </ol>
+
+            <div class="step" data-step="1">
+              <div class="form-field">
+                <label for="cTrack" class="form-label">कौन सा सेशन?</label>
+                <select id="cTrack" name="track" class="form-select" required>
+                  <option value="1:1 Clarity & Roadmap Call (30 Mins)" data-price="299">क्लैरिटी कॉल, 30 मिनट, ₹299</option>
+                  <option value="Daily Dincharya & Habit Blueprint (45 Mins)" data-price="499">दिनचर्या रीसेट, 45 मिनट, ₹499</option>
+                  <option value="Deep-Dive Personal Advisory (60 Mins)" data-price="699">डीप डाइव, 60 मिनट, ₹699</option>
+                  <option value="General Life Guidance & Sounding Board" data-price="299">आम लाइफ गाइडेंस और बात करने की जगह (₹299)</option>
+                </select>
+              </div>
+              <div class="form-row">
+                <div class="form-field">
+                  <label for="cDate" class="form-label">पसंद की तारीख</label>
+                  <input type="date" id="cDate" name="preferred_date" class="form-input" required>
+                </div>
+                <div class="form-field">
+                  <label for="cTime" class="form-label">कौन सा समय ठीक रहेगा</label>
+                  <select id="cTime" name="preferred_time" class="form-select" required>
+                    <option value="Morning (9 AM - 12 PM)">सुबह (9 बजे – 12 बजे)</option>
+                    <option value="Afternoon (1 PM - 4 PM)">दोपहर (1 बजे – 4 बजे)</option>
+                    <option value="Evening (6 PM - 9 PM)" selected>शाम (6 बजे – 9 बजे)</option>
+                    <option value="Night (9 PM - 11 PM)">रात (9 बजे – 11 बजे)</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="step" data-step="2" hidden>
+              <div class="form-row">
+                <div class="form-field">
+                  <label for="cName" class="form-label">पूरा नाम</label>
+                  <input type="text" id="cName" name="name" class="form-input" placeholder="राहुल शर्मा" required autocomplete="name">
+                </div>
+                <div class="form-field">
+                  <label for="cWhatsapp" class="form-label">WhatsApp नंबर</label>
+                  <input type="tel" id="cWhatsapp" name="whatsapp" class="form-input" placeholder="10 अंकों का नंबर" required autocomplete="tel" inputmode="numeric">
+                </div>
+              </div>
+              <div class="form-field">
+                <label for="cEmail" class="form-label">ईमेल</label>
+                <input type="email" id="cEmail" name="email" class="form-input" placeholder="rahul@example.com" required autocomplete="email">
+              </div>
+              <div class="form-row">
+                <div class="form-field">
+                  <label for="cCity" class="form-label">शहर</label>
+                  <input type="text" id="cCity" name="city" class="form-input" placeholder="शहर" required>
+                </div>
+                <div class="form-field">
+                  <label for="cAge" class="form-label">उम्र</label>
+                  <input type="number" id="cAge" name="age" class="form-input" placeholder="उम्र" min="15" max="85" required>
+                </div>
+              </div>
+            </div>
+
+            <div class="step" data-step="3" hidden>
+              <div class="form-field">
+                <label for="cQuestion" class="form-label">वो एक दिक्कत क्या है जिस पर आप बात करना चाहते हैं?</label>
+                <textarea id="cQuestion" name="question" class="form-textarea" placeholder="कुछ लाइनें काफ़ी हैं।" required></textarea>
+              </div>
+              <p class="step-summary" id="stepSummary"></p>
+            </div>
+
+            <div class="step-nav">
+              <button type="button" class="step-back" id="stepBack" hidden>पीछे</button>
+              <button type="button" class="form-btn step-next" id="stepNext">आगे बढ़ें</button>
+              <button type="submit" id="submitBtn" class="form-btn" hidden>
+                ₹299 पे करें
+              </button>
+            </div>
+
+            <div id="statusBanner" class="status-banner"></div>
+
+            <p style="text-align:center;font-size:0.75rem;color:var(--text-faint);margin-top:1rem">
+              Razorpay से सुरक्षित चेकआउट। UPI, कार्ड और नेटबैंकिंग चलते हैं।
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-section" id="faq">
+    <div class="container faq-split">
+      <div class="faq-intro">
+        <h2 class="section-heading rise">आम सवाल</h2>
+        <p>कुछ और पूछना है?</p>
+        <a class="hero-link" href="https://www.instagram.com/timelinebyharsh/" target="_blank" rel="noopener noreferrer">Instagram पर मुझे मैसेज करें</a>
+      </div>
+
+      <div class="faq-stack">
+        <details name="faq">
+          <summary>कॉल कहाँ होती है?</summary>
+          <p>Google Meet पर, पूरी तरह प्राइवेट। बुक करने के बाद आपके ईमेल और WhatsApp पर Meet लिंक वाला कैलेंडर इनवाइट आ जाता है।</p>
+        </details>
+
+        <details name="faq">
+          <summary>मैं कौन सा सेशन चुनूँ?</summary>
+          <p>क्लैरिटी कॉल से शुरू करें। उसके बाद ज़रूरत हो तो हम लंबा सेशन रख सकते हैं।</p>
+        </details>
+
+        <details name="faq">
+          <summary>कॉल की फीस क्यों है?</summary>
+          <p>जब कॉल फ्री थीं, तो कई लोग बुक करके आते नहीं थे, और जिन्हें सच में ज़रूरत थी उनका समय चला जाता था। छोटी फीस से स्लॉट उन्हीं के लिए रहते हैं जो आएँगे, और मैं आपके लिए ठीक से तैयारी कर पाता हूँ।</p>
+        </details>
+
+        <details name="faq">
+          <summary>कुछ काम आ जाए तो क्या समय बदल सकता हूँ?</summary>
+          <p>हाँ। कम से कम 6 घंटे पहले WhatsApp पर या कन्फर्मेशन ईमेल का जवाब देकर बता दें, हम बिना किसी एक्स्ट्रा खर्च के दूसरा समय तय कर लेंगे। और जानकारी यहाँ: <a href="refund.html">रिफंड पॉलिसी</a>.</p>
+        </details>
+
+        <details name="faq">
+          <summary>क्या मेरी बात प्राइवेट रहती है?</summary>
+          <p>हाँ। जो आप बताते हैं वो सिर्फ़ आपके और मेरे बीच रहता है। पूरी जानकारी यहाँ: <a href="privacy.html">प्राइवेसी पॉलिसी</a>.</p>
+        </details>
+
+        <details name="faq">
+          <summary>क्या ये थेरेपी या मेडिकल सलाह है?</summary>
+          <p>नहीं। ये गाइडेंस वाली बातचीत है, थेरेपी, मेडिकल, कानूनी या पैसों की सलाह नहीं। पढ़ें: <a href="terms.html">नियम और शर्तें</a>.</p>
+        </details>
+
+        <details name="faq">
+          <summary>मैं कैसे तैयारी करूँ?</summary>
+          <p>पेन और कागज़ पास रखें। अपनी मुख्य दिक्कत और अब तक जो कोशिश की है वो लिख लें, ताकि हम सीधे जड़ से शुरू कर सकें।</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="shop-section" id="shop">
+    <div class="container">
+      <h2 class="section-heading rise">मेरी पसंद की किताबें</h2>
+      <p class="section-intro">
+        ये किताबें और चीज़ें मैं खुद इस्तेमाल करता हूँ। ये Amazon अफिलिएट लिंक हैं: इनसे खरीदने पर मुझे थोड़ा कमीशन मिलता है, आपको कोई एक्स्ट्रा खर्च नहीं।
+      </p>
+
+      <div class="shop-grid">
+        <!-- Item 1: Atomic Habits -->
+        <div class="book-card rise">
+          <div class="book-art">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="2"/>
+              <path d="M12 2a10 10 0 1 0 10 10"/>
+              <path d="M12 6a6 6 0 1 0 6 6"/>
+            </svg>
+          </div>
+          <span class="book-tag">अनुशासन</span>
+          <div class="book-title">Atomic Habits</div>
+          <p class="book-desc">जेम्स क्लियर का आसान तरीका, बुरी आदतों का चक्र तोड़ने और रोज़ आगे बढ़ते रहने के लिए।</p>
+          <a href="https://www.amazon.in/dp/1847941834?tag=timelineharsh-21" target="_blank" rel="noopener noreferrer" class="book-link">Amazon पर देखें</a>
+        </div>
+
+        <!-- Item 2: Bhagavad Gita -->
+        <div class="book-card rise">
+          <div class="book-art">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/>
+              <path d="M6 6h10"/>
+              <path d="M6 10h10"/>
+            </svg>
+          </div>
+          <span class="book-tag">ज़िंदगी की सीख</span>
+          <div class="book-title">The Bhagavad Gita As It Is</div>
+          <p class="book-desc">कर्तव्य, नतीजे की चिंता छोड़ने और ज़िंदगी की लड़ाइयों में साफ़ सोच पाने की सदाबहार किताब।</p>
+          <a href="https://www.amazon.in/dp/9384564227?tag=timelineharsh-21" target="_blank" rel="noopener noreferrer" class="book-link">Amazon पर देखें</a>
+        </div>
+
+        <!-- Item 3: Rudraksha Mala -->
+        <div class="book-card rise">
+          <div class="book-art">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="5" r="2"/>
+              <circle cx="17" cy="8" r="2"/>
+              <circle cx="19" cy="13" r="2"/>
+              <circle cx="16" cy="18" r="2"/>
+              <circle cx="12" cy="20" r="2"/>
+              <circle cx="8" cy="18" r="2"/>
+              <circle cx="5" cy="13" r="2"/>
+              <circle cx="7" cy="8" r="2"/>
+            </svg>
+          </div>
+          <span class="book-tag">मन की शांति</span>
+          <div class="book-title">5 मुखी रुद्राक्ष माला</div>
+          <p class="book-desc">108+1 प्रमाणित दाने, रोज़ मंत्र जाप और ध्यान के लिए, और व्यस्त दिन में मन को स्थिर रखने के लिए।</p>
+          <a href="https://www.amazon.in/s?k=5+mukhi+rudraksha+mala+certified&tag=timelineharsh-21" target="_blank" rel="noopener noreferrer" class="book-link">Amazon पर देखें</a>
+        </div>
+
+        <!-- Item 4: Analog Focus Timer -->
+        <div class="book-card rise">
+          <div class="book-art">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="9"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+          <span class="book-tag">गहरा फोकस</span>
+          <div class="book-title">Analog Visual Focus Timer</div>
+          <p class="book-desc">फोन के टाइमर की जगह मैकेनिकल टाइमर, ताकि 30 मिनट के फोकस में नोटिफिकेशन न आएँ।</p>
+          <a href="https://www.amazon.in/s?k=pomodoro+timer+analog&tag=timelineharsh-21" target="_blank" rel="noopener noreferrer" class="book-link">Amazon पर देखें</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="quote-banner">
+    <div class="container quote-inner rise">
+      <span class="quote-om" aria-hidden="true">ॐ</span>
+      <blockquote class="quote-text">
+        “परंपरा कोई बंधन नहीं, यह याद है उस रास्ते की, जहाँ से हम आए थे।”
+      </blockquote>
+      <div class="quote-author">~ हर्ष उपाध्याय</div>
+    </div>
+  </section>
+
+  <!-- Visual Clarity Diagnostic -->
+  
+
+  <!-- 1:1 Consultation Services (Zero Brand Audit / Social Media Content) -->
+  
+
+  <!-- Visual 30-Minute Journey -->
+  
+
+  <!-- Booking Section (Cal.com + Priority Slot) -->
+  
+
+  <!-- Curated Reading & Essentials (With Visual Art) -->
+  
+
+  
+
+  <!-- FAQ -->
+  
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container footer-top">
+      <div class="footer-brand">
+        <a class="site-brand" href="#">
+          <img class="brand-logo" src="../assets/logo.jpg" width="40" height="40" alt="Harsh Upadhyay">
+          <div>
+            <div class="brand-title">Timeline by Harsh</div>
+            <div class="brand-sub">@timelinebyharsh</div>
+          </div>
+        </a>
+        <p>ज़्यादा सोचने, रोज़ के रूटीन और बड़े फैसलों के लिए प्राइवेट वन-ऑन-वन कॉल।</p>
+        <a class="footer-ig" href="https://www.instagram.com/timelinebyharsh/" target="_blank" rel="noopener noreferrer">Instagram</a>
+      </div>
+
+      <nav class="footer-col" aria-label="देखें">
+        <h4>देखें</h4>
+        <ul>
+          <li><a href="#diagnostic">सही सेशन चुनें</a></li>
+          <li><a href="#journey">कैसे काम करता है</a></li>
+          <li><a href="#booking">समय चुनें</a></li>
+          <li><a href="#faq">आम सवाल</a></li>
+          <li><a href="about.html">परिचय</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footer-col" aria-label="सेशन">
+        <h4>सेशन</h4>
+        <ul>
+          <li><a href="#services">क्लैरिटी कॉल</a></li>
+          <li><a href="#services">दिनचर्या रीसेट</a></li>
+          <li><a href="#services">डीप डाइव</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footer-col" aria-label="पॉलिसी">
+        <h4>पॉलिसी</h4>
+        <ul>
+          <li><a href="privacy.html">प्राइवेसी</a></li>
+          <li><a href="terms.html">नियम</a></li>
+          <li><a href="refund.html">रिफंड</a></li>
+          <li><a href="cookies.html">कुकीज़</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>© 2026 Timeline by Harsh. सर्वाधिकार सुरक्षित।</p>
+      <p class="footer-note">गाइडेंस कॉल थेरेपी, मेडिकल, कानूनी या पैसों की सलाह नहीं हैं। किताबों के लिंक Amazon अफिलिएट लिंक हैं।</p>
+      <p class="footer-shloka" aria-hidden="true">ॐ सर्वे भवन्तु सुखिनः</p>
+    </div>
+  </footer>
+
+  
+
+  <!-- UPI payment step (shown after a Cal.com booking is requested) -->
+  <div class="pay-modal" id="payModal" hidden role="dialog" aria-modal="true" aria-labelledby="payTitle">
+    <div class="pay-card">
+      <button type="button" class="pay-close" id="payClose" aria-label="बंद करें">&times;</button>
+      <p class="pay-kicker">बुकिंग की रिक्वेस्ट मिली</p>
+      <h3 id="payTitle">बस एक आखिरी कदम</h3>
+      <p class="pay-sub" id="paySub"></p>
+
+      <div id="payBlock">
+        <p class="pay-lead">अपना स्लॉट पक्का करने के लिए पेमेंट करें। पेमेंट दिखते ही मैं बुकिंग कन्फर्म कर दूँगा।</p>
+        <div class="pay-amount" id="payAmount"></div>
+        <div class="pay-qr" id="payQr" aria-label="UPI QR कोड"></div>
+        <a class="btn-solid pay-app" id="payApp" href="#">UPI ऐप से पे करें</a>
+        <p class="pay-vpa">UPI ID: <b id="payVpa"></b> <button type="button" id="payCopy">कॉपी</button></p>
+
+        <form class="utr" id="utrForm" novalidate>
+          <label for="utrEmail">जिस ईमेल से बुक किया</label>
+          <input type="email" id="utrEmail" autocomplete="email" placeholder="aap@example.com" required>
+          <label for="utrRef">UPI ऐप में दिखने वाला UTR या रेफरेंस नंबर</label>
+          <input type="text" id="utrRef" placeholder="12 अंकों का नंबर" required autocomplete="off">
+          <button type="submit" class="btn-solid" id="utrSend">मैंने पे कर दिया</button>
+          <p class="pay-err" id="utrErr" role="alert"></p>
+        </form>
+      </div>
+
+      <p class="pay-done" id="payDone" hidden>धन्यवाद। मैं पेमेंट देखकर आपकी बुकिंग कन्फर्म करूँगा। कन्फर्म होते ही Cal.com आपको Meet लिंक ईमेल कर देगा।</p>
+    </div>
+  </div>
+
+  <!-- Compact Mobile Sticky Bar -->
+  <div class="mobile-bar" id="mobileBar" aria-hidden="true">
+    <a href="#booking" class="mobile-bar-cta" tabindex="-1">कॉल बुक करें</a>
+  </div>
+
+  <!-- Interactive JavaScript Logic -->
+  <script>
+    // 1. Diagnostic Data & State
+    const diagnosticData = {
+      paralysis: {
+        title: "क्लैरिटी कॉल",
+        price: "₹299 · 30 मिनट",
+        body: "<b>क्या काम आता है:</b> बहुत सारे ऑप्शन अनुशासन की कमी जैसे लगते हैं, पर असल में वो शोर होते हैं। 30 मिनट में हम वो एक चीज़ ढूँढते हैं जो ज़रूरी है, और कल के लिए तीन कदम तय करते हैं।",
+        serviceTrack: "1:1 Clarity & Roadmap Call (30 Mins)"
+      },
+      habits: {
+        title: "दिनचर्या रीसेट",
+        price: "₹499 · 45 मिनट",
+        body: "<b>क्या काम आता है:</b> किसी और से उधार लिया रूटीन कम ही टिकता है। हम आपके असली काम के समय के हिसाब से सुबह-शाम का आसान रूटीन बनाते हैं, जो खराब दिन में भी चल सके।",
+        serviceTrack: "Daily Dincharya & Habit Blueprint (45 Mins)"
+      },
+      crossroads: {
+        title: "डीप डाइव",
+        price: "₹699 · 60 मिनट",
+        body: "<b>क्या काम आता है:</b> घरवाले और दोस्त प्यार से सलाह देते हैं। आपको शायद एक बाहर की नज़र चाहिए, जो बिना किसी भावना के आपके ऑप्शन तौले और आप शांत मन से चुन सकें।",
+        serviceTrack: "Deep-Dive Personal Advisory (60 Mins)"
+      },
+      sounding: {
+        title: "क्लैरिटी कॉल",
+        price: "₹299 · 30 मिनट",
+        body: "<b>क्या काम आता है:</b> अक्सर जवाब आपको पहले से पता होता है, बस आसपास का शोर ज़्यादा होता है। ये एक शांत जगह है जहाँ कोई जज नहीं करेगा, आप खुलकर बोल सकते हैं।",
+        serviceTrack: "1:1 Clarity & Roadmap Call (30 Mins)"
+      }
+    };
+
+    const diagBtns = document.querySelectorAll(".diag-card-btn");
+    const diagTitle = document.getElementById("diagTitle");
+    const diagPrice = document.getElementById("diagPrice");
+    const diagBody = document.getElementById("diagBody");
+    const diagBookBtn = document.getElementById("diagBookBtn");
+
+    diagBtns.forEach(btn => {
+      btn.addEventListener("click", () => {
+        diagBtns.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        const key = btn.getAttribute("data-diag");
+        const data = diagnosticData[key];
+        if (data) {
+          diagTitle.textContent = data.title;
+          diagPrice.textContent = data.price;
+          diagBody.innerHTML = data.body;
+          diagBookBtn.onclick = () => {
+            selectServiceAndScroll(data.serviceTrack);
+          };
+        }
+      });
+    });
+
+    // 2. Select Service & Pre-fill Form + Dynamic Fee Update
+    const trackSelect = document.getElementById("cTrack");
+    const submitBtn = document.getElementById("submitBtn");
+
+    function updateSubmitButtonFee() {
+      if (!trackSelect || !submitBtn) return;
+      const selectedOption = trackSelect.options[trackSelect.selectedIndex];
+      const price = selectedOption.getAttribute("data-price") || "299";
+      submitBtn.textContent = `₹${price} पे करें`;
+    }
+
+    if (trackSelect) {
+      trackSelect.addEventListener("change", updateSubmitButtonFee);
+    }
+
+    function selectServiceAndScroll(trackName) {
+      if (trackSelect) {
+        for (let i = 0; i < trackSelect.options.length; i++) {
+          if (trackSelect.options[i].value.includes(trackName.slice(0, 15))) {
+            trackSelect.selectedIndex = i;
+            break;
+          }
+        }
+        updateSubmitButtonFee();
+      }
+      const priorityTab = document.querySelector('.tab-btn[data-tab="priority"]');
+      if (priorityTab) priorityTab.click();
+      document.getElementById("booking").scrollIntoView({ behavior: "smooth" });
+    }
+
+    document.querySelectorAll(".select-service").forEach(btn => {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        const serviceName = btn.getAttribute("data-service");
+        selectServiceAndScroll(serviceName);
+      });
+    });
+
+    // 3. Booking Tab Switching
+    const tabBtns = document.querySelectorAll(".tab-btn");
+    const tabPanels = document.querySelectorAll(".tab-panel");
+    tabBtns.forEach(btn => {
+      btn.addEventListener("click", () => {
+        tabBtns.forEach(b => b.classList.remove("active"));
+        tabPanels.forEach(p => p.classList.remove("active"));
+        btn.classList.add("active");
+        const tabKey = btn.getAttribute("data-tab");
+        const target = document.getElementById("panel-" + tabKey);
+        if (target) target.classList.add("active");
+      });
+    });
+
+    // 4. Default Date (Tomorrow)
+    const cDateInput = document.getElementById("cDate");
+    const tmrw = new Date();
+    tmrw.setDate(tmrw.getDate() + 1);
+    cDateInput.value = tmrw.toISOString().split("T")[0];
+    cDateInput.min = tmrw.toISOString().split("T")[0];
+
+    // 5. Razorpay Booking Form Submission
+    const bookingForm = document.getElementById("priorityBookingForm");
+    const statusBanner = document.getElementById("statusBanner");
+
+    function setStatus(msg, type) {
+      statusBanner.textContent = msg;
+      statusBanner.className = "status-banner " + (type || "");
+      statusBanner.style.display = msg ? "block" : "none";
+    }
+
+    bookingForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      setStatus("", "");
+
+      const payload = {
+        name: document.getElementById("cName").value.trim(),
+        whatsapp: document.getElementById("cWhatsapp").value.trim(),
+        email: document.getElementById("cEmail").value.trim(),
+        city: document.getElementById("cCity").value.trim(),
+        age: document.getElementById("cAge").value.trim(),
+        track: document.getElementById("cTrack").value,
+        preferred_date: document.getElementById("cDate").value,
+        preferred_time: document.getElementById("cTime").value,
+        question: document.getElementById("cQuestion").value.trim()
+      };
+
+      if (!payload.name || payload.name.length < 2) {
+        setStatus("कृपया अपना पूरा नाम लिखें।", "error");
+        return;
+      }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(payload.email)) {
+        setStatus("कृपया सही ईमेल लिखें।", "error");
+        return;
+      }
+      const rawWa = payload.whatsapp.replace(/\D/g, "").slice(-10);
+      if (!/^[6-9]\d{9}$/.test(rawWa)) {
+        setStatus("कृपया 10 अंकों का सही WhatsApp नंबर लिखें।", "error");
+        return;
+      }
+      if (!payload.question || payload.question.length < 5) {
+        setStatus("कृपया अपना सवाल या दिक्कत कुछ शब्दों में लिखें।", "error");
+        return;
+      }
+
+      submitBtn.disabled = true;
+      setStatus("चेकआउट खुल रहा है...", "loading");
+
+      try {
+        const res = await fetch("/api/create-order", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ form: payload })
+        });
+        const order = await res.json();
+
+        if (!res.ok || order.error) {
+          throw new Error(order.error || "ऑर्डर शुरू नहीं हो पाया");
+        }
+
+        const selectedOption = trackSelect.options[trackSelect.selectedIndex];
+        const displayFee = selectedOption.getAttribute("data-price") || "299";
+
+        const options = {
+          key: order.key_id,
+          amount: order.amount,
+          currency: order.currency || "INR",
+          name: "Timeline by Harsh",
+          description: payload.track,
+          order_id: order.order_id,
+          prefill: {
+            name: payload.name,
+            email: payload.email,
+            contact: "+91" + rawWa
+          },
+          theme: { color: "#FF6F1E" },
+          handler: async function (paymentResp) {
+            setStatus("पेमेंट चेक हो रहा है...", "loading");
+            try {
+              await fetch("/api/verify", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(paymentResp)
+              });
+            } catch (err) {}
+            renderSuccess(payload, paymentResp.razorpay_payment_id, displayFee);
+          }
+        };
+
+        const rzp = new window.Razorpay(options);
+        rzp.on("payment.failed", () => {
+          submitBtn.disabled = false;
+          setStatus("पेमेंट कैंसल या फेल हो गया। कृपया दोबारा कोशिश करें।", "error");
+        });
+        rzp.open();
+
+      } catch (err) {
+        submitBtn.disabled = false;
+        setStatus(err.message.includes("Razorpay environment")
+          ? "Razorpay अभी टेस्ट मोड में है। आप सीधे Cal.com पर भी समय चुन सकते हैं!"
+          : err.message, "error");
+      }
+    });
+
+    function renderSuccess(formData, paymentId, fee) {
+      const wrapper = document.getElementById("formWrapper");
+      wrapper.innerHTML = `
+        <div style="text-align:center;padding:1.5rem 0">
+          <p style="font-size:0.8rem;font-weight:600;color:var(--ok-text);margin-bottom:0.5rem">पेमेंट मिल गया</p>
+          <h3 style="font-family:var(--font-display);font-size:1.6rem;font-weight:500;color:var(--text);margin-bottom:0.35rem">सेशन कन्फर्म हो गया</h3>
+          <p style="font-size:0.9rem;color:var(--text-muted);max-width:24rem;margin:0 auto 1.5rem">
+            धन्यवाद, <b>${escapeHtml(formData.name)}</b>। आपकी बुकिंग कन्फर्म हो गई है। मैं 24 घंटे में आपके WhatsApp पर संपर्क करूँगा।
+          </p>
+
+          <div style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-md);padding:1rem 1.25rem;text-align:left;max-width:380px;margin:0 auto 1.5rem;font-size:0.85rem">
+            <div style="display:flex;justify-content:space-between;margin-bottom:0.35rem"><span>सेशन:</span><b>${escapeHtml(formData.track)}</b></div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:0.35rem"><span>तारीख:</span><span>${escapeHtml(formData.preferred_date)} @ ${escapeHtml(formData.preferred_time)}</span></div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:0.35rem"><span>फीस:</span><b>₹${escapeHtml(fee || "299")}.00</b></div>
+            <div style="display:flex;justify-content:space-between;font-size:0.775rem;color:var(--text-faint)"><span>पेमेंट ID:</span><code>${escapeHtml(paymentId)}</code></div>
+          </div>
+
+          <a href="https://wa.me/91${formData.whatsapp.replace(/\D/g, '').slice(-10)}?text=${encodeURIComponent('नमस्ते हर्ष, मैंने अभी यह सेशन बुक किया है: ' + formData.track + ' (पेमेंट ID: ' + paymentId + ')')}" target="_blank" rel="noopener noreferrer" class="btn-solid" style="font-size:0.85rem">
+            WhatsApp पर मैसेज करें
+          </a>
+        </div>
+      `;
+    }
+
+    function escapeHtml(str) {
+      return String(str || "").replace(/[<>&"]/g, c => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;", '"': "&quot;" }[c]));
+    }
+  </script>
+
+  <script>
+    /* reveal on scroll + stagger (visual only; payment and booking code is untouched) */
+    (function () {
+      var els = document.querySelectorAll('.rise');
+      if (!('IntersectionObserver' in window)) { els.forEach(function (e) { e.classList.add('in'); }); return; }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+      }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+      els.forEach(function (e) {
+        var sib = e.parentElement ? Array.prototype.indexOf.call(e.parentElement.children, e) : 0;
+        e.style.setProperty('--d', Math.min(sib, 6) * 0.1 + 's');
+        io.observe(e);
+      });
+      var rv = document.getElementById('diagReveal');
+      document.querySelectorAll('.diag-card-btn').forEach(function (b) {
+        b.addEventListener('click', function () { if (!rv) return; rv.classList.remove('swap'); void rv.offsetWidth; rv.classList.add('swap'); });
+      });
+    })();
+  </script>
+
+  <script>
+    /* Cal.com: show the event that matches the chosen service (30 / 45 / 60 min) */
+    (function () {
+      var USER = 'harsh-upadhyay-tsgoiw';
+      var SLUGS = { '30': 'clarity-call-30', '45': 'dincharya-45', '60': 'deep-dive-60' };
+      document.querySelectorAll('.select-service').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var m = (btn.getAttribute('data-service') || '').match(/\((\d+) Mins\)/);
+          var slug = m && SLUGS[m[1]];
+          var box = document.getElementById('my-cal-inline');
+          if (!slug || !box || !window.Cal) return;
+          box.innerHTML = '';
+          Cal('inline', { elementOrSelector: '#my-cal-inline', calLink: USER + '/' + slug, layout: 'month_view' });
+          var out = document.querySelector('#panel-cal a[target="_blank"]');
+          if (out) out.href = 'https://cal.com/' + USER + '/' + slug;
+        });
+      });
+    })();
+  </script>
+
+  
+
+  <script>
+    /* segmented tab thumb + stepped booking form (visual flow only; submit handler unchanged) */
+    (function () {
+      var tabs = document.querySelectorAll('.tab-btn'), bar = document.querySelector('.booking-tabs');
+      function sync() {
+        if (!bar) return;
+        var idx = 0;
+        tabs.forEach(function (t, k) { if (t.classList.contains('active')) idx = k; });
+        bar.style.setProperty('--i', idx);
+      }
+      tabs.forEach(function (t) { t.addEventListener('click', function () { setTimeout(sync, 0); }); });
+      sync();
+
+      var form = document.getElementById('priorityBookingForm');
+      if (!form) return;
+      var steps = form.querySelectorAll('.step'), dots = document.querySelectorAll('#formSteps li');
+      var back = document.getElementById('stepBack'), next = document.getElementById('stepNext'), pay = document.getElementById('submitBtn');
+      var cur = 0;
+      function say(msg) { if (typeof setStatus === 'function') setStatus(msg, msg ? 'error' : ''); }
+      function val(id) { return (document.getElementById(id).value || '').trim(); }
+
+      function check(n) {
+        if (n === 0) {
+          if (!val('cDate')) { say('कृपया तारीख चुनें।'); return false; }
+        }
+        if (n === 1) {
+          if (val('cName').length < 2) { say('कृपया अपना पूरा नाम लिखें।'); return false; }
+          var wa = val('cWhatsapp').replace(/\D/g, '').slice(-10);
+          if (!/^[6-9]\d{9}$/.test(wa)) { say('कृपया 10 अंकों का सही WhatsApp नंबर लिखें।'); return false; }
+          if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(val('cEmail'))) { say('कृपया सही ईमेल लिखें।'); return false; }
+          if (val('cCity').length < 2) { say('कृपया अपना शहर लिखें।'); return false; }
+          var age = +val('cAge');
+          if (!age || age < 15 || age > 85) { say('कृपया अपनी उम्र लिखें (15 से 85)।'); return false; }
+        }
+        say('');
+        return true;
+      }
+
+      function summary() {
+        var tr = document.getElementById('cTrack'), o = tr.options[tr.selectedIndex];
+        var d = val('cDate'), nice = d ? new Date(d + 'T00:00:00').toLocaleDateString('hi-IN', { day: 'numeric', month: 'short' }) : '';
+        var t = (document.getElementById('cTime').value || '').split(' (')[0];
+        document.getElementById('stepSummary').textContent = o.textContent + (nice ? ' · ' + nice + ', ' + t : '');
+      }
+
+      function show(n) {
+        cur = n;
+        steps.forEach(function (st, k) { st.hidden = k !== n; });
+        dots.forEach(function (d, k) { d.classList.toggle('on', k === n); d.classList.toggle('done', k < n); });
+        back.hidden = n === 0;
+        next.hidden = n === steps.length - 1;
+        pay.hidden = n !== steps.length - 1;
+        if (n === steps.length - 1) summary();
+        var f = steps[n].querySelector('input, select, textarea');
+        if (f && n > 0) f.focus({ preventScroll: true });
+      }
+
+      next.addEventListener('click', function () { if (cur >= steps.length - 1) return; if (check(cur)) show(cur + 1); });
+      back.addEventListener('click', function () { say(''); show(cur - 1); });
+      form.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' && e.target.tagName !== 'TEXTAREA' && cur < steps.length - 1) { e.preventDefault(); next.click(); }
+      });
+      show(0);
+    })();
+  </script>
+
+  <script>
+    /* mobile "Book a call" bar: show once the hero button is out of view, hide while the booking section is on screen */
+    (function () {
+      var hero = document.getElementById('heroCta'), book = document.getElementById('booking'), bar = document.getElementById('mobileBar');
+      if (!bar) return;
+      if (!hero || !book || !('IntersectionObserver' in window)) { bar.classList.add('show'); return; }
+      var heroSeen = true, bookSeen = false;
+      function apply() {
+        var on = !heroSeen && !bookSeen;
+        bar.classList.toggle('show', on);
+        bar.setAttribute('aria-hidden', on ? 'false' : 'true');
+        var a = bar.querySelector('a'); if (a) a.tabIndex = on ? 0 : -1;
+      }
+      new IntersectionObserver(function (e) { heroSeen = e[0].isIntersecting; apply(); }).observe(hero);
+      new IntersectionObserver(function (e) { bookSeen = e[0].isIntersecting; apply(); }, { threshold: 0.15 }).observe(book);
+    })();
+  </script>
+
+  <script>
+    /* UPI payment step after a Cal.com booking.
+       Set upiId to Harsh's UPI ID (ideally a business VPA). While it is empty the step shows a plain thank-you and no QR. */
+    (function () {
+      var SITE = { upiId: '', upiName: 'Timeline by Harsh' };
+      var PRICE = { 'clarity-call-30': 299, 'dincharya-45': 499, 'deep-dive-60': 699 };
+      var NAME = { 'clarity-call-30': 'क्लैरिटी कॉल', 'dincharya-45': 'दिनचर्या रीसेट', 'deep-dive-60': 'डीप डाइव' };
+      var modal = document.getElementById('payModal');
+      if (!modal) return;
+      var $ = function (id) { return document.getElementById(id); };
+      var current = { slug: 'clarity-call-30', when: '' };
+
+      function slugNow(data) {
+        var s = data && data.eventType && data.eventType.slug;
+        if (s && PRICE[s]) return s;
+        var a = document.querySelector('#panel-cal a[target="_blank"]');
+        var m = a && a.href.match(/\/([a-z0-9-]+)\/?$/);
+        return m && PRICE[m[1]] ? m[1] : 'clarity-call-30';
+      }
+      function when(data) {
+        var t = data && (data.startTime || (data.booking && data.booking.startTime));
+        if (!t) return '';
+        var d = new Date(t);
+        if (isNaN(d)) return '';
+        return d.toLocaleString('hi-IN', { weekday: 'short', day: 'numeric', month: 'short', hour: 'numeric', minute: '2-digit' });
+      }
+      function open(data) {
+        current.slug = slugNow(data); current.when = when(data);
+        var amount = PRICE[current.slug];
+        $('paySub').textContent = NAME[current.slug] + (current.when ? ' · ' + current.when : '');
+        $('payDone').hidden = true;
+        $('utrErr').textContent = '';
+        if (SITE.upiId) {
+          var link = 'upi://pay?pa=' + encodeURIComponent(SITE.upiId) + '&pn=' + encodeURIComponent(SITE.upiName) + '&am=' + amount + '&cu=INR&tn=' + encodeURIComponent(NAME[current.slug] + ' booking');
+          $('payAmount').textContent = '\u20B9' + amount;
+          $('payVpa').textContent = SITE.upiId;
+          $('payApp').href = link;
+          try { var q = qrcode(0, 'M'); q.addData(link); q.make(); $('payQr').innerHTML = q.createSvgTag(4, 0); } catch (e) { $('payQr').textContent = ''; }
+          $('payBlock').hidden = false;
+        } else {
+          $('payBlock').hidden = true;
+          $('payDone').hidden = false;
+          $('payDone').textContent = 'धन्यवाद। आपकी बुकिंग की रिक्वेस्ट मिल गई है। मैं जल्दी ही ईमेल से कन्फर्म करूँगा।';
+        }
+        modal.hidden = false;
+        document.body.style.overflow = 'hidden';
+      }
+      function close() { modal.hidden = true; document.body.style.overflow = ''; }
+
+      $('payClose').addEventListener('click', close);
+      modal.addEventListener('click', function (e) { if (e.target === modal) close(); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !modal.hidden) close(); });
+      $('payCopy').addEventListener('click', function () {
+        if (navigator.clipboard) navigator.clipboard.writeText(SITE.upiId).then(function () { $('payCopy').textContent = 'कॉपी हो गया'; setTimeout(function () { $('payCopy').textContent = 'कॉपी'; }, 1800); });
+      });
+
+      $('utrForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+        var email = $('utrEmail').value.trim(), utr = $('utrRef').value.trim(), err = $('utrErr');
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { err.textContent = 'कृपया वो ईमेल लिखें जिससे बुक किया था।'; return; }
+        if (!/^[A-Za-z0-9]{8,24}$/.test(utr)) { err.textContent = 'कृपया UPI ऐप वाला UTR या रेफरेंस नंबर लिखें।'; return; }
+        err.textContent = '';
+        var btn = $('utrSend'); btn.disabled = true; btn.textContent = 'भेज रहे हैं';
+        fetch('/api/upi-claim', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: email, utr: utr, amount: PRICE[current.slug], session: NAME[current.slug], slot: current.when }) })
+          .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
+          .then(function (res) {
+            if (!res.ok) throw new Error(res.j.error || 'कुछ गड़बड़ हो गई।');
+            $('payBlock').hidden = true; $('payDone').hidden = false;
+            $('payDone').textContent = 'धन्यवाद। मैं पेमेंट देखकर आपकी बुकिंग कन्फर्म करूँगा। कन्फर्म होते ही Cal.com आपको Meet लिंक ईमेल कर देगा।';
+          })
+          .catch(function (ex) { err.textContent = ex.message; btn.disabled = false; btn.textContent = 'मैंने पे कर दिया'; });
+      });
+
+      function hook() {
+        if (!window.Cal) return setTimeout(hook, 400);
+        Cal('on', { action: 'bookingSuccessfulV2', callback: function (e) { open((e && e.detail && e.detail.data) || {}); } });
+      }
+      hook();
+      window.__openPayStep = open; /* handy for testing: __openPayStep({}) */
+    })();
+
+    /* header button is always there on desktop; only the mobile bar follows scroll */
+    (function () {
+      var hdr = document.querySelector('.header-cta'); if (hdr) hdr.classList.add('show');
+    })();
+  </script>
+
+  <script>
+    /* mobile finder: the detail card opens right under the chosen card; desktop keeps it in the right column */
+    (function () {
+      var split = document.querySelector('.diag-split'), reveal = document.getElementById('diagReveal');
+      var list = document.querySelector('.diag-cards-grid');
+      if (!split || !reveal || !list) return;
+      var mq = window.matchMedia('(max-width: 859px)');
+      var btns = list.querySelectorAll('.diag-card-btn');
+      function place(btn, scroll) {
+        if (mq.matches) {
+          reveal.hidden = false;
+          btn.insertAdjacentElement('afterend', reveal);
+          reveal.style.animation = 'none'; void reveal.offsetWidth; reveal.style.animation = '';
+          if (scroll) btn.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else {
+          reveal.hidden = false;
+          if (reveal.parentElement !== split) split.appendChild(reveal);
+        }
+      }
+      function active() { return list.querySelector('.diag-card-btn.active') || btns[0]; }
+      btns.forEach(function (b) {
+        b.addEventListener('click', function () {
+          if (!mq.matches) return;
+          if (b.dataset.open === '1' && reveal.previousElementSibling === b && !reveal.hidden) { reveal.hidden = true; b.dataset.open = '0'; return; }
+          btns.forEach(function (x) { x.dataset.open = '0'; });
+          b.dataset.open = '1';
+          setTimeout(function () { place(b, true); }, 0);
+        });
+      });
+      function sync() { var a = active(); if (mq.matches) { a.dataset.open = '1'; place(a, false); } else { place(a, false); } }
+      (mq.addEventListener ? mq.addEventListener('change', sync) : mq.addListener(sync));
+      sync();
+    })();
+  </script>
+</body>
+</html>
