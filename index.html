@@ -1742,6 +1742,8 @@
     .pay-fallback { width: 100%; margin-top: 1.25rem; }
     .pay-modal.noqr .pay-qr { display: none; }
     .pay-modal.noqr .pay-app { display: inline-flex; }
+    .btn-solid[hidden], .pay-fallback[hidden], .pay-app[hidden] { display: none !important; }
+    .b-ig { padding: 0.34rem 0; }
   </style>
 </head>
 <body>
@@ -2851,7 +2853,7 @@
     /* UPI payment step after a Cal.com booking.
        Set upiId to Harsh's UPI ID (ideally a business VPA). While it is empty the step shows a plain thank-you and no QR. */
     (function () {
-      var SITE = { upiId: '', upiName: 'Timeline by Harsh' };
+      var SITE = { upiId: 'harshitup9335-2@oksbi', upiName: 'Harsh Upadhyay' };
       var PRICE = { 'clarity-call-30': 299, 'dincharya-45': 499, 'deep-dive-60': 699 };
       var NAME = { 'clarity-call-30': 'Clarity Call', 'dincharya-45': 'Dincharya Reset', 'deep-dive-60': 'Deep Dive' };
       var modal = document.getElementById('payModal');

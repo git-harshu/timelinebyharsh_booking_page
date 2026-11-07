@@ -121,3 +121,5 @@ article a{text-decoration:underline}
 .mobile-bar-cta{display:flex;align-items:center;justify-content:center;width:100%;min-height:3rem;border-radius:9999px;background:var(--accent);color:#fff;font-size:1rem;font-weight:500;pointer-events:auto;box-shadow:0 8px 24px rgba(255,111,30,.35)}
 @media(min-width:768px){.mobile-bar{display:none}}
 @media(max-width:767px){body{padding-bottom:5rem}}
+
+.b-ig{padding:.34rem 0}
