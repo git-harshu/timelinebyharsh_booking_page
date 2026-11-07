@@ -1353,6 +1353,21 @@
     .hero-link { font-size: 0.9rem; color: var(--text-muted); text-decoration: underline; text-decoration-color: var(--border-strong); text-underline-offset: 5px; transition: color 0.2s, text-decoration-color 0.2s; }
     .hero-link:hover { color: var(--accent); text-decoration-color: var(--accent); }
     .step-back { border-radius: 9999px; }
+
+    /* =========================================================
+       r9: one "Book a call" at a time
+       header button appears after the hero button scrolls away;
+       mobile gets a bottom bar instead of a header button
+       ========================================================= */
+    .header-cta { opacity: 0; visibility: hidden; transform: translateY(-4px); transition: opacity 0.4s var(--ease), transform 0.4s var(--ease), visibility 0.4s, background 0.2s; }
+    .header-cta.show { opacity: 1; visibility: visible; transform: none; }
+    @media (max-width: 767px) { .header-cta { display: none; } }
+
+    .mobile-bar { background: rgba(255,255,255,0.97); border-top: 1px solid var(--border); padding: 0.7rem 1rem calc(0.7rem + env(safe-area-inset-bottom)); display: block; transform: translateY(110%); transition: transform 0.5s var(--ease); box-shadow: 0 -6px 20px rgba(33,37,43,0.06); }
+    .mobile-bar.show { transform: none; }
+    .mobile-bar-cta { display: block; width: 100%; text-align: center; font-size: 0.95rem; font-weight: 600; padding: 0.85rem 1rem; border-radius: 9999px; }
+    .mobile-bar-cta:active { transform: scale(0.98); }
+    @media (max-width: 767px) { .om-top { bottom: 5.5rem; } }
   </style>
 </head>
 <body>
@@ -1409,7 +1424,7 @@
         </p>
 
         <div class="hero-actions">
-          <a href="#booking" class="btn-solid">Book a call</a>
+          <a href="#booking" class="btn-solid" id="heroCta">Book a call</a>
           <a href="#diagnostic" class="hero-link">Not sure where to start?</a>
         </div>
       </div>
@@ -1958,12 +1973,8 @@
   </button>
 
   <!-- Compact Mobile Sticky Bar -->
-  <div class="mobile-bar">
-    <div>
-      <span class="mobile-bar-text">Personal guidance</span>
-      <span class="mobile-bar-sub">From ₹299 · 30 minutes</span>
-    </div>
-    <a href="#booking" class="mobile-bar-cta">Book a call</a>
+  <div class="mobile-bar" id="mobileBar" aria-hidden="true">
+    <a href="#booking" class="mobile-bar-cta" tabindex="-1">Book a call</a>
   </div>
 
   <!-- Interactive JavaScript Logic -->
@@ -2332,6 +2343,23 @@
         if (e.key === 'Enter' && e.target.tagName !== 'TEXTAREA' && cur < steps.length - 1) { e.preventDefault(); next.click(); }
       });
       show(0);
+    })();
+  </script>
+
+  <script>
+    /* header + mobile "Book a call" show only when the hero button is out of view and the booking section is not on screen */
+    (function () {
+      var hero = document.getElementById('heroCta'), book = document.getElementById('booking');
+      var hdr = document.querySelector('.header-cta'), bar = document.getElementById('mobileBar');
+      if (!hero || !book || !('IntersectionObserver' in window)) { if (hdr) hdr.classList.add('show'); if (bar) bar.classList.add('show'); return; }
+      var heroSeen = true, bookSeen = false;
+      function apply() {
+        var on = !heroSeen && !bookSeen;
+        if (hdr) hdr.classList.toggle('show', on);
+        if (bar) { bar.classList.toggle('show', on); bar.setAttribute('aria-hidden', on ? 'false' : 'true'); var a = bar.querySelector('a'); if (a) a.tabIndex = on ? 0 : -1; }
+      }
+      new IntersectionObserver(function (e) { heroSeen = e[0].isIntersecting; apply(); }).observe(hero);
+      new IntersectionObserver(function (e) { bookSeen = e[0].isIntersecting; apply(); }, { threshold: 0.15 }).observe(book);
     })();
   </script>
 </body>
