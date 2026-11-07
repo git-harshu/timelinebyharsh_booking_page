@@ -116,7 +116,7 @@ PAGES['privacy.html'] = ('Privacy Policy', f'Aakhri update: {UPD}', 'Timeline by
 </ul>
 <p>Calendar se book karne par scheduling service woh jaankari maangti hai jo use chahiye, jaise aapka naam aur email.</p>
 <p>Aapki dikkat ka byora personal ho sakta hai. Kripya wahi batayein jisme aap comfortable hon.</p>
-<p>Main aapke card, UPI ya bank ki detail <strong>nahi</strong> dekhta aur na rakhta hoon. Payment Razorpay sambhalta hai.</p>
+<p>Main aapke card, UPI ya bank ki detail <strong>nahi</strong> dekhta aur na rakhta hoon. Aap payment apne UPI app se seedhe karte hain, isliye main sirf wo transaction reference (UTR) dekhta hoon jo aap mujhe bhejte hain.</p>
 
 <h2>Main iska kya karta hoon</h2>
 <ul>
@@ -131,7 +131,6 @@ PAGES['privacy.html'] = ('Privacy Policy', f'Aakhri update: {UPD}', 'Timeline by
 <h2>Aur kaun ise sambhalta hai</h2>
 <p>Service chalane ke liye main in companies ki madad leta hoon. Sabki apni privacy policy hai.</p>
 <ul>
-<li><strong>Razorpay</strong>: payment sambhalta hai. Aapki booking ki jaankari payment record ke saath save hoti hai.</li>
 <li><strong>Cal.com</strong> aur <strong>Google</strong> (Calendar, Meet aur Gmail): scheduling, video call aur booking emails.</li>
 <li><strong>WhatsApp</strong>: follow-up messages aur aapki likhit summary.</li>
 <li><strong>Google Fonts</strong>: is site ke fonts load karta hai, yaani aapka browser Google se judta hai.</li>
@@ -140,7 +139,7 @@ PAGES['privacy.html'] = ('Privacy Policy', f'Aakhri update: {UPD}', 'Timeline by
 <p>Agar kanoon maange toh main jaankari share kar sakta hoon.</p>
 
 <h2>Kitne time tak rakhta hoon</h2>
-<p>Booking ki jaankari main tab tak rakhta hoon jab tak service dene, aapse follow-up karne aur tax-accounting ke niyam nibhane ke liye zaroori hai. Uske baad jo hata sakta hoon, hata deta hoon. Razorpay ke paas rakhe payment records uske apne niyamon se chalte hain.</p>
+<p>Booking ki jaankari main tab tak rakhta hoon jab tak service dene, aapse follow-up karne aur tax-accounting ke niyam nibhane ke liye zaroori hai. Uske baad jo hata sakta hoon, hata deta hoon.</p>
 
 <h2>Aapke options aur haq</h2>
 <p>Digital Personal Data Protection Act, 2023 ke tehat aap mujhse pooch sakte hain ki mere paas aapki kaun si jaankari hai, use theek karwa sakte hain ya hatwa sakte hain, aur apni sahmati wapas le sakte hain. Iske liye upar bataye tareeke se sampark karein. Main jald se jald jawaab doonga. Santusht na hon toh aap Data Protection Board of India mein shikayat bhi kar sakte hain.</p>
@@ -149,7 +148,7 @@ PAGES['privacy.html'] = ('Privacy Policy', f'Aakhri update: {UPD}', 'Timeline by
 <p>Agar aapki umar 18 saal se kam hai, toh kripya mata-pita ya guardian ki jaankari aur sahmati se hi book karein. Main umar isiliye poochta hoon.</p>
 
 <h2>Security</h2>
-<p>Ye site HTTPS par chalti hai aur payments Razorpay ke secure checkout se hote hain. Koi bhi system poori tarah surakshit nahi hota, isliye kripya booking form mein sensitive documents ya passwords na bhejein.</p>
+<p>Ye site HTTPS par chalti hai aur payment aap apne UPI app se karte hain. Koi bhi system poori tarah surakshit nahi hota, isliye kripya booking form mein sensitive documents ya passwords na bhejein.</p>
 
 <h2>Cookies</h2>
 <p><a href="cookies.html">Cookie policy</a> dekhein.</p>
@@ -171,7 +170,7 @@ PAGES['terms.html'] = ('Terms of Use', f'Aakhri update: {UPD}', 'Timeline by Har
 
 <h2>Booking aur payment</h2>
 <ul>
-<li>Aap calendar se book kar sakte hain ya priority slot ke liye payment kar sakte hain. Payment Razorpay sambhalta hai.</li>
+<li>Aap calendar se book karte hain. Booking ke baad aap UPI se payment karte hain aur main aapka slot confirm karta hoon.</li>
 <li>Aapka slot tab pakka hota hai jab aapki booking ya payment confirm ho jaaye.</li>
 <li>Calendar se ki gayi booking tab tak sirf request hoti hai jab tak main use confirm na karoon. Agar aap UPI se pay karte hain, toh payment dikhne ke baad main booking confirm karta hoon.</li>
 <li>Kripya sahi jaankari dein. Mujhe aapse email ya WhatsApp par sampark karna pad sakta hai.</li>
@@ -232,7 +231,7 @@ PAGES['refund.html'] = ('Refunds and Rescheduling', f'Aakhri update: {UPD}', 'Ti
 <p>Agar kuch gadbad hui aur upar ki koi baat fit nahi baithti, toh mujhe likhein. Main imaandaari se dekhkar case ke hisaab se faisla karoonga.</p>
 
 <h2>Refund kaise milta hai</h2>
-<p>Manzoor hua refund Razorpay ke zariye usi payment tareeke mein wapas jaata hai. Isme aam taur par 5 se 7 kaam-kaaji din lagte hain, aapke bank ya UPI app ke hisaab se.</p>
+<p>Manzoor hua refund UPI se aapke paas wapas aata hai. Isme aam taur par 5 se 7 kaam-kaaji din lagte hain, aapke bank ya UPI app ke hisaab se.</p>
 
 <h2>Kaise maangein</h2>
 <p>{CONTACT} Kripya woh naam aur email batayein jisse book kiya tha, aur payment ID agar aapke paas ho.</p>
@@ -253,7 +252,6 @@ PAGES['cookies.html'] = ('Cookie Policy', f'Aakhri update: {UPD}', 'Timeline by 
 <p>Page ke kuch hisse doosri companies se load hote hain. Load hone par woh apni cookies ya waisi hi storage laga sakti hain, jin par mera control nahi hai:</p>
 <ul>
 <li><strong>Cal.com</strong>: page par booking ka calendar.</li>
-<li><strong>Razorpay</strong>: iski checkout script page ke saath load hoti hai, aur pay karte samay secure checkout khulta hai. Ye fraud rokne aur payment poora karne ke liye cookies ya waisi storage use kar sakta hai.</li>
 <li><strong>Google Fonts</strong>: fonts load karta hai. Iske liye aapka browser Google se judta hai.</li>
 <li><strong>Amazon</strong>: sirf tab jab aap kitaab ka link kholkar is site se bahar jaayein.</li>
 </ul>

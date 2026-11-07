@@ -27,9 +27,6 @@
   
   <script src="assets/qrcode.min.js" defer></script>
 
-  <!-- Razorpay Checkout -->
-  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-
   <!-- Cal.com Official Embed -->
   <script type="text/javascript">
     (function (C, A, L) {
@@ -1773,6 +1770,9 @@
     .pay-help { margin-top: 1.1rem; font-size: 0.8rem; color: var(--text-faint); text-align: center; }
     .pay-help a { color: var(--text-muted); text-decoration: underline; text-decoration-color: var(--border-strong); text-underline-offset: 3px; }
     .pay-help a:hover { color: var(--accent); }
+    .lside { min-width: 12.5rem; width: auto; }
+    .lside .btn-solid, .lside .lbtn2 { width: 100%; white-space: nowrap; padding: 0 1.5rem; gap: 0.5rem; }
+    .lig { width: 1.1rem; height: 1.1rem; flex-shrink: 0; }
   </style>
 </head>
 <body>
@@ -2092,15 +2092,11 @@
     <div class="container">
       <h2 class="section-heading rise">Choose a time</h2>
       <p class="section-intro">
-        Pick a free slot on the calendar, or book a priority slot with payment.
+        Pick a free slot on the calendar. After you book, you pay by UPI and I confirm your slot.
       </p>
 
-      <div class="booking-tabs">
-        <button type="button" class="tab-btn active" data-tab="cal"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Calendar</button>
-        <button type="button" class="tab-btn" data-tab="priority"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg>Priority slot</button>
-      </div>
 
-      <!-- Tab 1: Cal.com Official Embed -->
+      <!-- Cal.com booking (the UPI step opens after a booking) -->
       <div class="tab-panel active" id="panel-cal">
         <div class="cal-container">
           <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;flex-wrap:wrap;gap:0.5rem">
@@ -2118,102 +2114,7 @@
         </div>
       </div>
 
-      <!-- Tab 2: Priority Razorpay Checkout -->
-      <div class="tab-panel" id="panel-priority">
-        <div class="form-container" id="formWrapper">
-          <div style="margin-bottom:1.5rem">
-            <h3 style="font-size:1.2rem;font-weight:700;color:var(--text);margin-bottom:0.25rem">Priority slot</h3>
-            <p style="font-size:0.825rem;color:var(--text-muted)">
-              Pay now to hold your time. I prepare for your question before the call.
-            </p>
           </div>
-
-          <form id="priorityBookingForm" novalidate>
-            <ol class="steps" id="formSteps" aria-label="Booking progress">
-              <li class="on"><span>1</span>Session</li>
-              <li><span>2</span>About you</li>
-              <li><span>3</span>Your question</li>
-            </ol>
-
-            <div class="step" data-step="1">
-              <div class="form-field">
-                <label for="cTrack" class="form-label">Which session?</label>
-                <select id="cTrack" name="track" class="form-select" required>
-                  <option value="1:1 Clarity & Roadmap Call (30 Mins)" data-price="299">Clarity Call, 30 min, ₹299</option>
-                  <option value="Daily Dincharya & Habit Blueprint (45 Mins)" data-price="499">Dincharya Reset, 45 min, ₹499</option>
-                  <option value="Deep-Dive Personal Advisory (60 Mins)" data-price="699">Deep Dive, 60 min, ₹699</option>
-                  <option value="General Life Guidance & Sounding Board" data-price="299">General Life Guidance & Sounding Board (₹299)</option>
-                </select>
-              </div>
-              <div class="form-row">
-                <div class="form-field">
-                  <label for="cDate" class="form-label">Preferred date</label>
-                  <input type="date" id="cDate" name="preferred_date" class="form-input" required>
-                </div>
-                <div class="form-field">
-                  <label for="cTime" class="form-label">Time window</label>
-                  <select id="cTime" name="preferred_time" class="form-select" required>
-                    <option value="Morning (9 AM - 12 PM)">Morning (9 AM – 12 PM)</option>
-                    <option value="Afternoon (1 PM - 4 PM)">Afternoon (1 PM – 4 PM)</option>
-                    <option value="Evening (6 PM - 9 PM)" selected>Evening (6 PM – 9 PM)</option>
-                    <option value="Night (9 PM - 11 PM)">Night (9 PM – 11 PM)</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-
-            <div class="step" data-step="2" hidden>
-              <div class="form-row">
-                <div class="form-field">
-                  <label for="cName" class="form-label">Full name</label>
-                  <input type="text" id="cName" name="name" class="form-input" placeholder="Rahul Sharma" required autocomplete="name">
-                </div>
-                <div class="form-field">
-                  <label for="cWhatsapp" class="form-label">WhatsApp number</label>
-                  <input type="tel" id="cWhatsapp" name="whatsapp" class="form-input" placeholder="10-digit number" required autocomplete="tel" inputmode="numeric">
-                </div>
-              </div>
-              <div class="form-field">
-                <label for="cEmail" class="form-label">Email address</label>
-                <input type="email" id="cEmail" name="email" class="form-input" placeholder="rahul@example.com" required autocomplete="email">
-              </div>
-              <div class="form-row">
-                <div class="form-field">
-                  <label for="cCity" class="form-label">City</label>
-                  <input type="text" id="cCity" name="city" class="form-input" placeholder="City" required>
-                </div>
-                <div class="form-field">
-                  <label for="cAge" class="form-label">Age</label>
-                  <input type="number" id="cAge" name="age" class="form-input" placeholder="Age" min="15" max="85" required>
-                </div>
-              </div>
-            </div>
-
-            <div class="step" data-step="3" hidden>
-              <div class="form-field">
-                <label for="cQuestion" class="form-label">What is the one problem you want to talk about?</label>
-                <textarea id="cQuestion" name="question" class="form-textarea" placeholder="A few lines is enough." required></textarea>
-              </div>
-              <p class="step-summary" id="stepSummary"></p>
-            </div>
-
-            <div class="step-nav">
-              <button type="button" class="step-back" id="stepBack" hidden>Back</button>
-              <button type="button" class="form-btn step-next" id="stepNext">Continue</button>
-              <button type="submit" id="submitBtn" class="form-btn" hidden>
-                Pay ₹299 securely
-              </button>
-            </div>
-
-            <div id="statusBanner" class="status-banner"></div>
-
-            <p style="text-align:center;font-size:0.75rem;color:var(--text-faint);margin-top:1rem">
-              Secure checkout via Razorpay. UPI, Cards & Netbanking supported.
-            </p>
-          </form>
-        </div>
-      </div>
-    </div>
   </section>
 
   <section class="learn-section" id="learn">
@@ -2504,7 +2405,6 @@
       </div>
 
       <p class="pay-done" id="payDone" hidden>Thank you. I will check the payment and confirm your booking. Cal.com will email you the Meet link once it is confirmed.</p>
-      <button type="button" class="btn-solid pay-fallback" id="payFallback" hidden>Pay now</button>
     </div>
   </div>
 
@@ -2566,195 +2466,18 @@
       });
     });
 
-    // 2. Select Service & Pre-fill Form + Dynamic Fee Update
-    const trackSelect = document.getElementById("cTrack");
-    const submitBtn = document.getElementById("submitBtn");
-
-    function updateSubmitButtonFee() {
-      if (!trackSelect || !submitBtn) return;
-      const selectedOption = trackSelect.options[trackSelect.selectedIndex];
-      const price = selectedOption.getAttribute("data-price") || "299";
-      submitBtn.textContent = `Pay ₹${price} securely`;
-    }
-
-    if (trackSelect) {
-      trackSelect.addEventListener("change", updateSubmitButtonFee);
-    }
-
+    // 2. Choosing a session scrolls to the calendar; the Cal script below shows the matching event
     function selectServiceAndScroll(trackName) {
-      if (trackSelect) {
-        for (let i = 0; i < trackSelect.options.length; i++) {
-          if (trackSelect.options[i].value.includes(trackName.slice(0, 15))) {
-            trackSelect.selectedIndex = i;
-            break;
-          }
-        }
-        updateSubmitButtonFee();
-      }
-      const priorityTab = document.querySelector('.tab-btn[data-tab="priority"]');
-      if (priorityTab) priorityTab.click();
+      if (window.__showCalFor) window.__showCalFor(trackName);
       document.getElementById("booking").scrollIntoView({ behavior: "smooth" });
     }
 
     document.querySelectorAll(".select-service").forEach(btn => {
       btn.addEventListener("click", (e) => {
         e.preventDefault();
-        const serviceName = btn.getAttribute("data-service");
-        selectServiceAndScroll(serviceName);
+        selectServiceAndScroll(btn.getAttribute("data-service"));
       });
     });
-
-    // 3. Booking Tab Switching
-    const tabBtns = document.querySelectorAll(".tab-btn");
-    const tabPanels = document.querySelectorAll(".tab-panel");
-    tabBtns.forEach(btn => {
-      btn.addEventListener("click", () => {
-        tabBtns.forEach(b => b.classList.remove("active"));
-        tabPanels.forEach(p => p.classList.remove("active"));
-        btn.classList.add("active");
-        const tabKey = btn.getAttribute("data-tab");
-        const target = document.getElementById("panel-" + tabKey);
-        if (target) target.classList.add("active");
-      });
-    });
-
-    // 4. Default Date (Tomorrow)
-    const cDateInput = document.getElementById("cDate");
-    const tmrw = new Date();
-    tmrw.setDate(tmrw.getDate() + 1);
-    cDateInput.value = tmrw.toISOString().split("T")[0];
-    cDateInput.min = tmrw.toISOString().split("T")[0];
-
-    // 5. Razorpay Booking Form Submission
-    const bookingForm = document.getElementById("priorityBookingForm");
-    const statusBanner = document.getElementById("statusBanner");
-
-    function setStatus(msg, type) {
-      statusBanner.textContent = msg;
-      statusBanner.className = "status-banner " + (type || "");
-      statusBanner.style.display = msg ? "block" : "none";
-    }
-
-    bookingForm.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      setStatus("", "");
-
-      const payload = {
-        name: document.getElementById("cName").value.trim(),
-        whatsapp: document.getElementById("cWhatsapp").value.trim(),
-        email: document.getElementById("cEmail").value.trim(),
-        city: document.getElementById("cCity").value.trim(),
-        age: document.getElementById("cAge").value.trim(),
-        track: document.getElementById("cTrack").value,
-        preferred_date: document.getElementById("cDate").value,
-        preferred_time: document.getElementById("cTime").value,
-        question: document.getElementById("cQuestion").value.trim()
-      };
-
-      if (!payload.name || payload.name.length < 2) {
-        setStatus("Please enter your full name.", "error");
-        return;
-      }
-      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(payload.email)) {
-        setStatus("Please enter a valid email address.", "error");
-        return;
-      }
-      const rawWa = payload.whatsapp.replace(/\D/g, "").slice(-10);
-      if (!/^[6-9]\d{9}$/.test(rawWa)) {
-        setStatus("Please enter a valid 10-digit Indian WhatsApp number.", "error");
-        return;
-      }
-      if (!payload.question || payload.question.length < 5) {
-        setStatus("Please describe your question or issue in a few words.", "error");
-        return;
-      }
-
-      submitBtn.disabled = true;
-      setStatus("Initializing priority slot checkout...", "loading");
-
-      try {
-        const res = await fetch("/api/create-order", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ form: payload })
-        });
-        const order = await res.json();
-
-        if (!res.ok || order.error) {
-          throw new Error(order.error || "Failed to initialize order");
-        }
-
-        const selectedOption = trackSelect.options[trackSelect.selectedIndex];
-        const displayFee = selectedOption.getAttribute("data-price") || "299";
-
-        const options = {
-          key: order.key_id,
-          amount: order.amount,
-          currency: order.currency || "INR",
-          name: "Timeline by Harsh",
-          description: payload.track,
-          order_id: order.order_id,
-          prefill: {
-            name: payload.name,
-            email: payload.email,
-            contact: "+91" + rawWa
-          },
-          theme: { color: "#FF6F1E" },
-          handler: async function (paymentResp) {
-            setStatus("Verifying payment...", "loading");
-            try {
-              await fetch("/api/verify", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(paymentResp)
-              });
-            } catch (err) {}
-            renderSuccess(payload, paymentResp.razorpay_payment_id, displayFee);
-          }
-        };
-
-        const rzp = new window.Razorpay(options);
-        rzp.on("payment.failed", () => {
-          submitBtn.disabled = false;
-          setStatus("Payment was cancelled or failed. Please try again.", "error");
-        });
-        rzp.open();
-
-      } catch (err) {
-        submitBtn.disabled = false;
-        setStatus(err.message.includes("Razorpay environment")
-          ? "Razorpay is in test mode. Feel free to pick a time directly on Cal.com!"
-          : err.message, "error");
-      }
-    });
-
-    function renderSuccess(formData, paymentId, fee) {
-      const wrapper = document.getElementById("formWrapper");
-      wrapper.innerHTML = `
-        <div style="text-align:center;padding:1.5rem 0">
-          <p style="font-size:0.8rem;font-weight:600;color:var(--ok-text);margin-bottom:0.5rem">Payment received</p>
-          <h3 style="font-family:var(--font-display);font-size:1.6rem;font-weight:500;color:var(--text);margin-bottom:0.35rem">Session Confirmed</h3>
-          <p style="font-size:0.9rem;color:var(--text-muted);max-width:24rem;margin:0 auto 1.5rem">
-            Thank you, <b>${escapeHtml(formData.name)}</b>. Your booking is confirmed. I will reach out on your WhatsApp within 24 hours.
-          </p>
-
-          <div style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-md);padding:1rem 1.25rem;text-align:left;max-width:380px;margin:0 auto 1.5rem;font-size:0.85rem">
-            <div style="display:flex;justify-content:space-between;margin-bottom:0.35rem"><span>Track:</span><b>${escapeHtml(formData.track)}</b></div>
-            <div style="display:flex;justify-content:space-between;margin-bottom:0.35rem"><span>Date:</span><span>${escapeHtml(formData.preferred_date)} @ ${escapeHtml(formData.preferred_time)}</span></div>
-            <div style="display:flex;justify-content:space-between;margin-bottom:0.35rem"><span>Fee:</span><b>₹${escapeHtml(fee || "299")}.00</b></div>
-            <div style="display:flex;justify-content:space-between;font-size:0.775rem;color:var(--text-faint)"><span>Payment ID:</span><code>${escapeHtml(paymentId)}</code></div>
-          </div>
-
-          <a href="https://wa.me/91${formData.whatsapp.replace(/\D/g, '').slice(-10)}?text=${encodeURIComponent('Hi Harsh, I just booked my session for ' + formData.track + ' (Payment ID: ' + paymentId + ')')}" target="_blank" rel="noopener noreferrer" class="btn-solid" style="font-size:0.85rem">
-            Message on WhatsApp
-          </a>
-        </div>
-      `;
-    }
-
-    function escapeHtml(str) {
-      return String(str || "").replace(/[<>&"]/g, c => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;", '"': "&quot;" }[c]));
-    }
   </script>
 
   <script>
@@ -2782,88 +2505,21 @@
     (function () {
       var USER = 'harsh-upadhyay-tsgoiw';
       var SLUGS = { '30': 'clarity-call-30', '45': 'dincharya-45', '60': 'deep-dive-60' };
-      document.querySelectorAll('.select-service').forEach(function (btn) {
-        btn.addEventListener('click', function () {
-          var m = (btn.getAttribute('data-service') || '').match(/\((\d+) Mins\)/);
-          var slug = m && SLUGS[m[1]];
-          var box = document.getElementById('my-cal-inline');
-          if (!slug || !box || !window.Cal) return;
-          box.innerHTML = '';
-          Cal('inline', { elementOrSelector: '#my-cal-inline', calLink: USER + '/' + slug, layout: 'month_view' });
-          var out = document.querySelector('#panel-cal a[target="_blank"]');
-          if (out) out.href = 'https://cal.com/' + USER + '/' + slug;
-        });
-      });
+      window.__showCalFor = function (track) {
+        var m = String(track || '').match(/\((\d+) Mins\)/);
+        var slug = m && SLUGS[m[1]];
+        var box = document.getElementById('my-cal-inline');
+        if (!slug || !box || !window.Cal) return;
+        box.innerHTML = '';
+        Cal('inline', { elementOrSelector: '#my-cal-inline', calLink: USER + '/' + slug, layout: 'month_view' });
+        var out = document.querySelector('#panel-cal a[target="_blank"]');
+        if (out) out.href = 'https://cal.com/' + USER + '/' + slug;
+      };
     })();
   </script>
 
   
 
-  <script>
-    /* segmented tab thumb + stepped booking form (visual flow only; submit handler unchanged) */
-    (function () {
-      var tabs = document.querySelectorAll('.tab-btn'), bar = document.querySelector('.booking-tabs');
-      function sync() {
-        if (!bar) return;
-        var idx = 0;
-        tabs.forEach(function (t, k) { if (t.classList.contains('active')) idx = k; });
-        bar.style.setProperty('--i', idx);
-      }
-      tabs.forEach(function (t) { t.addEventListener('click', function () { setTimeout(sync, 0); }); });
-      sync();
-
-      var form = document.getElementById('priorityBookingForm');
-      if (!form) return;
-      var steps = form.querySelectorAll('.step'), dots = document.querySelectorAll('#formSteps li');
-      var back = document.getElementById('stepBack'), next = document.getElementById('stepNext'), pay = document.getElementById('submitBtn');
-      var cur = 0;
-      function say(msg) { if (typeof setStatus === 'function') setStatus(msg, msg ? 'error' : ''); }
-      function val(id) { return (document.getElementById(id).value || '').trim(); }
-
-      function check(n) {
-        if (n === 0) {
-          if (!val('cDate')) { say('Please choose a date.'); return false; }
-        }
-        if (n === 1) {
-          if (val('cName').length < 2) { say('Please enter your full name.'); return false; }
-          var wa = val('cWhatsapp').replace(/\D/g, '').slice(-10);
-          if (!/^[6-9]\d{9}$/.test(wa)) { say('Please enter a valid 10-digit Indian WhatsApp number.'); return false; }
-          if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(val('cEmail'))) { say('Please enter a valid email address.'); return false; }
-          if (val('cCity').length < 2) { say('Please enter your city.'); return false; }
-          var age = +val('cAge');
-          if (!age || age < 15 || age > 85) { say('Please enter your age (15 to 85).'); return false; }
-        }
-        say('');
-        return true;
-      }
-
-      function summary() {
-        var tr = document.getElementById('cTrack'), o = tr.options[tr.selectedIndex];
-        var d = val('cDate'), nice = d ? new Date(d + 'T00:00:00').toLocaleDateString('en-IN', { day: 'numeric', month: 'short' }) : '';
-        var t = (document.getElementById('cTime').value || '').split(' (')[0];
-        document.getElementById('stepSummary').textContent = o.textContent + (nice ? ' · ' + nice + ', ' + t : '');
-      }
-
-      function show(n) {
-        cur = n;
-        steps.forEach(function (st, k) { st.hidden = k !== n; });
-        dots.forEach(function (d, k) { d.classList.toggle('on', k === n); d.classList.toggle('done', k < n); });
-        back.hidden = n === 0;
-        next.hidden = n === steps.length - 1;
-        pay.hidden = n !== steps.length - 1;
-        if (n === steps.length - 1) summary();
-        var f = steps[n].querySelector('input, select, textarea');
-        if (f && n > 0) f.focus({ preventScroll: true });
-      }
-
-      next.addEventListener('click', function () { if (cur >= steps.length - 1) return; if (check(cur)) show(cur + 1); });
-      back.addEventListener('click', function () { say(''); show(cur - 1); });
-      form.addEventListener('keydown', function (e) {
-        if (e.key === 'Enter' && e.target.tagName !== 'TEXTAREA' && cur < steps.length - 1) { e.preventDefault(); next.click(); }
-      });
-      show(0);
-    })();
-  </script>
 
   <script>
     /* mobile "Book a call" bar: show once the hero button is out of view, hide while the booking section is on screen */
@@ -2914,7 +2570,6 @@
         var amount = PRICE[current.slug];
         $('paySub').textContent = NAME[current.slug] + (current.when ? ' · ' + current.when : '');
         $('payDone').hidden = true;
-        $('payFallback').hidden = true;
         $('utrErr').textContent = '';
         if (SITE.upiId) {
           var link = 'upi://pay?pa=' + encodeURIComponent(SITE.upiId) + '&pn=' + encodeURIComponent(SITE.upiName) + '&am=' + amount + '&cu=INR&tn=' + encodeURIComponent(NAME[current.slug] + ' booking');
@@ -2925,25 +2580,17 @@
           try { var q = qrcode(0, 'M'); q.addData(link); q.make(); $('payQr').innerHTML = q.createSvgTag(4, 0); }
           catch (e) { $('payQr').textContent = ''; modal.classList.add('noqr'); }   /* QR failed: show the UPI app button on every screen */
           $('payBlock').hidden = false;
-          $('payFallback').hidden = true;
         } else {
-          /* no UPI ID configured: send the visitor to the card / UPI checkout instead of a dead end */
+          /* no UPI ID configured: plain thank-you */
           $('payBlock').hidden = true;
           $('payDone').hidden = false;
-          $('payDone').textContent = 'Your slot is requested. Pay for your session to confirm it.';
-          $('payFallback').hidden = false;
+          $('payDone').textContent = 'Thank you. Your booking is requested. I will confirm it by email shortly.';
         }
         modal.hidden = false;
         document.body.style.overflow = 'hidden';
       }
       function close() { modal.hidden = true; document.body.style.overflow = ''; }
 
-      var TRACK = { 'clarity-call-30': '1:1 Clarity & Roadmap Call (30 Mins)', 'dincharya-45': 'Daily Dincharya & Habit Blueprint (45 Mins)', 'deep-dive-60': 'Deep-Dive Personal Advisory (60 Mins)' };
-      $('payFallback').addEventListener('click', function () {
-        close();
-        if (typeof selectServiceAndScroll === 'function') selectServiceAndScroll(TRACK[current.slug]);
-        else { var t = document.querySelector('.tab-btn[data-tab="priority"]'); if (t) t.click(); document.getElementById('booking').scrollIntoView({ behavior: 'smooth' }); }
-      });
       $('payClose').addEventListener('click', close);
       modal.addEventListener('click', function (e) { if (e.target === modal) close(); });
       document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !modal.hidden) close(); });
@@ -3053,7 +2700,7 @@
       var tabs = Array.prototype.slice.call(seg.querySelectorAll('.ltab'));
       var IG = 'https://www.instagram.com/timelinebyharsh/';
       var C = [
-        { topic: 'Mandir and history', desc: 'The stories, history and heritage behind our temples, told simply.', status: 'On Instagram', title: 'Temple stories', line: 'Temple stories, history and heritage, told in simple Hindi.', cta: 'Follow on Instagram', href: IG, ext: true },
+        { topic: 'Mandir and history', desc: 'The stories, history and heritage behind our temples, told simply.', status: 'On Instagram', title: 'Temple stories', line: 'Stories about our temples, told in simple Hindi.', cta: 'Follow on Instagram', href: IG, ext: true },
         { topic: 'Rituals and traditions', desc: 'Why, how and when rituals are done, so you understand the meaning and not only the steps.', status: 'Planned', title: 'Daily Puja Guide for Beginners', line: 'A simple start for a daily puja: what you need and the usual order.', cta: 'Join the list', href: '#join' },
         { topic: 'Scriptures and philosophy', desc: 'The Gita, Ramayana and Mahabharata and what they teach, in plain language.', status: 'Planned', title: 'Bhagavad Gita Beginner Study Guide', line: 'A plain-language introduction to the main ideas of the Gita.', cta: 'Join the list', href: '#join' },
         { topic: 'Festivals and vrat', desc: 'Festival calendars, preparation and the meaning behind each vrat.', status: 'Coming first', title: 'The Hindu Festival and Vrat Companion', line: 'One guide for the festivals and vrats you observe: what each one means, how to prepare, and what you will need.', cta: 'Get early access', href: '#join', more: 'See the guide' }
@@ -3067,7 +2714,8 @@
         document.getElementById('lpDesc').textContent = c.desc;
         var more = c.more ? '<a class="lbtn2" href="guides.html">' + c.more + '</a>' : '';
         var tgt = c.ext ? ' target="_blank" rel="noopener noreferrer"' : '';
-        document.getElementById('lpCard').innerHTML = '<div class="lpc"><div><span class="lchip">' + c.status + '</span><h4>' + c.title + '</h4><p>' + c.line + '</p></div><div class="lside"><a class="btn-solid" href="' + c.href + '"' + tgt + '>' + c.cta + '</a>' + more + '</div></div>';
+        var ico = c.ext ? '<svg class="lig" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.2" cy="6.8" r="1.2" fill="currentColor"/></svg>' : '';
+        document.getElementById('lpCard').innerHTML = '<div class="lpc"><div><span class="lchip">' + c.status + '</span><h4>' + c.title + '</h4><p>' + c.line + '</p></div><div class="lside"><a class="btn-solid" href="' + c.href + '"' + tgt + '>' + ico + c.cta + '</a>' + more + '</div></div>';
       }
       tabs.forEach(function (t, i) { t.addEventListener('click', function () { show(i, true); }); });
     })();

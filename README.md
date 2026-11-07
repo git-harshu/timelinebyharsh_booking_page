@@ -13,7 +13,7 @@ Instagram: [https://www.instagram.com/timelinebyharsh/](https://www.instagram.co
    - **Track B: Spiritual Guidance & Daily Sadhana (Aadhyatmik Margdarshan)**: Rudraksh recommendations by Rashi, mantra jaap rules, pooja & temple setup, and sustainable 10-minute daily dincharya.
 2. **Dual Booking Engine**:
    - **Cal.com Integration**: Free, automatic scheduling directly synced with Google Calendar and Google Meet.
-   - **Priority Booking + Razorpay**: Direct payment checkout (₹299 commitment fee) with WhatsApp confirmation.
+   - **Pay by UPI after booking**: QR + UPI app button; Harsh verifies the UTR and confirms in Cal.com.
 3. **Curated Shop & Affiliate Hub**:
    - Spiritual items (certified 5-Mukhi Rudraksh Mala, Sphatik Mala, pure copper water bottles, organic dhoop).
    - Sacred & transformative books (*Bhagavad Gita As It Is*, *Atomic Habits*, etc.).
@@ -58,14 +58,6 @@ The embed and popup buttons will automatically update.
 ## Environment Variables (.env.local)
 
 ```ini
-# Razorpay Credentials (from Dashboard -> Settings -> API Keys)
-RAZORPAY_KEY_ID=rzp_test_...
-RAZORPAY_KEY_SECRET=...
-RAZORPAY_WEBHOOK_SECRET=...
-
-# Admin token to access /bookings.html & /api/bookings
-ADMIN_TOKEN=your_secret_admin_token
-
 # Gmail SMTP for notifications
 GMAIL_USER=timelinebyharsh@gmail.com
 GMAIL_APP_PASSWORD=xxxx-xxxx-xxxx-xxxx
@@ -77,6 +69,6 @@ OWNER_EMAIL=timelinebyharsh@gmail.com
 
 Flow: visitor books a slot in the Cal embed (the three events require confirmation and block the slot while unconfirmed) -> the page shows a UPI QR and the exact amount -> visitor pays and sends the UTR -> `api/upi-claim.js` emails Harsh (and acknowledges the visitor) -> Harsh checks his bank app and clicks Confirm in Cal.com (Bookings, Unconfirmed). Cal then sends the Meet link.
 
-To switch it on, set `upiId` in `index.html` (search for `SITE = { upiId`). While it is empty the popup shows a plain thank-you and no QR. Prefer a business UPI ID. `api/upi-claim.js` uses the same Gmail settings as the Razorpay emails.
+To switch it on, set `upiId` in `index.html` (search for `SITE = { upiId`). While it is empty the popup shows a plain thank-you and no QR. Prefer a business UPI ID. `api/upi-claim.js` uses the Gmail settings below.
 
 The popup listens for the Cal embed event `bookingSuccessfulV2`. Test it with one real booking before launch.

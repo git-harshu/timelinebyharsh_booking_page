@@ -1,0 +1,1865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Timeline by Harsh | 1:1 Personal Guidance & Life Consultation</title>
+  <meta name="description" content="Private 1:1 personal guidance consultations with Harsh Upadhyay (@timelinebyharsh). Focused, honest conversations to solve overthinking, build daily discipline, and find life clarity.">
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Timeline by Harsh | 1:1 Personal Guidance">
+  <meta property="og:description" content="Thirty minutes. Just you, me, and the one problem you can't seem to solve. Private 1:1 consultations with Harsh (@timelinebyharsh).">
+  <meta property="og:site_name" content="Timeline by Harsh">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Timeline by Harsh (@timelinebyharsh)">
+  <meta name="twitter:description" content="Private 1:1 personal consultations with Harsh Upadhyay. Book your slot on Cal.com.">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%2321252B'/><text x='50' y='66' font-size='50' font-family='Poppins,sans-serif' font-weight='600' fill='%23FF6F1E' text-anchor='middle'>H</text></svg>">
+
+  <!-- Typography: Poppins (Clean, Editorial, High Contrast) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <!-- Razorpay Checkout -->
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+  <!-- Cal.com Official Embed -->
+  <script type="text/javascript">
+    (function (C, A, L) {
+      let p = function (a, ar) { a.q.push(ar); };
+      let d = C.document;
+      C.Cal = C.Cal || function () {
+        let cal = C.Cal;
+        let ar = arguments;
+        if (!cal.loaded) {
+          cal.ns = {};
+          cal.q = cal.q || [];
+          d.head.appendChild(d.createElement("script")).src = A;
+          cal.loaded = true;
+        }
+        if (ar[0] === L) {
+          const api = function () { p(api, arguments); };
+          const namespace = ar[1];
+          api.q = api.q || [];
+          if (typeof namespace === "string") {
+            cal.ns[namespace] = cal.ns[namespace] || api;
+            p(cal.ns[namespace], ar);
+            p(cal, ["initNamespace", namespace]);
+          } else p(cal, ar);
+          return;
+        }
+        p(cal, ar);
+      };
+    })(window, "https://app.cal.com/embed/embed.js", "init");
+
+    Cal("init", { origin: "https://app.cal.com" });
+    Cal("ui", {
+      styles: { branding: { brandColor: "#FF6F1E" } },
+      hideEventTypeDetails: false,
+      layout: "month_view"
+    });
+  </script>
+
+  <style>
+    :root {
+      --bg: #FAF8F5;               /* Warm Ivory */
+      --bg-surface: #FFFFFF;
+      --bg-subtle: #F4F0E8;        /* Soft Warm Beige */
+      --text: #21252B;             /* Editorial Charcoal */
+      --text-muted: #5E6470;       /* Calm Muted */
+      --text-faint: #8E95A2;
+      --accent: #FF6F1E;           /* Saffron Accent */
+      --accent-hover: #E85B0D;
+      --accent-subtle: rgba(255, 111, 30, 0.08);
+      --border: #E7E2D9;           /* Warm Hairline */
+      --border-strong: #D5CEBF;
+      --font: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+      --radius-pill: 9999px;
+      --max-w: 960px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.75;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: 4.5rem;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button { font-family: inherit; cursor: pointer; border: none; background: none; }
+    input, textarea, select { font-family: inherit; }
+
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* ---------------- Header ---------------- */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 90;
+      background: rgba(250, 248, 245, 0.94);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 4.25rem;
+    }
+
+    .site-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .brand-mark {
+      width: 2.25rem;
+      height: 2.25rem;
+      border-radius: var(--radius-sm);
+      background: var(--text);
+      color: #FFFFFF;
+      display: grid;
+      place-items: center;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .brand-mark span { color: var(--accent); }
+
+    .brand-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text);
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+    }
+
+    .brand-sub {
+      font-size: 0.725rem;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    .nav-menu {
+      display: none;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    @media (min-width: 768px) {
+      .nav-menu { display: flex; }
+    }
+
+    .nav-item a {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      transition: color 0.15s ease;
+    }
+
+    .nav-item a:hover { color: var(--accent); }
+
+    .header-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: var(--text);
+      color: #FFFFFF;
+      font-size: 0.8rem;
+      font-weight: 500;
+      padding: 0.45rem 1rem;
+      border-radius: var(--radius-pill);
+      transition: background 0.15s ease;
+    }
+
+    .header-cta:hover { background: var(--accent); }
+
+    /* ---------------- Hero (Vertically Centered & Balanced) ---------------- */
+    .hero {
+      min-height: calc(100vh - 4.25rem);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 3.5rem 1.5rem;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+
+    /* Creator Visual Portrait Badge */
+    .creator-visual-wrap {
+      margin-bottom: 1.5rem;
+      position: relative;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .creator-avatar-ring {
+      width: 5.5rem;
+      height: 5.5rem;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #FF6F1E, #FFA25B);
+      padding: 3px;
+      box-shadow: 0 8px 24px rgba(255, 111, 30, 0.22);
+      position: relative;
+    }
+
+    .creator-avatar-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: var(--text);
+      color: #FFFFFF;
+      display: grid;
+      place-items: center;
+      font-size: 1.85rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .creator-avatar-inner span {
+      color: var(--accent);
+    }
+
+    .creator-verified-badge {
+      position: absolute;
+      bottom: 2px;
+      right: 2px;
+      width: 1.4rem;
+      height: 1.4rem;
+      border-radius: 50%;
+      background: #15803D;
+      color: #FFFFFF;
+      display: grid;
+      place-items: center;
+      font-size: 0.75rem;
+      border: 2px solid var(--bg);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .creator-name-pill {
+      margin-top: 0.75rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      padding: 0.25rem 0.85rem;
+      border-radius: var(--radius-pill);
+    }
+
+    .hero-headline {
+      font-size: clamp(2.1rem, 5vw, 3.4rem);
+      font-weight: 700;
+      line-height: 1.18;
+      color: var(--text);
+      letter-spacing: -0.025em;
+      max-width: 44rem;
+      margin: 0 auto 1.25rem;
+    }
+
+    .hero-headline em {
+      font-style: italic;
+      font-weight: 400;
+      color: var(--accent);
+    }
+
+    .hero-summary {
+      font-size: clamp(1rem, 2vw, 1.15rem);
+      color: var(--text-muted);
+      line-height: 1.75;
+      max-width: 38rem;
+      margin: 0 auto 2.25rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2.25rem;
+    }
+
+    .btn-solid {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--accent);
+      color: #FFFFFF;
+      font-weight: 500;
+      font-size: 0.95rem;
+      padding: 0.8rem 1.6rem;
+      border-radius: var(--radius-pill);
+      transition: all 0.15s ease;
+      box-shadow: 0 4px 14px rgba(255, 111, 30, 0.25);
+    }
+
+    .btn-solid:hover {
+      background: var(--accent-hover);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border-strong);
+      font-weight: 500;
+      font-size: 0.95rem;
+      padding: 0.8rem 1.6rem;
+      border-radius: var(--radius-pill);
+      transition: all 0.15s ease;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--text);
+    }
+
+    .hero-trust-list {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      font-size: 0.825rem;
+      color: var(--text-faint);
+      flex-wrap: wrap;
+    }
+
+    .hero-trust-list span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .hero-trust-list strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    /* ---------------- Editorial Quote Block ---------------- */
+    .quote-banner {
+      padding: 3rem 1.5rem;
+      background: var(--bg-subtle);
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .quote-inner {
+      max-width: 36rem;
+      margin: 0 auto;
+    }
+
+    .quote-glyph {
+      color: var(--accent);
+      font-size: 1.75rem;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .quote-text {
+      font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+      font-style: italic;
+      color: var(--text);
+      line-height: 1.6;
+      margin-bottom: 0.75rem;
+      font-weight: 400;
+    }
+
+    .quote-author {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 600;
+    }
+
+    /* ---------------- Visual Clarity Diagnostic ---------------- */
+    .diagnostic-section {
+      padding: 5rem 0;
+      border-bottom: 1px solid var(--border);
+      background: var(--bg-surface);
+      text-align: center;
+    }
+
+    .section-eyebrow {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .section-heading {
+      font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-intro {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      max-width: 36rem;
+      margin: 0 auto 2.5rem;
+    }
+
+    .diag-cards-grid {
+      display: grid;
+      gap: 1.25rem;
+      grid-template-columns: 1fr;
+      margin-bottom: 2rem;
+    }
+
+    @media (min-width: 640px) {
+      .diag-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .diag-card-btn {
+      text-align: left;
+      padding: 1.5rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      transition: all 0.2s ease;
+      cursor: pointer;
+      display: flex;
+      align-items: flex-start;
+      gap: 1.15rem;
+    }
+
+    .diag-card-btn:hover {
+      background: #FFFFFF;
+      border-color: var(--text);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+    }
+
+    .diag-card-btn.active {
+      background: #FFFFFF;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px var(--accent);
+    }
+
+    .diag-icon-box {
+      width: 2.75rem;
+      height: 2.75rem;
+      border-radius: var(--radius-md);
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      color: var(--accent);
+    }
+
+    .diag-card-btn.active .diag-icon-box {
+      background: var(--accent);
+      color: #FFFFFF;
+      border-color: var(--accent);
+    }
+
+    .diag-card-body h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.25rem;
+    }
+
+    .diag-card-body p {
+      font-size: 0.825rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Diagnosis Reveal Box */
+    .diag-reveal {
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-lg);
+      padding: 2.25rem 2rem;
+      background: var(--bg);
+      margin: 2rem auto 0;
+      max-width: 780px;
+      text-align: left;
+      position: relative;
+    }
+
+    .diag-reveal::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 2rem;
+      right: 2rem;
+      height: 3px;
+      background: var(--accent);
+      border-radius: 3px 3px 0 0;
+    }
+
+    .reveal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .reveal-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .reveal-price {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .reveal-body {
+      font-size: 0.925rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .reveal-body b {
+      color: var(--text);
+    }
+
+    .reveal-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* ---------------- 1:1 Consultation Services ---------------- */
+    .services-section {
+      padding: 5rem 0;
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .services-container {
+      max-width: 820px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .service-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      padding: 2.25rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    @media (min-width: 768px) {
+      .service-row {
+        grid-template-columns: 220px 1fr 180px;
+        align-items: baseline;
+        gap: 2.5rem;
+      }
+    }
+
+    .service-meta h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.3;
+      margin-bottom: 0.25rem;
+    }
+
+    .service-meta span {
+      font-size: 0.8rem;
+      color: var(--text-faint);
+    }
+
+    .service-content p {
+      font-size: 0.925rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    .service-content ul {
+      list-style: none;
+      display: grid;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      color: var(--text);
+    }
+
+    .service-content ul li::before {
+      content: "— ";
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .service-action-col {
+      text-align: left;
+    }
+
+    @media (min-width: 768px) {
+      .service-action-col { text-align: right; }
+    }
+
+    .service-fee {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--text);
+      display: block;
+      margin-bottom: 0.75rem;
+    }
+
+    /* ---------------- Visual 30-Minute Journey ---------------- */
+    .journey-section {
+      padding: 5rem 0;
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .journey-grid {
+      display: grid;
+      gap: 1.5rem;
+      margin-top: 3rem;
+      grid-template-columns: 1fr;
+      text-align: left;
+    }
+
+    @media (min-width: 680px) {
+      .journey-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .journey-step {
+      padding: 1.5rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      position: relative;
+    }
+
+    .journey-num {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #FFFFFF;
+      font-size: 0.8rem;
+      font-weight: 700;
+      display: grid;
+      place-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .journey-time {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-faint);
+      letter-spacing: 0.05em;
+      margin-bottom: 0.25rem;
+    }
+
+    .journey-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.35rem;
+    }
+
+    .journey-desc {
+      font-size: 0.825rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    /* ---------------- Booking Area (Cal.com + Priority Form) ---------------- */
+    .booking-section {
+      padding: 5rem 0;
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .booking-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 2.25rem;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      padding: 0.55rem 1.25rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border);
+      background: #FFFFFF;
+      transition: all 0.15s ease;
+      cursor: pointer;
+    }
+
+    .tab-btn:hover { color: var(--text); border-color: var(--text); }
+
+    .tab-btn.active {
+      color: #FFFFFF;
+      background: var(--text);
+      border-color: var(--text);
+      font-weight: 600;
+    }
+
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* Cal Box */
+    .cal-container {
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      max-width: 820px;
+      margin: 0 auto;
+      min-height: 580px;
+    }
+
+    /* Priority Form Box */
+    .form-container {
+      max-width: 540px;
+      margin: 0 auto;
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2.25rem 2rem;
+      text-align: left;
+    }
+
+    .form-field { margin-bottom: 1.25rem; }
+
+    .form-label {
+      display: block;
+      font-size: 0.825rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.35rem;
+    }
+
+    .form-input, .form-select, .form-textarea {
+      width: 100%;
+      background: #FAFAF8;
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-sm);
+      padding: 0.7rem 0.85rem;
+      font-size: 0.9rem;
+      color: var(--text);
+      transition: border-color 0.15s ease;
+    }
+
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      background: #FFFFFF;
+      border-color: var(--accent);
+      outline: none;
+    }
+
+    .form-textarea {
+      min-height: 5rem;
+      resize: vertical;
+    }
+
+    .form-row {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: 1fr;
+    }
+
+    @media (min-width: 540px) {
+      .form-row { grid-template-columns: 1fr 1fr; }
+    }
+
+    .form-btn {
+      width: 100%;
+      background: var(--accent);
+      color: #FFFFFF;
+      font-weight: 500;
+      font-size: 0.95rem;
+      padding: 0.85rem;
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      margin-top: 0.5rem;
+      transition: background 0.15s ease;
+    }
+
+    .form-btn:hover { background: var(--accent-hover); }
+    .form-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    .status-banner {
+      padding: 0.75rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+      margin-top: 1rem;
+      display: none;
+    }
+
+    .status-banner.error {
+      background: #FDF2F2;
+      color: #9B1C1C;
+      border-left: 3px solid #E02424;
+      display: block;
+    }
+
+    .status-banner.loading {
+      background: #EFF6FF;
+      color: #1E40AF;
+      display: block;
+    }
+
+    /* ---------------- Curated Shop (With Visual Mockups) ---------------- */
+    .shop-section {
+      padding: 5rem 0;
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .shop-grid {
+      display: grid;
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+      grid-template-columns: 1fr;
+      text-align: left;
+    }
+
+    @media (min-width: 600px) {
+      .shop-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (min-width: 900px) {
+      .shop-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    .book-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.2s ease;
+    }
+
+    .book-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--text);
+    }
+
+    .book-art {
+      width: 100%;
+      height: 110px;
+      border-radius: var(--radius-md);
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      display: grid;
+      place-items: center;
+      margin-bottom: 1rem;
+      color: var(--accent);
+    }
+
+    .book-tag {
+      font-size: 0.725rem;
+      color: var(--accent);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.25rem;
+    }
+
+    .book-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.35rem;
+    }
+
+    .book-desc {
+      font-size: 0.825rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: 1.25rem;
+      flex-grow: 1;
+    }
+
+    .book-link {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: color 0.15s;
+    }
+
+    .book-link:hover { color: var(--accent); }
+
+    /* ---------------- FAQ ---------------- */
+    .faq-section {
+      padding: 5rem 0;
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .faq-stack {
+      max-width: 680px;
+      margin: 2.5rem auto 0;
+      text-align: left;
+    }
+
+    .faq-stack details {
+      border-bottom: 1px solid var(--border);
+      padding: 1.15rem 0;
+    }
+
+    .faq-stack summary {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text);
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .faq-stack summary::-webkit-details-marker { display: none; }
+
+    .faq-stack summary::after {
+      content: "+";
+      font-size: 1.2rem;
+      color: var(--text-faint);
+    }
+
+    .faq-stack details[open] summary::after {
+      content: "—";
+    }
+
+    .faq-stack p {
+      margin-top: 0.75rem;
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    /* ---------------- Footer ---------------- */
+    .site-footer {
+      padding: 3.5rem 0 2rem;
+      font-size: 0.825rem;
+      color: var(--text-faint);
+      text-align: center;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .footer-links a:hover { color: var(--text); }
+
+    /* ---------------- Compact Mobile Sticky Bar ---------------- */
+    .mobile-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 80;
+      background: rgba(250, 248, 245, 0.96);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid var(--border);
+      padding: 0.65rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    @media (min-width: 768px) {
+      .mobile-bar { display: none; }
+      body { padding-bottom: 0; }
+    }
+
+    .mobile-bar-text {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .mobile-bar-sub {
+      font-size: 0.725rem;
+      color: var(--text-muted);
+      display: block;
+    }
+
+    .mobile-bar-cta {
+      background: var(--accent);
+      color: #FFFFFF;
+      font-size: 0.8rem;
+      font-weight: 500;
+      padding: 0.45rem 1.1rem;
+      border-radius: var(--radius-pill);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#" class="site-brand">
+        <div class="brand-mark">T<span>H</span></div>
+        <div>
+          <div class="brand-title">Timeline by Harsh</div>
+          <div class="brand-sub">@timelinebyharsh · 1:1 Advisory</div>
+        </div>
+      </a>
+
+      <ul class="nav-menu">
+        <li class="nav-item"><a href="#diagnostic">Clarity Diagnostic</a></li>
+        <li class="nav-item"><a href="#services">Consultations</a></li>
+        <li class="nav-item"><a href="#journey">How It Works</a></li>
+        <li class="nav-item"><a href="#booking">Book Call</a></li>
+        <li class="nav-item"><a href="#shop">Curated Reading</a></li>
+      </ul>
+
+      <a href="#booking" class="header-cta">Book 1:1 Call</a>
+    </div>
+  </header>
+
+  <!-- Hero (Vertically Centered & Visually Grounded) -->
+  <section class="hero">
+    <div class="container">
+      
+      <!-- Creator Visual Badge -->
+      <div class="creator-visual-wrap">
+        <div class="creator-avatar-ring">
+          <div class="creator-avatar-inner">
+            H<span>U</span>
+            <div class="creator-verified-badge" title="Verified Creator">✓</div>
+          </div>
+        </div>
+        <div class="creator-name-pill">
+          <span>@timelinebyharsh</span>
+          <span>·</span>
+          <span>Harsh Upadhyay</span>
+        </div>
+      </div>
+
+      <h1 class="hero-headline">
+        Thirty minutes. Just you, me, and the <em>one problem</em> you can’t seem to solve.
+      </h1>
+
+      <p class="hero-summary">
+        If you found me through my videos on <b>@timelinebyharsh</b>, you already know I don’t believe in generic motivational speeches. When you're overwhelmed by overthinking, inconsistent discipline, or a personal crossroads — you need someone outside your head to ask the right questions and give you 3 clear rules for tomorrow.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#diagnostic" class="btn-solid">Take Clarity Diagnostic ↓</a>
+        <a href="#booking" class="btn-outline">Pick Time on Calendar</a>
+      </div>
+
+      <div class="hero-trust-list">
+        <span>Over <strong>1,200+</strong> 1:1 conversations</span>
+        <span>•</span>
+        <span>Private Google Meet</span>
+        <span>•</span>
+        <span>WhatsApp summary delivered within 24h</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Editorial Reflection / Philosophy Quote -->
+  <section class="quote-banner">
+    <div class="container quote-inner">
+      <span class="quote-glyph">ॐ</span>
+      <blockquote class="quote-text">
+        "Parampara koi bandhan nahi — yeh yaad hai us raaste ki, jahan se hum aaye the."
+      </blockquote>
+      <div class="quote-author">— Harsh Upadhyay</div>
+    </div>
+  </section>
+
+  <!-- Visual Clarity Diagnostic -->
+  <section class="diagnostic-section" id="diagnostic">
+    <div class="container">
+      <span class="section-eyebrow">Interactive Diagnostic</span>
+      <h2 class="section-heading">Where is your head caught right now?</h2>
+      <p class="section-intro">
+        Select the situation that mirrors your current struggle. We'll show you the exact bottleneck and the session designed to fix it.
+      </p>
+
+      <div class="diag-cards-grid">
+        <!-- 01: Mental Noise -->
+        <button type="button" class="diag-card-btn active" data-diag="paralysis">
+          <div class="diag-icon-box">
+            <!-- Visual SVG: Focus / Converging thoughts -->
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>
+              <path d="M2 12h20"/>
+            </svg>
+          </div>
+          <div class="diag-card-body">
+            <h4>01 / Overthinking & Mental Noise</h4>
+            <p>You have 5 ideas but end up scrolling instead of finishing one. Too much internal static.</p>
+          </div>
+        </button>
+
+        <!-- 02: Discipline -->
+        <button type="button" class="diag-card-btn" data-diag="habits">
+          <div class="diag-icon-box">
+            <!-- Visual SVG: Rising Sun / Morning Dincharya -->
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="4"/>
+              <path d="M12 2v2"/><path d="M12 20v2"/>
+              <path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/>
+              <path d="M2 12h2"/><path d="M20 12h2"/>
+              <path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/>
+            </svg>
+          </div>
+          <div class="diag-card-body">
+            <h4>02 / Inconsistent Daily Discipline</h4>
+            <p>You start fresh every Monday, but lose focus by Thursday. Need a realistic, grounded dincharya.</p>
+          </div>
+        </button>
+
+        <!-- 03: Crossroads -->
+        <button type="button" class="diag-card-btn" data-diag="crossroads">
+          <div class="diag-icon-box">
+            <!-- Visual SVG: Crossroads Compass -->
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="12 2 19 21 12 17 5 21 12 2"/>
+            </svg>
+          </div>
+          <div class="diag-card-body">
+            <h4>03 / Major Life Crossroads</h4>
+            <p>Facing a critical career, personal, or life fork. Need an honest audit with zero sugarcoating.</p>
+          </div>
+        </button>
+
+        <!-- 04: Sounding Board -->
+        <button type="button" class="diag-card-btn" data-diag="sounding">
+          <div class="diag-icon-box">
+            <!-- Visual SVG: Sanctuary / Honest dialogue -->
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+          </div>
+          <div class="diag-card-body">
+            <h4>04 / Confidential Sounding Board</h4>
+            <p>Need a safe, private space to speak freely without judgment, expectations, or unwanted opinions.</p>
+          </div>
+        </button>
+      </div>
+
+      <!-- Diagnostic Outcome Reveal -->
+      <div class="diag-reveal" id="diagReveal">
+        <div class="reveal-header">
+          <div>
+            <div class="reveal-title" id="diagTitle">30-Minute 1:1 Clarity Call</div>
+            <div style="font-size:0.8rem;color:var(--text-faint)">Private 1-on-1 Session via Google Meet</div>
+          </div>
+          <div class="reveal-price" id="diagPrice">₹299 Commitment Fee</div>
+        </div>
+
+        <p class="reveal-body" id="diagBody">
+          <b>The Diagnosis:</b> You don't have an execution problem; you have an <em>overchoice problem</em>. Trying to consume more videos or self-help books only adds more noise. In 30 minutes, we isolate the single root blockage holding you back and map out 3 immediate steps for tomorrow.
+        </p>
+
+        <div class="reveal-actions">
+          <a href="#booking" id="diagBookBtn" class="btn-solid" style="font-size:0.875rem">Book This Session →</a>
+          <span style="font-size:0.8rem;color:var(--text-faint)">Includes 24h WhatsApp action notes</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 1:1 Consultation Services (Zero Brand Audit / Social Media Content) -->
+  <section class="services-section" id="services">
+    <div class="container">
+      <span class="section-eyebrow">Personal Advisory Options</span>
+      <h2 class="section-heading">1:1 Consultation Tracks</h2>
+      <p class="section-intro">
+        Every call is 1-on-1 directly with Harsh. Pick the scope that fits what you want to solve.
+      </p>
+
+      <div class="services-container">
+        <!-- Service 1 -->
+        <div class="service-row">
+          <div class="service-meta">
+            <h3>1:1 Clarity Call</h3>
+            <span>30 Minutes · Video Session</span>
+          </div>
+          <div class="service-content">
+            <p>
+              For immediate confusion, overthinking, or feeling stuck. We unpack your situation, find the real problem, and leave you with 3 concrete rules to follow.
+            </p>
+            <ul>
+              <li>5 minutes of listening without interruption</li>
+              <li>10 minutes of direct, targeted diagnostic questions</li>
+              <li>15 minutes of structured strategy & tomorrow's action items</li>
+              <li>Post-call WhatsApp summary note within 24 hours</li>
+            </ul>
+          </div>
+          <div class="service-action-col">
+            <span class="service-fee">₹299</span>
+            <a href="#booking" class="btn-outline select-service" data-service="1:1 Clarity & Roadmap Call (30 Mins)" style="font-size:0.825rem;padding:0.5rem 1rem">Reserve Slot</a>
+          </div>
+        </div>
+
+        <!-- Service 2: Dincharya & Habit Realignment -->
+        <div class="service-row">
+          <div class="service-meta">
+            <h3>Daily Dincharya & Habit Blueprint</h3>
+            <span>45 Minutes · Lifestyle Realignment</span>
+          </div>
+          <div class="service-content">
+            <p>
+              For rebuilding focus, mental calm, and daily habits. A realistic morning and evening routine designed around your actual work hours, screen triggers, and energy levels.
+            </p>
+            <ul>
+              <li>Custom morning & evening rhythm tailored to your schedule</li>
+              <li>Protocols to eliminate mindless phone checking</li>
+              <li>Grounded focus and dhyan practices (starting with 10 mins)</li>
+              <li>Custom Notion daily habit tracker included</li>
+            </ul>
+          </div>
+          <div class="service-action-col">
+            <span class="service-fee">₹499</span>
+            <a href="#booking" class="btn-outline select-service" data-service="Daily Dincharya & Habit Blueprint (45 Mins)" style="font-size:0.825rem;padding:0.5rem 1rem">Reserve Slot</a>
+          </div>
+        </div>
+
+        <!-- Service 3: Deep-Dive Personal Advisory -->
+        <div class="service-row">
+          <div class="service-meta">
+            <h3>Deep-Dive Personal Advisory</h3>
+            <span>60 Minutes · Comprehensive Session</span>
+          </div>
+          <div class="service-content">
+            <p>
+              For complex, multi-layered life crossroads, career transitions, or family expectations. We dig deep into root assumptions, remove emotional fog, and build a 90-day trajectory.
+            </p>
+            <ul>
+              <li>Full 60-minute in-depth personal conversation</li>
+              <li>Comprehensive diagnostic of mental blocks and decision crossroads</li>
+              <li>Written 90-day action playbook delivered post-call</li>
+              <li>7 days of direct WhatsApp voice-note follow-up support</li>
+            </ul>
+          </div>
+          <div class="service-action-col">
+            <span class="service-fee">₹699</span>
+            <a href="#booking" class="btn-outline select-service" data-service="Deep-Dive Personal Advisory (60 Mins)" style="font-size:0.825rem;padding:0.5rem 1rem">Reserve Slot</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Visual 30-Minute Journey -->
+  <section class="journey-section" id="journey">
+    <div class="container">
+      <span class="section-eyebrow">Zero Fluff Structure</span>
+      <h2 class="section-heading">How We Spend Our 30 Minutes</h2>
+      <p class="section-intro">
+        No awkward small talk. No canned motivational clichés. Here is the exact minute-by-minute structure of how Harsh runs your session.
+      </p>
+
+      <div class="journey-grid">
+        <div class="journey-step">
+          <div class="journey-num">01</div>
+          <div class="journey-time">00:00 – 05:00</div>
+          <div class="journey-title">You Speak Freely</div>
+          <p class="journey-desc">Explain where you are stuck, what you've tried, and what isn't working. Completely unfiltered.</p>
+        </div>
+
+        <div class="journey-step">
+          <div class="journey-num">02</div>
+          <div class="journey-time">05:00 – 15:00</div>
+          <div class="journey-title">Harsh Probes</div>
+          <p class="journey-desc">Targeted, direct questions to separate symptoms from the actual root problem.</p>
+        </div>
+
+        <div class="journey-step">
+          <div class="journey-num">03</div>
+          <div class="journey-time">15:00 – 25:00</div>
+          <div class="journey-title">The Strategy</div>
+          <p class="journey-desc">A realistic, tested plan built on practical wisdom — not theoretical self-help fluff.</p>
+        </div>
+
+        <div class="journey-step">
+          <div class="journey-num">04</div>
+          <div class="journey-time">25:00 – 30:00</div>
+          <div class="journey-title">Next 3 Steps</div>
+          <p class="journey-desc">We lock in the 3 exact actions you will take tomorrow morning to break the inertia.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Booking Section (Cal.com + Priority Slot) -->
+  <section class="booking-section" id="booking">
+    <div class="container">
+      <span class="section-eyebrow">Scheduling</span>
+      <h2 class="section-heading">Reserve Your Time</h2>
+      <p class="section-intro">
+        Choose between selecting a slot directly on Harsh’s Google Calendar via Cal.com or locking in a priority appointment.
+      </p>
+
+      <div class="booking-tabs">
+        <button type="button" class="tab-btn active" data-tab="cal">📅 Pick Slot on Calendar (Cal.com)</button>
+        <button type="button" class="tab-btn" data-tab="priority">⚡ Priority Slot Checkout (₹299)</button>
+      </div>
+
+      <!-- Tab 1: Cal.com Official Embed -->
+      <div class="tab-panel active" id="panel-cal">
+        <div class="cal-container">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;flex-wrap:wrap;gap:0.5rem">
+            <span style="font-size:0.85rem;color:var(--text-muted)">Live calendar syncing directly with Google Meet</span>
+            <a href="https://cal.com/timelinebyharsh/30min" target="_blank" rel="noopener noreferrer" style="font-size:0.8rem;color:var(--accent);font-weight:500">Open in new tab ↗</a>
+          </div>
+          <div style="width:100%;height:620px;overflow:scroll" id="my-cal-inline"></div>
+          <script type="text/javascript">
+            Cal("inline", {
+              elementOrSelector: "#my-cal-inline",
+              calLink: "timelinebyharsh/30min",
+              layout: "month_view"
+            });
+          </script>
+        </div>
+      </div>
+
+      <!-- Tab 2: Priority Razorpay Checkout -->
+      <div class="tab-panel" id="panel-priority">
+        <div class="form-container" id="formWrapper">
+          <div style="margin-bottom:1.5rem">
+            <h3 style="font-size:1.2rem;font-weight:700;color:var(--text);margin-bottom:0.25rem">Priority Appointment</h3>
+            <p style="font-size:0.825rem;color:var(--text-muted)">
+              Commitment fee ensures dedicated preparation time for your specific questions.
+            </p>
+          </div>
+
+          <form id="priorityBookingForm" novalidate>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="cName" class="form-label">Full Name</label>
+                <input type="text" id="cName" name="name" class="form-input" placeholder="Rahul Sharma" required autocomplete="name">
+              </div>
+              <div class="form-field">
+                <label for="cWhatsapp" class="form-label">WhatsApp Number</label>
+                <input type="tel" id="cWhatsapp" name="whatsapp" class="form-input" placeholder="10-digit number" required autocomplete="tel" inputmode="numeric">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label for="cEmail" class="form-label">Email Address</label>
+                <input type="email" id="cEmail" name="email" class="form-input" placeholder="rahul@example.com" required autocomplete="email">
+              </div>
+              <div class="form-field">
+                <label for="cCity" class="form-label">City & Age</label>
+                <div style="display:grid;grid-template-columns:2fr 1fr;gap:0.5rem">
+                  <input type="text" id="cCity" name="city" class="form-input" placeholder="City" required>
+                  <input type="number" id="cAge" name="age" class="form-input" placeholder="Age" min="15" max="85" required>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label for="cTrack" class="form-label">Consultation Track</label>
+              <select id="cTrack" name="track" class="form-select" required>
+                <option value="1:1 Clarity & Roadmap Call (30 Mins)" data-price="299">1:1 Clarity & Roadmap Call (30 Mins — ₹299)</option>
+                <option value="Daily Dincharya & Habit Blueprint (45 Mins)" data-price="499">Daily Dincharya & Habit Blueprint (45 Mins — ₹499)</option>
+                <option value="Deep-Dive Personal Advisory (60 Mins)" data-price="699">Deep-Dive Personal Advisory (60 Mins — ₹699)</option>
+                <option value="General Life Guidance & Sounding Board" data-price="299">General Life Guidance & Sounding Board (₹299)</option>
+              </select>
+            </div>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label for="cDate" class="form-label">Preferred Date</label>
+                <input type="date" id="cDate" name="preferred_date" class="form-input" required>
+              </div>
+              <div class="form-field">
+                <label for="cTime" class="form-label">Time Window</label>
+                <select id="cTime" name="preferred_time" class="form-select" required>
+                  <option value="Morning (9 AM - 12 PM)">Morning (9 AM – 12 PM)</option>
+                  <option value="Afternoon (1 PM - 4 PM)">Afternoon (1 PM – 4 PM)</option>
+                  <option value="Evening (6 PM - 9 PM)" selected>Evening (6 PM – 9 PM)</option>
+                  <option value="Night (9 PM - 11 PM)">Night (9 PM – 11 PM)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label for="cQuestion" class="form-label">What is the #1 question or problem for this call?</label>
+              <textarea id="cQuestion" name="question" class="form-textarea" placeholder="Describe what you are currently struggling with..." required></textarea>
+            </div>
+
+            <button type="submit" id="submitBtn" class="form-btn">
+              Proceed to Secure Payment (₹299 via UPI/Card) →
+            </button>
+
+            <div id="statusBanner" class="status-banner"></div>
+
+            <p style="text-align:center;font-size:0.75rem;color:var(--text-faint);margin-top:1rem">
+              Secure checkout via Razorpay. UPI, Cards & Netbanking supported.
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Curated Reading & Essentials (With Visual Art) -->
+  <section class="shop-section" id="shop">
+    <div class="container">
+      <span class="section-eyebrow">Curated Reading & Essentials</span>
+      <h2 class="section-heading">Books Harsh Personally Recommends</h2>
+      <p class="section-intro">
+        No affiliate junk. These are the exact books and tools that have tangibly shaped daily discipline and mental clarity.
+      </p>
+
+      <div class="shop-grid">
+        <!-- Item 1: Atomic Habits -->
+        <div class="book-card">
+          <div class="book-art">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="2"/>
+              <path d="M12 2a10 10 0 1 0 10 10"/>
+              <path d="M12 6a6 6 0 1 0 6 6"/>
+            </svg>
+          </div>
+          <span class="book-tag">Discipline</span>
+          <div class="book-title">Atomic Habits</div>
+          <p class="book-desc">James Clear's practical framework for breaking destructive loops and building steady daily momentum.</p>
+          <a href="https://www.amazon.in/dp/1847941834?tag=timelineharsh-21" target="_blank" rel="noopener noreferrer" class="book-link">View on Amazon ↗</a>
+        </div>
+
+        <!-- Item 2: Bhagavad Gita -->
+        <div class="book-card">
+          <div class="book-art">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/>
+              <path d="M6 6h10"/>
+              <path d="M6 10h10"/>
+            </svg>
+          </div>
+          <span class="book-tag">Philosophy</span>
+          <div class="book-title">The Bhagavad Gita As It Is</div>
+          <p class="book-desc">A timeless manual on duty, detaching from outcome anxiety, and finding clarity in life's battles.</p>
+          <a href="https://www.amazon.in/dp/9384564227?tag=timelineharsh-21" target="_blank" rel="noopener noreferrer" class="book-link">View on Amazon ↗</a>
+        </div>
+
+        <!-- Item 3: Rudraksha Mala -->
+        <div class="book-card">
+          <div class="book-art">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="5" r="2"/>
+              <circle cx="17" cy="8" r="2"/>
+              <circle cx="19" cy="13" r="2"/>
+              <circle cx="16" cy="18" r="2"/>
+              <circle cx="12" cy="20" r="2"/>
+              <circle cx="8" cy="18" r="2"/>
+              <circle cx="5" cy="13" r="2"/>
+              <circle cx="7" cy="8" r="2"/>
+            </svg>
+          </div>
+          <span class="book-tag">Grounding</span>
+          <div class="book-title">5-Mukhi Rudraksha Mala</div>
+          <p class="book-desc">108+1 certified beads used for daily mantra dhyan and emotional centering during busy workdays.</p>
+          <a href="https://www.amazon.in/s?k=5+mukhi+rudraksha+mala+certified&tag=timelineharsh-21" target="_blank" rel="noopener noreferrer" class="book-link">View on Amazon ↗</a>
+        </div>
+
+        <!-- Item 4: Analog Focus Timer -->
+        <div class="book-card">
+          <div class="book-art">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="9"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+          <span class="book-tag">Deep Work</span>
+          <div class="book-title">Analog Visual Focus Timer</div>
+          <p class="book-desc">A mechanical timer to replace phone timers, eliminating notifications during 30-minute focus blocks.</p>
+          <a href="https://www.amazon.in/s?k=pomodoro+timer+analog&tag=timelineharsh-21" target="_blank" rel="noopener noreferrer" class="book-link">View on Amazon ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="container">
+      <span class="section-eyebrow">Common Questions</span>
+      <h2 class="section-heading">Frequently Asked Questions</h2>
+
+      <div class="faq-stack">
+        <details name="faq">
+          <summary>Where and how does the call take place?</summary>
+          <p>Every session happens privately over Google Meet. When you book via Cal.com or the priority checkout, a calendar invitation with your secure Meet link is automatically sent to your email and WhatsApp.</p>
+        </details>
+
+        <details name="faq">
+          <summary>Why is there a commitment fee?</summary>
+          <p>When calls were free, many booked slots without showing up, blocking people who genuinely needed guidance. A nominal commitment fee filters for committed individuals and ensures Harsh can dedicate uninterrupted time and preparation to you.</p>
+        </details>
+
+        <details name="faq">
+          <summary>Can I reschedule if an emergency comes up?</summary>
+          <p>Yes. If you notify at least 6 hours in advance via WhatsApp or by replying to your confirmation email, we will pick another time slot at no extra charge.</p>
+        </details>
+
+        <details name="faq">
+          <summary>Is the conversation kept confidential?</summary>
+          <p>Strictly confidential. Whatever personal, professional, or life struggles you share remain solely between you and Harsh.</p>
+        </details>
+
+        <details name="faq">
+          <summary>How should I prepare for the call?</summary>
+          <p>Keep a pen and paper beside you. Write down your main problem and what you've already tried so we can get straight to the root without wasting the first 10 minutes.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>Timeline by Harsh</strong> · Authentic 1:1 Personal Guidance
+      </div>
+
+      <ul class="footer-links">
+        <li><a href="#diagnostic">Diagnostic</a></li>
+        <li><a href="#services">Consultations</a></li>
+        <li><a href="#booking">Book Call</a></li>
+        <li><a href="/bookings.html">Admin</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- Compact Mobile Sticky Bar -->
+  <div class="mobile-bar">
+    <div>
+      <span class="mobile-bar-text">1:1 Consultation</span>
+      <span class="mobile-bar-sub">30 Mins · ₹299 Commitment</span>
+    </div>
+    <a href="#booking" class="mobile-bar-cta">Book Slot</a>
+  </div>
+
+  <!-- Interactive JavaScript Logic -->
+  <script>
+    // 1. Diagnostic Data & State
+    const diagnosticData = {
+      paralysis: {
+        title: "30-Minute 1:1 Clarity Call",
+        price: "₹299 Commitment Fee",
+        body: "<b>The Diagnosis:</b> You don't have an execution problem; you have an <em>overchoice problem</em>. Trying to consume more videos or self-help books only adds more noise. In 30 minutes, we isolate the single root blockage holding you back and map out 3 immediate steps for tomorrow.",
+        serviceTrack: "1:1 Clarity & Roadmap Call (30 Mins)"
+      },
+      habits: {
+        title: "Daily Dincharya & Habit Blueprint",
+        price: "₹499 · 45 Mins Lifestyle Session",
+        body: "<b>The Diagnosis:</b> Motivation fluctuates; structure endures. You are trying to adopt someone else's rigid 5 AM routine instead of designing habits that fit your actual work hours. We build a simple, realistic routine that protects your mental calm and focus.",
+        serviceTrack: "Daily Dincharya & Habit Blueprint (45 Mins)"
+      },
+      crossroads: {
+        title: "Deep-Dive Personal Advisory",
+        price: "₹699 · 60 Mins Comprehensive Session",
+        body: "<b>The Diagnosis:</b> When you're standing at a major career or life crossroad, friends and family give polite advice. You need an honest, outside perspective with zero emotional bias to pull apart your options and help you make a firm, peaceful decision.",
+        serviceTrack: "Deep-Dive Personal Advisory (60 Mins)"
+      },
+      sounding: {
+        title: "1:1 Strategic Sounding Board",
+        price: "₹299 · 30 Mins Unfiltered Call",
+        body: "<b>The Diagnosis:</b> Sometimes you already know the answer in your gut, but the social noise around you is drowning it out. This session is a calm, judgment-free space to speak your truth and validate your internal compass.",
+        serviceTrack: "General Life Guidance & Sounding Board"
+      }
+    };
+
+    const diagBtns = document.querySelectorAll(".diag-card-btn");
+    const diagTitle = document.getElementById("diagTitle");
+    const diagPrice = document.getElementById("diagPrice");
+    const diagBody = document.getElementById("diagBody");
+    const diagBookBtn = document.getElementById("diagBookBtn");
+
+    diagBtns.forEach(btn => {
+      btn.addEventListener("click", () => {
+        diagBtns.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        const key = btn.getAttribute("data-diag");
+        const data = diagnosticData[key];
+        if (data) {
+          diagTitle.textContent = data.title;
+          diagPrice.textContent = data.price;
+          diagBody.innerHTML = data.body;
+          diagBookBtn.onclick = () => {
+            selectServiceAndScroll(data.serviceTrack);
+          };
+        }
+      });
+    });
+
+    // 2. Select Service & Pre-fill Form + Dynamic Fee Update
+    const trackSelect = document.getElementById("cTrack");
+    const submitBtn = document.getElementById("submitBtn");
+
+    function updateSubmitButtonFee() {
+      if (!trackSelect || !submitBtn) return;
+      const selectedOption = trackSelect.options[trackSelect.selectedIndex];
+      const price = selectedOption.getAttribute("data-price") || "299";
+      submitBtn.textContent = `Proceed to Secure Payment (₹${price} via UPI/Card) →`;
+    }
+
+    if (trackSelect) {
+      trackSelect.addEventListener("change", updateSubmitButtonFee);
+    }
+
+    function selectServiceAndScroll(trackName) {
+      if (trackSelect) {
+        for (let i = 0; i < trackSelect.options.length; i++) {
+          if (trackSelect.options[i].value.includes(trackName.slice(0, 15))) {
+            trackSelect.selectedIndex = i;
+            break;
+          }
+        }
+        updateSubmitButtonFee();
+      }
+      const priorityTab = document.querySelector('.tab-btn[data-tab="priority"]');
+      if (priorityTab) priorityTab.click();
+      document.getElementById("booking").scrollIntoView({ behavior: "smooth" });
+    }
+
+    document.querySelectorAll(".select-service").forEach(btn => {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        const serviceName = btn.getAttribute("data-service");
+        selectServiceAndScroll(serviceName);
+      });
+    });
+
+    // 3. Booking Tab Switching
+    const tabBtns = document.querySelectorAll(".tab-btn");
+    const tabPanels = document.querySelectorAll(".tab-panel");
+    tabBtns.forEach(btn => {
+      btn.addEventListener("click", () => {
+        tabBtns.forEach(b => b.classList.remove("active"));
+        tabPanels.forEach(p => p.classList.remove("active"));
+        btn.classList.add("active");
+        const tabKey = btn.getAttribute("data-tab");
+        const target = document.getElementById("panel-" + tabKey);
+        if (target) target.classList.add("active");
+      });
+    });
+
+    // 4. Default Date (Tomorrow)
+    const cDateInput = document.getElementById("cDate");
+    const tmrw = new Date();
+    tmrw.setDate(tmrw.getDate() + 1);
+    cDateInput.value = tmrw.toISOString().split("T")[0];
+    cDateInput.min = tmrw.toISOString().split("T")[0];
+
+    // 5. Razorpay Booking Form Submission
+    const bookingForm = document.getElementById("priorityBookingForm");
+    const statusBanner = document.getElementById("statusBanner");
+
+    function setStatus(msg, type) {
+      statusBanner.textContent = msg;
+      statusBanner.className = "status-banner " + (type || "");
+      statusBanner.style.display = msg ? "block" : "none";
+    }
+
+    bookingForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      setStatus("", "");
+
+      const payload = {
+        name: document.getElementById("cName").value.trim(),
+        whatsapp: document.getElementById("cWhatsapp").value.trim(),
+        email: document.getElementById("cEmail").value.trim(),
+        city: document.getElementById("cCity").value.trim(),
+        age: document.getElementById("cAge").value.trim(),
+        track: document.getElementById("cTrack").value,
+        preferred_date: document.getElementById("cDate").value,
+        preferred_time: document.getElementById("cTime").value,
+        question: document.getElementById("cQuestion").value.trim()
+      };
+
+      if (!payload.name || payload.name.length < 2) {
+        setStatus("Please enter your full name.", "error");
+        return;
+      }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(payload.email)) {
+        setStatus("Please enter a valid email address.", "error");
+        return;
+      }
+      const rawWa = payload.whatsapp.replace(/\D/g, "").slice(-10);
+      if (!/^[6-9]\d{9}$/.test(rawWa)) {
+        setStatus("Please enter a valid 10-digit Indian WhatsApp number.", "error");
+        return;
+      }
+      if (!payload.question || payload.question.length < 5) {
+        setStatus("Please describe your question or issue in a few words.", "error");
+        return;
+      }
+
+      submitBtn.disabled = true;
+      setStatus("Initializing priority slot checkout...", "loading");
+
+      try {
+        const res = await fetch("/api/create-order", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ form: payload })
+        });
+        const order = await res.json();
+
+        if (!res.ok || order.error) {
+          throw new Error(order.error || "Failed to initialize order");
+        }
+
+        const selectedOption = trackSelect.options[trackSelect.selectedIndex];
+        const displayFee = selectedOption.getAttribute("data-price") || "299";
+
+        const options = {
+          key: order.key_id,
+          amount: order.amount,
+          currency: order.currency || "INR",
+          name: "Timeline by Harsh",
+          description: payload.track,
+          order_id: order.order_id,
+          prefill: {
+            name: payload.name,
+            email: payload.email,
+            contact: "+91" + rawWa
+          },
+          theme: { color: "#FF6F1E" },
+          handler: async function (paymentResp) {
+            setStatus("Verifying payment...", "loading");
+            try {
+              await fetch("/api/verify", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(paymentResp)
+              });
+            } catch (err) {}
+            renderSuccess(payload, paymentResp.razorpay_payment_id, displayFee);
+          }
+        };
+
+        const rzp = new window.Razorpay(options);
+        rzp.on("payment.failed", () => {
+          submitBtn.disabled = false;
+          setStatus("Payment was cancelled or failed. Please try again.", "error");
+        });
+        rzp.open();
+
+      } catch (err) {
+        submitBtn.disabled = false;
+        setStatus(err.message.includes("Razorpay environment")
+          ? "Razorpay is in test mode. Feel free to pick a time directly on Cal.com!"
+          : err.message, "error");
+      }
+    });
+
+    function renderSuccess(formData, paymentId, fee) {
+      const wrapper = document.getElementById("formWrapper");
+      wrapper.innerHTML = `
+        <div style="text-align:center;padding:1.5rem 0">
+          <div style="width:3rem;height:3rem;border-radius:50%;background:#DCFCE7;color:#15803D;display:grid;place-items:center;font-size:1.5rem;margin:0 auto 1rem">✓</div>
+          <h3 style="font-size:1.35rem;font-weight:700;color:var(--text);margin-bottom:0.35rem">Session Confirmed</h3>
+          <p style="font-size:0.9rem;color:var(--text-muted);max-width:24rem;margin:0 auto 1.5rem">
+            Thank you, <b>${escapeHtml(formData.name)}</b>. Your booking is confirmed. Harsh will reach out on your WhatsApp within 24 hours.
+          </p>
+
+          <div style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-md);padding:1rem 1.25rem;text-align:left;max-width:380px;margin:0 auto 1.5rem;font-size:0.85rem">
+            <div style="display:flex;justify-content:space-between;margin-bottom:0.35rem"><span>Track:</span><b>${escapeHtml(formData.track)}</b></div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:0.35rem"><span>Date:</span><span>${escapeHtml(formData.preferred_date)} @ ${escapeHtml(formData.preferred_time)}</span></div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:0.35rem"><span>Fee:</span><b>₹${escapeHtml(fee || "299")}.00</b></div>
+            <div style="display:flex;justify-content:space-between;font-size:0.775rem;color:var(--text-faint)"><span>Payment ID:</span><code>${escapeHtml(paymentId)}</code></div>
+          </div>
+
+          <a href="https://wa.me/91${formData.whatsapp.replace(/\D/g, '').slice(-10)}?text=${encodeURIComponent('Hi Harsh, I just booked my session for ' + formData.track + ' (Payment ID: ' + paymentId + ')')}" target="_blank" rel="noopener noreferrer" class="btn-solid" style="font-size:0.85rem">
+            Message on WhatsApp →
+          </a>
+        </div>
+      `;
+    }
+
+    function escapeHtml(str) {
+      return String(str || "").replace(/[<>&"]/g, c => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;", '"': "&quot;" }[c]));
+    }
+  </script>
+</body>
+</html>

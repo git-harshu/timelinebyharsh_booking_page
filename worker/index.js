@@ -1,17 +1,9 @@
 // One Worker: static site from ./dist, plus the same /api handlers that run on Vercel.
 // The handlers are written as (req, res); this file gives them a tiny req/res on top of fetch().
-import createOrder from "../api/create-order.js";
-import verify from "../api/verify.js";
-import webhook from "../api/webhook.js";
-import bookings from "../api/bookings.js";
 import upiClaim from "../api/upi-claim.js";
 import subscribe from "../api/subscribe.js";
 
 const ROUTES = {
-  "/api/create-order": createOrder,
-  "/api/verify": verify,
-  "/api/webhook": webhook,
-  "/api/bookings": bookings,
   "/api/upi-claim": upiClaim,
   "/api/subscribe": subscribe,
 };

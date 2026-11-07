@@ -1,5 +1,5 @@
 // POST /api/create-order { form: {...} } -> { order_id, key_id, amount }
-import { AMOUNT_PAISE, CURRENCY, rzp, cleanNotes, validate } from "./_lib.js";
+import { AMOUNT_PAISE, CURRENCY, rzp, cleanNotes, validate, getAmountForTrack } from "./_lib.js";
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
@@ -17,10 +17,11 @@ export default async function handler(req, res) {
       });
     }
 
+    const amount = getAmountForTrack(notes.track);
     const order = await rzp("/orders", {
       method: "POST",
       body: JSON.stringify({
-        amount: AMOUNT_PAISE,
+        amount,
         currency: CURRENCY,
         receipt: "call_" + Date.now(),
         notes

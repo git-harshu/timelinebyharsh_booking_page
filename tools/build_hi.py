@@ -157,10 +157,9 @@ node('Seven days of WhatsApp voice-note follow-up', 'Saat din WhatsApp voice not
 
 # booking
 node('Choose a time', 'Time chunein')
-node('Pick a free slot on the calendar, or book a priority slot with payment.', 'Calendar se khaali slot chunein, ya payment karke priority slot book karein.')
+node('Pick a free slot on the calendar. After you book, you pay by UPI and I confirm your slot.', 'Calendar se khaali slot chunein. Booking ke baad aap UPI se payment karte hain aur main aapka slot confirm karta hoon.')
 node('Live availability, booked on Google Meet', 'Live availability, Google Meet par book hoga')
 node('Open in new tab', 'Naye tab mein kholein')
-node('Pay now to hold your time. I prepare for your question before the call.', 'Abhi payment karke apna time pakka karein. Main call se pehle aapke sawaal ki taiyaari karta hoon.')
 node('About you', 'Aapke baare mein')
 node('Your question', 'Aapka sawaal')
 node('Which session?', 'Kaun sa session?')
@@ -184,7 +183,6 @@ attr('placeholder', 'A few lines is enough.', 'Kuch lines kaafi hain.')
 node('Back', 'Peeche')
 node('Continue', 'Aage badhein')
 node('Pay ₹299 securely', '₹299 pay karein')
-node('Secure checkout via Razorpay. UPI, Cards & Netbanking supported.', 'Razorpay se secure checkout. UPI, cards aur netbanking chalte hain.')
 
 # faq
 node('Common questions', 'Aam sawaal')
@@ -274,7 +272,7 @@ J = [
  ('Why, how and when rituals are done, so you understand the meaning and not only the steps.', 'Rituals kyun, kaise aur kab kiye jaate hain, taaki aap sirf steps nahi, matlab bhi samjhein.'),
  ('The Gita, Ramayana and Mahabharata and what they teach, in plain language.', 'Gita, Ramayan aur Mahabharat aur unki seekh, saaf bhasha mein.'),
  ('Festival calendars, preparation and the meaning behind each vrat.', 'Tyohaaron ka calendar, taiyaari aur har vrat ka matlab.'),
- ('Temple stories, history and heritage, told in simple Hindi.', 'Mandiron ki kahaniyan, itihaas aur virasat, aasaan Hindi mein.'),
+ ('Stories about our temples, told in simple Hindi.', 'Mandiron ki kahaniyan, aasaan Hindi mein.'),
  ('A simple start for a daily puja: what you need and the usual order.', 'Roz ki puja ki aasaan shuruaat: kya chahiye aur aam kram kya hai.'),
  ('A plain-language introduction to the main ideas of the Gita.', 'Gita ke mukhya vicharon ka aasaan bhasha mein parichay.'),
  ('One guide for the festivals and vrats you observe: what each one means, how to prepare, and what you will need.', 'Aapke tyohaaron aur vraton ke liye ek guide: har ek ka matlab, taiyaari kaise karein, aur kya-kya chahiye.'),
@@ -289,19 +287,8 @@ J = [
  ('<b>What helps:</b> A routine borrowed from someone else rarely lasts. We build a simple morning and evening rhythm around your real work hours, one you can keep on a bad day too.', '<b>What helps:</b> Kisi aur se udhaar liya routine kam hi tikta hai. Hum aapke asli kaam ke time ke hisaab se subah-shaam ka aasaan routine banate hain, jo kharab din mein bhi chal sake.'),
  ('<b>What helps:</b> Family and friends give kind advice. You may need an outside view, free of emotional bias, to weigh your options and choose with a calm mind.', '<b>What helps:</b> Ghar waale aur dost pyaar se salah dete hain. Aapko shayad ek bahar ki nazar chahiye, jo bina kisi bhavna ke aapke options tole aur aap shaant mann se chun sakein.'),
  ('<b>What helps:</b> Often you already know the answer, but the noise around you is louder. This is a quiet, judgment-free space to say it out loud.', '<b>What helps:</b> Aksar jawaab aapko pehle se pata hota hai, bas aaspaas ka shor zyada hota hai. Ye ek shaant jagah hai jahan koi judge nahi karega, aap khulkar bol sakte hain.'),
- ('Your slot is requested. Pay for your session to confirm it.', 'Aapka slot request ho gaya hai. Confirm karne ke liye apne session ka payment karein.'),
- ('Please enter your full name.', 'Kripya apna poora naam likhein.'),
+ ('Thank you. Your booking is requested. I will confirm it by email shortly.', 'Dhanyavaad. Aapki booking request ho gayi hai. Main jald hi email se confirm karunga.'),
  ('Please enter a valid email address.', 'Kripya sahi email likhein.'),
- ('Please enter a valid 10-digit Indian WhatsApp number.', 'Kripya 10 digit ka sahi WhatsApp number likhein.'),
- ('Please describe your question or issue in a few words.', 'Kripya apna sawaal ya dikkat kuch shabdon mein likhein.'),
- ('Initializing priority slot checkout...', 'Checkout khul raha hai...'),
- ('Failed to initialize order', 'Order shuru nahi ho paya'),
- ('Verifying payment...', 'Payment check ho raha hai...'),
- ('Payment was cancelled or failed. Please try again.', 'Payment cancel ya fail ho gaya. Kripya dobara koshish karein.'),
- ('Razorpay is in test mode. Feel free to pick a time directly on Cal.com!', 'Razorpay abhi test mode mein hai. Aap seedhe Cal.com par bhi time chun sakte hain!'),
- ('Please choose a date.', 'Kripya date chunein.'),
- ('Please enter your city.', 'Kripya apni city likhein.'),
- ('Please enter your age (15 to 85).', 'Kripya apni umar likhein (15 se 85).'),
  ('Please enter the email you booked with.', 'Kripya woh email likhein jisse book kiya tha.'),
  ('Please enter the UTR or reference number from your UPI app.', 'Kripya UPI app wala UTR ya reference number likhein.'),
  ('Something went wrong.', 'Kuch gadbad ho gayi.'),
@@ -311,10 +298,8 @@ J = [
  ("'Copied'", "'Copy ho gaya'"),
  ('Payment received', 'Payment mil gaya'),
  ('Session Confirmed', 'Session confirm ho gaya'),
- ('Thank you, <b>${escapeHtml(formData.name)}</b>. Your booking is confirmed. I will reach out on your WhatsApp within 24 hours.', 'Dhanyavaad, <b>${escapeHtml(formData.name)}</b>. Aapki booking confirm ho gayi hai. Main 24 ghante mein aapke WhatsApp par sampark karoonga.'),
  ('<span>Track:</span>', '<span>Session:</span>'),
  ('<span>Fee:</span>', '<span>Fees:</span>'),
- ("'Hi Harsh, I just booked my session for '", "'Namaste Harsh, maine abhi ye session book kiya hai: '"),
  ('Message on WhatsApp', 'WhatsApp par message karein'),
  ('Pay ₹${price} securely', '₹${price} pay karein'),
 ]

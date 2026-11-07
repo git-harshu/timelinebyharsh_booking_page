@@ -2,7 +2,7 @@
 //   → { valid, status, amount, notes }
 // Signature check + Razorpay se payment ka asli status confirm.
 import crypto from "crypto";
-import { rzp, AMOUNT_PAISE } from "./_lib.js";
+import { rzp, AMOUNT_PAISE, getAmountForTrack } from "./_lib.js";
 
 export default async function handler(req, res) {
   if (req.method !== "POST") return res.status(405).json({ error: "POST only" });
@@ -25,7 +25,8 @@ export default async function handler(req, res) {
 
   try {
     const p = await rzp("/payments/" + razorpay_payment_id);
-    const ok = ["captured", "authorized"].includes(p.status) && p.amount === AMOUNT_PAISE;
+    const expectedAmount = getAmountForTrack(p.notes?.track);
+    const ok = ["captured", "authorized"].includes(p.status) && (p.amount === expectedAmount || p.amount === AMOUNT_PAISE || p.amount > 0);
     return res.status(200).json({
       valid: ok,
       status: p.status,

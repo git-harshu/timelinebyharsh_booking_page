@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin Dashboard — 1:1 Consultations | Harsh Upadhyay (@timelinebyharsh)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --font-body: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --bg: #FAF8F5;
+      --card-bg: #FFFFFF;
+      --card-subtle: #F4F0E8;
+      --text: #21252B;
+      --text-muted: #64748B;
+      --text-subtle: #94A3B8;
+      --border: #E7E2D9;
+      --primary: #FF6F1E;
+      --primary-hover: #E85B0B;
+      --primary-light: rgba(255, 111, 30, 0.1);
+      --success: #15803D;
+      --success-light: #DCFCE7;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+      --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.06);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding-bottom: 4rem;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    header {
+      background: #FFFFFF;
+      border-bottom: 1px solid var(--border);
+      padding: 1.25rem 0;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    .brand-avatar {
+      width: 2.6rem;
+      height: 2.6rem;
+      border-radius: var(--radius-sm);
+      background: linear-gradient(135deg, #FF6F1E, #E85B0B);
+      color: #FFFFFF;
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      font-size: 1.15rem;
+      box-shadow: 0 4px 12px rgba(255, 111, 30, 0.25);
+    }
+
+    h1 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.01em;
+    }
+
+    .token-box {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    .token-box input {
+      font-family: inherit;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 0.55rem 0.85rem;
+      font-size: 0.875rem;
+      width: 240px;
+      background: #FAFAFA;
+      transition: all 0.2s;
+    }
+
+    .token-box input:focus {
+      outline: none;
+      border-color: var(--primary);
+      background: #FFF;
+      box-shadow: 0 0 0 3px rgba(255, 111, 30, 0.15);
+    }
+
+    .token-box button {
+      background: var(--primary);
+      color: #fff;
+      font-family: inherit;
+      font-weight: 600;
+      font-size: 0.875rem;
+      border: none;
+      border-radius: var(--radius-sm);
+      padding: 0.55rem 1.1rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .token-box button:hover {
+      background: var(--primary-hover);
+      transform: translateY(-1px);
+    }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 2rem;
+    }
+
+    .stat-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1.35rem 1.5rem;
+      box-shadow: var(--shadow-sm);
+      position: relative;
+    }
+
+    .stat-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), #FFA25B);
+      border-radius: var(--radius-md) var(--radius-md) 0 0;
+    }
+
+    .stat-title {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .stat-value {
+      font-size: 1.85rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-top: 0.35rem;
+    }
+
+    .table-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+    }
+
+    .table-head-bar {
+      padding: 1.1rem 1.5rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      background: #FCFAF8;
+    }
+
+    .table-head-bar h2 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .search-input {
+      font-family: inherit;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 0.45rem 0.85rem;
+      font-size: 0.875rem;
+      width: 240px;
+      background: #FFFFFF;
+    }
+
+    .search-input:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.875rem;
+    }
+
+    th {
+      background: #F7F4EE;
+      padding: 0.9rem 1.25rem;
+      font-weight: 600;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+    }
+
+    td {
+      padding: 1.1rem 1.25rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      color: var(--text);
+    }
+
+    tr:hover td {
+      background: #FCFAF7;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.25rem 0.6rem;
+      border-radius: 9999px;
+      font-size: 0.725rem;
+      font-weight: 600;
+      background: var(--primary-light);
+      color: var(--primary);
+    }
+
+    .wa-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: #25D366;
+      color: #fff;
+      padding: 0.4rem 0.85rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.775rem;
+      font-weight: 600;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background 0.15s;
+    }
+
+    .wa-btn:hover {
+      background: #1EBE5D;
+    }
+
+    .empty-state {
+      padding: 3.5rem 1.5rem;
+      text-align: center;
+      color: var(--text-muted);
+    }
+
+    .error-msg {
+      background: #FEE2E2;
+      color: #DC2626;
+      padding: 0.85rem 1.1rem;
+      border-radius: var(--radius-sm);
+      margin-bottom: 1.25rem;
+      font-size: 0.875rem;
+      display: none;
+      border-left: 3px solid #DC2626;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container header-inner">
+      <div class="brand">
+        <div class="brand-avatar">ॐ</div>
+        <div>
+          <h1>Consultations Dashboard</h1>
+          <p style="font-size:0.775rem;color:var(--text-muted)">Harsh Upadhyay · @timelinebyharsh</p>
+        </div>
+      </div>
+
+      <div class="token-box">
+        <input type="password" id="adminTokenInput" placeholder="Enter ADMIN_TOKEN" autocomplete="current-password">
+        <button id="loadBtn">Load Consultations</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div id="errorBanner" class="error-msg"></div>
+
+    <div class="stats-row" id="statsRow" style="display:none">
+      <div class="stat-card">
+        <div class="stat-title">Total Consultations</div>
+        <div class="stat-value" id="totalBookings">0</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-title">Total Dakshina / Fee</div>
+        <div class="stat-value" id="totalRevenue">₹0</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-title">Commitment Fee</div>
+        <div class="stat-value">₹299</div>
+      </div>
+    </div>
+
+    <div class="table-card">
+      <div class="table-head-bar">
+        <h2>All 1:1 Spiritual Consultations</h2>
+        <input type="text" id="searchInput" class="search-input" placeholder="Search seeker name, city, track...">
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Seeker Details</th>
+              <th>Contact</th>
+              <th>Guidance Track</th>
+              <th>Topic & Spiritual Background</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="bookingsTbody">
+            <tr>
+              <td colspan="6" class="empty-state">
+                Enter your <code>ADMIN_TOKEN</code> above to fetch captured consultations.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const tokenInput = document.getElementById("adminTokenInput");
+    const loadBtn = document.getElementById("loadBtn");
+    const errorBanner = document.getElementById("errorBanner");
+    const tbody = document.getElementById("bookingsTbody");
+    const searchInput = document.getElementById("searchInput");
+    const statsRow = document.getElementById("statsRow");
+
+    let allBookings = [];
+
+    // Check localStorage or URL query parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    const queryToken = urlParams.get("token") || localStorage.getItem("timeline_admin_token");
+    if (queryToken) {
+      tokenInput.value = queryToken;
+      fetchBookings(queryToken);
+    }
+
+    loadBtn.addEventListener("click", () => {
+      const token = tokenInput.value.trim();
+      if (!token) {
+        showError("Please enter your ADMIN_TOKEN.");
+        return;
+      }
+      localStorage.setItem("timeline_admin_token", token);
+      fetchBookings(token);
+    });
+
+    async function fetchBookings(token) {
+      hideError();
+      tbody.innerHTML = `<tr><td colspan="6" class="empty-state">Loading consultations from payment records...</td></tr>`;
+
+      try {
+        const res = await fetch(`/api/bookings?token=${encodeURIComponent(token)}`);
+        const data = await res.json();
+
+        if (!res.ok || data.error) {
+          throw new Error(data.error || "Failed to load consultations");
+        }
+
+        allBookings = data.bookings || [];
+        renderStats(allBookings);
+        renderTable(allBookings);
+      } catch (err) {
+        showError(err.message === "unauthorized" ? "Invalid ADMIN_TOKEN. Please check your .env.local file." : err.message);
+        tbody.innerHTML = `<tr><td colspan="6" class="empty-state">Failed to load consultations.</td></tr>`;
+      }
+    }
+
+    function renderStats(list) {
+      statsRow.style.display = "grid";
+      document.getElementById("totalBookings").textContent = list.length;
+      const rev = list.reduce((sum, b) => sum + (Number(b.amount) || 0), 0);
+      document.getElementById("totalRevenue").textContent = "₹" + rev.toLocaleString("en-IN");
+    }
+
+    function renderTable(list) {
+      if (!list.length) {
+        tbody.innerHTML = `<tr><td colspan="6" class="empty-state">No consultation bookings found yet.</td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = list.map(b => {
+        const waNumber = (b.whatsapp || "").replace(/\D/g, "").slice(-10);
+        const waMsg = encodeURIComponent(`Pranam ${b.name}, this is Harsh (@timelinebyharsh) regarding your 1:1 consultation on "${b.track || 'Spiritual Guidance'}". Here is our Google Meet link for our session: `);
+        const waUrl = waNumber ? `https://wa.me/91${waNumber}?text=${waMsg}` : "#";
+
+        return `
+          <tr>
+            <td>
+              <strong style="color:var(--text);font-size:0.95rem">${escapeHtml(b.name)}</strong>
+              <div style="font-size:0.775rem;color:var(--text-muted);margin-top:2px">Age: ${escapeHtml(b.age || "-")} · ${escapeHtml(b.city || "-")}</div>
+              ${b.birth_details ? `<div style="font-size:0.75rem;color:#78350F;background:#FEF3C7;padding:2px 6px;border-radius:4px;display:inline-block;margin-top:4px">DOB/Time: ${escapeHtml(b.birth_details)}</div>` : ""}
+            </td>
+            <td>
+              <div style="font-weight:600">+91 ${escapeHtml(waNumber)}</div>
+              <div style="font-size:0.775rem;color:var(--text-muted)">${escapeHtml(b.email)}</div>
+            </td>
+            <td>
+              <span class="badge">${escapeHtml(b.track || "Kuldevta & Parampara")}</span>
+              <div style="font-size:0.775rem;font-weight:600;margin-top:0.35rem;color:var(--text)">
+                ${escapeHtml(b.preferred_date || "-")} @ ${escapeHtml(b.preferred_time || "-")}
+              </div>
+            </td>
+            <td style="max-width:300px">
+              <div style="font-size:0.825rem;color:var(--text);line-height:1.45;margin-bottom:4px">
+                <strong>Question:</strong> ${escapeHtml(b.question || "-")}
+              </div>
+              ${b.jaap_vrat ? `<div style="font-size:0.775rem;color:var(--text-muted);font-style:italic"><strong>Current practice:</strong> ${escapeHtml(b.jaap_vrat)}</div>` : ""}
+            </td>
+            <td>
+              <strong style="color:var(--text)">₹${escapeHtml(b.amount || "299")}</strong>
+              <div style="font-size:0.725rem;color:var(--success);font-weight:600">Paid (${escapeHtml(b.method || "UPI")})</div>
+            </td>
+            <td>
+              ${waNumber ? `<a href="${waUrl}" target="_blank" rel="noopener noreferrer" class="wa-btn">Message WhatsApp</a>` : "-"}
+            </td>
+          </tr>
+        `;
+      }).join("");
+    }
+
+    searchInput.addEventListener("input", (e) => {
+      const q = e.target.value.toLowerCase().trim();
+      const filtered = allBookings.filter(b =>
+        (b.name && b.name.toLowerCase().includes(q)) ||
+        (b.city && b.city.toLowerCase().includes(q)) ||
+        (b.track && b.track.toLowerCase().includes(q)) ||
+        (b.question && b.question.toLowerCase().includes(q))
+      );
+      renderTable(filtered);
+    });
+
+    function showError(msg) {
+      errorBanner.style.display = "block";
+      errorBanner.textContent = msg;
+    }
+
+    function hideError() {
+      errorBanner.style.display = "none";
+    }
+
+    function escapeHtml(str) {
+      return String(str || "").replace(/[<>&"]/g, c => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;", '"': "&quot;" }[c]));
+    }
+  </script>
+</body>
+</html>

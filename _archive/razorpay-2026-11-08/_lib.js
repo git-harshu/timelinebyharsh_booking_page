@@ -1,6 +1,13 @@
 // Shared helpers for Razorpay and Form Validation
-export const AMOUNT_PAISE = 29900; // ₹299.00 fixed session fee
+export const AMOUNT_PAISE = 29900; // ₹299.00 default session fee
 export const CURRENCY = "INR";
+
+export function getAmountForTrack(track = "") {
+  const t = String(track || "").toLowerCase();
+  if (t.includes("deep") || t.includes("60") || t.includes("advisory")) return 69900; // ₹699
+  if (t.includes("dincharya") || t.includes("habit") || t.includes("routine")) return 49900; // ₹499
+  return 29900; // ₹299 (default)
+}
 
 export function rzpAuth() {
   const { RAZORPAY_KEY_ID, RAZORPAY_KEY_SECRET } = process.env;
