@@ -1,501 +1,2628 @@
-<!--
-  timelinebyharsh — 1:1 call booking page
-  Razorpay Payment Page jaisa layout (left: description, right: payment panel)
-  ---------------------------------------------------------------
-  SETUP: <script> ke CONFIG block me:
-    1) RAZORPAY_KEY_ID   → Dashboard → Settings → API Keys
-    2) WHATSAPP_NUMBER   → 91xxxxxxxxxx
-    3) CREATE_ORDER_URL  → server endpoint (live payments ke liye zaroori)
-       ya PAYMENT_PAGE_URL → hosted Razorpay Payment Page ka link
-  ZAROORI: file:// se kholne par checkout nahi chalega — https par host kijiye.
--->
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ek call, do raaste — @timelinebyharsh 1:1</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700;6..12,800&display=swap" rel="stylesheet">
-<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Timeline by Harsh | 1:1 Guidance Sessions, Creator Growth, Spiritual Advice & Curated Shop</title>
+  <meta name="description" content="Official website for Harsh (@timelinebyharsh). Book a 1:1 private session for Social Media Growth or Spiritual Guidance via Cal.com & Google Meet. Explore recommended books and gear.">
+  
+  <!-- Open Graph & Social Sharing Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Timeline by Harsh | 1:1 Guidance & Curated Shop">
+  <meta property="og:description" content="Official website of creator Harsh (@timelinebyharsh). 1:1 calls for Social Media Growth & Spiritual Guidance via Cal.com. Plus hand-curated books and creator gear.">
+  <meta property="og:site_name" content="Timeline by Harsh">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Timeline by Harsh (@timelinebyharsh)">
+  <meta name="twitter:description" content="Official website of creator Harsh (@timelinebyharsh). 1:1 guidance calls & curated gear.">
 
-<style>
-  :root{
-    --navy:#1B2A63;
-    --navy-soft:#2E3D74;
-    --blue:#4A72E8;
-    --blue-dark:#3A5FD0;
-    --grey:#6B7291;
-    --line:#E4E7EF;
-    --left-bg:#FAFAFB;
-    --page-bg:#EDEEF0;
-    --err:#B3341F;
-    --ok:#1F5237;
-  }
-  *,*::before,*::after{box-sizing:border-box}
-  html{-webkit-text-size-adjust:100%}
-  body{
-    margin:0;background:var(--page-bg);color:var(--navy-soft);
-    font-family:"Nunito Sans",system-ui,sans-serif;font-size:1.0625rem;line-height:1.72;
-    -webkit-font-smoothing:antialiased;
-  }
-  h1,h2,h3{color:var(--navy);font-weight:800;line-height:1.22;margin:0}
-  p{margin:0 0 1.05rem;max-width:36rem}
-  a{color:var(--blue)}
-  :focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+  <!-- Crisp SVG Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230F172A'/><text x='50' y='66' font-size='50' font-family='system-ui,sans-serif' font-weight='bold' fill='%232563EB' text-anchor='middle'>H</text></svg>">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Razorpay Checkout Script -->
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
-  .shell{max-width:78rem;margin:0 auto;background:var(--left-bg);min-height:100vh}
-  @media(min-width:980px){
-    .shell{display:grid;grid-template-columns:1fr 30rem;align-items:start}
-  }
+  <!-- Cal.com Official Embed Loader -->
+  <script type="text/javascript">
+    (function (C, A, L) {
+      let p = function (a, ar) { a.q.push(ar); };
+      let d = C.document;
+      C.Cal = C.Cal || function () {
+        let cal = C.Cal;
+        let ar = arguments;
+        if (!cal.loaded) {
+          cal.ns = {};
+          cal.q = cal.q || [];
+          d.head.appendChild(d.createElement("script")).src = A;
+          cal.loaded = true;
+        }
+        if (ar[0] === L) {
+          const api = function () { p(api, arguments); };
+          const namespace = ar[1];
+          api.q = api.q || [];
+          if (typeof namespace === "string") {
+            cal.ns[namespace] = cal.ns[namespace] || api;
+            p(cal.ns[namespace], ar);
+            p(cal, ["initNamespace", namespace]);
+          } else p(cal, ar);
+          return;
+        }
+        p(cal, ar);
+      };
+    })(window, "https://app.cal.com/embed/embed.js", "init");
 
-  /* ---------------- left: description ---------------- */
-  .desc{padding:2rem 1.5rem 2.5rem;order:2}
-  @media(min-width:980px){.desc{padding:3rem 3.5rem 4rem;order:0}}
-  .idbar{display:flex;align-items:center;gap:1.1rem;margin-bottom:2.5rem}
-  .avatar{
-    width:4.5rem;height:4.5rem;border-radius:8px;background:var(--navy);color:#fff;
-    display:grid;place-items:center;font-size:1.5rem;font-weight:800;letter-spacing:.02em;
-    box-shadow:0 2px 10px rgba(27,42,99,.18);flex:none;
-  }
-  .idbar b{font-size:1.35rem;font-weight:800;color:var(--navy);letter-spacing:.06em;text-transform:uppercase}
-
-  h1{font-size:clamp(1.9rem,4.4vw,2.6rem)}
-  .rule{width:3.75rem;height:5px;background:var(--blue);border-radius:2px;margin:1.1rem 0 2rem}
-  h2{font-size:1.4rem;margin:2.9rem 0 1rem;letter-spacing:-.01em}
-  h3{font-size:1.05rem;font-weight:700;margin:0 0 .7rem}
-  .plain{margin:0 0 1.05rem}
-  .desc p+p{margin-top:-.2rem}
-  ul{margin:.4rem 0 1.2rem;padding:0;list-style:none}
-  li{padding-left:1.4rem;position:relative;margin-bottom:.5rem;max-width:36rem;line-height:1.6}
-  li::before{content:"•";position:absolute;left:.15rem;top:-.05em;color:#9AA2BE;font-size:1.1em}
-  ul.tick li::before{content:"\2713";color:var(--blue);font-weight:700;font-size:.95em;top:0}
-  ul.cross li::before{content:"\00D7";color:#C0563E;font-weight:700;font-size:1.05em;top:0}
-  ul.flat li{padding-left:0}
-  ul.flat li::before{content:""}
-
-  .tracks{display:grid;gap:1.75rem;margin:1.1rem 0 0}
-  @media(min-width:700px){.tracks{grid-template-columns:1fr 1fr;gap:2.25rem}}
-  .track h3{padding-bottom:.45rem;border-bottom:3px solid var(--blue);display:inline-block}
-  .track.b h3{border-bottom-color:#8A6B3D}
-
-  .time{max-width:36rem;margin:.6rem 0 1.1rem}
-  .time div{display:grid;grid-template-columns:7rem 1fr;gap:1rem;padding:.8rem 0;border-bottom:1px solid var(--line)}
-  .time div:first-child{border-top:1px solid var(--line)}
-  .time span{font-weight:700;color:var(--navy);font-variant-numeric:tabular-nums;font-size:.9375rem}
-  .time p{margin:0;font-size:1rem;max-width:none}
-
-  #more{display:none}
-  #more.on{display:block}
-  .showmore{background:none;border:none;padding:0;margin:.6rem 0 0;cursor:pointer;
-    font:inherit;font-weight:700;color:#7C9BF2}
-  .showmore:hover{color:var(--blue)}
-
-  .contact{margin-top:3rem}
-  .contact h3{font-size:1.15rem;font-weight:800;margin-bottom:.7rem}
-  .contact div{display:flex;align-items:center;gap:.75rem;margin-bottom:.6rem;color:var(--navy);font-weight:600}
-  .contact svg{width:1.1rem;height:1.1rem;fill:var(--navy);flex:none}
-  .terms{margin-top:2rem}
-  .terms h3{font-size:1.15rem;font-weight:800;margin-bottom:.5rem}
-  .terms p{color:var(--grey);font-size:.9375rem}
-  .rzpfoot{margin-top:2.25rem;padding-top:1.5rem;border-top:1px solid var(--line);color:var(--grey);font-size:.875rem}
-  .rzpfoot b{display:block;color:var(--blue);font-size:1.15rem;font-weight:800;margin-bottom:.6rem;letter-spacing:-.02em}
-
-  /* ---------------- right: payment panel ---------------- */
-  .paywrap{order:1;background:#fff;box-shadow:0 0 24px rgba(27,42,99,.07)}
-  @media(min-width:980px){.paywrap{order:0;position:sticky;top:0;min-height:100vh;display:flex;flex-direction:column}}
-  .payhead{padding:2rem 1.75rem 0}
-  .payhead h2{font-size:1.5rem;margin:0}
-  .payhead .rule{margin:.9rem 0 1.6rem}
-  .payform{padding:0 1.75rem 1.5rem;flex:1}
-
-  .field{margin-bottom:1.15rem}
-  label{display:block;font-size:.9375rem;color:var(--grey);margin-bottom:.4rem}
-  label i{color:#E05B44;font-style:normal}
-  label .opt{font-size:.8125rem}
-  input,select,textarea{
-    width:100%;font:inherit;font-size:1rem;color:var(--navy);background:#fff;
-    border:1px solid #CFD4E2;border-radius:4px;padding:.7rem .8rem;
-  }
-  textarea{min-height:4.5rem;resize:vertical}
-  select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--grey) 50%),linear-gradient(135deg,var(--grey) 50%,transparent 50%);background-position:calc(100% - 18px) 55%,calc(100% - 13px) 55%;background-size:5px 5px;background-repeat:no-repeat}
-  input:focus,select:focus,textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(74,114,232,.14)}
-  input[readonly]{background:#F7F9FE;border-color:#C9D5F5;font-weight:700}
-  .phone{display:grid;grid-template-columns:5.5rem 1fr}
-  .phone span{display:grid;place-items:center;border:1px solid #CFD4E2;border-right:none;border-radius:4px 0 0 4px;color:var(--navy);font-size:.9375rem}
-  .phone input{border-radius:0 4px 4px 0}
-  .bad input,.bad select,.bad textarea,.bad .phone span{border-color:var(--err)}
-  .err{display:none;font-size:.8125rem;color:var(--err);margin:.3rem 0 0}
-  .bad .err{display:block}
-  .hint{font-size:.8125rem;color:var(--grey);margin:.3rem 0 0}
-  #trackB{display:none;padding-left:.85rem;border-left:2px solid var(--line);margin-bottom:1.15rem}
-  #trackB.on{display:block}
-
-  .paybar{
-    display:grid;grid-template-columns:1fr auto;align-items:stretch;gap:0;
-    border-top:1px solid var(--line);background:#F7F8FA;position:sticky;bottom:0;
-  }
-  .methods{display:flex;align-items:center;justify-content:center;gap:.65rem;padding:.9rem 1rem;
-    font-size:.75rem;font-weight:800;color:#5A6484;letter-spacing:.02em;flex-wrap:wrap}
-  .methods s{text-decoration:none;font-style:italic}
-  .pay{
-    border:none;cursor:pointer;background:var(--blue);color:#fff;
-    font:inherit;font-size:1.0625rem;font-weight:700;padding:1.15rem 2rem;
-  }
-  .pay:hover{background:var(--blue-dark)}
-  .pay[disabled]{opacity:.6;cursor:progress}
-  .formstate{display:none;font-size:.9375rem;border-radius:4px;padding:.75rem .85rem;margin:0 1.75rem 1.25rem;line-height:1.5}
-  .formstate.show{display:block}
-  .formstate.ok{background:#EEF6F1;color:var(--ok);border:1px solid #BFD9C9}
-  .formstate.no{background:#FDF3F1;color:var(--err);border:1px solid #E6C3B9}
-  .confirm{padding:2.5rem 1.75rem}
-  .confirm .tick{width:3.5rem;height:3.5rem;border-radius:50%;background:#E9F5EE;color:#1F8A4C;
-    display:grid;place-items:center;font-size:1.9rem;margin-bottom:1.25rem}
-  .confirm h2{font-size:1.5rem;margin:0 0 .5rem}
-  .confirm .lead{color:var(--grey);margin-bottom:1.5rem}
-  .confirm dl{display:grid;grid-template-columns:auto 1fr;gap:.6rem 1.25rem;margin:0 0 1.5rem;
-    padding:1.1rem 1.15rem;background:#F7F8FA;border:1px solid var(--line);border-radius:6px}
-  .confirm dt{color:var(--grey);font-size:.875rem;margin:0}
-  .confirm dd{margin:0;color:var(--navy);font-weight:600;font-size:.9375rem;word-break:break-all}
-  .confirm .next{font-size:.9375rem;color:var(--navy-soft)}
-  @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
-</style>
-
-<div class="shell">
-
-  <!-- ================= LEFT: DESCRIPTION ================= -->
-  <div class="desc">
-    <div class="idbar">
-      <div class="avatar">TH</div>
-      <b>Timeline by Harsh</b>
-    </div>
-
-    <h1>Ek Call, Do Raaste</h1>
-    <div class="rule"></div>
-
-    <h2 style="margin-top:0">@timelinebyharsh ki reel dekhkar aaye hain?</h2>
-    <p>Aap sahi jagah par hain. Namaste, main Harsh.</p>
-    <p>DM me do tarah ke sawaal sabse zyada aate hain — kuchh log poochhte hain ki content kaise grow karein, aur kuchh poochhte hain ki rudraksh, jaap aur vrat ki sahi vidhi kya hai.</p>
-    <p>Dono ke jawab DM me poore nahi diye ja sakte. Isliye yeh 30 minute ki 1:1 call hai.</p>
-
-    <h2>Booking Se Pehle...</h2>
-    <p>Main expectation saaf rakhna chahta hoon. Yeh aisi call nahi hai jisme 30 minute me sab kuch hal ho jaayega.</p>
-    <p>Call me sabse pehle main samjhunga:</p>
-    <ul>
-      <li>Aap kya kar rahe hain</li>
-      <li>Ab tak kya aazmaya</li>
-      <li>Aap kahan pahunchna chahte hain</li>
-      <li>Aur asal me kahan atke hain</li>
-    </ul>
-    <p>Uske baad hi main wo baat kahunga jo aap kal se shuru kar sakein.</p>
-
-    <h2>Aap Kis Raaste Par Baat Karenge</h2>
-    <p>Form me track chun lijiye — main usi taiyari ke saath call par aaunga.</p>
-    <div class="tracks">
-      <div class="track">
-        <h3>Track A — Social Media Growth</h3>
-        <ul class="tick">
-          <li>Profile, bio aur niche clarity ka audit</li>
-          <li>Aapke pichhle 9 posts par honest feedback</li>
-          <li>Pehle 3 second ka hook, retention aur thumbnail fixes</li>
-          <li>Reels ka format, length aur posting rhythm</li>
-          <li>Monetisation kab aur kaise — brand deals, digital product, DM automation</li>
-          <li>30 din ka ek simple content plan</li>
-        </ul>
-      </div>
-      <div class="track b">
-        <h3>Track B — Aadhyatmik Margdarshan</h3>
-        <ul class="tick">
-          <li>Aapki rashi ke anusaar rudraksh ka sujhav aur dharan vidhi</li>
-          <li>Nitya jaap — kaun sa mantra, kitni sankhya, kis samay</li>
-          <li>Vrat, pooja vidhi aur muhurat se judi shankayein</li>
-          <li>Ghar ke mandir ki disha aur vyavastha</li>
-          <li>Ek saral, tikne wali dincharya — 10 minute se shuru</li>
-        </ul>
-      </div>
-    </div>
-    <p style="margin-top:1rem">30 minute me ek hi track theek se ho paata hai. Dono chahiye to do slot book kar lijiye.</p>
-
-    <h2>₹299 Kyun</h2>
-    <p>Pehle main yeh call muft karta tha. Dikkat yeh hui — log book karke aate hi nahi the, aur kuchh ko kuchh karna hi nahi tha.</p>
-    <p>Isliye ₹299 ka ek chhota commitment fee rakha. Kamai ke liye nahi — isliye ki jo vyakti fee dekar aata hai, wo 30 minute bhi poore istemaal karta hai.</p>
-
-    <h2>30 Minute Me Kya-Kya Hoga</h2>
-    <div class="time">
-      <div><span>00:00–05:00</span><p>Aap boliye. Aapki sthiti, aapka sawaal, bina rukavat.</p></div>
-      <div><span>05:00–15:00</span><p>Main sawaal poochhunga. Context ke bina salah bekaar hai.</p></div>
-      <div><span>15:00–25:00</span><p>Seedha jawab ya plan.</p></div>
-      <div><span>25:00–30:00</span><p>Teen next steps, priority ke hisaab se.</p></div>
-    </div>
-    <p style="margin-top:.9rem">Call ke 24 ghante ke andar ek chhota summary note aapke WhatsApp par aa jaayega — kya tay hua aur agle teen kadam.</p>
-
-    <div class="contact">
-      <h3>Contact Us:</h3>
-      <div>
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4.24l-8 4.76-8-4.76V6l8 4.75L20 6v2.24z"/></svg>
-        <span>timelinebyharsh@gmail.com</span>
-      </div>
-    </div>
-
-    <div class="terms">
-      <h3>Terms &amp; Conditions:</h3>
-      <p>Is page par di gayi jaankari aap Timeline by Harsh (page owner) aur Razorpay ke saath share karne ke liye sehmat hain, applicable laws ke anusaar.</p>
-    </div>
-
-    <div class="rzpfoot">
-      <b>Razorpay</b>
-      Payments Razorpay ke secure checkout se process hote hain — UPI, card, netbanking aur wallet.
-    </div>
-  </div>
-
-  <!-- ================= RIGHT: PAYMENT PANEL ================= -->
-  <div class="paywrap">
-    <div class="payhead">
-      <h2>Payment Details</h2>
-      <div class="rule"></div>
-    </div>
-
-    <form class="payform" id="bookForm" novalidate>
-      <div class="field">
-        <label for="amount">Amount <i>*</i></label>
-        <input id="amount" value="₹ 299.00" readonly tabindex="-1" aria-readonly="true">
-      </div>
-
-      <div class="field" id="f-name">
-        <label for="name">Naam <i>*</i></label>
-        <input id="name" name="name" autocomplete="name" placeholder="Aapka poora naam">
-        <p class="err">Naam likhna zaroori hai.</p>
-      </div>
-
-      <div class="field" id="f-email">
-        <label for="email">Email <i>*</i></label>
-        <input id="email" name="email" type="email" autocomplete="email">
-        <p class="err">Kaam karne wala email address daaliye.</p>
-      </div>
-
-      <div class="field" id="f-phone">
-        <label for="phone">WhatsApp Number <i>*</i></label>
-        <div class="phone"><span>IN +91</span><input id="phone" name="phone" inputmode="numeric" autocomplete="tel"></div>
-        <p class="hint">Slot isi number par bheja jaayega.</p>
-        <p class="err">10 digit ka number daaliye.</p>
-      </div>
-
-      <div class="field" id="f-age">
-        <label for="age">Umar / Age <i>*</i></label>
-        <input id="age" name="age" inputmode="numeric" placeholder="Jaise: 27">
-        <p class="err">Umar likh dijiye (13 se 99 ke beech).</p>
-      </div>
-
-      <div class="field" id="f-city">
-        <label for="city">City <i>*</i></label>
-        <input id="city" name="city">
-        <p class="err">City likh dijiye.</p>
-      </div>
-
-      <div class="field" id="f-handle">
-        <label for="handle">Instagram / YouTube username <i>*</i></label>
-        <input id="handle" name="handle" placeholder="@aapka_handle">
-        <p class="err">Handle ke bina audit nahi ho paayega.</p>
-      </div>
-
-      <div class="field" id="f-track">
-        <label for="track">Kis track par baat karni hai? <i>*</i></label>
-        <select id="track" name="track">
-          <option value="">Ek track chuniye</option>
-          <option>Track A — Social media growth</option>
-          <option>Track B — Aadhyatmik margdarshan</option>
-          <option>Pata nahi, call par tay karenge</option>
-        </select>
-        <p class="err">Track chun lijiye.</p>
-      </div>
-
-      <div class="field" id="f-q">
-        <label for="question">Aapka mukhya sawaal, ek vaakya me <i>*</i></label>
-        <textarea id="question" name="question" maxlength="240" placeholder="Jaise: reels par views aate hain par followers nahi badhte."></textarea>
-        <p class="err">Ek line me sawaal likh dijiye.</p>
-      </div>
-
-      <div id="trackB">
-        <div class="field">
-          <label for="birth">Janm-tithi, janm-samay, janm-sthan <span class="opt">(optional)</span></label>
-          <input id="birth" name="birth" placeholder="12 Aug 1996, 4:20 AM, Ghaziabad">
-        </div>
-        <div class="field" style="margin-bottom:0">
-          <label for="jaap">Abhi koi jaap / vrat chal raha hai? <span class="opt">(optional)</span></label>
-          <input id="jaap" name="jaap" placeholder="Jaise: roz 108 Mahamrityunjay">
-        </div>
-      </div>
-    </form>
-
-    <div class="formstate" id="state"></div>
-
-    <div class="paybar">
-      <div class="methods"><s>UPI</s><span>VISA</span><span>Mastercard</span><s>RuPay</s><span>PCI DSS</span></div>
-      <button class="pay" type="submit" form="bookForm" id="payBtn">Pay ₹ 299.00</button>
-    </div>
-  </div>
-</div>
-
-<script>
-/* ============ CONFIG ============
-   Key ID server se aati hai (/api/create-order), isliye yahan
-   kuchh daalne ki zaroorat nahi.
-*/
-const CONFIG = {
-  CREATE_ORDER_URL: "/api/create-order",
-  VERIFY_URL      : "/api/verify",
-  BUSINESS_NAME   : "Timeline by Harsh",
-  DESCRIPTION     : "30-min 1:1 call - commitment fee"
-};
-/* ================================= */
-
-const form = document.getElementById("bookForm");
-const btn = document.getElementById("payBtn");
-const state = document.getElementById("state");
-const trackSel = document.getElementById("track");
-const trackB = document.getElementById("trackB");
-trackSel.addEventListener("change", () => {
-  trackB.classList.toggle("on", /Track B/.test(trackSel.value));
-});
-
-function say(m, k){ state.className = "formstate show " + k; state.textContent = m; }
-function busy(t){ btn.disabled = true; btn.textContent = t; }
-function reset(){ btn.disabled = false; btn.textContent = "Pay \u20B9 299.00"; }
-function mark(id, bad){ document.getElementById(id).classList.toggle("bad", bad); }
-
-const rules = [
-  ["f-name","name", v => v.length > 1],
-  ["f-email","email", v => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)],
-  ["f-phone","phone", v => /^[6-9]\d{9}$/.test(v.replace(/\D/g,"").slice(-10))],
-  ["f-age","age", v => /^\d{1,2}$/.test(v) && +v >= 13 && +v <= 99],
-  ["f-city","city", v => v.length > 1],
-  ["f-handle","handle", v => v.length > 1],
-  ["f-track","track", v => v !== ""],
-  ["f-q","question", v => v.length > 4]
-];
-const FIELD_OF = { name:"f-name", email:"f-email", whatsapp:"f-phone", age:"f-age", city:"f-city",
-                   handle:"f-handle", track:"f-track", question:"f-q" };
-
-function readForm(){
-  const d = {};
-  new FormData(form).forEach((v,k) => d[k] = String(v).trim());
-  return {
-    name: d.name, email: d.email,
-    whatsapp: (d.phone || "").replace(/\D/g,"").slice(-10),
-    age: d.age, city: d.city, handle: d.handle, track: d.track, question: d.question,
-    birth_details: d.birth || "", jaap_vrat: d.jaap || ""
-  };
-}
-function validate(f){
-  const d = { name:f.name, email:f.email, phone:f.whatsapp, age:f.age, city:f.city,
-              handle:f.handle, track:f.track, question:f.question };
-  let ok = true;
-  rules.forEach(([fid, key, test]) => {
-    const bad = !test(d[key] || "");
-    mark(fid, bad);
-    if (bad && ok) document.getElementById(fid).scrollIntoView({block:"center", behavior:"smooth"});
-    if (bad) ok = false;
-  });
-  return ok;
-}
-
-function done(f, paymentId){
-  const panel = document.querySelector(".paywrap");
-  panel.innerHTML =
-    '<div class="confirm">' +
-      '<div class="tick">\u2713</div>' +
-      '<h2>Payment successful</h2>' +
-      '<p class="lead">Aapki booking confirm ho gayi hai. Confirmation email aapke inbox me bhej diya gaya hai.</p>' +
-      '<dl>' +
-        '<dt>Naam</dt><dd>' + esc(f.name) + '</dd>' +
-        '<dt>Umar</dt><dd>' + esc(f.age) + '</dd>' +
-        '<dt>Track</dt><dd>' + esc(f.track) + '</dd>' +
-        '<dt>Amount</dt><dd>\u20B9299</dd>' +
-        '<dt>Payment ID</dt><dd>' + esc(paymentId) + '</dd>' +
-      '</dl>' +
-      '<p class="next"><b>Aage kya hoga:</b> agle 24 ghante me aapke WhatsApp number par do-teen samay bheje jaayenge. ' +
-      'Aap jo chunenge wahi slot final ho jaayega.</p>' +
-    '</div>';
-  panel.scrollIntoView({ block: "start", behavior: "smooth" });
-}
-
-function esc(v){
-  return String(v == null ? "" : v).replace(/[<>&"]/g, c => ({"<":"&lt;",">":"&gt;","&":"&amp;",'"':"&quot;"}[c]));
-}
-
-form.addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const f = readForm();
-  if (!validate(f)) { say("Kuchh field adhoore hain \u2014 upar dekh lijiye.", "no"); return; }
-  state.className = "formstate";
-
-  if (location.protocol === "file:") {
-    say("Yeh page file:// se khula hai. Checkout sirf http/https par chalta hai \u2014 `vercel dev` chalaiye ya deploy kar dijiye.", "no");
-    return;
-  }
-  if (typeof Razorpay === "undefined") {
-    say("Razorpay ka checkout script load nahi hua (ad-blocker ya network). Reload kijiye.", "no");
-    return;
-  }
-
-  /* --- 1. Server par order banaiye (amount aur validation server-side) --- */
-  busy("Order ban raha hai\u2026");
-  let order;
-  try {
-    const r = await fetch(CONFIG.CREATE_ORDER_URL, {
-      method: "POST", headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ form: f })
+    Cal("init", { origin: "https://app.cal.com" });
+    Cal("ui", {
+      styles: { branding: { brandColor: "#2563EB" } },
+      hideEventTypeDetails: false,
+      layout: "month_view"
     });
-    order = await r.json();
-    if (!r.ok || !order.order_id) {
-      (order.fields || []).forEach(k => mark(FIELD_OF[k] || "f-name", true));
-      throw new Error(order.error || "order ban nahi paaya");
-    }
-  } catch (err) {
-    reset(); say("Order banane me dikkat: " + err.message, "no"); return;
-  }
+  </script>
 
-  /* --- 2. Checkout kholiye --- */
-  busy("Razorpay khul raha hai\u2026");
-  const rzp = new Razorpay({
-    key: order.key_id,
-    order_id: order.order_id,
-    amount: order.amount,
-    currency: order.currency,
-    name: CONFIG.BUSINESS_NAME,
-    description: CONFIG.DESCRIPTION,
-    prefill: { name: f.name, email: f.email, contact: "+91" + f.whatsapp },
-    theme: { color: "#4A72E8" },
-    retry: { enabled: true, max_count: 2 },
-    modal: {
-      ondismiss: () => { reset(); say("Payment poora nahi hua. Dobara try kar sakte hain.", "no"); }
-    },
-    /* --- 3. Success par server se verify --- */
-    handler: async (res) => {
-      busy("Verify ho raha hai\u2026");
-      try {
-        const vr = await fetch(CONFIG.VERIFY_URL, {
-          method: "POST", headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(res)
-        });
-        const v = await vr.json();
-        if (v.valid) { done(f, res.razorpay_payment_id); return; }
-        reset();
-        say("Payment verify nahi hua (" + (v.reason || v.status || "unknown") +
-            "). Agar paisa kat gaya hai to WhatsApp par Payment ID " +
-            res.razorpay_payment_id + " bhej dijiye \u2014 main check kar lunga.", "no");
-      } catch (err) {
-        // Verify endpoint na chale to bhi payment ho chuka hai; webhook record kar leta hai
-        done(f, res.razorpay_payment_id);
+  <style>
+    :root {
+      --primary: #2563EB;
+      --primary-hover: #1D4ED8;
+      --primary-light: #EFF6FF;
+      --primary-border: #BFDBFE;
+      --dark: #0F172A;
+      --dark-muted: #334155;
+      --text: #1E293B;
+      --text-muted: #64748B;
+      --bg: #F8FAFC;
+      --card-bg: #FFFFFF;
+      --border: #E2E8F0;
+      --spiritual-accent: #B45309;
+      --spiritual-light: #FEF3C7;
+      --creator-accent: #0284C7;
+      --creator-light: #E0F2FE;
+      --success: #059669;
+      --success-light: #ECFDF5;
+      --warning: #D97706;
+      --danger: #DC2626;
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 18px;
+      --radius-full: 9999px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button { font-family: inherit; cursor: pointer; border: none; outline: none; }
+    input, textarea, select { font-family: inherit; outline: none; }
+
+    :focus-visible {
+      outline: 2px solid var(--primary);
+      outline-offset: 2px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    /* ---------------- Navbar ---------------- */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 4.5rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    .brand-avatar {
+      width: 2.6rem;
+      height: 2.6rem;
+      border-radius: var(--radius-sm);
+      background: linear-gradient(135deg, #0F172A, #2563EB);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      font-size: 1.15rem;
+      box-shadow: 0 2px 6px rgba(37, 99, 235, 0.25);
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--dark);
+      letter-spacing: -0.02em;
+    }
+
+    .brand-tag {
+      font-size: 0.775rem;
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .nav-links {
+      display: none;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    @media (min-width: 860px) {
+      .nav-links { display: flex; }
+    }
+
+    .nav-link {
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--dark-muted);
+      transition: color 0.15s ease;
+    }
+
+    .nav-link:hover { color: var(--primary); }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .nav-ig-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: #F1F5F9;
+      color: var(--dark);
+      font-weight: 700;
+      font-size: 0.825rem;
+      padding: 0.55rem 0.95rem;
+      border-radius: var(--radius-full);
+      transition: all 0.15s ease;
+    }
+
+    .nav-ig-btn:hover {
+      background: #E2E8F0;
+      color: #E1306C;
+    }
+
+    .nav-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      background: var(--primary);
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.875rem;
+      padding: 0.65rem 1.25rem;
+      border-radius: var(--radius-full);
+      box-shadow: 0 3px 8px rgba(37, 99, 235, 0.28);
+      transition: all 0.15s ease;
+    }
+
+    .nav-cta-btn:hover {
+      background: var(--primary-hover);
+      transform: translateY(-1px);
+    }
+
+    .menu-toggle {
+      display: inline-flex;
+      flex-direction: column;
+      gap: 5px;
+      background: transparent;
+      padding: 0.5rem;
+    }
+
+    @media (min-width: 860px) {
+      .menu-toggle { display: none; }
+    }
+
+    .menu-toggle span {
+      width: 22px;
+      height: 2px;
+      background: var(--dark);
+      border-radius: 2px;
+    }
+
+    .mobile-drawer {
+      display: none;
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      padding: 1.5rem 1.25rem;
+    }
+
+    .mobile-drawer.open { display: block; }
+    .mobile-drawer ul { list-style: none; display: flex; flex-direction: column; gap: 1.2rem; }
+    .mobile-drawer a { font-size: 1.05rem; font-weight: 600; color: var(--dark); display: block; }
+
+    /* ---------------- Hero Section ---------------- */
+    .hero {
+      padding: 4rem 0 3.25rem;
+      position: relative;
+    }
+
+    @media (min-width: 860px) {
+      .hero { padding: 5.5rem 0 4.5rem; }
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--primary-light);
+      border: 1px solid var(--primary-border);
+      color: var(--primary);
+      padding: 0.4rem 1rem;
+      border-radius: var(--radius-full);
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--primary);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+    }
+
+    .hero-title {
+      font-size: clamp(2.25rem, 5vw, 3.8rem);
+      font-weight: 800;
+      color: var(--dark);
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      max-width: 54rem;
+      margin-bottom: 1.35rem;
+    }
+
+    .hero-title span {
+      background: linear-gradient(135deg, var(--primary), #3B82F6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-desc {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 44rem;
+      line-height: 1.75;
+      margin-bottom: 2.25rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .btn-main {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      background: var(--primary);
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.05rem;
+      padding: 0.95rem 1.85rem;
+      border-radius: var(--radius-sm);
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+      transition: all 0.15s ease;
+    }
+
+    .btn-main:hover {
+      background: var(--primary-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(37, 99, 235, 0.35);
+    }
+
+    .btn-cal-popup {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background: #0F172A;
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.05rem;
+      padding: 0.95rem 1.85rem;
+      border-radius: var(--radius-sm);
+      box-shadow: var(--shadow-sm);
+      transition: all 0.15s ease;
+    }
+
+    .btn-cal-popup:hover {
+      background: #1E293B;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background: #fff;
+      border: 1px solid var(--border);
+      color: var(--dark);
+      font-weight: 700;
+      font-size: 1.05rem;
+      padding: 0.95rem 1.85rem;
+      border-radius: var(--radius-sm);
+      box-shadow: var(--shadow-sm);
+      transition: all 0.15s ease;
+    }
+
+    .btn-outline:hover {
+      background: #F1F5F9;
+      border-color: #CBD5E1;
+    }
+
+    .trust-strip {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      padding: 1.5rem 1.75rem;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+    }
+
+    @media (min-width: 720px) {
+      .trust-strip {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
       }
     }
-  });
 
-  rzp.on("payment.failed", (res) => {
-    reset();
-    const e2 = (res && res.error) || {};
-    say("Payment fail: " + (e2.description || "unknown") +
-        (e2.reason ? " (" + e2.reason + ")" : "") + ". Doosra method try kijiye.", "no");
-  });
+    .trust-item {
+      display: flex;
+      flex-direction: column;
+    }
 
-  rzp.open();
-});
-</script>
+    .trust-num {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--dark);
+      line-height: 1.2;
+    }
+
+    .trust-label {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 600;
+      margin-top: 0.2rem;
+    }
+
+    /* ---------------- Generic Section ---------------- */
+    .section { padding: 4.5rem 0; }
+    .section-head { margin-bottom: 2.75rem; }
+    .section-eyebrow {
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      color: var(--primary);
+      margin-bottom: 0.4rem;
+      display: block;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+      font-weight: 800;
+      color: var(--dark);
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-desc {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 40rem;
+      line-height: 1.65;
+    }
+
+    /* ---------------- Two Tracks Showcase ---------------- */
+    .tracks-grid {
+      display: grid;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    @media (min-width: 768px) {
+      .tracks-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    .track-feature-card {
+      background: #FFFFFF;
+      border: 2px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2.25rem 2rem;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .track-feature-card.creator {
+      border-color: #BAE6FD;
+      background: linear-gradient(180deg, #F0F9FF 0%, #FFFFFF 30%);
+    }
+
+    .track-feature-card.spiritual {
+      border-color: #FED7AA;
+      background: linear-gradient(180deg, #FFFBEB 0%, #FFFFFF 30%);
+    }
+
+    .track-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.3rem 0.75rem;
+      border-radius: var(--radius-full);
+      margin-bottom: 1rem;
+    }
+
+    .track-feature-card.creator .track-tag {
+      background: var(--creator-light);
+      color: var(--creator-accent);
+    }
+
+    .track-feature-card.spiritual .track-tag {
+      background: var(--spiritual-light);
+      color: var(--spiritual-accent);
+    }
+
+    .track-feature-card h3 {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 0.75rem;
+    }
+
+    .track-feature-card p.sub {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .track-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+      font-size: 0.925rem;
+    }
+
+    .track-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      color: var(--dark-muted);
+      line-height: 1.5;
+    }
+
+    .track-list li span.check {
+      font-weight: 800;
+      font-size: 1rem;
+      flex: none;
+    }
+
+    .track-feature-card.creator .check { color: var(--creator-accent); }
+    .track-feature-card.spiritual .check { color: var(--spiritual-accent); }
+
+    /* ---------------- 30-Min Timeline ---------------- */
+    .timeline-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2.25rem 2rem;
+      box-shadow: var(--shadow-sm);
+      margin-top: 3rem;
+    }
+
+    .timeline-card h3 {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .timeline-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+      margin-top: 1.75rem;
+    }
+
+    @media (min-width: 640px) {
+      .timeline-row { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    .time-slot-card {
+      background: #F8FAFC;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 1.25rem 1rem;
+      border-left: 3px solid var(--primary);
+    }
+
+    .time-slot-card span.stamp {
+      font-size: 0.825rem;
+      font-weight: 800;
+      color: var(--primary);
+      display: block;
+      margin-bottom: 0.35rem;
+    }
+
+    .time-slot-card h4 {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 0.3rem;
+    }
+
+    .time-slot-card p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+
+    /* ---------------- Booking Section & Tabs ---------------- */
+    .booking-mode-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-bottom: 2.25rem;
+      flex-wrap: wrap;
+    }
+
+    .booking-mode-btn {
+      background: #FFFFFF;
+      border: 2px solid var(--border);
+      border-radius: var(--radius-full);
+      padding: 0.75rem 1.5rem;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--dark-muted);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.15s ease;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .booking-mode-btn:hover {
+      border-color: #93C5FD;
+      color: var(--dark);
+    }
+
+    .booking-mode-btn.active {
+      background: var(--dark);
+      color: #fff;
+      border-color: var(--dark);
+      box-shadow: var(--shadow-md);
+    }
+
+    .booking-mode-badge {
+      font-size: 0.725rem;
+      font-weight: 700;
+      padding: 0.15rem 0.5rem;
+      border-radius: var(--radius-full);
+      background: #EFF6FF;
+      color: var(--primary);
+    }
+
+    .booking-mode-btn.active .booking-mode-badge {
+      background: rgba(255, 255, 255, 0.2);
+      color: #fff;
+    }
+
+    /* Cal.com Embed Container */
+    .cal-wrapper {
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+    }
+
+    .cal-header-bar {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 1.5rem;
+    }
+
+    @media (min-width: 680px) {
+      .cal-header-bar {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    .cal-title-info h3 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 0.2rem;
+    }
+
+    .cal-title-info p {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+    }
+
+    .cal-direct-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--primary);
+      background: var(--primary-light);
+      padding: 0.5rem 1rem;
+      border-radius: var(--radius-full);
+      transition: background 0.15s ease;
+      white-space: nowrap;
+    }
+
+    .cal-direct-link:hover { background: #DBEAFE; }
+
+    #my-cal-inline {
+      width: 100%;
+      min-height: 640px;
+      overflow: auto;
+    }
+
+    /* Priority Razorpay Form View */
+    .booking-wrapper {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+
+    @media (min-width: 960px) {
+      .booking-wrapper {
+        grid-template-columns: 1.1fr 0.9fr;
+      }
+    }
+
+    .booking-form-pane { padding: 2.5rem 2rem; }
+    @media (min-width: 640px) { .booking-form-pane { padding: 3rem 2.75rem; } }
+
+    .booking-summary-pane {
+      background: #F8FAFC;
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    @media (min-width: 960px) {
+      .booking-summary-pane {
+        border-top: none;
+        border-left: 1px solid var(--border);
+        padding: 3rem 2.5rem;
+      }
+    }
+
+    .step-label {
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--primary);
+      margin-bottom: 0.6rem;
+      display: block;
+    }
+
+    .track-options {
+      display: grid;
+      gap: 0.85rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .track-card {
+      border: 2px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1rem 1.25rem;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      background: #fff;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .track-card:hover {
+      border-color: #93C5FD;
+      background: #FAFCFF;
+    }
+
+    .track-card.active {
+      border-color: var(--primary);
+      background: var(--primary-light);
+    }
+
+    .track-radio {
+      margin-top: 0.25rem;
+      accent-color: var(--primary);
+      width: 1.15rem;
+      height: 1.15rem;
+      cursor: pointer;
+    }
+
+    .track-info h4 {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 0.2rem;
+    }
+
+    .track-info p {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+
+    .slot-picker-wrap { margin-bottom: 2rem; }
+
+    .date-chips {
+      display: flex;
+      gap: 0.6rem;
+      overflow-x: auto;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+      scrollbar-width: thin;
+    }
+
+    .date-chip {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 0.55rem 0.85rem;
+      font-size: 0.825rem;
+      font-weight: 700;
+      color: var(--dark-muted);
+      white-space: nowrap;
+      cursor: pointer;
+      transition: all 0.12s ease;
+    }
+
+    .date-chip:hover { border-color: #93C5FD; }
+    .date-chip.active {
+      background: var(--dark);
+      color: #fff;
+      border-color: var(--dark);
+    }
+
+    .time-slots {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+      gap: 0.6rem;
+    }
+
+    .time-slot {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 0.55rem 0.5rem;
+      font-size: 0.825rem;
+      font-weight: 700;
+      text-align: center;
+      color: var(--dark-muted);
+      cursor: pointer;
+      transition: all 0.12s ease;
+    }
+
+    .time-slot:hover { border-color: #93C5FD; }
+    .time-slot.active {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+
+    .form-grid { display: grid; gap: 1.25rem; }
+    @media (min-width: 600px) {
+      .form-grid-2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.25rem;
+      }
+    }
+
+    .field { display: flex; flex-direction: column; gap: 0.35rem; }
+    .field label { font-size: 0.85rem; font-weight: 700; color: var(--dark); }
+    .field label span.opt { font-size: 0.775rem; color: var(--text-muted); font-weight: 400; }
+
+    .field input, .field textarea, .field select {
+      background: #FFFFFF;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 0.75rem 0.95rem;
+      font-size: 0.95rem;
+      color: var(--dark);
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .field input:focus, .field textarea:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+    }
+
+    .field.error input, .field.error textarea {
+      border-color: var(--danger);
+      background: #FEF2F2;
+    }
+
+    .field textarea { resize: vertical; min-height: 5.5rem; }
+
+    #spiritualOptionalFields {
+      display: none;
+      border-left: 3px solid var(--spiritual-accent);
+      padding-left: 1rem;
+      margin-top: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .summary-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1.75rem 1.5rem;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 1.5rem;
+    }
+
+    .summary-header {
+      padding-bottom: 1.2rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 1.2rem;
+    }
+
+    .summary-title { font-size: 1.15rem; font-weight: 800; color: var(--dark); }
+    .summary-price-wrap {
+      display: flex;
+      align-items: baseline;
+      gap: 0.4rem;
+      margin-top: 0.5rem;
+    }
+
+    .summary-price {
+      font-size: 2.25rem;
+      font-weight: 800;
+      color: var(--dark);
+      letter-spacing: -0.03em;
+    }
+
+    .summary-currency { font-size: 0.9rem; color: var(--text-muted); font-weight: 600; }
+
+    .summary-details {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      list-style: none;
+      font-size: 0.9rem;
+      color: var(--dark-muted);
+      margin-bottom: 1.25rem;
+    }
+
+    .summary-details li {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+
+    .summary-details li span:first-child { color: var(--text-muted); }
+    .summary-details li span:last-child {
+      font-weight: 700;
+      color: var(--dark);
+      text-align: right;
+    }
+
+    .inclusions {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      font-size: 0.85rem;
+      color: var(--dark-muted);
+      border-top: 1px dashed var(--border);
+      padding-top: 1rem;
+    }
+
+    .inclusions li { display: flex; align-items: center; gap: 0.5rem; }
+    .inclusions li::before { content: "✓"; color: var(--success); font-weight: 800; }
+
+    .pay-btn {
+      width: 100%;
+      background: var(--primary);
+      color: #fff;
+      font-weight: 800;
+      font-size: 1.05rem;
+      padding: 1rem;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+      transition: all 0.15s ease;
+    }
+
+    .pay-btn:hover { background: var(--primary-hover); transform: translateY(-1px); }
+    .pay-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+    .guarantee-note {
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+    }
+
+    .booking-status-banner {
+      display: none;
+      padding: 0.9rem 1.1rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      line-height: 1.45;
+    }
+
+    .booking-status-banner.error {
+      display: block;
+      background: #FEE2E2;
+      color: var(--danger);
+      border: 1px solid #FCA5A5;
+    }
+
+    .booking-status-banner.loading {
+      display: block;
+      background: #EFF6FF;
+      color: var(--primary);
+      border: 1px solid var(--primary-border);
+    }
+
+    /* ---------------- Shop & Affiliate Section ---------------- */
+    .shop-section {
+      background: #FFFFFF;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .shop-controls {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      margin-bottom: 2.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .shop-controls {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    .category-tabs {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .cat-tab {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-full);
+      padding: 0.5rem 1.1rem;
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--dark-muted);
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .cat-tab:hover { border-color: #93C5FD; }
+    .cat-tab.active {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+
+    .shop-search {
+      position: relative;
+      min-width: 240px;
+    }
+
+    .shop-search input {
+      width: 100%;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-full);
+      padding: 0.55rem 1rem 0.55rem 2.2rem;
+      font-size: 0.875rem;
+      color: var(--dark);
+    }
+
+    .shop-search-icon {
+      position: absolute;
+      left: 0.8rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      pointer-events: none;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 640px) {
+      .products-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (min-width: 1024px) {
+      .products-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    .product-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.2s ease;
+    }
+
+    .product-card:hover {
+      border-color: #CBD5E1;
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .product-tag-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.85rem;
+    }
+
+    .product-cat-tag {
+      font-size: 0.725rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      background: #F1F5F9;
+      color: var(--dark-muted);
+      padding: 0.25rem 0.65rem;
+      border-radius: var(--radius-full);
+    }
+
+    .product-badge {
+      font-size: 0.725rem;
+      font-weight: 700;
+      color: var(--success);
+      background: var(--success-light);
+      padding: 0.25rem 0.65rem;
+      border-radius: var(--radius-full);
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .product-icon-wrap {
+      width: 3.2rem;
+      height: 3.2rem;
+      border-radius: var(--radius-sm);
+      background: #F8FAFC;
+      border: 1px solid var(--border);
+      display: grid;
+      place-items: center;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .product-name {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 0.45rem;
+      line-height: 1.3;
+    }
+
+    .product-desc {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+      margin-bottom: 1.25rem;
+      flex-grow: 1;
+    }
+
+    .product-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid #F1F5F9;
+      padding-top: 1rem;
+      margin-top: auto;
+    }
+
+    .product-price-est {
+      font-size: 0.825rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .affiliate-link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--dark);
+      color: #fff;
+      font-size: 0.825rem;
+      font-weight: 700;
+      padding: 0.55rem 1rem;
+      border-radius: var(--radius-sm);
+      transition: all 0.15s ease;
+    }
+
+    .affiliate-link-btn:hover { background: var(--primary); }
+
+    .affiliate-disclosure-card {
+      background: #F8FAFC;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1.25rem 1.5rem;
+      margin-top: 2.5rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.85rem;
+    }
+
+    .affiliate-disclosure-card svg {
+      width: 1.25rem;
+      height: 1.25rem;
+      fill: var(--primary);
+      flex: none;
+      margin-top: 0.15rem;
+    }
+
+    .affiliate-disclosure-card p {
+      font-size: 0.825rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* ---------------- FAQ ---------------- */
+    .faq-list {
+      max-width: 48rem;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    details.faq-item {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: border-color 0.15s ease;
+    }
+
+    details.faq-item[open] {
+      border-color: #93C5FD;
+      box-shadow: var(--shadow-sm);
+    }
+
+    summary.faq-question {
+      padding: 1.25rem 1.5rem;
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--dark);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+      list-style: none;
+    }
+
+    summary.faq-question::-webkit-details-marker { display: none; }
+    summary.faq-question::after {
+      content: "+";
+      font-size: 1.35rem;
+      font-weight: 400;
+      color: var(--text-muted);
+      transition: transform 0.2s ease;
+      line-height: 1;
+    }
+
+    details[open] summary.faq-question::after {
+      content: "−";
+      color: var(--primary);
+    }
+
+    .faq-answer {
+      padding: 0 1.5rem 1.35rem;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    /* ---------------- Footer ---------------- */
+    .footer {
+      background: var(--dark);
+      color: #94A3B8;
+      padding: 4rem 0 2.5rem;
+      border-top: 1px solid #1E293B;
+    }
+
+    .footer-grid {
+      display: grid;
+      gap: 2.5rem;
+      margin-bottom: 3rem;
+    }
+
+    @media (min-width: 768px) {
+      .footer-grid { grid-template-columns: 2fr 1fr 1fr; }
+    }
+
+    .footer-brand h4 {
+      color: #fff;
+      font-size: 1.25rem;
+      font-weight: 800;
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-brand p {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      max-width: 24rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .social-links { display: flex; gap: 0.75rem; }
+    .social-btn {
+      width: 2.4rem;
+      height: 2.4rem;
+      border-radius: var(--radius-sm);
+      background: #1E293B;
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-size: 0.9rem;
+      transition: all 0.15s ease;
+    }
+
+    .social-btn:hover { background: var(--primary); color: #fff; }
+
+    .footer-col h5 {
+      color: #fff;
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+      font-size: 0.875rem;
+    }
+
+    .footer-col a:hover { color: #fff; }
+
+    .footer-bottom {
+      border-top: 1px solid #1E293B;
+      padding-top: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      align-items: center;
+      font-size: 0.8rem;
+      color: #64748B;
+      text-align: center;
+    }
+
+    @media (min-width: 640px) {
+      .footer-bottom {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
+
+    .confirm-view { padding: 3rem 2rem; text-align: center; }
+    .confirm-tick {
+      width: 4rem;
+      height: 4rem;
+      border-radius: 50%;
+      background: var(--success-light);
+      color: var(--success);
+      font-size: 2rem;
+      display: grid;
+      place-items: center;
+      margin: 0 auto 1.5rem;
+      font-weight: 800;
+    }
+
+    .confirm-view h2 { font-size: 1.75rem; font-weight: 800; color: var(--dark); margin-bottom: 0.75rem; }
+    .confirm-view p.lead { color: var(--text-muted); font-size: 1.05rem; max-width: 28rem; margin: 0 auto 1.75rem; }
+
+    .booking-receipt-table {
+      background: #F8FAFC;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      max-width: 26rem;
+      margin: 0 auto 2rem;
+      text-align: left;
+      font-size: 0.9rem;
+    }
+
+    .booking-receipt-table div {
+      padding: 0.75rem 1rem;
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .booking-receipt-table div:last-child { border-bottom: none; }
+    .booking-receipt-table span:first-child { color: var(--text-muted); }
+    .booking-receipt-table span:last-child { font-weight: 700; color: var(--dark); }
+
+    .whatsapp-connect-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #25D366;
+      color: #fff;
+      font-weight: 800;
+      font-size: 1rem;
+      padding: 0.85rem 1.6rem;
+      border-radius: var(--radius-sm);
+      box-shadow: 0 4px 10px rgba(37, 211, 102, 0.28);
+    }
+
+    .cal-confirm-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--primary);
+      color: #fff;
+      font-weight: 800;
+      font-size: 1rem;
+      padding: 0.85rem 1.6rem;
+      border-radius: var(--radius-sm);
+      box-shadow: 0 4px 10px rgba(37, 99, 235, 0.28);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ---------------- Navbar ---------------- -->
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="#" class="brand">
+        <div class="brand-avatar">TH</div>
+        <div class="brand-text">
+          <span class="brand-name">Timeline by Harsh</span>
+          <span class="brand-tag">@timelinebyharsh</span>
+        </div>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="#about" class="nav-link">About Harsh</a></li>
+          <li><a href="#tracks" class="nav-link">Two Paths (Tracks)</a></li>
+          <li><a href="#booking" class="nav-link">1:1 Booking</a></li>
+          <li><a href="#shop" class="nav-link">Curated Shop</a></li>
+          <li><a href="#faq" class="nav-link">FAQ</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="https://www.instagram.com/timelinebyharsh/" target="_blank" rel="noopener noreferrer" class="nav-ig-btn" aria-label="Visit Instagram @timelinebyharsh">
+          <span>Instagram</span>
+          <span>↗</span>
+        </a>
+
+        <a href="#booking" class="nav-cta-btn">
+          <span>Book Call</span>
+        </a>
+
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-drawer" id="mobileDrawer">
+      <ul>
+        <li><a href="#about" class="drawer-link">About Harsh</a></li>
+        <li><a href="#tracks" class="drawer-link">Two Paths (Tracks A & B)</a></li>
+        <li><a href="#booking" class="drawer-link">1:1 Booking (Cal.com & Direct)</a></li>
+        <li><a href="#shop" class="drawer-link">Curated Shop & Gear</a></li>
+        <li><a href="#faq" class="drawer-link">Common Questions (FAQ)</a></li>
+        <li><a href="https://www.instagram.com/timelinebyharsh/" target="_blank" rel="noopener" class="drawer-link" style="color:#E1306C">Instagram @timelinebyharsh ↗</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <!-- ---------------- Hero Section ---------------- -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-badge">
+          <span class="hero-badge-dot"></span>
+          <span>Came from an Instagram reel? Welcome!</span>
+        </div>
+
+        <h1 class="hero-title">
+          One Honest Conversation. <span>Two Clear Paths.</span>
+        </h1>
+
+        <p class="hero-desc">
+          In my Instagram DMs, people ask two main questions: <i>"How do I grow my content and reach?"</i> and <i>"What is the right daily sadhana, mantra, and rudraksh method?"</i> You cannot answer these in a quick message. That is why I offer this focused 30-minute private 1:1 call.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#booking" class="btn-main">
+            <span>📅 Pick Time on Live Calendar</span>
+            <span>→</span>
+          </a>
+          <button class="btn-cal-popup" id="calPopupBtn" data-cal-link="timelinebyharsh/30min" data-cal-config='{"layout":"month_view"}'>
+            <span>⚡ Quick Cal.com Popup</span>
+          </button>
+          <a href="#shop" class="btn-outline">
+            <span>Browse Recommended Shop</span>
+          </a>
+        </div>
+
+        <div class="trust-strip">
+          <div class="trust-item">
+            <span class="trust-num">30 Mins</span>
+            <span class="trust-label">Focused 1:1 Call</span>
+          </div>
+          <div class="trust-item">
+            <span class="trust-num">Instant</span>
+            <span class="trust-label">Google Meet Link</span>
+          </div>
+          <div class="trust-item">
+            <span class="trust-num">100%</span>
+            <span class="trust-label">Private & Confidential</span>
+          </div>
+          <div class="trust-item">
+            <span class="trust-num">3 Steps</span>
+            <span class="trust-label">WhatsApp Summary</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------------- About Harsh Section ---------------- -->
+    <section class="section" id="about" style="border-top:1px solid var(--border)">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-card">
+            <span class="section-eyebrow">Creator Profile</span>
+            <h3>Namaste, I am Harsh (@timelinebyharsh)</h3>
+            <p>
+              Across Instagram and YouTube, I share stories about history, deep timelines, Sanatan culture, and thoughtful ways to live with purpose.
+            </p>
+            <p>
+              I want to keep expectations completely clear before you book: this is not a magical 30 minutes where all your life problems vanish. 
+            </p>
+            <p>
+              Instead, it is a calm, honest session where we look at where you currently are, where you want to go, and what is actually blocking you. You leave with 3 concrete steps you can begin tomorrow.
+            </p>
+          </div>
+
+          <div class="principles-list">
+            <div class="principle-item">
+              <div class="principle-icon">1</div>
+              <div>
+                <h4>Why ₹299 Commitment Fee?</h4>
+                <p>I used to do these calls for free. But people would book and not show up, or weren't serious. The ₹299 is not for making money — it is a small filter so that only serious people show up and make full use of every minute.</p>
+              </div>
+            </div>
+
+            <div class="principle-item">
+              <div class="principle-icon">2</div>
+              <div>
+                <h4>No Generic Motivational Speeches</h4>
+                <p>Advice without understanding your exact situation is useless. I will ask direct questions about your work or daily routine before suggesting solutions.</p>
+              </div>
+            </div>
+
+            <div class="principle-item">
+              <div class="principle-icon">3</div>
+              <div>
+                <h4>Summary Note on WhatsApp</h4>
+                <p>Within 24 hours after our call, you will receive a short bulleted action note on your WhatsApp so you never forget what we decided.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------------- Two Paths / Tracks Section ---------------- -->
+    <section class="section" id="tracks" style="background:#F1F5F9;border-top:1px solid var(--border)">
+      <div class="container">
+        <div class="section-head" style="text-align:center;max-width:38rem;margin:0 auto 2.5rem">
+          <span class="section-eyebrow">Choose Your Topic</span>
+          <h2 class="section-title">Two Paths You Can Choose From</h2>
+          <p class="section-desc" style="margin:0 auto">
+            In 30 minutes, we can do one track properly. Pick the one that is most urgent for you right now.
+          </p>
+        </div>
+
+        <div class="tracks-grid">
+          <!-- Track A -->
+          <div class="track-feature-card creator">
+            <div>
+              <span class="track-tag">Track A</span>
+              <h3>Social Media & Content Growth</h3>
+              <p class="sub">
+                For creators, freelancers, and businesses who want to stop guessing and start creating reels and videos with high reach.
+              </p>
+
+              <ul class="track-list">
+                <li><span class="check">✓</span><span>Complete profile, bio, and niche clarity audit</span></li>
+                <li><span class="check">✓</span><span>Honest feedback on your last 9 posts & reels</span></li>
+                <li><span class="check">✓</span><span>First 3-second hook, retention, and thumbnail fixes</span></li>
+                <li><span class="check">✓</span><span>Reels format, video structure, and posting rhythm</span></li>
+                <li><span class="check">✓</span><span>Monetization roadmap: brand deals & digital products</span></li>
+                <li><span class="check">✓</span><span>A realistic 30-day content plan to follow</span></li>
+              </ul>
+            </div>
+
+            <a href="#booking" class="btn-main" style="background:var(--creator-accent)">
+              <span>Book Track A Session</span>
+              <span>→</span>
+            </a>
+          </div>
+
+          <!-- Track B -->
+          <div class="track-feature-card spiritual">
+            <div>
+              <span class="track-tag">Track B</span>
+              <h3>Spiritual Guidance & Daily Sadhana</h3>
+              <p class="sub">
+                For clarity on Sanatan practices, finding peace in everyday routine, and choosing the right spiritual tools.
+              </p>
+
+              <ul class="track-list">
+                <li><span class="check">✓</span><span>Right Rudraksh recommendation for your Rashi & wearing rules</span></li>
+                <li><span class="check">✓</span><span>Daily mantra jaap: which mantra, how many counts, and best timing</span></li>
+                <li><span class="check">✓</span><span>Doubts about vrat, pooja vidhi, and auspicious timing (muhurat)</span></li>
+                <li><span class="check">✓</span><span>Home mandir direction, sacred layout, and positive energy</span></li>
+                <li><span class="check">✓</span><span>A simple, sustainable 10-minute daily dincharya routine</span></li>
+              </ul>
+            </div>
+
+            <a href="#booking" class="btn-main" style="background:var(--spiritual-accent)">
+              <span>Book Track B Session</span>
+              <span>→</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- 30-minute breakdown card -->
+        <div class="timeline-card">
+          <h3>How Your 30 Minutes Will Be Spent</h3>
+          <p style="color:var(--text-muted);font-size:0.925rem">Every minute is planned so you get maximum clarity without wasted time.</p>
+
+          <div class="timeline-row">
+            <div class="time-slot-card">
+              <span class="stamp">00:00 – 05:00</span>
+              <h4>You Speak First</h4>
+              <p>Explain your situation, your background, and your main dilemma without interruption.</p>
+            </div>
+            <div class="time-slot-card">
+              <span class="stamp">05:00 – 15:00</span>
+              <h4>Deep Questions</h4>
+              <p>I will ask targeted questions to find where the actual bottleneck lies.</p>
+            </div>
+            <div class="time-slot-card">
+              <span class="stamp">15:00 – 25:00</span>
+              <h4>Direct Strategy</h4>
+              <p>Straight answers, realistic steps, and customized practical solutions.</p>
+            </div>
+            <div class="time-slot-card">
+              <span class="stamp">25:00 – 30:00</span>
+              <h4>Top 3 Next Steps</h4>
+              <p>We finalize the 3 prioritized actions you will start tomorrow morning.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------------- 1:1 Booking Section (Cal.com + Priority Flow) ---------------- -->
+    <section class="section" id="booking" style="border-top:1px solid var(--border)">
+      <div class="container">
+        <div class="section-head" style="text-align:center;max-width:38rem;margin:0 auto 2.5rem">
+          <span class="section-eyebrow">Appointment Scheduling</span>
+          <h2 class="section-title">Schedule Your Private 1:1 Session</h2>
+          <p class="section-desc" style="margin:0 auto">
+            Pick a time slot directly on my synced Google Calendar via Cal.com, or use the direct priority booking form below.
+          </p>
+        </div>
+
+        <!-- Booking Mode Selector -->
+        <div class="booking-mode-tabs" role="tablist" aria-label="Booking Options">
+          <button class="booking-mode-btn active" id="modeBtnCal" role="tab" aria-selected="true" aria-controls="calEmbedView">
+            <span>📅 Live Calendar (Cal.com)</span>
+            <span class="booking-mode-badge">Google Meet Sync</span>
+          </button>
+          <button class="booking-mode-btn" id="modeBtnPriority" role="tab" aria-selected="false" aria-controls="priorityBookingView">
+            <span>⚡ Priority Booking (₹299)</span>
+            <span class="booking-mode-badge">WhatsApp Coordination</span>
+          </button>
+        </div>
+
+        <!-- 1. Cal.com Embed View -->
+        <div id="calEmbedView" class="cal-wrapper">
+          <div class="cal-header-bar">
+            <div class="cal-title-info">
+              <h3>Live Calendar · Instant Google Meet Invitation</h3>
+              <p>Calendar times are automatically adjusted to your local timezone. Pick any open slot.</p>
+            </div>
+            <div>
+              <a href="https://cal.com/timelinebyharsh/30min" target="_blank" rel="noopener noreferrer" class="cal-direct-link" id="calExternalLink">
+                <span>Open in full tab on Cal.com</span>
+                <span>↗</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Cal.com Inline Embed Container -->
+          <div id="my-cal-inline"></div>
+        </div>
+
+        <!-- 2. Priority Razorpay Form View -->
+        <div id="priorityBookingView" style="display:none" class="booking-wrapper">
+          <div class="booking-form-pane">
+            <div id="bookingStatus" class="booking-status-banner"></div>
+
+            <form id="bookingForm">
+              <!-- Step 1: Choose Track -->
+              <div style="margin-bottom:1.75rem">
+                <span class="step-label">Step 1 · Select Your Track</span>
+                <div class="track-options">
+                  <label class="track-card active" data-track="Track A — Social Media Growth">
+                    <input type="radio" name="trackRadio" value="Track A — Social Media Growth" checked class="track-radio">
+                    <div class="track-info">
+                      <h4>Track A — Social Media & Content Growth</h4>
+                      <p>Hooks, reels review, retention fixes, posting schedule, and 30-day plan.</p>
+                    </div>
+                  </label>
+
+                  <label class="track-card" data-track="Track B — Spiritual Guidance">
+                    <input type="radio" name="trackRadio" value="Track B — Spiritual Guidance" class="track-radio">
+                    <div class="track-info">
+                      <h4>Track B — Spiritual Guidance & Daily Sadhana</h4>
+                      <p>Rudraksh consultation, daily mantra jaap, mandir setup, and dincharya.</p>
+                    </div>
+                  </label>
+
+                  <label class="track-card" data-track="Life Direction & General Clarity">
+                    <input type="radio" name="trackRadio" value="Life Direction & General Clarity" class="track-radio">
+                    <div class="track-info">
+                      <h4>General Life Clarity & Focus</h4>
+                      <p>Daily discipline, beating procrastination, and organizing your priorities.</p>
+                    </div>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Step 2: Preferred Slot -->
+              <div class="slot-picker-wrap">
+                <span class="step-label">Step 2 · Preferred Day & Time</span>
+                <div class="date-chips" id="dateChips"></div>
+                <div class="time-slots" id="timeSlots">
+                  <div class="time-slot active" data-time="11:00 AM">11:00 AM</div>
+                  <div class="time-slot" data-time="02:30 PM">02:30 PM</div>
+                  <div class="time-slot" data-time="05:00 PM">05:00 PM</div>
+                  <div class="time-slot" data-time="07:30 PM">07:30 PM</div>
+                  <div class="time-slot" data-time="09:00 PM">09:00 PM</div>
+                </div>
+              </div>
+
+              <!-- Step 3: Client Info -->
+              <div>
+                <span class="step-label">Step 3 · Your Information</span>
+                <div class="form-grid">
+                  <div class="form-grid-2">
+                    <div class="field" id="f-name-wrap">
+                      <label for="f-name">Your Full Name *</label>
+                      <input type="text" id="f-name" placeholder="e.g. Rahul Sharma" required autocomplete="name">
+                    </div>
+                    <div class="field" id="f-whatsapp-wrap">
+                      <label for="f-whatsapp">WhatsApp Number *</label>
+                      <input type="tel" id="f-whatsapp" placeholder="10-digit number (Slot sent here)" required autocomplete="tel">
+                    </div>
+                  </div>
+
+                  <div class="form-grid-2">
+                    <div class="field" id="f-email-wrap">
+                      <label for="f-email">Email Address * (for Google Meet)</label>
+                      <input type="email" id="f-email" placeholder="name@example.com" required autocomplete="email">
+                    </div>
+                    <div class="field" id="f-handle-wrap">
+                      <label for="f-handle">Instagram / Social Handle *</label>
+                      <input type="text" id="f-handle" placeholder="@yourhandle (needed for audit)" required>
+                    </div>
+                  </div>
+
+                  <div class="form-grid-2">
+                    <div class="field" id="f-age-wrap">
+                      <label for="f-age">Your Age *</label>
+                      <input type="number" id="f-age" min="14" max="99" placeholder="e.g. 24" required>
+                    </div>
+                    <div class="field" id="f-city-wrap">
+                      <label for="f-city">Your City *</label>
+                      <input type="text" id="f-city" placeholder="e.g. Jaipur, Delhi, Mumbai" required>
+                    </div>
+                  </div>
+
+                  <div class="field" id="f-question-wrap">
+                    <label for="f-question">Your Main Question in 1 or 2 Sentences *</label>
+                    <textarea id="f-question" placeholder="e.g. My reels get views but no followers, or I am confused about which rudraksh suits my rashi." required></textarea>
+                  </div>
+
+                  <!-- Optional fields for Track B (Spiritual) -->
+                  <div id="spiritualOptionalFields">
+                    <div class="field" style="margin-bottom:0.85rem">
+                      <label for="f-birth">Birth Details <span class="opt">(Date, Time, City — Optional for Jyotish / Rudraksh)</span></label>
+                      <input type="text" id="f-birth" placeholder="e.g. 14 Oct 1998, 5:30 AM, Kanpur">
+                    </div>
+                    <div class="field">
+                      <label for="f-jaap">Current Mantra Jaap or Vrat <span class="opt">(Optional)</span></label>
+                      <input type="text" id="f-jaap" placeholder="e.g. 108 Gayatri Mantra daily, Ekadashi vrat">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div style="margin-top:2rem">
+                <button type="submit" class="pay-btn" id="submitBtn">
+                  <span>Pay ₹299 & Confirm Booking</span>
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Summary Pane -->
+          <div class="booking-summary-pane" id="summaryPane">
+            <div>
+              <div class="summary-card">
+                <div class="summary-header">
+                  <span class="step-label">Booking Summary</span>
+                  <h3 class="summary-title">30-Minute 1:1 Guidance Session</h3>
+                  <div class="summary-price-wrap">
+                    <span class="summary-price">₹299</span>
+                    <span class="summary-currency">INR (Commitment Fee)</span>
+                  </div>
+                </div>
+
+                <ul class="summary-details">
+                  <li><span>Topic:</span><span id="summaryTrack">Track A — Social Media Growth</span></li>
+                  <li><span>Preferred Day:</span><span id="summaryDate">Today</span></li>
+                  <li><span>Preferred Slot:</span><span id="summaryTime">11:00 AM IST</span></li>
+                  <li><span>Format:</span><span>Google Meet (or WhatsApp Video)</span></li>
+                </ul>
+
+                <ul class="inclusions">
+                  <li>30 minutes of dedicated conversation with Harsh</li>
+                  <li>Targeted questions and actionable feedback</li>
+                  <li>Top 3 action steps agreed on the call</li>
+                  <li>Summary bullet points sent to your WhatsApp in 24 hrs</li>
+                  <li>Free 1-time rescheduling if notified 6 hrs prior</li>
+                </ul>
+              </div>
+            </div>
+
+            <div>
+              <div class="guarantee-note">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <span>Secured via Razorpay (UPI, GPay, PhonePe, Cards, Netbanking)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------------- Curated Shop & Affiliate Section ---------------- -->
+    <section class="section shop-section" id="shop">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-eyebrow">Curated Recommendations</span>
+          <h2 class="section-title">Harsh's Recommended Shop & Tools</h2>
+          <p class="section-desc">
+            Authentic spiritual items, life-changing books, and video creation gear that I personally use, verify, and stand behind.
+          </p>
+        </div>
+
+        <div class="shop-controls">
+          <div class="category-tabs" role="tablist" aria-label="Shop categories">
+            <button class="cat-tab active" data-filter="all" role="tab" aria-selected="true">All Items</button>
+            <button class="cat-tab" data-filter="spiritual" role="tab" aria-selected="false">Spiritual & Sadhana</button>
+            <button class="cat-tab" data-filter="books" role="tab" aria-selected="false">Books to Read</button>
+            <button class="cat-tab" data-filter="creator" role="tab" aria-selected="false">Creator & Reel Gear</button>
+            <button class="cat-tab" data-filter="wellness" role="tab" aria-selected="false">Daily Habits & Focus</button>
+          </div>
+
+          <div class="shop-search">
+            <span class="shop-search-icon">🔍</span>
+            <input type="text" id="shopSearchInput" placeholder="Search books, rudraksh, mic..." aria-label="Search recommended items">
+          </div>
+        </div>
+
+        <!-- Products Grid -->
+        <div class="products-grid" id="productsGrid">
+          <!-- 1. Authentic Rudraksh Mala -->
+          <article class="product-card" data-category="spiritual" data-keywords="rudraksh mala 5 mukhi panchmukhi shiva jaap meditation">
+            <div>
+              <div class="product-tag-row">
+                <span class="product-cat-tag">Spiritual</span>
+                <span class="product-badge">★ Daily Sadhana</span>
+              </div>
+              <div class="product-icon-wrap">📿</div>
+              <h3 class="product-name">Original 5-Mukhi Rudraksh Mala (108 Beads)</h3>
+              <p class="product-desc">
+                Lab-certified natural five-faced Rudraksha beads. Perfect for daily mantra jaap (Mahamrityunjay / Om Namah Shivaya) and wearing for mental calm.
+              </p>
+            </div>
+            <div class="product-card-footer">
+              <span class="product-price-est">Certified Beads</span>
+              <a href="https://www.amazon.in/s?k=original+5+mukhi+rudraksha+mala+certified&tag=timelineharsh-21" target="_blank" rel="noopener noreferrer" class="affiliate-link-btn">
+                <span>View on Amazon</span>
+                <span>↗</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- 2. Bhagavad Gita As It Is -->
+          <article class="product-card" data-category="books" data-keywords="bhagavad gita as it is book krishna spiritual philosophy">
+            <div>
+              <div class="product-tag-row">
+                <span class="product-cat-tag">Books</span>
+                <span class="product-badge">Must Have</span>
+              </div>
+              <div class="product-icon-wrap">📖</div>
+              <h3 class="product-name">Bhagavad Gita As It Is</h3>
+              <p class="product-desc">
+                The ultimate manual for the human mind. Whenever you feel overwhelmed by doubts or duty, reading just two verses daily provides instant perspective.
+              </p>
+            </div>
+            <div class="product-card-footer">
+              <span class="product-price-est">Deluxe Edition</span>
+              <a href="https://www.amazon.in/dp/9384564197?tag=timelineharsh-21" target="_blank" rel="noopener noreferrer" class="affiliate-link-btn">
+                <span>View on Amazon</span>
+                <span>↗</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- 3. Wireless Collar Microphone -->
+          <article class="product-card" data-category="creator" data-keywords="microphone wireless collar mic voiceover reels youtube audio">
+            <div>
+              <div class="product-tag-row">
+                <span class="product-cat-tag">Creator Gear</span>
+                <span class="product-badge">Crisp Audio</span>
+              </div>
+              <div class="product-icon-wrap">🎙️</div>
+              <h3 class="product-name">Wireless Lapel Microphone for Smartphones</h3>
+              <p class="product-desc">
+                Plug-and-play wireless mic with active noise reduction. Good audio is 70% of a reel's retention; this makes your voiceover sound studio-grade.
+              </p>
+            </div>
+            <div class="product-card-footer">
+              <span class="product-price-est">Type-C / Lightning</span>
+              <a href="https://www.amazon.in/s?k=wireless+lapel+microphone+type+c&tag=timelineharsh-21" target="_blank" rel="noopener noreferrer" class="affiliate-link-btn">
+                <span>View on Amazon</span>
+                <span>↗</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- 4. Pure Sphatik (Quartz) Mala -->
+          <article class="product-card" data-category="spiritual" data-keywords="sphatik mala crystal quartz shiva shakti cool mind">
+            <div>
+              <div class="product-tag-row">
+                <span class="product-cat-tag">Spiritual</span>
+                <span class="product-badge">Cool Energy</span>
+              </div>
+              <div class="product-icon-wrap">🔮</div>
+              <h3 class="product-name">Natural Diamond Cut Sphatik Mala</h3>
+              <p class="product-desc">
+                Genuine cooling quartz beads. Highly recommended for people with high anxiety or anger issues. Keeps the body temperature balanced during meditation.
+              </p>
+            </div>
+            <div class="product-card-footer">
+              <span class="product-price-est">Natural Crystal</span>
+              <a href="https://www.amazon.in/s?k=natural+sphatik+mala+108+beads&tag=timelineharsh-21" target="_blank" rel="noopener noreferrer" class="affiliate-link-btn">
+                <span>View on Amazon</span>
+                <span>↗</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- 5. Overhead Phone Tripod with Ring Light -->
+          <article class="product-card" data-category="creator" data-keywords="overhead tripod stand ring light shoot reels camera phone">
+            <div>
+              <div class="product-tag-row">
+                <span class="product-cat-tag">Creator Gear</span>
+                <span class="product-badge">Creator Rig</span>
+              </div>
+              <div class="product-icon-wrap">📹</div>
+              <h3 class="product-name">Heavy-Duty Overhead Tripod & Ring Light</h3>
+              <p class="product-desc">
+                Sturdy desk arm for filming top-down timeline videos, book unboxings, or face-to-camera reels without camera shaking or awkward angles.
+              </p>
+            </div>
+            <div class="product-card-footer">
+              <span class="product-price-est">Creator Setup</span>
+              <a href="https://www.amazon.in/s?k=overhead+tripod+for+phone+with+light&tag=timelineharsh-21" target="_blank" rel="noopener noreferrer" class="affiliate-link-btn">
+                <span>View on Amazon</span>
+                <span>↗</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- 6. Atomic Habits -->
+          <article class="product-card" data-category="books" data-keywords="atomic habits james clear routine discipline book">
+            <div>
+              <div class="product-tag-row">
+                <span class="product-cat-tag">Books</span>
+                <span class="product-badge">Best Seller</span>
+              </div>
+              <div class="product-icon-wrap">⚡</div>
+              <h3 class="product-name">Atomic Habits by James Clear</h3>
+              <p class="product-desc">
+                The single most practical book on breaking bad habits and building small routines that compound into massive life transformations.
+              </p>
+            </div>
+            <div class="product-card-footer">
+              <span class="product-price-est">Paperback</span>
+              <a href="https://www.amazon.in/dp/1847941834?tag=timelineharsh-21" target="_blank" rel="noopener noreferrer" class="affiliate-link-btn">
+                <span>View on Amazon</span>
+                <span>↗</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- 7. Pure Copper Water Vessel -->
+          <article class="product-card" data-category="wellness" data-keywords="copper bottle vessel water health ayurveda dincharya">
+            <div>
+              <div class="product-tag-row">
+                <span class="product-cat-tag">Daily Focus</span>
+                <span class="product-badge">Ayurveda</span>
+              </div>
+              <div class="product-icon-wrap">🏺</div>
+              <h3 class="product-name">100% Pure Copper Water Bottle (Tamra Jal)</h3>
+              <p class="product-desc">
+                Drinking water stored overnight in pure copper is a foundational Ayurvedic habit (Ushapan) that aids digestion and clears brain fog.
+              </p>
+            </div>
+            <div class="product-card-footer">
+              <span class="product-price-est">1 Litre · Pure Copper</span>
+              <a href="https://www.amazon.in/s?k=pure+copper+water+bottle+1000ml&tag=timelineharsh-21" target="_blank" rel="noopener noreferrer" class="affiliate-link-btn">
+                <span>View on Amazon</span>
+                <span>↗</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- 8. Sony WH-1000XM4 Noise Cancelling Headphones -->
+          <article class="product-card" data-category="creator" data-keywords="sony wh-1000xm4 headphones noise cancelling deep focus study">
+            <div>
+              <div class="product-tag-row">
+                <span class="product-cat-tag">Creator Gear</span>
+                <span class="product-badge">Deep Focus</span>
+              </div>
+              <div class="product-icon-wrap">🎧</div>
+              <h3 class="product-name">Sony WH-1000XM4 ANC Headphones</h3>
+              <p class="product-desc">
+                My daily driver for script writing, video editing, and reading. Blocks outside household noise and street chatter so you stay in deep flow.
+              </p>
+            </div>
+            <div class="product-card-footer">
+              <span class="product-price-est">Premium Audio</span>
+              <a href="https://www.amazon.in/dp/B0863TXGM3?tag=timelineharsh-21" target="_blank" rel="noopener noreferrer" class="affiliate-link-btn">
+                <span>View on Amazon</span>
+                <span>↗</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- 9. Natural Ayurvedic Guggal & Cow Dung Dhoop -->
+          <article class="product-card" data-category="spiritual" data-keywords="ayurvedic dhoop guggal cow dung pooja havan sticks">
+            <div>
+              <div class="product-tag-row">
+                <span class="product-cat-tag">Spiritual</span>
+                <span class="product-badge">Charcoal Free</span>
+              </div>
+              <div class="product-icon-wrap">🌿</div>
+              <h3 class="product-name">Charcoal-Free Ayurvedic Guggal Dhoop Sticks</h3>
+              <p class="product-desc">
+                Made from organic cow dung and natural herbs. Purifies indoor air, repels negative vibrations, and creates a peaceful temple atmosphere at home.
+              </p>
+            </div>
+            <div class="product-card-footer">
+              <span class="product-price-est">Organic Havan Dhoop</span>
+              <a href="https://www.amazon.in/s?k=charcoal+free+cow+dung+guggal+dhoop&tag=timelineharsh-21" target="_blank" rel="noopener noreferrer" class="affiliate-link-btn">
+                <span>View on Amazon</span>
+                <span>↗</span>
+              </a>
+            </div>
+          </article>
+        </div>
+
+        <!-- Transparent Affiliate Disclosure -->
+        <div class="affiliate-disclosure-card">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+          <div>
+            <strong style="color:var(--dark);font-size:0.875rem">Honest Affiliate Disclosure:</strong>
+            <p>
+              Some of the links on this page are affiliate links. When you purchase through them, Harsh may receive a small referral commission at no additional cost to you. I only recommend books and items that I have personally bought, tested, and genuinely value.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------------- FAQ Section (Modern Web Guidance Compliant) ---------------- -->
+    <section class="section" id="faq" style="background:#F8FAFC;border-top:1px solid var(--border)">
+      <div class="container">
+        <div class="section-head" style="text-align:center;max-width:34rem;margin:0 auto 2.75rem">
+          <span class="section-eyebrow">Frequently Asked Questions</span>
+          <h2 class="section-title">Common Questions Answered</h2>
+          <p class="section-desc" style="margin:0 auto">
+            Everything you need to know about the call format, preparation, and scheduling.
+          </p>
+        </div>
+
+        <div class="faq-list">
+          <details class="faq-item" name="faq-group" open>
+            <summary class="faq-question">How does scheduling through Cal.com work?</summary>
+            <div class="faq-answer">
+              Cal.com connects directly with Harsh's Google Calendar. When you pick a date and time on the calendar, your slot is instantly reserved and a Google Meet invitation is sent directly to your email inbox. There is zero waiting or manual back-and-forth needed.
+            </div>
+          </details>
+
+          <details class="faq-item" name="faq-group">
+            <summary class="faq-question">Can I discuss both Track A and Track B in one 30-minute call?</summary>
+            <div class="faq-answer">
+              In 30 minutes, doing both tracks properly is difficult. It is recommended to choose the single track that is most urgent right now. If you need in-depth guidance on both social media growth and spiritual sadhana, you can book two separate slots.
+            </div>
+          </details>
+
+          <details class="faq-item" name="faq-group">
+            <summary class="faq-question">Why is there a ₹299 fee?</summary>
+            <div class="faq-answer">
+              When calls were free, people booked slots and never showed up. The ₹299 is a small commitment filter so that only serious, committed individuals book, allowing us to make full, focused use of every minute.
+            </div>
+          </details>
+
+          <details class="faq-item" name="faq-group">
+            <summary class="faq-question">What if I need to reschedule?</summary>
+            <div class="faq-answer">
+              For Cal.com bookings, you can reschedule in one click directly from your Google Calendar invitation email. For priority bookings, send a message on WhatsApp at least 6 hours before the call and we will move your slot for free.
+            </div>
+          </details>
+
+          <details class="faq-item" name="faq-group">
+            <summary class="faq-question">Is our conversation confidential?</summary>
+            <div class="faq-answer">
+              Yes, 100%. Everything discussed during your call is strictly confidential. Harsh never shares client names, personal situations, or conversation details publicly.
+            </div>
+          </details>
+
+          <details class="faq-item" name="faq-group">
+            <summary class="faq-question">What happens after the call finishes?</summary>
+            <div class="faq-answer">
+              Within 24 hours of the call, Harsh will send a short summary note directly to your WhatsApp detailing what was agreed and your top 3 prioritized action items.
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ---------------- Footer ---------------- -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h4>Timeline by Harsh</h4>
+          <p>
+            Official website of creator Harsh (@timelinebyharsh). Thoughtful storytelling, creator guidance, and practical sadhana advice.
+          </p>
+          <div class="social-links">
+            <a href="https://www.instagram.com/timelinebyharsh/" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Harsh on Instagram">📸</a>
+            <a href="https://youtube.com/@timelinebyharsh" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Harsh on YouTube">▶</a>
+            <a href="mailto:timelinebyharsh@gmail.com" class="social-btn" aria-label="Email Harsh">✉</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h5>Navigation</h5>
+          <ul>
+            <li><a href="#about">About Harsh</a></li>
+            <li><a href="#tracks">Two Paths (Tracks)</a></li>
+            <li><a href="#booking">Book 1:1 Call</a></li>
+            <li><a href="#shop">Curated Shop</a></li>
+            <li><a href="#faq">Frequently Asked Questions</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Direct Contact</h5>
+          <ul>
+            <li>Instagram: <a href="https://www.instagram.com/timelinebyharsh/" target="_blank" rel="noopener">@timelinebyharsh</a></li>
+            <li>Email: <a href="mailto:timelinebyharsh@gmail.com">timelinebyharsh@gmail.com</a></li>
+            <li>Location: India (IST timezone)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© <span id="yearSpan"></span> Harsh Upadhyay · Timeline by Harsh. All rights reserved.</span>
+        <span>Scheduling powered by Cal.com · Payments secured via Razorpay</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ---------------- Client JavaScript ---------------- -->
+  <script>
+    document.getElementById("yearSpan").textContent = new Date().getFullYear();
+
+    // ==========================================
+    // ⚙️ CAL.COM CONFIGURATION
+    // Change this username and event slug anytime
+    // ==========================================
+    const CAL_CONFIG = {
+      username: "timelinebyharsh",  // Your Cal.com username
+      eventSlug: "30min",          // e.g. 30min, 15min, or consultation
+      get calLink() {
+        return `${this.username}/${this.eventSlug}`;
+      }
+    };
+
+    // Update dynamic Cal.com links & popup attributes
+    const calExternalLink = document.getElementById("calExternalLink");
+    if (calExternalLink) {
+      calExternalLink.href = `https://cal.com/${CAL_CONFIG.calLink}`;
+    }
+    const calPopupBtn = document.getElementById("calPopupBtn");
+    if (calPopupBtn) {
+      calPopupBtn.setAttribute("data-cal-link", CAL_CONFIG.calLink);
+    }
+
+    // Initialize Cal.com Inline Embed
+    try {
+      Cal("inline", {
+        elementOrSelector: "#my-cal-inline",
+        config: { layout: "month_view", theme: "light" },
+        calLink: CAL_CONFIG.calLink
+      });
+    } catch (e) {
+      console.warn("Cal.com inline init notice:", e);
+    }
+
+    // 1. Mobile Menu Toggle
+    const menuToggle = document.getElementById("menuToggle");
+    const mobileDrawer = document.getElementById("mobileDrawer");
+
+    menuToggle.addEventListener("click", () => {
+      const open = mobileDrawer.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+
+    document.querySelectorAll(".drawer-link").forEach(link => {
+      link.addEventListener("click", () => {
+        mobileDrawer.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    // 2. Booking Mode Switcher (Cal.com vs Priority Razorpay)
+    const modeBtnCal = document.getElementById("modeBtnCal");
+    const modeBtnPriority = document.getElementById("modeBtnPriority");
+    const calEmbedView = document.getElementById("calEmbedView");
+    const priorityBookingView = document.getElementById("priorityBookingView");
+
+    modeBtnCal.addEventListener("click", () => {
+      modeBtnCal.classList.add("active");
+      modeBtnCal.setAttribute("aria-selected", "true");
+      modeBtnPriority.classList.remove("active");
+      modeBtnPriority.setAttribute("aria-selected", "false");
+      calEmbedView.style.display = "block";
+      priorityBookingView.style.display = "none";
+    });
+
+    modeBtnPriority.addEventListener("click", () => {
+      modeBtnPriority.classList.add("active");
+      modeBtnPriority.setAttribute("aria-selected", "true");
+      modeBtnCal.classList.remove("active");
+      modeBtnCal.setAttribute("aria-selected", "false");
+      priorityBookingView.style.display = "grid";
+      calEmbedView.style.display = "none";
+    });
+
+    // 3. Dynamic Date Generation (Today + Next 5 Days) for Priority Form
+    const dateChipsContainer = document.getElementById("dateChips");
+    const today = new Date();
+    const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+    let selectedDate = "Today";
+    let selectedTime = "11:00 AM";
+    let selectedTrack = "Track A — Social Media Growth";
+
+    for (let i = 0; i < 6; i++) {
+      const d = new Date();
+      d.setDate(today.getDate() + i);
+      const dayLabel = i === 0 ? "Today" : i === 1 ? "Tomorrow" : `${days[d.getDay()]}, ${d.getDate()} ${months[d.getMonth()]}`;
+      const chip = document.createElement("button");
+      chip.type = "button";
+      chip.className = "date-chip" + (i === 0 ? " active" : "");
+      chip.textContent = dayLabel;
+      chip.dataset.date = dayLabel;
+      chip.addEventListener("click", () => {
+        document.querySelectorAll(".date-chip").forEach(c => c.classList.remove("active"));
+        chip.classList.add("active");
+        selectedDate = dayLabel;
+        document.getElementById("summaryDate").textContent = selectedDate;
+      });
+      dateChipsContainer.appendChild(chip);
+    }
+
+    // 4. Time Slot Selection
+    document.querySelectorAll(".time-slot").forEach(slot => {
+      slot.addEventListener("click", () => {
+        document.querySelectorAll(".time-slot").forEach(s => s.classList.remove("active"));
+        slot.classList.add("active");
+        selectedTime = slot.dataset.time + " IST";
+        document.getElementById("summaryTime").textContent = selectedTime;
+      });
+    });
+
+    // 5. Track Selection & Optional Field Reveal
+    const spiritualFields = document.getElementById("spiritualOptionalFields");
+    document.querySelectorAll(".track-card").forEach(card => {
+      card.addEventListener("click", () => {
+        document.querySelectorAll(".track-card").forEach(c => c.classList.remove("active"));
+        card.classList.add("active");
+        const radio = card.querySelector("input[type=radio]");
+        if (radio) radio.checked = true;
+        selectedTrack = card.dataset.track;
+        document.getElementById("summaryTrack").textContent = selectedTrack;
+
+        if (selectedTrack.includes("Spiritual")) {
+          spiritualFields.style.display = "block";
+        } else {
+          spiritualFields.style.display = "none";
+        }
+      });
+    });
+
+    // 6. Shop Category Filtering & Search
+    const catTabs = document.querySelectorAll(".cat-tab");
+    const productCards = document.querySelectorAll(".product-card");
+    const searchInput = document.getElementById("shopSearchInput");
+    let currentCategory = "all";
+    let searchQuery = "";
+
+    function filterProducts() {
+      productCards.forEach(card => {
+        const cat = card.dataset.category || "";
+        const keywords = (card.dataset.keywords || "") + " " + card.textContent.toLowerCase();
+        const matchesCat = currentCategory === "all" || cat === currentCategory;
+        const matchesQuery = !searchQuery || keywords.includes(searchQuery.toLowerCase());
+
+        if (matchesCat && matchesQuery) {
+          card.style.display = "flex";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    }
+
+    catTabs.forEach(tab => {
+      tab.addEventListener("click", () => {
+        catTabs.forEach(t => {
+          t.classList.remove("active");
+          t.setAttribute("aria-selected", "false");
+        });
+        tab.classList.add("active");
+        tab.setAttribute("aria-selected", "true");
+        currentCategory = tab.dataset.filter;
+        filterProducts();
+      });
+    });
+
+    searchInput.addEventListener("input", (e) => {
+      searchQuery = e.target.value.trim();
+      filterProducts();
+    });
+
+    // 7. Booking & Razorpay Flow
+    const bookingForm = document.getElementById("bookingForm");
+    const statusBanner = document.getElementById("bookingStatus");
+    const submitBtn = document.getElementById("submitBtn");
+
+    function setStatus(msg, type) {
+      statusBanner.className = "booking-status-banner " + (type || "");
+      statusBanner.textContent = msg;
+      statusBanner.style.display = msg ? "block" : "none";
+      if (type === "error") {
+        statusBanner.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+    }
+
+    bookingForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      // Read form data
+      const name = document.getElementById("f-name").value.trim();
+      const whatsapp = document.getElementById("f-whatsapp").value.trim().replace(/\D/g, "").slice(-10);
+      const email = document.getElementById("f-email").value.trim();
+      const handle = document.getElementById("f-handle").value.trim();
+      const age = document.getElementById("f-age").value.trim();
+      const city = document.getElementById("f-city").value.trim();
+      const question = document.getElementById("f-question").value.trim();
+      const birth_details = document.getElementById("f-birth") ? document.getElementById("f-birth").value.trim() : "";
+      const jaap_vrat = document.getElementById("f-jaap") ? document.getElementById("f-jaap").value.trim() : "";
+
+      // Validate
+      if (!name || name.length < 2) {
+        setStatus("Please enter your full name.", "error");
+        return;
+      }
+      if (!whatsapp || !/^[6-9]\d{9}$/.test(whatsapp)) {
+        setStatus("Please enter a valid 10-digit Indian WhatsApp number.", "error");
+        return;
+      }
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
+        setStatus("Please enter a valid email address.", "error");
+        return;
+      }
+      if (!handle) {
+        setStatus("Please enter your Instagram or social handle (needed for audit).", "error");
+        return;
+      }
+      if (!age || isNaN(age) || +age < 14) {
+        setStatus("Please enter a valid age (14+).", "error");
+        return;
+      }
+      if (!city) {
+        setStatus("Please enter your city name.", "error");
+        return;
+      }
+      if (!question || question.length < 5) {
+        setStatus("Please provide a short description of your main question.", "error");
+        return;
+      }
+
+      if (typeof Razorpay === "undefined") {
+        setStatus("Razorpay payment script could not be loaded. Please disable ad-blockers and try again.", "error");
+        return;
+      }
+
+      submitBtn.disabled = true;
+      setStatus("Creating your secure booking order...", "loading");
+
+      const formData = {
+        name,
+        email,
+        whatsapp,
+        handle,
+        age,
+        city,
+        track: selectedTrack,
+        preferred_date: selectedDate,
+        preferred_time: selectedTime,
+        question,
+        birth_details,
+        jaap_vrat
+      };
+
+      let order;
+      try {
+        const res = await fetch("/api/create-order", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ form: formData })
+        });
+        order = await res.json();
+        if (!res.ok || !order.order_id) {
+          throw new Error(order.error || "Unable to create order. Please check Razorpay keys.");
+        }
+      } catch (err) {
+        submitBtn.disabled = false;
+        setStatus("Order error: " + err.message, "error");
+        return;
+      }
+
+      setStatus("Opening Razorpay checkout...", "loading");
+
+      const rzp = new Razorpay({
+        key: order.key_id,
+        order_id: order.order_id,
+        amount: order.amount,
+        currency: order.currency || "INR",
+        name: "Timeline by Harsh",
+        description: "30-Minute 1:1 Guidance Session",
+        prefill: {
+          name: formData.name,
+          email: formData.email,
+          contact: "+91" + formData.whatsapp
+        },
+        theme: { color: "#2563EB" },
+        modal: {
+          ondismiss: () => {
+            submitBtn.disabled = false;
+            setStatus("Payment was not completed. You can try again anytime.", "error");
+          }
+        },
+        handler: async (paymentResponse) => {
+          setStatus("Verifying your payment...", "loading");
+          try {
+            const vr = await fetch("/api/verify", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(paymentResponse)
+            });
+            const v = await vr.json();
+            if (v.valid) {
+              renderConfirmation(formData, paymentResponse.razorpay_payment_id);
+              return;
+            }
+            setStatus("Payment verification failed. If your account was debited, message Harsh on WhatsApp with payment ID " + paymentResponse.razorpay_payment_id, "error");
+          } catch (err) {
+            // Even if verification times out, Razorpay webhook records it
+            renderConfirmation(formData, paymentResponse.razorpay_payment_id);
+          }
+        }
+      });
+
+      rzp.on("payment.failed", (res) => {
+        submitBtn.disabled = false;
+        const desc = (res && res.error && res.error.description) || "Payment failed. Please try another method.";
+        setStatus("Payment failed: " + desc, "error");
+      });
+
+      rzp.open();
+    });
+
+    function renderConfirmation(formData, paymentId) {
+      const wrapper = document.getElementById("priorityBookingView");
+      wrapper.innerHTML = `
+        <div class="confirm-view" style="grid-column: 1 / -1">
+          <div class="confirm-tick">✓</div>
+          <h2>Booking Confirmed!</h2>
+          <p class="lead">
+            Thank you, <b>${escapeHtml(formData.name)}</b>. Your 1:1 session is booked and your confirmation email is on its way.
+          </p>
+
+          <div class="booking-receipt-table">
+            <div><span>Session</span><span>30-Min 1:1 Call with Harsh</span></div>
+            <div><span>Topic</span><span>${escapeHtml(formData.track)}</span></div>
+            <div><span>Preferred Day</span><span>${escapeHtml(formData.preferred_date)}</span></div>
+            <div><span>Preferred Time</span><span>${escapeHtml(formData.preferred_time)}</span></div>
+            <div><span>Amount Paid</span><span>₹299.00</span></div>
+            <div><span>Payment ID</span><span style="font-family:monospace">${escapeHtml(paymentId)}</span></div>
+          </div>
+
+          <p style="font-size:0.95rem;color:var(--text-muted);max-width:32rem;margin:0 auto 1.75rem;line-height:1.6">
+            <b>Next Step:</b> Harsh will reach out on your WhatsApp (<b>+91 ${escapeHtml(formData.whatsapp)}</b>) within 24 hours with your Google Meet link. You can also lock your slot on Cal.com right away:
+          </p>
+
+          <div style="display:flex;justify-content:center;flex-wrap:wrap;gap:0.75rem">
+            <a href="https://wa.me/91${formData.whatsapp}?text=${encodeURIComponent("Hi Harsh, I just booked a 1:1 session for " + formData.track + " (Payment ID: " + paymentId + ")")}" target="_blank" rel="noopener noreferrer" class="whatsapp-connect-btn">
+              <span>Open WhatsApp Confirmation</span>
+              <span>→</span>
+            </a>
+            <a href="https://cal.com/${CAL_CONFIG.calLink}" target="_blank" rel="noopener noreferrer" class="cal-confirm-btn">
+              <span>📅 Pick Slot on Cal.com</span>
+              <span>↗</span>
+            </a>
+          </div>
+        </div>
+      `;
+      wrapper.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    function escapeHtml(str) {
+      return String(str || "").replace(/[<>&"]/g, c => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;", '"': "&quot;" }[c]));
+    }
+  </script>
+</body>
+</html>
